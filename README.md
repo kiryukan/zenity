@@ -1,8 +1,8 @@
 # zenity
 Monitoring and reporting of Oracle databases application.
-Base App framework --> Symfony
-ORM --> Doctrine
-Templates --> twig / mustache
+- Base App framework --> Symfony
+- ORM --> Doctrine
+- Templates --> twig / mustache
 
 - Front client side --> appli
 - Back api side     --> webservice
