@@ -9,6 +9,6 @@ Monitoring and reporting of Oracle databases application.
 
 Application has a lot of sequentials mechanisms before to be accessible by web interface:
 Here are globals steps:
-1 - retrieve raw datas (called "snapshots") from clients db queries
-2 - read and parse raw datas by db parameters (python scripts) process and inject it into database
-3 - read and render datas to UI
+- 1 - retrieve raw datas (called "snapshots") from clients db queries
+- 2 - read and parse raw datas by db parameters (python scripts) process and inject it into database
+- 3 - read and render datas to UI
