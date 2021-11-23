@@ -4,6 +4,7 @@ Monitoring and reporting of Oracle databases application.
 - ORM --> Doctrine
 - Templates --> twig / mustache
 
+Parts:
 - Front client side --> appli
 - Back api side     --> webservice
 
