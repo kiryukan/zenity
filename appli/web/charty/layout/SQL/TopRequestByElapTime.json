@@ -1,0 +1,75 @@
+{
+  "id": "_TopRequestByElapTime",
+  "title": "Top 10 des requêtes classées par temps d'exécution",
+  "subtitle":"SQL ordered by elapsed time",
+  "template": "PieChartWithSubgraph",
+  "graph": [
+    {
+      "type": "PieChart",
+      "generatedColor":true,
+      "updateOnClick":["_TopRequestByElapTime-1","_TopRequestByElapTime-2"],
+      "limit":10,
+      "parameter": {
+        "samplingValue": 1
+      },
+      "data": {
+        "data_avg": {
+          "Request": {
+            "indicators": [
+              "totalElapTime"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "LineGraph",
+      "data": {
+        "sumOfElement_overTime": {
+          "Request": {
+            "indicators": [
+              "totalElapTime"
+            ]
+          }
+        }
+      },
+      "dataLayout": {
+        "data_overTime": {
+          "Request": {
+            "indicators": [
+              "totalElapTime"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "InformationTable",
+      "data": {
+        "sumOfElement_total": {
+          "Request": {
+            "indicators": [
+              "module","sqlCode","totalElapTime","elapTime"
+            ]
+          }
+        }
+      },
+      "dataLayout": {
+        "data_total": {
+          "Request": {
+            "indicators": [
+              "totalElapTime","elapTime"
+            ]
+          }
+        },
+        "data_one":{
+          "Request": {
+            "indicators": [
+              "sqlCode","module"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

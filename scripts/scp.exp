@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+set timeout 500
+set ip 163.172.14.191
+set port 5036
+set user zenity
+set password Qualora2017
+set local_path [lindex $argv 0]
+set remote_path  [lindex $argv 1]
+spawn scp -r -P $port $local_path $user@$ip:$remote_path
+expect "assword: "
+
+send "$password\r";

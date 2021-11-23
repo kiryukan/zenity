@@ -1,0 +1,40 @@
+# Learn more about services, parameters and containers at*
+# http://symfony.com/doc/current/service_container.html
+imports:
+    - { resource: ressource.yml}
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+  snapshot_reading:
+    class: AppBundle\Services\SnapshotReading
+    arguments: ["@ressource.factory","@doctrine.orm.entity_manager","%snapshot_reading.script_localisation%","%snapshot_reading.script_name%","%snapshot_baseDir%","@audit_engine","%logsDir%"]
+  
+  complementaryFlow_reader:
+    class: AppBundle\Services\ComplementaryFlowReader
+    arguments: ["@ressource.factory","@doctrine.orm.entity_manager","%snapshot_baseDir%","%logsDir%"]
+
+  audit_engine:
+      class: AppBundle\Services\AuditEngine
+      arguments: [ "@doctrine.orm.entity_manager","@ressource.factory","@logger"]
+      tags:
+        - { name: monolog.logger, channel: audit_engine }
+
+  cloud_pricing:
+      class: AppBundle\Services\CloudPricing
+      arguments: [ "@doctrine.orm.entity_manager","@ressource.factory","@logger"]
+
+  token_provider:
+    class: AppBundle\Security\TokenProvider
+    arguments: ["%encryption_algorithm%","PT5H","%secret%"]
+
+  api_key_user_provider:
+      class: AppBundle\Security\ApiKeyUserProvider
+      arguments: ["@doctrine.orm.entity_manager"]
+
+  api_key_authenticator:
+      class:  AppBundle\Security\ApiKeyAuthenticator
+      arguments: ["@doctrine.orm.entity_manager"]
+
+  logger_snapshots:
+      class: AppBundle\Services\LoggerSnapshots

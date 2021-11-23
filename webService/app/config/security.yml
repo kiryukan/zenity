@@ -1,0 +1,49 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: plaintext
+    firewalls:
+        secured_area:
+            pattern: ^/api
+            stateless: false
+            simple_preauth:
+                authenticator: api_key_authenticator
+                provider: api_key_user_provider
+        gestion:
+            anonymous: ~
+            form_login:
+                check_path: login
+                login_path: login
+
+   # api:
+   #   guard:
+   #     authenticators:
+   #       - lexik_jwt_authentication.jwt_token_authenticator
+   #   pattern: ^/api
+   #   stateless: true
+   # login:
+   #     anonymous: true
+   #     form_login:
+   #       check_path: /api/login_check
+   #       failure_handler: lexik_jwt_authentication.handler.authentication_failure
+   #       require_previous_session: false
+   #       success_handler: lexik_jwt_authentication.handler.authentication_success
+   #     pattern: ^/api/login
+   #     stateless: true
+    access_control:
+    -
+       path: ^/api/login
+       roles: IS_AUTHENTICATED_ANONYMOUSLY
+    -
+      path: ^/api
+      roles: ROLE_API
+    -
+      path: ^/gestion
+      role: ROLE_ADMIN
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin: { password: Qualora2016, roles: [ 'ROLE_ADMIN' ] }
+        api_key_user_provider:
+            id: api_key_user_provider

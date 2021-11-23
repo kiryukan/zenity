@@ -1,0 +1,97 @@
+{% extends 'gestion/homePage.html.twig' %}
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <div id="userList"></div>
+        <button onclick="
+            $( function() {
+                 $( '#addAccountDialog' ).dialog({
+                    width: 500,
+                    height: 200,
+                 }
+                 );
+            } ) ">
+            Ajouter
+        </button>
+    </div>
+    <div id="addAccountDialog" title="ajouter un compte" hidden>
+        {% include '/gestion/form/addAccount.html.twig' %}
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $.ajax({
+            async: false,
+            type: 'GET',
+            url: `${config.serverPath}/template/baseList.hbs`,
+            success: function (template) {
+                Handlebars.registerPartial('baseList',Handlebars.compile(template));
+            }
+        });
+        $.ajax({
+            async: false,
+            type: 'GET',
+            url: `${config.serverPath}/template/user.hbs`,
+            success: function (template) {
+                Handlebars.registerPartial('user',Handlebars.compile(template));
+            }
+        });
+        let clients = [];
+        $.ajax({
+            url:`${config.serverPath}/gestion/ressources`,
+            async : false,
+            success: function (clientsData) {
+                clients = clientsData;
+            },
+            error:function (){
+                alert('no client, add clients first');
+            }
+        });
+        $.ajax({
+            url:`${config.serverPath}/gestion/users`,
+
+            success: function (usersData) {
+                {% verbatim %}
+                    userTemplate = Handlebars.compile(`{{> user baseurl="${config.serverPath}" }}`);
+                    baseListTemplate = Handlebars.compile("{{> baseList }}");
+                {% endverbatim %}
+                for (i in usersData ){
+                    let user = usersData[i];
+                    for (i in usersData[i]['clients']){
+                        console.log(user);
+                        user['clients'][i]['owned'] = true;
+                    }
+                    for (i in clients ){
+                        if(typeof user['client'] !== 'undefined' && user['client'].length == 0){
+                            user['client'] = [];
+                        }
+                        if(!(i in user['clients'])){
+                            user['clients'][i] = clients[i];
+                        }
+                    }
+
+                    $('#userList').append(userTemplate(user));
+                }
+                $('#client-chexboxes').append(baseListTemplate(clients));
+
+            },
+            error:function (){
+                alert('no client, add clients first');
+            }
+        });
+    </script>
+    <script>
+        function SHA512(a){function b(a,b){this.highOrder=a,this.lowOrder=b}function s(a){return unescape(encodeURIComponent(a))}function t(a){for(var b=[],c=(1<<r)-1,d=a.length*r,e=0;e<d;e+=r)b[e>>5]|=(a.charCodeAt(e/r)&c)<<32-r-e%32;return b}function u(a){for(var e,b="0123456789abcdef",c="",d=4*a.length,f=0;f<d;f+=1)e=a[f>>2]>>8*(3-f%4),c+=b.charAt(e>>4&15)+b.charAt(15&e);return c}function v(a,c){var d,e,f,g;return d=(65535&a.lowOrder)+(65535&c.lowOrder),e=(a.lowOrder>>>16)+(c.lowOrder>>>16)+(d>>>16),f=(65535&e)<<16|65535&d,d=(65535&a.highOrder)+(65535&c.highOrder)+(e>>>16),e=(a.highOrder>>>16)+(c.highOrder>>>16)+(d>>>16),g=(65535&e)<<16|65535&d,new b(g,f)}function w(a,c,d,e){var f,g,h,i;return f=(65535&a.lowOrder)+(65535&c.lowOrder)+(65535&d.lowOrder)+(65535&e.lowOrder),g=(a.lowOrder>>>16)+(c.lowOrder>>>16)+(d.lowOrder>>>16)+(e.lowOrder>>>16)+(f>>>16),h=(65535&g)<<16|65535&f,f=(65535&a.highOrder)+(65535&c.highOrder)+(65535&d.highOrder)+(65535&e.highOrder)+(g>>>16),g=(a.highOrder>>>16)+(c.highOrder>>>16)+(d.highOrder>>>16)+(e.highOrder>>>16)+(f>>>16),i=(65535&g)<<16|65535&f,new b(i,h)}function x(a,c,d,e,f){var g,h,i,j;return g=(65535&a.lowOrder)+(65535&c.lowOrder)+(65535&d.lowOrder)+(65535&e.lowOrder)+(65535&f.lowOrder),h=(a.lowOrder>>>16)+(c.lowOrder>>>16)+(d.lowOrder>>>16)+(e.lowOrder>>>16)+(f.lowOrder>>>16)+(g>>>16),i=(65535&h)<<16|65535&g,g=(65535&a.highOrder)+(65535&c.highOrder)+(65535&d.highOrder)+(65535&e.highOrder)+(65535&f.highOrder)+(h>>>16),h=(a.highOrder>>>16)+(c.highOrder>>>16)+(d.highOrder>>>16)+(e.highOrder>>>16)+(f.highOrder>>>16)+(g>>>16),j=(65535&h)<<16|65535&g,new b(j,i)}function y(a,c,d){return new b(a.highOrder&c.highOrder^a.highOrder&d.highOrder^c.highOrder&d.highOrder,a.lowOrder&c.lowOrder^a.lowOrder&d.lowOrder^c.lowOrder&d.lowOrder)}function z(a,c,d){return new b(a.highOrder&c.highOrder^~a.highOrder&d.highOrder,a.lowOrder&c.lowOrder^~a.lowOrder&d.lowOrder)}function A(a,c){return c<=32?new b(a.highOrder>>>c|a.lowOrder<<32-c,a.lowOrder>>>c|a.highOrder<<32-c):new b(a.lowOrder>>>c|a.highOrder<<32-c,a.highOrder>>>c|a.lowOrder<<32-c)}function B(a){var c=A(a,28),d=A(a,34),e=A(a,39);return new b(c.highOrder^d.highOrder^e.highOrder,c.lowOrder^d.lowOrder^e.lowOrder)}function C(a){var c=A(a,14),d=A(a,18),e=A(a,41);return new b(c.highOrder^d.highOrder^e.highOrder,c.lowOrder^d.lowOrder^e.lowOrder)}function D(a){var c=A(a,1),d=A(a,8),e=F(a,7);return new b(c.highOrder^d.highOrder^e.highOrder,c.lowOrder^d.lowOrder^e.lowOrder)}function E(a){var c=A(a,19),d=A(a,61),e=F(a,6);return new b(c.highOrder^d.highOrder^e.highOrder,c.lowOrder^d.lowOrder^e.lowOrder)}function F(a,c){return c<=32?new b(a.highOrder>>>c,a.lowOrder>>>c|a.highOrder<<32-c):new b(0,a.highOrder<<32-c)}var f,g,h,i,j,k,l,m,n,o,p,q,c=[new b(1779033703,4089235720),new b(3144134277,2227873595),new b(1013904242,4271175723),new b(2773480762,1595750129),new b(1359893119,2917565137),new b(2600822924,725511199),new b(528734635,4215389547),new b(1541459225,327033209)],d=[new b(1116352408,3609767458),new b(1899447441,602891725),new b(3049323471,3964484399),new b(3921009573,2173295548),new b(961987163,4081628472),new b(1508970993,3053834265),new b(2453635748,2937671579),new b(2870763221,3664609560),new b(3624381080,2734883394),new b(310598401,1164996542),new b(607225278,1323610764),new b(1426881987,3590304994),new b(1925078388,4068182383),new b(2162078206,991336113),new b(2614888103,633803317),new b(3248222580,3479774868),new b(3835390401,2666613458),new b(4022224774,944711139),new b(264347078,2341262773),new b(604807628,2007800933),new b(770255983,1495990901),new b(1249150122,1856431235),new b(1555081692,3175218132),new b(1996064986,2198950837),new b(2554220882,3999719339),new b(2821834349,766784016),new b(2952996808,2566594879),new b(3210313671,3203337956),new b(3336571891,1034457026),new b(3584528711,2466948901),new b(113926993,3758326383),new b(338241895,168717936),new b(666307205,1188179964),new b(773529912,1546045734),new b(1294757372,1522805485),new b(1396182291,2643833823),new b(1695183700,2343527390),new b(1986661051,1014477480),new b(2177026350,1206759142),new b(2456956037,344077627),new b(2730485921,1290863460),new b(2820302411,3158454273),new b(3259730800,3505952657),new b(3345764771,106217008),new b(3516065817,3606008344),new b(3600352804,1432725776),new b(4094571909,1467031594),new b(275423344,851169720),new b(430227734,3100823752),new b(506948616,1363258195),new b(659060556,3750685593),new b(883997877,3785050280),new b(958139571,3318307427),new b(1322822218,3812723403),new b(1537002063,2003034995),new b(1747873779,3602036899),new b(1955562222,1575990012),new b(2024104815,1125592928),new b(2227730452,2716904306),new b(2361852424,442776044),new b(2428436474,593698344),new b(2756734187,3733110249),new b(3204031479,2999351573),new b(3329325298,3815920427),new b(3391569614,3928383900),new b(3515267271,566280711),new b(3940187606,3454069534),new b(4118630271,4000239992),new b(116418474,1914138554),new b(174292421,2731055270),new b(289380356,3203993006),new b(460393269,320620315),new b(685471733,587496836),new b(852142971,1086792851),new b(1017036298,365543100),new b(1126000580,2618297676),new b(1288033470,3409855158),new b(1501505948,4234509866),new b(1607167915,987167468),new b(1816402316,1246189591)],e=new Array(64),r=8;a=s(a),strlen=a.length*r,a=t(a),a[strlen>>5]|=128<<24-strlen%32,a[31+(strlen+128>>10<<5)]=strlen;for(var n=0;n<a.length;n+=32){f=c[0],g=c[1],h=c[2],i=c[3],j=c[4],k=c[5],l=c[6],m=c[7];for(var o=0;o<80;o++)e[o]=o<16?new b(a[2*o+n],a[2*o+n+1]):w(E(e[o-2]),e[o-7],D(e[o-15]),e[o-16]),p=x(m,C(j),z(j,k,l),d[o],e[o]),q=v(B(f),y(f,g,h)),m=l,l=k,k=j,j=v(i,p),i=h,h=g,g=f,f=v(p,q);c[0]=v(f,c[0]),c[1]=v(g,c[1]),c[2]=v(h,c[2]),c[3]=v(i,c[3]),c[4]=v(j,c[4]),c[5]=v(k,c[5]),c[6]=v(l,c[6]),c[7]=v(m,c[7])}for(var G=[],n=0;n<c.length;n++)G.push(c[n].highOrder),G.push(c[n].lowOrder);return u(G)}
+        function encryptPassword() {
+            passwordField = document.getElementById('password');
+            password = SHA512(passwordField.value);
+            passwordField.value = password;
+        }
+        $('#add-account-form').submit(function () {
+            encryptPassword();
+            return true; // return false to cancel form action
+        });
+    </script>
+{% endblock %}

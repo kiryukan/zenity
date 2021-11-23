@@ -1,0 +1,75 @@
+{
+  "id": "_topRequestByTotalWaitTime",
+  "title": "Top 10 des requêtes classées par Temps d'attentes ",
+  "subtitle":"SQL ordered by total wait time (%)",
+  "template": "PieChartWithSubgraph",
+  "graph": [
+    {
+      "type": "PieChart",
+      "generatedColor":true,
+      "updateOnClick":["_topRequestByTotalWaitTime-1","_topRequestByTotalWaitTime-2"],
+      "limit":10,
+      "parameter": {
+        "samplingValue": 1
+      },
+      "data": {
+        "data_avg": {
+          "Request": {
+            "indicators": [
+              "totalWaitTime"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "LineGraph",
+      "data": {
+        "sumOfElement_overTime": {
+          "Request": {
+            "indicators": [
+              "totalWaitTime"
+            ]
+          }
+        }
+      },
+      "dataLayout": {
+        "data_overTime": {
+          "Request": {
+            "indicators": [
+              "totalWaitTime"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "InformationTable",
+      "data": {
+        "sumOfElement_total": {
+          "Request": {
+            "indicators": [
+              "module","sqlCode","totalWaitTime","totalCpu"
+            ]
+          }
+        }
+      },
+      "dataLayout": {
+        "data_total": {
+          "Request": {
+            "indicators": [
+              "totalWaitTime","totalCpu"
+            ]
+          }
+        },
+        "data_one":{
+          "Request": {
+            "indicators": [
+              "module","sqlCode"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

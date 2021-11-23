@@ -1,0 +1,102 @@
+services:
+    ressource.factory:
+      class: AppBundle\RessourceProvider\RessourceFactory
+      arguments: ['@service_container']
+
+    ressource.abstract.ressource:
+      class: AppBundle\RessourceProvider\AbstractRessource
+      arguments: ['@ressource.factory',"@doctrine.orm.entity_manager"]
+
+    ressource.abstract.entityRessource:
+        class: AppBundle\RessourceProvider\AbstractEntityRessource
+        parent: ressource.abstract.ressource
+
+    ressource.abstract.virtualRessource:
+        class: AppBundle\RessourceProvider\Snapshot\AbstractSnapshoteVirtualRessource
+        parent: ressource.abstract.ressource
+    ressource.instance:
+        class: AppBundle\RessourceProvider\Ressources\InstanceRessource
+        parent: ressource.abstract.virtualRessource
+    ressource.snapshot:
+        class: AppBundle\RessourceProvider\Ressources\SnapshotRessource
+        parent: ressource.abstract.virtualRessource
+
+    ressource.efficiencyindicator:
+        class: AppBundle\RessourceProvider\Ressources\EfficiencyIndicatorRessource
+        parent: ressource.abstract.entityRessource
+    ressource.event:
+        class: AppBundle\RessourceProvider\Ressources\EventRessource
+        parent: ressource.abstract.entityRessource
+    ressource.instancestate:
+        class: AppBundle\RessourceProvider\Ressources\InstanceStateRessource
+        parent: ressource.abstract.entityRessource
+    ressource.loadprofile:
+        class: AppBundle\RessourceProvider\Ressources\LoadProfileRessource
+        parent: ressource.abstract.entityRessource
+    ressource.note:
+        class: AppBundle\RessourceProvider\Ressources\NoteRessource
+        parent: ressource.abstract.entityRessource
+        arguments: ["@audit_engine"]
+    ressource.osstate:
+        class: AppBundle\RessourceProvider\Ressources\OSStateRessource
+        parent: ressource.abstract.entityRessource
+    ressource.request:
+        class: AppBundle\RessourceProvider\Ressources\RequestRessource
+        parent: ressource.abstract.entityRessource
+    ressource.sqlinfo:
+        class: AppBundle\RessourceProvider\Ressources\SqlInfoRessource
+        parent: ressource.abstract.entityRessource
+    ressource.stat:
+        class: AppBundle\RessourceProvider\Ressources\StatRessource
+        parent: ressource.abstract.entityRessource
+    ressource.statistics:
+        class: AppBundle\RessourceProvider\Ressources\StatisticsRessource
+        parent: ressource.abstract.entityRessource
+    ressource.tablespace:
+        class: AppBundle\RessourceProvider\Ressources\TableSpaceRessource
+        parent: ressource.abstract.entityRessource
+    ressource.client:
+        class: AppBundle\RessourceProvider\Ressources\ClientRessource
+        parent: ressource.abstract.entityRessource
+    ressource.user:
+        class: AppBundle\RessourceProvider\Ressources\UserRessource
+        parent: ressource.abstract.entityRessource
+    ressource.network:
+        class: AppBundle\RessourceProvider\Ressources\NetworkRessource
+        parent: ressource.abstract.virtualRessource
+    ressource.parameters:
+        class: AppBundle\RessourceProvider\Ressources\ParametersRessource
+        parent: ressource.abstract.virtualRessource
+    ressource.tmptablespace:
+        class: AppBundle\RessourceProvider\Ressources\TmpTablespaceRessource
+        parent: ressource.abstract.virtualRessource
+    ressource.advisory:
+        class: AppBundle\RessourceProvider\Ressources\AdvisoryRessource
+        parent: ressource.abstract.virtualRessource
+    ressource.perfStatInfo:
+      class: AppBundle\RessourceProvider\Ressources\PerfStatInfoRessource
+      parent: ressource.abstract.entityRessource
+    ressource.alertLog:
+      class: AppBundle\RessourceProvider\Ressources\AlertLogRessource
+      parent: ressource.abstract.entityRessource
+    ressource.lock:
+      class: AppBundle\RessourceProvider\Ressources\LockRessource
+      parent: ressource.abstract.entityRessource
+    ressource.locksMetadata:
+      class: AppBundle\RessourceProvider\Ressources\LocksMetadataRessource
+      parent: ressource.abstract.virtualRessource
+    ressource.longsession:
+      class: AppBundle\RessourceProvider\Ressources\LongSessionRessource
+      parent: ressource.abstract.entityRessource
+    ressource.performancebench:
+      class: AppBundle\RessourceProvider\Ressources\PerformanceBenchRessource
+      parent: ressource.abstract.entityRessource
+    ressource.longsessionsMetadata:
+      class: AppBundle\RessourceProvider\Ressources\LongSessionsMetadataRessource
+      parent: ressource.abstract.virtualRessource
+    ressource.rman:
+        class:  AppBundle\RessourceProvider\Ressources\RmanRessource
+        parent: ressource.abstract.entityRessource
+    ressource.options:
+        class:  AppBundle\RessourceProvider\Ressources\OptionsRessource
+        parent: ressource.abstract.entityRessource

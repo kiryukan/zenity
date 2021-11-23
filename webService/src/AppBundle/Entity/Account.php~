@@ -1,0 +1,41 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: simonvivier
+ * Date: 13/04/17
+ * Time: 09:30
+ */
+
+namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Client;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="account")
+ * Un client avec son nom
+ * contient l'ensemble de ses @link Bases
+ */
+class Account
+{
+    /**
+     *  @ORM\Id
+     *  @ORM\Column(type="integer")
+     *  @ORM\GeneratedValue
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="\AppBundle\Entity\Base\Base", mappedBy="account",cascade={"persist","remove"})
+     */
+    private $client;
+    /**
+     * @ORM\Column(type="string",length=30,unique=true)
+     */
+    private $login;
+    /**
+     * @ORM\Column(type="string",length=1024)
+     */
+    private $password;
+
+}

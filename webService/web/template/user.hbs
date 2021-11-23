@@ -1,0 +1,39 @@
+<div id="user-{{ id }}" class="panel">
+    <div class="row">
+        <form action="updateUser" type="post">
+            <input hidden name="userId" value="{{ id }}">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-2"> username:</div>
+                        <div class="col-sm-10"><input type="text" name="username" value={{ username }}></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"> email:</div>
+                        <div class="col-sm-10"><input type="text" name="email" value={{ email }}></div>
+                    </div>
+                    <div class="row">
+                        <label><input id="isActive-{{id}}" type="checkbox" name="isActive" {{#if isActive}}
+                                      checked {{/if}}>Active</label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    {{>baseList clients}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1">
+                    <button type="submit">update</button>
+                </div>
+                <div class="col-sm-1">
+                    <button formaction="{{baseUrl}}/gestion/deleteUser" type="submit">delete</button>
+                </div>
+                <div class="col-sm-2">
+                    <button formaction="{{baseUrl}}/resetPasswordByMail" type="submit">new password</button>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </form>
+    </div>
+</div>

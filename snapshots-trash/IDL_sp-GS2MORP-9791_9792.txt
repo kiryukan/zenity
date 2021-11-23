@@ -1,0 +1,2751 @@
+
+STATSPACK report for
+
+Database    DB Id    Instance     Inst Num  Startup Time   Release     RAC
+~~~~~~~~ ----------- ------------ -------- --------------- ----------- ---
+          3560277617 gs2morp             1 18-Jul-18 09:09 11.2.0.1.0  NO
+
+Host             Name             Platform                CPUs Cores Sockets
+  Memory (G)
+~~~~ ---------------- ---------------------- ----- ----- ------- ------------
+     SRV-ORALM-10     Microsoft Windows x86      8     8       2         12.0
+
+Snapshot       Snap Id     Snap Time      Sessions Curs/Sess Comment
+~~~~~~~~    ---------- ------------------ -------- --------- ------------------
+Begin Snap:       9791 05-Oct-18 12:00:04      373       1.5
+  End Snap:       9792 05-Oct-18 13:00:05      343       1.5
+   Elapsed:      60.02 (mins) Av Act Sess:       0.4
+   DB time:      25.19 (mins)      DB CPU:      12.20 (mins)
+
+Cache Sizes            Begin        End
+~~~~~~~~~~~       ---------- ----------
+    Buffer Cache:     1,632M              Std Block Size:         8K
+     Shared Pool:       896M                  Log Buffer:     7,392K
+
+Load Profile              Per Second    Per Transaction    Per Exec    Per Call
+~~~~~~~~~~~~      ------------------  ----------------- ----------- -----------
+      DB time(s):                0.4                0.0        0.00        0.00
+       DB CPU(s):                0.2                0.0        0.00        0.00
+       Redo size:           72,787.0            4,449.0
+   Logical reads:           40,317.9            2,464.4
+   Block changes:              405.6               24.8
+  Physical reads:            1,344.9               82.2
+ Physical writes:               14.0                0.9
+      User calls:              354.1               21.6
+          Parses:              162.7                9.9
+     Hard parses:                0.2                0.0
+W/A MB processed:                3.5                0.2
+          Logons:                1.0                0.1
+        Executes:              612.7               37.5
+       Rollbacks:                0.1                0.0
+    Transactions:               16.4
+
+Instance Efficiency Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Buffer Nowait %:   99.99       Redo NoWait %:  100.00
+            Buffer  Hit   %:   99.47  Optimal W/A Exec %:   99.97
+            Library Hit   %:   99.88        Soft Parse %:   99.85
+         Execute to Parse %:   73.45         Latch Hit %:   99.98
+Parse CPU to Parse Elapsd %:   97.36     % Non-Parse CPU:   97.65
+
+ Shared Pool Statistics        Begin   End
+                               ------  ------
+             Memory Usage %:   71.23   70.97
+    % SQL with executions>1:   83.25   81.44
+  % Memory for SQL w/exec>1:   84.97   84.77
+
+Top 5 Timed Events                                                    Avg %Total
+~~~~~~~~~~~~~~~~~~                                                   wait   Call
+Event                                            Waits    Time (s)   (ms)   Time
+----------------------------------------- ------------ ----------- ------ ------
+PL/SQL lock timer                                   60       3,601  60012   66.3
+CPU time                                                       643          11.8
+log file sync                                   58,601         310      5    5.7
+log file parallel write                         58,090         272      5    5.0
+direct path read                                63,520         196      3    3.6
+          -------------------------------------------------------------
+Host CPU  (CPUs: 8  Cores: 8  Sockets: 2)
+~~~~~~~~              Load Average
+                      Begin     End      User  System    Idle     WIO     WCPU
+                    ------- -------   ------- ------- ------- ------- --------
+                                         2.56    0.92   96.52
+
+Instance CPU
+~~~~~~~~~~~~                                       % Time (seconds)
+                                            -------- --------------
+                     Host: Total time (s):                 28,818.5
+                  Host: Busy CPU time (s):                  1,003.2
+                   % of time Host is Busy:       3.5
+             Instance: Total CPU time (s):                    747.5
+          % of Busy CPU used for Instance:      74.5
+        Instance: Total Database time (s):                  1,913.1
+  %DB time waiting for CPU (Resource Mgr):       0.0
+
+Memory Statistics                       Begin          End
+~~~~~~~~~~~~~~~~~                ------------ ------------
+                  Host Mem (MB):     12,287.6     12,287.6
+                   SGA use (MB):      4,985.6      4,985.6
+                   PGA use (MB):        826.2        760.3
+    % Host Mem used for SGA+PGA:         47.3         46.8
+          -------------------------------------------------------------
+
+Time Model System Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Ordered by % of DB time desc, Statistic name
+
+Statistic                                       Time (s) % DB time
+----------------------------------- -------------------- ---------
+sql execute elapsed time                         1,068.5      70.7
+DB CPU                                             732.0      48.4
+connection management call elapsed                  25.8       1.7
+PL/SQL execution elapsed time                       21.5       1.4
+parse time elapsed                                  18.7       1.2
+hard parse elapsed time                              8.2        .5
+repeated bind elapsed time                           2.1        .1
+hard parse (sharing criteria) elaps                  1.3        .1
+PL/SQL compilation elapsed time                      0.4        .0
+hard parse (bind mismatch) elapsed                   0.0        .0
+sequence load elapsed time                           0.0        .0
+failed parse elapsed time                            0.0        .0
+DB time                                          1,511.7
+background elapsed time                            401.5
+background cpu time                                 15.5
+          -------------------------------------------------------------
+Foreground Wait Events  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+PL/SQL lock timer                      60  100      3,601  60012      0.0   66.3
+log file sync                      58,599    0        310      5      1.0    5.7
+direct path read                   63,517    0        196      3      1.1    3.6
+db file sequential read           150,591    0        139      1      2.6    2.6
+Disk file operations I/O            6,455    0         38      6      0.1     .7
+db file parallel read               4,279    0         38      9      0.1     .7
+db file scattered read             26,746    0         32      1      0.5     .6
+enq: TX - row lock contentio            6    0         17   2915      0.0     .3
+enq: KO - fast object checkp           56    0         16    277      0.0     .3
+read by other session               8,138    0          9      1      0.1     .2
+asynch descriptor resize           15,130  100          5      0      0.3     .1
+SQL*Net more data to client        90,565    0          5      0      1.5     .1
+direct path write                     716    0          3      4      0.0     .0
+control file sequential read        2,514    0          2      1      0.0     .0
+SQL*Net message from dblink            44    0          0      3      0.0     .0
+cursor: pin S                          85    0          0      1      0.0     .0
+direct path write temp                 21    0          0      3      0.0     .0
+SQL*Net break/reset to clien          230    0          0      0      0.0     .0
+direct path read temp                  57    0          0      1      0.0     .0
+ADR block file read                    82    0          0      0      0.0     .0
+cursor: pin S wait on X                 3    0          0     11      0.0     .0
+ADR block file write                   10    0          0      3      0.0     .0
+library cache: mutex X                344    0          0      0      0.0     .0
+latch: cache buffers chains           492    0          0      0      0.0     .0
+reliable message                       61    0          0      0      0.0     .0
+log file switch (private str            1    0          0      7      0.0     .0
+ADR file lock                          12    0          0      0      0.0     .0
+enq: TX - index contention              3    0          0      1      0.0     .0
+latch: shared pool                      6    0          0      0      0.0     .0
+buffer busy waits                      36    0          0      0      0.0     .0
+latch free                              6    0          0      0      0.0     .0
+SQL*Net message from client       997,720    0  1,036,136   1039     16.9
+jobq slave wait                       122  100         63    515      0.0
+SQL*Net message to client         997,690    0          2      0     16.9
+SQL*Net more data from clien        3,595    0          0      0      0.1
+          -------------------------------------------------------------
+
+Background Wait Events  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+log file parallel write            58,090    0        272      5      1.0    5.0
+db file parallel write             12,668    0         97      8      0.2    1.8
+control file parallel write         1,292    0          6      5      0.0     .1
+control file sequential read        4,815    0          3      1      0.1     .0
+log file sequential read              137    0          1      7      0.0     .0
+db file sequential read               483    0          0      1      0.0     .0
+Disk file operations I/O               71    0          0      3      0.0     .0
+os thread startup                      13    0          0     11      0.0     .0
+SQL*Net more data to client         3,503    0          0      0      0.1     .0
+db file scattered read                 38    0          0      1      0.0     .0
+log file single write                   4    0          0      3      0.0     .0
+log file sync                           2    0          0      6      0.0     .0
+reliable message                       92    0          0      0      0.0     .0
+asynch descriptor resize            3,691  100          0      0      0.1     .0
+latch: call allocation                  9    0          0      1      0.0     .0
+rdbms ipc reply                        92    0          0      0      0.0     .0
+LGWR wait for redo copy                59    0          0      0      0.0     .0
+enq: CR - block range reuse             1    0          0      3      0.0     .0
+direct path write                       2    0          0      1      0.0     .0
+latch free                             21    0          0      0      0.0     .0
+rdbms ipc message                  69,454   18     57,523    828      1.2
+EMON slave idle wait                3,597  100     18,012   5007      0.1
+DIAG idle wait                      7,103  100      7,194   1013      0.1
+smon timer                             31   23      3,776 ######      0.0
+Streams AQ: emn coordinator           360  100      3,605  10015      0.0
+pmon timer                          1,614   74      3,600   2231      0.0
+Space Manager: slave idle wa          720   99      3,598   4997      0.0
+Streams AQ: qmn slave idle w          226    0      3,586  15868      0.0
+Streams AQ: qmn coordinator           382   34      3,586   9388      0.0
+SQL*Net message from client        14,690    0          8      1      0.2
+SQL*Net more data from clien        3,503    0          0      0      0.1
+SQL*Net message to client          11,012    0          0      0      0.2
+class slave wait                       11    0          0      0      0.0
+          -------------------------------------------------------------
+
+Wait Events (fg and bg) DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+PL/SQL lock timer                      60  100      3,601  60012      0.0   66.3
+log file sync                      58,601    0        310      5      1.0    5.7
+log file parallel write            58,090    0        272      5      1.0    5.0
+direct path read                   63,520    0        196      3      1.1    3.6
+db file sequential read           151,074    0        139      1      2.6    2.6
+db file parallel write             12,668    0         97      8      0.2    1.8
+Disk file operations I/O            6,526    0         38      6      0.1     .7
+db file parallel read               4,279    0         38      9      0.1     .7
+db file scattered read             26,784    0         32      1      0.5     .6
+enq: TX - row lock contentio            6    0         17   2915      0.0     .3
+enq: KO - fast object checkp           56    0         16    277      0.0     .3
+read by other session               8,138    0          9      1      0.1     .2
+control file parallel write         1,292    0          6      5      0.0     .1
+asynch descriptor resize           18,821  100          5      0      0.3     .1
+SQL*Net more data to client        94,068    0          5      0      1.6     .1
+control file sequential read        7,329    0          4      1      0.1     .1
+direct path write                     718    0          3      4      0.0     .0
+log file sequential read              137    0          1      7      0.0     .0
+os thread startup                      13    0          0     11      0.0     .0
+SQL*Net message from dblink            44    0          0      3      0.0     .0
+cursor: pin S                          85    0          0      1      0.0     .0
+direct path write temp                 21    0          0      3      0.0     .0
+SQL*Net break/reset to clien          230    0          0      0      0.0     .0
+direct path read temp                  57    0          0      1      0.0     .0
+ADR block file read                    82    0          0      0      0.0     .0
+cursor: pin S wait on X                 3    0          0     11      0.0     .0
+ADR block file write                   10    0          0      3      0.0     .0
+library cache: mutex X                344    0          0      0      0.0     .0
+reliable message                      153    0          0      0      0.0     .0
+latch: cache buffers chains           492    0          0      0      0.0     .0
+log file single write                   4    0          0      3      0.0     .0
+latch: call allocation                  9    0          0      1      0.0     .0
+log file switch (private str            1    0          0      7      0.0     .0
+rdbms ipc reply                        92    0          0      0      0.0     .0
+ADR file lock                          12    0          0      0      0.0     .0
+LGWR wait for redo copy                59    0          0      0      0.0     .0
+enq: TX - index contention              3    0          0      1      0.0     .0
+enq: CR - block range reuse             1    0          0      3      0.0     .0
+latch free                             27    0          0      0      0.0     .0
+latch: shared pool                      7    0          0      0      0.0     .0
+buffer busy waits                      38    0          0      0      0.0     .0
+SQL*Net message from client     1,012,410    0  1,036,143   1023     17.2
+rdbms ipc message                  69,454   18     57,523    828      1.2
+EMON slave idle wait                3,597  100     18,012   5007      0.1
+DIAG idle wait                      7,103  100      7,194   1013      0.1
+smon timer                             31   23      3,776 ######      0.0
+Streams AQ: emn coordinator           360  100      3,605  10015      0.0
+pmon timer                          1,614   74      3,600   2231      0.0
+Space Manager: slave idle wa          720   99      3,598   4997      0.0
+
+Wait Events (fg and bg) DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+Streams AQ: qmn slave idle w          226    0      3,586  15868      0.0
+Streams AQ: qmn coordinator           382   34      3,586   9388      0.0
+jobq slave wait                       122  100         63    515      0.0
+SQL*Net message to client       1,008,702    0          2      0     17.1
+SQL*Net more data from clien        7,098    0          0      0      0.1
+class slave wait                       11    0          0      0      0.0
+          -------------------------------------------------------------
+Wait Event Histogram  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ADR block file read          82   91.5   6.1   2.4
+ADR block file write         10               90.0  10.0
+ADR file lock                12   91.7   8.3
+ARCH wait for archivelog l    1  100.0
+asynch descriptor resize     18K  98.5    .0    .3    .5    .2    .1    .3
+buffer busy waits            38  100.0
+control file parallel writ 1292               69.6  23.7   3.9   2.6    .3
+control file sequential re 7329   85.2   7.6   6.8    .3    .0    .0
+cursor: pin S                85   92.9               1.2   5.9
+cursor: pin S wait on X       3                          100.0
+db file parallel read      4279   11.5  13.6  23.4  38.7  10.1   1.6   1.1
+db file parallel write       12K   6.0   2.5  49.1  19.8  11.8   7.1   3.7
+db file scattered read       26K  62.9  20.9  13.0   2.0   1.0    .1    .0
+db file sequential read     151K  83.6   8.0   5.5   1.6   1.1    .1    .0
+direct path read             63K  22.6  41.3  19.5  10.7   4.9    .8    .2    .0
+direct path read temp        57   66.7  10.5  22.8
+direct path write           718    1.4   3.9  77.7  13.1   2.8   1.1
+direct path write temp       21    9.5   9.5  57.1  23.8
+Disk file operations I/O   6525    1.5  52.6  33.1   8.6   2.1    .8   1.1    .0
+enq: CR - block range reus    1              100.0
+enq: KO - fast object chec   56                1.8   7.1  14.3   5.4  66.1   5.4
+enq: TX - index contention    3   66.7        33.3
+enq: TX - row lock content    6   16.7        16.7        16.7  33.3        16.7
+latch: cache buffer handle    1  100.0
+latch: cache buffers chain  492   99.2          .8
+latch: cache buffers lru c    3  100.0
+latch: call allocation        9   44.4  55.6
+latch free                   27   96.3   3.7
+latch: In memory undo latc   25  100.0
+latch: object queue header    1  100.0
+latch: redo allocation        2  100.0
+latch: row cache objects      2  100.0
+latch: session allocation     2  100.0
+latch: shared pool            7   85.7  14.3
+LGWR wait for redo copy      59   98.3   1.7
+library cache: mutex X      344   98.3    .6    .9    .3
+Log archive I/O               1  100.0
+log file parallel write      58K    .0    .0  70.0  22.8   4.2   2.8    .2
+log file sequential read    137    5.8   2.2    .7  55.5  35.8
+log file single write         4              100.0
+log file switch (private s    1                    100.0
+log file sync                58K          .0  59.6  30.6   5.9   3.5    .3
+os thread startup            13                     23.1  69.2   7.7
+PL/SQL lock timer            60                                            100.0
+rdbms ipc reply              92  100.0
+read by other session      8138   86.2   6.6   5.1   1.1    .8    .2    .1    .0
+reliable message            153   98.7   1.3
+SQL*Net break/reset to cli  230   93.9   3.5   1.7    .9
+SQL*Net message from dblin   44   56.8   9.1  18.2   6.8   6.8         2.3
+SQL*Net message to dblink    44  100.0
+SQL*Net more data to clien   94K  99.5    .3    .2    .0    .0
+Wait Event Histogram  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+class slave wait             11  100.0
+DIAG idle wait             7104                                      100.0
+EMON slave idle wait       3597                                            100.0
+jobq slave wait             122                                      100.0
+pmon timer                 1614   13.9    .2    .2    .2  10.0   1.4    .1  74.0
+rdbms ipc message            69K  11.6  16.8   9.7   8.4  20.2   3.5  12.3  17.5
+smon timer                   31    6.5                                      93.5
+Space Manager: slave idle   720                                            100.0
+SQL*Net message from clien 1012K  80.2   4.8   2.8   1.2   2.0   1.0   5.6   2.3
+SQL*Net message to client  1008K 100.0    .0    .0
+SQL*Net more data from cli 7098   99.7    .1    .1    .0    .0
+Streams AQ: emn coordinato  360                                            100.0
+Streams AQ: qmn coordinato  382   66.0    .3          .3                    33.5
+Streams AQ: qmn slave idle  226   43.4                                      56.6
+          -------------------------------------------------------------
+
+SQL ordered by CPU  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Total DB CPU (s):             732
+-> Captured SQL accounts for   88.5% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+    128.92    1,211,240       0.00   17.6     126.78      60,795,249 1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+     63.27           25       2.53    8.6      73.26      39,809,932  595899862
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   ENTETE_OP.ID_OP,   ENTETE_OP.ID_
+CLIENT,   ENTETE_OP_CLIENT.CODE_PAYS_LIVR,   ENTETE_OP.ID_TRANSP
+ORTEUR,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm_morgosport_b2b
+', COLIS.ETAT),   COLIS.ID_EMBALLAGE,   COLIS.ID_COLIS,   sum(LI
+
+     56.99           16       3.56    7.8      57.19      12,238,941 1822093580
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+     54.76           16       3.42    7.5      54.92      11,650,580 1824667781
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+     41.12            0               5.6      77.93       8,483,522 2173255031
+Module: WIReportServer.exe
+SELECT   MISSION.NUM_MISSION,   MISSION.ID_PRODUIT,   ARTICLE_E.
+LIBELLE,   substr(MISSION.ID_EMPLACEMENT_ORIGINE,BO_DC_NUM('LNG_
+REGION')+2),   substr(MISSION.ID_EMPLACEMENT_DESTINATION,BO_DC_N
+UM('LNG_REGION')+2),   INFO_CARAC_PROD.ID_CARTON,   trunc(MISSIO
+
+     40.45           14       2.89    5.5      47.32      25,629,395 2628347107
+Module: emission.exe
+select lr.num_lr ,lr.num_site ,lr.id_societe ,lr.id_dossier ,lr.
+id_ligne ,lr.num_ligne_n3 ,lr.num_sous_ligne_n3 ,lr.id_commande_
+n3 ,lr.id_produit ,lr.qte_attendue ,lr.qte_max ,lr.qte_deja_recu
+e ,lr.qte_en_reception ,lr.qte_non_receptionnee ,lr.id_ul  from
+
+     31.70          306       0.10    4.3      31.82       4,679,746 3926121847
+Module: radio.exe
+select m.*, er.chemin_parcoure, er.chemin_allocation, er.chemin_
+libre, nvl(ir.id_carton, ' '), nvl(c.etat, 0), nvl(c.num_algo_co
+lisage, 0), nvl(c.mode_preparation, 0) from mission m, emplaceme
+nt e, emplacement_region er , info_carac ir, cfg_region cfr, col
+
+     26.80      845,785       0.00    3.7      29.33       3,385,956 1499906135
+Module: lancement.exe
+select resultat ,id_message ,argument ,mdate into :b0,:b1,:b2,:b
+SQL ordered by CPU  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Total DB CPU (s):             732
+-> Captured SQL accounts for   88.5% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+3  from demande_traitement where ((etat=:b4 and num_demande=:b5)
+ and table_demande=:b6)
+
+     21.54          585       0.04    2.9      22.61      10,354,645  363762865
+Module: lancement.exe
+select distinct m.* ,r.date_limite_affectation ,eo.id_op  from l
+igne_colisee lc ,mission m ,entete_op eo ,colis c ,remorque r ,e
+mplacement e ,cfg_alveole ca where ((((((((((((((lc.id_emplaceme
+nt=m.id_emplacement_origine and e.id_emplacement=m.id_emplacemen
+
+     14.54            3       4.85    2.0      16.48      10,659,576 1395203058
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   ENTETE_OP.ID_OP,   ENTETE_OP.ID_
+CLIENT,   ENTETE_OP.ID_TRANSPORTEUR,   BO_DL_NUM('COLIS', 'ETAT'
+, 'fr_FR', 'lm_morgosport_b2b', COLIS.ETAT),   COLIS.ID_COLIS,
+ COLIS.ID_EMBALLAGE,   LIGNE_COLISEE.ID_PRODUIT,   ARTICLE_E.LIB
+
+     13.49        5,834       0.00    1.8      15.76          61,744 2724764207
+Module: automate.exe
+update para_table_compteur  set mdate=:b0,mentite=:b1,muser=:b2
+where (nom=:b3 and nom_compteur=:b4)
+
+     12.20           10       1.22    1.7      18.94       4,827,010 3998620620
+Module: JDBC Thin Client
+select * from v_packaging where packaging_id in (select packagin
+g_id from v_dispatch_support where support_id in (select distinc
+t support_id from v_box_extend where box_id in (select distinct
+vb.box_id from v_box vb , v_dispatch_support vds where vb.suppor
+
+     11.76        6,510       0.00    1.6      12.12          55,617 2554114748
+Module: automate.exe
+update para_table_compteur  set valeur=:b0 where (nom=:b1 and no
+m_compteur=:b2)
+
+     11.23            2       5.62    1.5      11.30       1,551,358  897220057
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+     11.12       54,137       0.00    1.5      21.45         885,388 4063745102
+Module: serveur_histo_log.exe
+insert into histo_log  values (:s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7
+ ,:s8 ,:s9 ,:s10 ,:s11 ,:s12 ,:s13 )
+
+     11.00            2       5.50    1.5      11.72       1,681,848 1254772819
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+SQL ordered by CPU  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Total DB CPU (s):             732
+-> Captured SQL accounts for   88.5% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+
+     10.97          110       0.10    1.5      22.15         727,658 3774515012
+Module: JDBC Thin Client
+select * from v_product where (product_id, company_id) in (selec
+t distinct product_id, company_id from v_box_line where box_id
+IN (select distinct box_id from v_box where wave_num =  :1))
+
+      9.66       16,156       0.00    1.3      59.59       1,860,622 2361540004
+Module: lancement.exe
+select em.num_alveole ,su.* ,ce.*  from contenu_entete ce ,suppo
+rt su ,emplacement em where ((((((((ce.id_societe=:b0 and ce.id_
+produit=:b1) and ce.id_support=su.id_support) and (ce.qte>0 or (
+(:b2=1 and ce.type_contenu=:b3) and ((ce.qte+ce.qte_a_venir)-ce.
+
+      9.30        1,726       0.01    1.3      15.17         506,352  941447175
+Module: JDBC Thin Client
+select * from v_product where (product_id, company_id) in  (sele
+ct distinct product_id, company_id from v_box_line where box_id
+= :1)
+
+      8.27           12       0.69    1.1       9.34               0 3747379306
+Module: SQL*Plus
+select xmlelement("ALERT", xmlforest(to_char(originating_timesta
+mp,'YYYY-MM-DD HH24:MI:SS') timestamp,message_text,module_id,mes
+sage_type)) from    alert_log where    originating_timestamp > s
+ysdate-1/48 and (    message_text like '%ORA-%'    or    message
+
+      7.97            2       3.99    1.1      17.61         258,527 3767625787
+Module: lmxt.exe
+SELECT "EMPLACEMENT"."ID_EMPLACEMENT" , "SUPPORT"."ID_SUPPORT" ,
+ "SUPPORT"."ETAT" , "CONTENU"."ID_SOCIETE" , "CONTENU"."ID_PRODU
+IT" , "ARTICLE_E"."LIBELLE" , "CONTENU"."NUM_CARAC" , "CONTENU".
+"QTE" , "CONTENU"."QTE_RESERVE" , "CONTENU"."DATE_RECEPTION" , "
+
+      7.80            1       7.80    1.1       8.78       5,145,114  895935685
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   COLIS.NUM_EXPEDITION,   ENTETE_O
+P.ID_OP,   ENTETE_OP.ID_CLIENT,   ENTETE_OP.ID_TRANSPORTEUR,   C
+OLIS.ID_COLIS,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm_morgosp
+ort_b2b', COLIS.ETAT),   COLIS.ID_SUPPORT,   COLIS.NUM_REMORQUE,
+
+          -------------------------------------------------------------
+SQL ordered by Elapsed time for DB: GS2MORP  Instance: gs2morp  Snaps: 9791 -979
+-> Total DB Time (s):           1,512
+-> Captured SQL accounts for   75.4% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+    126.78    1,211,240       0.00    8.4     128.92              18 1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+     77.93            0               5.2      41.12          33,035 2173255031
+Module: WIReportServer.exe
+SELECT   MISSION.NUM_MISSION,   MISSION.ID_PRODUIT,   ARTICLE_E.
+LIBELLE,   substr(MISSION.ID_EMPLACEMENT_ORIGINE,BO_DC_NUM('LNG_
+REGION')+2),   substr(MISSION.ID_EMPLACEMENT_DESTINATION,BO_DC_N
+UM('LNG_REGION')+2),   INFO_CARAC_PROD.ID_CARTON,   trunc(MISSIO
+
+     73.26           25       2.93    4.8      63.27           4,993  595899862
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   ENTETE_OP.ID_OP,   ENTETE_OP.ID_
+CLIENT,   ENTETE_OP_CLIENT.CODE_PAYS_LIVR,   ENTETE_OP.ID_TRANSP
+ORTEUR,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm_morgosport_b2b
+', COLIS.ETAT),   COLIS.ID_EMBALLAGE,   COLIS.ID_COLIS,   sum(LI
+
+     59.59       16,156       0.00    3.9       9.66          34,921 2361540004
+Module: lancement.exe
+select em.num_alveole ,su.* ,ce.*  from contenu_entete ce ,suppo
+rt su ,emplacement em where ((((((((ce.id_societe=:b0 and ce.id_
+produit=:b1) and ce.id_support=su.id_support) and (ce.qte>0 or (
+(:b2=1 and ce.type_contenu=:b3) and ((ce.qte+ce.qte_a_venir)-ce.
+
+     57.19           16       3.57    3.8      56.99               0 1822093580
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+     54.92           16       3.43    3.6      54.76               0 1824667781
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+     53.08           19       2.79    3.5       2.82          63,890  822239494
+Module: envoi_document.exe
+select nvl(max(d.num_document_lm),0) ,count(*)  into :b0,:b1  fr
+om document d where ((d.num_groupe=:b2 and d.num_document=:b3) a
+nd d.num_document_lm>:b4)
+
+     49.32            5       9.86    3.3       5.82         470,920 2419052578
+Module: WIReportServer.exe
+SELECT   substr(S_SUPPORT.ID_EMPLACEMENT,BO_DC_NUM('LNG_REGION')
++2),   INFO_CARAC.ID_CARTON FROM   SUPPORT  S_SUPPORT,   CONTENU
+SQL ordered by Elapsed time for DB: GS2MORP  Instance: gs2morp  Snaps: 9791 -979
+-> Total DB Time (s):           1,512
+-> Captured SQL accounts for   75.4% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+  S_CONTENU,   CFG_REGION  S_CFG_REGION,   INFO_CARAC,   ARTICLE
+_E WHERE   ( S_SUPPORT.ID_SUPPORT=S_CONTENU.ID_SUPPORT  )   AND
+
+     49.23            5       9.85    3.3       5.43         471,060 2185599582
+Module: WIReportServer.exe
+SELECT    S_CFG_REGION.LIBELLE_COURT,   substr(S_SUPPORT.ID_EMPL
+ACEMENT,BO_DC_NUM('LNG_REGION')+2),   INFO_CARAC.ID_CARTON FROM
+  SUPPORT  S_SUPPORT,   CONTENU  S_CONTENU,   CFG_REGION  S_CFG_
+REGION,   INFO_CARAC,   ARTICLE_E WHERE   ( S_SUPPORT.ID_SUPPORT
+
+     47.32           14       3.38    3.1      40.45           7,270 2628347107
+Module: emission.exe
+select lr.num_lr ,lr.num_site ,lr.id_societe ,lr.id_dossier ,lr.
+id_ligne ,lr.num_ligne_n3 ,lr.num_sous_ligne_n3 ,lr.id_commande_
+n3 ,lr.id_produit ,lr.qte_attendue ,lr.qte_max ,lr.qte_deja_recu
+e ,lr.qte_en_reception ,lr.qte_non_receptionnee ,lr.id_ul  from
+
+     31.82          306       0.10    2.1      31.70              26 3926121847
+Module: radio.exe
+select m.*, er.chemin_parcoure, er.chemin_allocation, er.chemin_
+libre, nvl(ir.id_carton, ' '), nvl(c.etat, 0), nvl(c.num_algo_co
+lisage, 0), nvl(c.mode_preparation, 0) from mission m, emplaceme
+nt e, emplacement_region er , info_carac ir, cfg_region cfr, col
+
+     29.59           46       0.64    2.0       5.88         912,456 1035267230
+Module: radio.exe
+select id_societe ,id_produit ,id_ul ,code_barre ,id_fournisseur
+  from article_ul where (((((((id_societe=:b0 and :b1=1) or :b1=
+0) and ((id_produit=:b3 and :b4=1) or :b4=0)) and ((code_barre=:
+b6 and :b7=1) or :b7=0)) and ((id_ul=:b9 and :b10=1) or :b10=0))
+
+     29.33      845,785       0.00    1.9      26.80               0 1499906135
+Module: lancement.exe
+select resultat ,id_message ,argument ,mdate into :b0,:b1,:b2,:b
+3  from demande_traitement where ((etat=:b4 and num_demande=:b5)
+ and table_demande=:b6)
+
+     29.04           38       0.76    1.9       4.96         753,769 2911440147
+Module: radio.exe
+select aul.id_societe ,aul.id_produit ,aul.id_ul ,aul.code_barre
+ ,aul.id_fournisseur  from article_ul aul ,article_ul_site auls
+where (((((((((aul.id_societe=auls.id_societe and aul.id_produit
+=auls.id_produit) and aul.id_ul=auls.id_ul) and ((aul.id_societe
+
+     27.20            5       5.44    1.8       3.07         305,075 1983876564
+Module: WIReportServer.exe
+SELECT   substr(S_SUPPORT.ID_EMPLACEMENT,BO_DC_NUM('LNG_REGION')
++2),   sum(S_CONTENU.QTE*ARTICLE_E.COEFF_UNITE) FROM   SUPPORT
+S_SUPPORT,   CONTENU  S_CONTENU,   ARTICLE_E WHERE   ( S_SUPPORT
+.ID_SUPPORT=S_CONTENU.ID_SUPPORT  )   AND  ( S_CONTENU.ID_PRODUI
+
+     26.31            2      13.15    1.7       4.06         248,433  180900410
+SQL ordered by Elapsed time for DB: GS2MORP  Instance: gs2morp  Snaps: 9791 -979
+-> Total DB Time (s):           1,512
+-> Captured SQL accounts for   75.4% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+Module: WIReportServer.exe
+SELECT   COLIS.ID_COLIS,   COLIS.ID_EMBALLAGE,   ARTICLE_UL_SITE
+.ID_UL,   CFG_REGION_PREPARATION.LIBELLE_COURT,   ENTETE_OP.ID_C
+LIENT,   sum(LIGNE_COLISEE.QTE_PREPAREE*ARTICLE_E.COEFF_UNITE),
+  sum(LIGNE_COLISEE.QTE_DEJA_PREPAREE*ARTICLE_E.COEFF_UNITE) FRO
+
+     24.49            4       6.12    1.6       3.15         144,214 2163966245
+Module: WIReportServer.exe
+SELECT    S_CFG_REGION.LIBELLE_COURT,   substr(S_SUPPORT.ID_EMPL
+ACEMENT,BO_DC_NUM('LNG_REGION')+2),   INFO_CARAC.ID_CARTON FROM
+  CFG_REGION  S_CFG_REGION,   SUPPORT  S_SUPPORT,   CONTENU  S_C
+ONTENU,   INFO_CARAC WHERE   ( S_SUPPORT.ID_SUPPORT=S_CONTENU.ID
+
+     24.33           17       1.43    1.6       5.93         476,057 3595508024
+Module: emission.exe
+update historique  set etat=:b0,mdate=:b1,muser=:b2,mentite=:b3
+where etat=:b4
+
+     22.61          585       0.04    1.5      21.54           1,121  363762865
+Module: lancement.exe
+select distinct m.* ,r.date_limite_affectation ,eo.id_op  from l
+igne_colisee lc ,mission m ,entete_op eo ,colis c ,remorque r ,e
+mplacement e ,cfg_alveole ca where ((((((((((((((lc.id_emplaceme
+nt=m.id_emplacement_origine and e.id_emplacement=m.id_emplacemen
+
+     22.15          110       0.20    1.5      10.97           7,604 3774515012
+Module: JDBC Thin Client
+select * from v_product where (product_id, company_id) in (selec
+t distinct product_id, company_id from v_box_line where box_id
+IN (select distinct box_id from v_box where wave_num =  :1))
+
+     21.45       54,137       0.00    1.4      11.12           4,453 4063745102
+Module: serveur_histo_log.exe
+insert into histo_log  values (:s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7
+ ,:s8 ,:s9 ,:s10 ,:s11 ,:s12 ,:s13 )
+
+     19.27            1      19.27    1.3       3.03          89,089 1517227641
+Module: WIReportServer.exe
+SELECT   COLIS.ID_COLIS,   ENTETE_OP.ID_CLIENT,   ENTETE_OP_CLIE
+NT.RAIS_SOC_LIVR,   ENTETE_OP_CLIENT.CODE_POSTAL_LIVR,   ENTETE_
+OP_CLIENT.VILLE_LIVR,   ENTETE_OP_CLIENT.CODE_PAYS_LIVR,   COLIS
+.ID_SUPPORT,   COLIS.NUM_EXPEDITION,   ENTETE_OP.ID_OP,   COLIS_
+
+     18.94           10       1.89    1.3      12.20          10,400 3998620620
+Module: JDBC Thin Client
+select * from v_packaging where packaging_id in (select packagin
+g_id from v_dispatch_support where support_id in (select distinc
+t support_id from v_box_extend where box_id in (select distinct
+vb.box_id from v_box vb , v_dispatch_support vds where vb.suppor
+
+     17.72          551       0.03    1.2       2.57           8,798 3688320200
+Module: radio.exe
+SQL ordered by Elapsed time for DB: GS2MORP  Instance: gs2morp  Snaps: 9791 -979
+-> Total DB Time (s):           1,512
+-> Captured SQL accounts for   75.4% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+select nvl(max(se.num_ordre_remorque),0) ,count(distinct se.id_s
+upport) into :b0,:b1  from support_expedition se ,colis c where
+((se.id_support=c.id_support and se.num_remorque=:b2) and se.eta
+t<:b3)
+
+     17.61            2       8.80    1.2       7.97         187,979 3767625787
+Module: lmxt.exe
+SELECT "EMPLACEMENT"."ID_EMPLACEMENT" , "SUPPORT"."ID_SUPPORT" ,
+ "SUPPORT"."ETAT" , "CONTENU"."ID_SOCIETE" , "CONTENU"."ID_PRODU
+IT" , "ARTICLE_E"."LIBELLE" , "CONTENU"."NUM_CARAC" , "CONTENU".
+"QTE" , "CONTENU"."QTE_RESERVE" , "CONTENU"."DATE_RECEPTION" , "
+
+     17.51          240       0.07    1.2       0.11              12 4026042480
+Module: radio.exe
+update mission  set muser_traite=:b0,mdate=:b1,muser=:b2,mentite
+=:b3 where (((num_mission_lm=:b4 and etat=:b5) and (muser_traite
+=:b6 or muser_traite=:b0)) and muser_distribue=:b8)
+
+     16.48            3       5.49    1.1      14.54             135 1395203058
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   ENTETE_OP.ID_OP,   ENTETE_OP.ID_
+CLIENT,   ENTETE_OP.ID_TRANSPORTEUR,   BO_DL_NUM('COLIS', 'ETAT'
+, 'fr_FR', 'lm_morgosport_b2b', COLIS.ETAT),   COLIS.ID_COLIS,
+ COLIS.ID_EMBALLAGE,   LIGNE_COLISEE.ID_PRODUIT,   ARTICLE_E.LIB
+
+     15.76        5,834       0.00    1.0      13.49              74 2724764207
+Module: automate.exe
+update para_table_compteur  set mdate=:b0,mentite=:b1,muser=:b2
+where (nom=:b3 and nom_compteur=:b4)
+
+     15.17        1,726       0.01    1.0       9.30           1,386  941447175
+Module: JDBC Thin Client
+select * from v_product where (product_id, company_id) in  (sele
+ct distinct product_id, company_id from v_box_line where box_id
+= :1)
+
+          -------------------------------------------------------------
+SQL ordered by Gets  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     145,184,580
+-> Captured SQL accounts for  128.3% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+     60,795,249    1,211,240           50.2   43.1   128.92    126.78 1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+     39,809,932           25    1,592,397.3   28.2    63.27     73.26  595899862
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   ENTETE_OP.ID_OP,   ENTETE_OP.ID_
+CLIENT,   ENTETE_OP_CLIENT.CODE_PAYS_LIVR,   ENTETE_OP.ID_TRANSP
+ORTEUR,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm_morgosport_b2b
+', COLIS.ETAT),   COLIS.ID_EMBALLAGE,   COLIS.ID_COLIS,   sum(LI
+
+     25,629,395           14    1,830,671.1   18.2    40.45     47.32 2628347107
+Module: emission.exe
+select lr.num_lr ,lr.num_site ,lr.id_societe ,lr.id_dossier ,lr.
+id_ligne ,lr.num_ligne_n3 ,lr.num_sous_ligne_n3 ,lr.id_commande_
+n3 ,lr.id_produit ,lr.qte_attendue ,lr.qte_max ,lr.qte_deja_recu
+e ,lr.qte_en_reception ,lr.qte_non_receptionnee ,lr.id_ul  from
+
+     12,238,941           16      764,933.8    8.7    56.99     57.19 1822093580
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+     11,650,580           16      728,161.3    8.3    54.76     54.92 1824667781
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+     10,659,576            3    3,553,192.0    7.6    14.54     16.48 1395203058
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   ENTETE_OP.ID_OP,   ENTETE_OP.ID_
+CLIENT,   ENTETE_OP.ID_TRANSPORTEUR,   BO_DL_NUM('COLIS', 'ETAT'
+, 'fr_FR', 'lm_morgosport_b2b', COLIS.ETAT),   COLIS.ID_COLIS,
+ COLIS.ID_EMBALLAGE,   LIGNE_COLISEE.ID_PRODUIT,   ARTICLE_E.LIB
+
+     10,354,645          585       17,700.2    7.3    21.54     22.61  363762865
+Module: lancement.exe
+select distinct m.* ,r.date_limite_affectation ,eo.id_op  from l
+igne_colisee lc ,mission m ,entete_op eo ,colis c ,remorque r ,e
+mplacement e ,cfg_alveole ca where ((((((((((((((lc.id_emplaceme
+nt=m.id_emplacement_origine and e.id_emplacement=m.id_emplacemen
+
+      8,483,522            0                   6.0    41.12     77.93 2173255031
+Module: WIReportServer.exe
+SELECT   MISSION.NUM_MISSION,   MISSION.ID_PRODUIT,   ARTICLE_E.
+SQL ordered by Gets  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     145,184,580
+-> Captured SQL accounts for  128.3% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+LIBELLE,   substr(MISSION.ID_EMPLACEMENT_ORIGINE,BO_DC_NUM('LNG_
+REGION')+2),   substr(MISSION.ID_EMPLACEMENT_DESTINATION,BO_DC_N
+UM('LNG_REGION')+2),   INFO_CARAC_PROD.ID_CARTON,   trunc(MISSIO
+
+      5,145,114            1    5,145,114.0    3.6     7.80      8.78  895935685
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.NUM_VAGUE,   COLIS.NUM_EXPEDITION,   ENTETE_O
+P.ID_OP,   ENTETE_OP.ID_CLIENT,   ENTETE_OP.ID_TRANSPORTEUR,   C
+OLIS.ID_COLIS,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm_morgosp
+ort_b2b', COLIS.ETAT),   COLIS.ID_SUPPORT,   COLIS.NUM_REMORQUE,
+
+      4,827,010           10      482,701.0    3.4    12.20     18.94 3998620620
+Module: JDBC Thin Client
+select * from v_packaging where packaging_id in (select packagin
+g_id from v_dispatch_support where support_id in (select distinc
+t support_id from v_box_extend where box_id in (select distinct
+vb.box_id from v_box vb , v_dispatch_support vds where vb.suppor
+
+      4,679,746          306       15,293.3    3.3    31.70     31.82 3926121847
+Module: radio.exe
+select m.*, er.chemin_parcoure, er.chemin_allocation, er.chemin_
+libre, nvl(ir.id_carton, ' '), nvl(c.etat, 0), nvl(c.num_algo_co
+lisage, 0), nvl(c.mode_preparation, 0) from mission m, emplaceme
+nt e, emplacement_region er , info_carac ir, cfg_region cfr, col
+
+      3,385,956      845,785            4.0    2.4    26.80     29.33 1499906135
+Module: lancement.exe
+select resultat ,id_message ,argument ,mdate into :b0,:b1,:b2,:b
+3  from demande_traitement where ((etat=:b4 and num_demande=:b5)
+ and table_demande=:b6)
+
+      2,575,388        1,726        1,492.1    1.8     4.73      5.73  526941546
+Module: JDBC Thin Client
+select * from V_PO where PO_NUM = (select PO_NUM from V_BOX wher
+e BOX_ID = :1)
+
+      2,225,096          585        3,803.6    1.6     5.43     10.93 2232021330
+Module: lancement.exe
+select distinct m.* ,r.date_limite_affectation ,eo.id_op  from l
+igne_colisee lc ,mission m ,entete_op eo ,colis c ,remorque r wh
+ere (((((((((((lc.id_emplacement=m.id_emplacement_destination an
+d lc.id_societe=m.id_societe) and lc.id_produit=m.id_produit) an
+
+      1,860,622       16,156          115.2    1.3     9.66     59.59 2361540004
+Module: lancement.exe
+select em.num_alveole ,su.* ,ce.*  from contenu_entete ce ,suppo
+rt su ,emplacement em where ((((((((ce.id_societe=:b0 and ce.id_
+produit=:b1) and ce.id_support=su.id_support) and (ce.qte>0 or (
+(:b2=1 and ce.type_contenu=:b3) and ((ce.qte+ce.qte_a_venir)-ce.
+
+      1,760,064            1    1,760,064.0    1.2     2.40      2.41 2971823040
+Module: WIReportServer.exe
+SQL ordered by Gets  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     145,184,580
+-> Captured SQL accounts for  128.3% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+SELECT   ENTETE_OP.NUM_VAGUE,   COLIS.NUM_EXPEDITION,   ENTETE_O
+P.ID_OP,   ENTETE_OP.ID_CLIENT,   ENTETE_OP.ID_TRANSPORTEUR,   C
+OLIS.ID_COLIS,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm_morgosp
+ort_b2b', COLIS.ETAT),   COLIS.ID_SUPPORT,   COLIS.NUM_REMORQUE,
+
+      1,681,848            2      840,924.0    1.2    11.00     11.72 1254772819
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+      1,554,051          213        7,296.0    1.1     4.68      4.66 3558483851
+Module: traite_dossier.exe
+select count(*)  into :b0  from mission where ((num_mission=:b1
+and etat=:b2) or (etat=:b3 and type_mission=:b4))
+
+      1,551,358            2      775,679.0    1.1    11.23     11.30  897220057
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'lm_mo
+rgosport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBEL
+LE,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'lm
+_morgosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, B
+
+          -------------------------------------------------------------
+SQL ordered by Reads  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Disk Reads Threshold:      1000  Total Disk Reads:       4,842,807
+-> Captured SQL accounts for   97.9% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+        912,456           46       19,836.0   18.8     5.88     29.59 1035267230
+Module: radio.exe
+select id_societe ,id_produit ,id_ul ,code_barre ,id_fournisseur
+  from article_ul where (((((((id_societe=:b0 and :b1=1) or :b1=
+0) and ((id_produit=:b3 and :b4=1) or :b4=0)) and ((code_barre=:
+b6 and :b7=1) or :b7=0)) and ((id_ul=:b9 and :b10=1) or :b10=0))
+
+        753,769           38       19,836.0   15.6     4.96     29.04 2911440147
+Module: radio.exe
+select aul.id_societe ,aul.id_produit ,aul.id_ul ,aul.code_barre
+ ,aul.id_fournisseur  from article_ul aul ,article_ul_site auls
+where (((((((((aul.id_societe=auls.id_societe and aul.id_produit
+=auls.id_produit) and aul.id_ul=auls.id_ul) and ((aul.id_societe
+
+        476,057           17       28,003.4    9.8     5.93     24.33 3595508024
+Module: emission.exe
+update historique  set etat=:b0,mdate=:b1,muser=:b2,mentite=:b3
+where etat=:b4
+
+        471,060            5       94,212.0    9.7     5.43     49.23 2185599582
+Module: WIReportServer.exe
+SELECT    S_CFG_REGION.LIBELLE_COURT,   substr(S_SUPPORT.ID_EMPL
+ACEMENT,BO_DC_NUM('LNG_REGION')+2),   INFO_CARAC.ID_CARTON FROM
+  SUPPORT  S_SUPPORT,   CONTENU  S_CONTENU,   CFG_REGION  S_CFG_
+REGION,   INFO_CARAC,   ARTICLE_E WHERE   ( S_SUPPORT.ID_SUPPORT
+
+        470,920            5       94,184.0    9.7     5.82     49.32 2419052578
+Module: WIReportServer.exe
+SELECT   substr(S_SUPPORT.ID_EMPLACEMENT,BO_DC_NUM('LNG_REGION')
++2),   INFO_CARAC.ID_CARTON FROM   SUPPORT  S_SUPPORT,   CONTENU
+  S_CONTENU,   CFG_REGION  S_CFG_REGION,   INFO_CARAC,   ARTICLE
+_E WHERE   ( S_SUPPORT.ID_SUPPORT=S_CONTENU.ID_SUPPORT  )   AND
+
+        305,075            5       61,015.0    6.3     3.07     27.20 1983876564
+Module: WIReportServer.exe
+SELECT   substr(S_SUPPORT.ID_EMPLACEMENT,BO_DC_NUM('LNG_REGION')
++2),   sum(S_CONTENU.QTE*ARTICLE_E.COEFF_UNITE) FROM   SUPPORT
+S_SUPPORT,   CONTENU  S_CONTENU,   ARTICLE_E WHERE   ( S_SUPPORT
+.ID_SUPPORT=S_CONTENU.ID_SUPPORT  )   AND  ( S_CONTENU.ID_PRODUI
+
+        248,433            2      124,216.5    5.1     4.06     26.31  180900410
+Module: WIReportServer.exe
+SELECT   COLIS.ID_COLIS,   COLIS.ID_EMBALLAGE,   ARTICLE_UL_SITE
+.ID_UL,   CFG_REGION_PREPARATION.LIBELLE_COURT,   ENTETE_OP.ID_C
+LIENT,   sum(LIGNE_COLISEE.QTE_PREPAREE*ARTICLE_E.COEFF_UNITE),
+  sum(LIGNE_COLISEE.QTE_DEJA_PREPAREE*ARTICLE_E.COEFF_UNITE) FRO
+
+        237,035            9       26,337.2    4.9     1.03     11.24 3040671396
+Module: lmxt.exe
+SELECT Count ( *) FROM ENTETE_OP , COLIS WHERE ENTETE_OP.NUM_OP
+=COLIS.NUM_OP AND DECODE ( ENTETE_OP.NUM_REMORQUE , 0 , COLIS.NU
+M_REMORQUE , ENTETE_OP.NUM_REMORQUE ) =:1 AND ENTETE_OP.ETAT > :
+SQL ordered by Reads  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Disk Reads Threshold:      1000  Total Disk Reads:       4,842,807
+-> Captured SQL accounts for   97.9% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+2
+
+        237,033            9       26,337.0    4.9     0.80      7.31 2395215660
+Module: edition_etiquette_lmreport.exe
+select distinct c.num_op  from colis c where ((((:b0=:b1 and c.n
+um_op=:b2) or (:b0=:b4 and c.num_vague=:b5)) or (:b0=:b7 and c.n
+um_tournee=:b8)) or (:b0=:b10 and c.num_colis_impression=:b11))
+
+
+        187,979            2       93,989.5    3.9     7.97     17.61 3767625787
+Module: lmxt.exe
+SELECT "EMPLACEMENT"."ID_EMPLACEMENT" , "SUPPORT"."ID_SUPPORT" ,
+ "SUPPORT"."ETAT" , "CONTENU"."ID_SOCIETE" , "CONTENU"."ID_PRODU
+IT" , "ARTICLE_E"."LIBELLE" , "CONTENU"."NUM_CARAC" , "CONTENU".
+"QTE" , "CONTENU"."QTE_RESERVE" , "CONTENU"."DATE_RECEPTION" , "
+
+        184,360            7       26,337.1    3.8     0.50      9.72 2717979762
+Module: traite_op.exe
+select distinct eo.num_site ,eo.num_op ,eo.id_societe ,eo.id_op
+,eo.etat  from entete_op eo ,colis co where (eo.num_op=co.num_op
+ and co.num_colis_impression=:b0)
+
+        144,214            4       36,053.5    3.0     3.15     24.49 2163966245
+Module: WIReportServer.exe
+SELECT    S_CFG_REGION.LIBELLE_COURT,   substr(S_SUPPORT.ID_EMPL
+ACEMENT,BO_DC_NUM('LNG_REGION')+2),   INFO_CARAC.ID_CARTON FROM
+  CFG_REGION  S_CFG_REGION,   SUPPORT  S_SUPPORT,   CONTENU  S_C
+ONTENU,   INFO_CARAC WHERE   ( S_SUPPORT.ID_SUPPORT=S_CONTENU.ID
+
+         93,989            1       93,989.0    1.9     1.01      5.26 2482212769
+Module: lmxt.exe
+SELECT "EMPLACEMENT"."ID_EMPLACEMENT" , "SUPPORT"."ID_SUPPORT" ,
+ "SUPPORT"."ETAT" , "CONTENU"."ID_SOCIETE" , "CONTENU"."ID_PRODU
+IT" , "ARTICLE_E"."LIBELLE" , "CONTENU"."NUM_CARAC" , "CONTENU".
+"QTE" , "CONTENU"."QTE_RESERVE" , "CONTENU"."DATE_RECEPTION" , "
+
+         89,089            1       89,089.0    1.8     3.03     19.27 1517227641
+Module: WIReportServer.exe
+SELECT   COLIS.ID_COLIS,   ENTETE_OP.ID_CLIENT,   ENTETE_OP_CLIE
+NT.RAIS_SOC_LIVR,   ENTETE_OP_CLIENT.CODE_POSTAL_LIVR,   ENTETE_
+OP_CLIENT.VILLE_LIVR,   ENTETE_OP_CLIENT.CODE_PAYS_LIVR,   COLIS
+.ID_SUPPORT,   COLIS.NUM_EXPEDITION,   ENTETE_OP.ID_OP,   COLIS_
+
+         63,890           19        3,362.6    1.3     2.82     53.08  822239494
+Module: envoi_document.exe
+select nvl(max(d.num_document_lm),0) ,count(*)  into :b0,:b1  fr
+om document d where ((d.num_groupe=:b2 and d.num_document=:b3) a
+nd d.num_document_lm>:b4)
+
+          -------------------------------------------------------------
+SQL ordered by Executions  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Executions Threshold:       100  Total Executions:       2,206,275
+-> Captured SQL accounts for   96.0% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+   1,211,240       1,211,223              1.0       0.00        0.00  1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+     845,785           8,693              0.0       0.00        0.00  1499906135
+Module: lancement.exe
+select resultat ,id_message ,argument ,mdate into :b0,:b1,:b2,:b
+3  from demande_traitement where ((etat=:b4 and num_demande=:b5)
+ and table_demande=:b6)
+
+     286,730         286,666              1.0       0.00        0.00  2304529073
+Module: JDBC Thin Client
+SELECT DC.VALEUR_NUM FROM DICO_CONSTANTE DC WHERE DC.NOM = :B1
+
+      54,137          54,137              1.0       0.00        0.00  4063745102
+Module: serveur_histo_log.exe
+insert into histo_log  values (:s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7
+ ,:s8 ,:s9 ,:s10 ,:s11 ,:s12 ,:s13 )
+
+      41,327          41,327              1.0       0.00        0.00  3710732266
+Module: lmxt.exe
+SELECT EXT_PREPARABLE , EXT_POURCENTAGE_REMPL , NUM_ALGO_COLISAG
+E FROM COLIS WHERE ID_COLIS =:1
+
+      35,247          35,247              1.0       0.00        0.00   503895117
+Module: demande_base.exe
+update emplacement_region  set chemin_allocation=:b0,chemin_parc
+oure=:b1,chemin_inventaire=:b2,chemin_libre=:b3,mdate=:b4,muser=
+:b5,mentite=:b6 where (id_emplacement=:b7 and num_region=:b8)
+
+      24,771          24,771              1.0       0.00        0.00  3387077135
+Module: radio.exe
+select count(*)  into :b0  from support where (((id_emplacement=
+:b1 and etat=:b2) and etat_mouvement=:b3) and etat_blocage=:b4)
+
+          -------------------------------------------------------------
+SQL ordered by Parse Calls  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Parse Calls Threshold:      1000 Total Parse Calls:         585,811
+-> Captured SQL accounts for   85.4% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+     845,785      845,785   144.38 1499906135
+Module: lancement.exe
+select resultat ,id_message ,argument ,mdate into :b0,:b1,:b2,:b
+3  from demande_traitement where ((etat=:b4 and num_demande=:b5)
+ and table_demande=:b6)
+
+      54,137       54,137     9.24 4063745102
+Module: serveur_histo_log.exe
+insert into histo_log  values (:s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7
+ ,:s8 ,:s9 ,:s10 ,:s11 ,:s12 ,:s13 )
+
+      41,327       41,327     7.05 3710732266
+Module: lmxt.exe
+SELECT EXT_PREPARABLE , EXT_POURCENTAGE_REMPL , NUM_ALGO_COLISAG
+E FROM COLIS WHERE ID_COLIS =:1
+
+      21,302       21,302     3.64  508559693
+Module: lmxt.exe
+SELECT ext_pourcentage_rempl FROM COLIS WHERE ID_COLIS =:1
+
+      17,605       17,605     3.01 1463146991
+Module: colisage.exe
+select num_site ,num_region ,libelle ,num_alveole ,compteur_alve
+ole ,indice ,mode_mission_tournee ,code_barre ,id_gare ,longueur
+ ,largeur ,hauteur ,accessibilite ,usage ,inventaire ,lib_region
+ ,lib_allee ,lib_colonne ,lib_niveau ,lib_indice into :b0,:b1,:b
+
+      16,156       16,156     2.76 2361540004
+Module: lancement.exe
+select em.num_alveole ,su.* ,ce.*  from contenu_entete ce ,suppo
+rt su ,emplacement em where ((((((((ce.id_societe=:b0 and ce.id_
+produit=:b1) and ce.id_support=su.id_support) and (ce.qte>0 or (
+(:b2=1 and ce.type_contenu=:b3) and ((ce.qte+ce.qte_a_venir)-ce.
+
+      12,486       12,486     2.13 3877098055
+Module: lm_net.exe
+select *  from demande_attente  order by date_insertion
+
+
+      11,720       21,753     2.00 1261969716
+Module: traite_op.exe
+insert into reference_charge  values (:s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:
+s6 ,:s7 ,:s8 ,:s9 ,:s10 ,:s11 ,:s12 ,:s13 ,:s14 ,:s15 ,:s16 ,:s1
+7 ,:s18 ,:s19 ,:s20 ,:s21 ,:s22 ,:s23 ,:s24 ,:s25 ,:s26 ,:s27 ,:
+s28 ,:s29 ,:s30 ,:s31 ,:s32 ,:s33 ,:s34 ,:s35 ,:s36 ,:s37 ,:s38
+
+      10,800       10,800     1.84  640844164
+Module: statistique.exe
+delete  from reference_charge  where ((((typelm=:b0 and type_cha
+rge=:b1) and reference=:b2) and reference_charge=:b3) and num_si
+te=:b4)
+
+SQL ordered by Parse Calls  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Parse Calls Threshold:      1000 Total Parse Calls:         585,811
+-> Captured SQL accounts for   85.4% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+      10,454       10,496     1.78  598799238
+Module: ext_recolisage_lancement.exe
+select * into :s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7 ,:s8 ,:s9 ,:s10
+,:s11 ,:s12 ,:s13 ,:s14 ,:s15 ,:s16 ,:s17 ,:s18 ,:s19 ,:s20 ,:s2
+1 ,:s22 ,:s23 ,:s24 ,:s25 ,:s26 ,:s27 ,:s28 ,:s29 ,:s30 ,:s31 ,:
+s32 ,:s33 ,:s34 ,:s35 ,:s36 ,:s37 ,:s38 ,:s39 ,:s40 ,:s41 ,:s42
+
+       8,576        8,576     1.46 2965872523
+Module: radio.exe
+select * into :s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7 ,:s8 ,:s9 ,:s10
+,:s11 ,:s12 ,:s13 ,:s14 ,:s15 ,:s16 ,:s17 ,:s18 ,:s19 ,:s20 ,:s2
+1 ,:s22 ,:s23 ,:s24 ,:s25 ,:s26 ,:s27 ,:s28 ,:s29 ,:s30 ,:s31 ,:
+s32 ,:s33 ,:s34 ,:s35 ,:s36 ,:s37 ,:s38 ,:s39 ,:s40 ,:s41 ,:s42
+
+       7,971        7,971     1.36 1328755058
+Module: edition_laser_lmreport.exe
+select count(af.id_produit) into :b0  from article_famille af ,c
+fg_famille cf where ((((af.id_societe=:b1 and af.id_produit=:b2)
+ and af.categorie=:b3) and cf.id_famille=:b4) and cf.num_famille
+=af.num_famille)
+
+       7,903        7,903     1.35 1682556911
+Module: automate.exe
+select valeur ,valeur_min ,valeur_max into :b0,:b1,:b2  from par
+a_table_compteur where (nom=:b3 and nom_compteur=:b4)
+
+       7,305        7,305     1.25 2275360153
+select /*+ connect_by_filtering */ privilege#,level from sysauth
+$ connect by grantee#=prior privilege# and privilege#>0 start wi
+th grantee#=:1 and privilege#>0
+
+       6,510        6,510     1.11 2554114748
+Module: automate.exe
+update para_table_compteur  set valeur=:b0 where (nom=:b1 and no
+m_compteur=:b2)
+
+       6,155        6,353     1.05  536278214
+Module: radio.exe
+select count(*)  into :b0  from support s ,contenu c where (((s.
+id_emplacement=:b1 and c.id_support=s.id_support) and c.id_socie
+te=:b2) and c.id_produit=:b3)
+
+       6,133        6,329     1.05 3322079002
+Module: radio.exe
+select ic.id_carton into :b0  from support s ,contenu c ,info_ca
+rac ic where ((((s.id_emplacement=:b1 and c.id_support=s.id_supp
+ort) and c.id_societe=:b2) and c.id_produit=:b3) and c.num_carac
+=ic.num_carac)
+
+          -------------------------------------------------------------
+SQL ordered by Sharable Memory  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      2,518       2,518            0            0     0.3 4012511071
+Module: SQL Developer
+SELECT 'SCHEMA' type, username owner, username object_name, null
+ column_name, null column_id, null data_type  FROM all_users WHE
+RE rownum <=50  and username like :1    union all  SELECT object
+_type type, owner, object_name, null column_name, null column_id
+
+      1,597       1,597           15           15     0.2 1696860893
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('ARTICLE_UL', 'TYPE_UL_PREP', 'fr_FR', 'mor_g
+osport_b2b', ARTICLE_UL.TYPE_UL_PREP),   COLIS_EMBALLAGE.LIBELLE
+,   VAGUE.NUM_VAGUE,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'mor_
+gosport_b2b', COLIS.ETAT),   substr(LIGNE_COLISEE.ID_GARE, BO_DC
+
+      1,373       1,373            0            0     0.1 1295328902
+Module: SQL Developer
+SELECT 'SCHEMA' type, username owner, username object_name, null
+ column_name, null column_id, null data_type  FROM all_users WHE
+RE rownum <=50  and username like :1    union all  SELECT 'COLUM
+N' type, owner, table_name object_name, column_name, column_id,
+
+      1,093           0            0            0     0.1 3126859872
+Module: SQL Developer
+ select * from (   SELECT o.OBJECT_NAME, o.OBJECT_ID ,'' short_n
+ame, NULL partitioned,                 NULL iot_type,
+o.OWNER OBJECT_OWNER, o.CREATED, o.LAST_DDL_TIME, O.GENERATED, O
+.TEMPORARY, NULL EXTERNAL     FROM SYS.ALL_OBJECTS O      WHERE
+
+          -------------------------------------------------------------
+Instance Activity Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+active txn count during cleanout              10,086            2.8          0.2
+application wait time                          3,308            0.9          0.1
+background checkpoints completed                   1            0.0          0.0
+background checkpoints started                     1            0.0          0.0
+background timeouts                           12,782            3.6          0.2
+Batched IO block miss count                    7,902            2.2          0.1
+Batched IO (bound) vector count                1,197            0.3          0.0
+Batched IO buffer defrag count                    82            0.0          0.0
+Batched IO double miss count                     309            0.1          0.0
+Batched IO (full) vector count                     0            0.0          0.0
+Batched IO same unit count                     4,301            1.2          0.1
+Batched IO single block count                    756            0.2          0.0
+Batched IO slow jump count                       201            0.1          0.0
+Batched IO (space) vector count                    0            0.0          0.0
+Batched IO vector block count                  2,836            0.8          0.1
+Batched IO vector read count                     636            0.2          0.0
+Block Cleanout Optim referenced                  774            0.2          0.0
+branch node splits                                 7            0.0          0.0
+buffer is not pinned count               101,443,241       28,170.9      1,721.9
+buffer is pinned count                    78,260,689       21,733.0      1,328.4
+bytes received via SQL*Net from c        508,326,010      141,162.5      8,628.4
+bytes received via SQL*Net from d             32,334            9.0          0.6
+bytes sent via SQL*Net to client         943,791,742      262,091.6     16,020.1
+bytes sent via SQL*Net to dblink              18,438            5.1          0.3
+Cached Commit SCN referenced                       0            0.0          0.0
+calls to get snapshot scn: kcmgss          2,220,593          616.7         37.7
+calls to kcmgas                              125,342           34.8          2.1
+calls to kcmgcs                              236,840           65.8          4.0
+CCursor + sql area evicted                        42            0.0          0.0
+cell physical IO interconnect byt     41,923,288,064   11,642,123.9    711,613.5
+change write time                                493            0.1          0.0
+cleanout - number of ktugct calls             10,411            2.9          0.2
+cleanouts and rollbacks - consist              4,020            1.1          0.1
+cleanouts only - consistent read                 674            0.2          0.0
+cluster key scan block gets                   20,414            5.7          0.4
+cluster key scans                             15,603            4.3          0.3
+commit batch performed                             0            0.0          0.0
+commit batch requested                             0            0.0          0.0
+commit batch/immediate performed                   9            0.0          0.0
+commit batch/immediate requested                   9            0.0          0.0
+commit cleanout failures: block l                 37            0.0          0.0
+commit cleanout failures: buffer                   1            0.0          0.0
+commit cleanout failures: callbac                203            0.1          0.0
+commit cleanout failures: cannot                 144            0.0          0.0
+commit cleanouts                             336,596           93.5          5.7
+commit cleanouts successfully com            336,211           93.4          5.7
+commit immediate performed                         9            0.0          0.0
+commit immediate requested                         9            0.0          0.0
+Commit SCN cached                                  0            0.0          0.0
+commit txn count during cleanout              36,915           10.3          0.6
+concurrency wait time                             32            0.0          0.0
+consistent changes                            25,247            7.0          0.4
+consistent gets                          143,502,323       39,850.7      2,435.8
+consistent gets - examination             74,041,592       20,561.4      1,256.8
+consistent gets direct                     4,095,417        1,137.3         69.5
+consistent gets from cache               139,406,906       38,713.4      2,366.3
+Instance Activity Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+consistent gets from cache (fastp         51,622,227       14,335.5        876.3
+CPU used by this session                      64,289           17.9          1.1
+CPU used when call started                    63,757           17.7          1.1
+CR blocks created                              4,483            1.2          0.1
+cursor authentications                           286            0.1          0.0
+data blocks consistent reads - un             24,517            6.8          0.4
+db block changes                           1,460,590          405.6         24.8
+db block gets                              1,682,277          467.2         28.6
+db block gets direct                           2,784            0.8          0.1
+db block gets from cache                   1,679,493          466.4         28.5
+db block gets from cache (fastpat            469,739          130.5          8.0
+DB time                                      513,408          142.6          8.7
+DBWR checkpoint buffers written               11,516            3.2          0.2
+DBWR checkpoints                                  57            0.0          0.0
+DBWR object drop buffers written                   0            0.0          0.0
+DBWR revisited being-written buff                 22            0.0          0.0
+DBWR tablespace checkpoint buffer              3,592            1.0          0.1
+DBWR thread checkpoint buffers wr              7,924            2.2          0.1
+DBWR transaction table writes                     37            0.0          0.0
+DBWR undo block writes                        12,917            3.6          0.2
+deferred (CURRENT) block cleanout            119,308           33.1          2.0
+dirty buffers inspected                       19,967            5.5          0.3
+enqueue conversions                            1,480            0.4          0.0
+enqueue deadlocks                                  0            0.0          0.0
+enqueue releases                             211,576           58.8          3.6
+enqueue requests                             211,549           58.8          3.6
+enqueue timeouts                                   0            0.0          0.0
+enqueue waits                                     66            0.0          0.0
+exchange deadlocks                                 0            0.0          0.0
+execute count                              2,206,275          612.7         37.5
+failed probes on index block recl                 29            0.0          0.0
+file io service time                               0            0.0          0.0
+file io wait time                      8,514,394,153    2,364,452.7    144,524.9
+free buffer inspected                        887,623          246.5         15.1
+free buffer requested                        814,782          226.3         13.8
+heap block compress                           19,384            5.4          0.3
+Heap Segment Array Inserts                     1,524            0.4          0.0
+Heap Segment Array Updates                        98            0.0          0.0
+hot buffers moved to head of LRU             772,585          214.6         13.1
+HSC Heap Segment Block Changes               235,586           65.4          4.0
+immediate (CR) block cleanout app              4,694            1.3          0.1
+immediate (CURRENT) block cleanou             59,869           16.6          1.0
+IMU commits                                   46,612           12.9          0.8
+IMU contention                                   320            0.1          0.0
+IMU CR rollbacks                                 483            0.1          0.0
+IMU- failed to get a private stra                 80            0.0          0.0
+IMU Flushes                                   11,934            3.3          0.2
+IMU ktichg flush                                   1            0.0          0.0
+IMU pool not allocated                            80            0.0          0.0
+IMU recursive-transaction flush                   43            0.0          0.0
+IMU Redo allocation size                  26,438,124        7,341.9        448.8
+IMU undo allocation size                 224,350,936       62,302.4      3,808.2
+index crx upgrade (positioned)                 2,350            0.7          0.0
+index crx upgrade (prefetch)                       1            0.0          0.0
+index fast full scans (full)                   7,484            2.1          0.1
+index fetch by key                        35,061,758        9,736.7        595.1
+Instance Activity Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+index scans kdiixs1                       11,256,402        3,125.9        191.1
+leaf node splits                               1,391            0.4          0.0
+leaf node 90-10 splits                           165            0.1          0.0
+lob reads                                         64            0.0          0.0
+LOB table id lookup cache misses                   0            0.0          0.0
+lob writes                                       540            0.2          0.0
+lob writes unaligned                             540            0.2          0.0
+logons cumulative                              3,690            1.0          0.1
+max cf enq hold time                               0            0.0          0.0
+messages received                             71,524           19.9          1.2
+messages sent                                 71,524           19.9          1.2
+min active SCN optimization appli             26,035            7.2          0.4
+no buffer to keep pinned count                51,806           14.4          0.9
+no work - consistent read gets            67,482,604       18,740.0      1,145.5
+non-idle wait count                        1,581,648          439.2         26.9
+non-idle wait time                           119,169           33.1          2.0
+Number of read IOs issued                     65,830           18.3          1.1
+opened cursors cumulative                  1,947,495          540.8         33.1
+parse count (describe)                             0            0.0          0.0
+parse count (failures)                           116            0.0          0.0
+parse count (hard)                               856            0.2          0.0
+parse count (total)                          585,811          162.7          9.9
+parse time cpu                                 1,511            0.4          0.0
+parse time elapsed                             1,552            0.4          0.0
+physical read bytes                   39,672,274,944   11,017,016.1    673,404.4
+physical read IO requests                    278,399           77.3          4.7
+physical read total bytes             40,334,309,888   11,200,863.6    684,641.9
+physical read total IO requests              286,276           79.5          4.9
+physical read total multi block r             72,660           20.2          1.2
+physical reads                             4,842,807        1,344.9         82.2
+physical reads cache                         749,109          208.0         12.7
+physical reads cache prefetch                567,585          157.6          9.6
+physical reads direct                      4,093,698        1,136.8         69.5
+physical reads direct (lob)                        0            0.0          0.0
+physical reads direct temporary t                855            0.2          0.0
+physical reads prefetch warmup                     0            0.0          0.0
+physical write bytes                     411,713,536      114,333.1      6,988.5
+physical write IO requests                    29,943            8.3          0.5
+physical write total bytes             1,588,978,176      441,260.3     26,971.6
+physical write total IO requests             210,808           58.5          3.6
+physical write total multi block               1,520            0.4          0.0
+physical writes                               50,258           14.0          0.9
+physical writes direct                         3,647            1.0          0.1
+physical writes direct (lob)                   2,784            0.8          0.1
+physical writes direct temporary                 855            0.2          0.0
+physical writes from cache                    46,611           12.9          0.8
+physical writes non checkpoint                44,868           12.5          0.8
+pinned buffers inspected                          43            0.0          0.0
+pinned cursors current                             2            0.0          0.0
+prefetch clients - default                         0            0.0          0.0
+prefetch warmup blocks aged out b                  0            0.0          0.0
+prefetched blocks aged out before                  6            0.0          0.0
+process last non-idle time                     3,601            1.0          0.1
+recursive aborts on index block r                  2            0.0          0.0
+recursive calls                            2,031,711          564.2         34.5
+recursive cpu usage                           19,062            5.3          0.3
+Instance Activity Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+redo blocks checksummed by FG (ex            240,239           66.7          4.1
+redo blocks written                          579,802          161.0          9.8
+redo buffer allocation retries                     1            0.0          0.0
+redo entries                                 483,937          134.4          8.2
+redo k-bytes read total                      529,386          147.0          9.0
+redo log space requests                            1            0.0          0.0
+redo log space wait time                           1            0.0          0.0
+redo ordering marks                            8,707            2.4          0.2
+redo size                                262,106,080       72,787.0      4,449.0
+redo size for direct writes               22,912,560        6,362.8        388.9
+redo subscn max counts                        15,670            4.4          0.3
+redo synch time                               33,204            9.2          0.6
+redo synch writes                             58,605           16.3          1.0
+redo wastage                              24,984,920        6,938.3        424.1
+redo write time                               27,793            7.7          0.5
+redo writes                                   58,092           16.1          1.0
+rollback changes - undo records a                271            0.1          0.0
+rollbacks only - consistent read                 402            0.1          0.0
+root node splits                                   0            0.0          0.0
+RowCR - row contention                           606            0.2          0.0
+RowCR attempts                                79,821           22.2          1.4
+RowCR hits                                    78,408           21.8          1.3
+rows fetched via callback                 34,519,460        9,586.1        585.9
+session connect time                               0            0.0          0.0
+session cursor cache hits                    667,283          185.3         11.3
+session logical reads                    145,184,580       40,317.9      2,464.4
+session uga memory                     4,462,319,232    1,239,188.9     75,744.2
+session uga memory max                 4,546,165,032    1,262,472.9     77,167.4
+shared hash latch upgrades - no w          1,761,330          489.1         29.9
+shared hash latch upgrades - wait                 46            0.0          0.0
+SMON posted for dropping temp seg                  0            0.0          0.0
+SMON posted for undo segment reco                  0            0.0          0.0
+SMON posted for undo segment shri                 23            0.0          0.0
+sorts (disk)                                       0            0.0          0.0
+sorts (memory)                               122,661           34.1          2.1
+sorts (rows)                                 580,519          161.2          9.9
+sql area evicted                                 688            0.2          0.0
+sql area purged                                  117            0.0          0.0
+SQL*Net roundtrips to/from client            997,632          277.0         16.9
+SQL*Net roundtrips to/from dblink                 44            0.0          0.0
+summed dirty queue length                    257,795           71.6          4.4
+switch current to new buffer                  48,157           13.4          0.8
+table fetch by rowid                      74,076,416       20,571.1      1,257.4
+table fetch continued row                    186,392           51.8          3.2
+table scan blocks gotten                  22,265,215        6,183.1        377.9
+table scan rows gotten                   704,192,840      195,554.8     11,953.1
+table scans (direct read)                        151            0.0          0.0
+table scans (long tables)                        172            0.1          0.0
+table scans (rowid ranges)                         0            0.0          0.0
+table scans (short tables)                    46,367           12.9          0.8
+TBS Extension: bytes extended                      0            0.0          0.0
+TBS Extension: files extended                      0            0.0          0.0
+TBS Extension: tasks created                       0            0.0          0.0
+TBS Extension: tasks executed                      0            0.0          0.0
+total cf enq hold time                           593            0.2          0.0
+total number of cf enq holders                   194            0.1          0.0
+Instance Activity Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+total number of slots                              2            0.0          0.0
+total number of times SMON posted                 25            0.0          0.0
+transaction rollbacks                              9            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+undo change vector size                   93,398,156       25,936.7      1,585.4
+user calls                                 1,275,091          354.1         21.6
+user commits                                  58,591           16.3          1.0
+user I/O wait time                            45,540           12.7          0.8
+user rollbacks                                   322            0.1          0.0
+workarea executions - onepass                     20            0.0          0.0
+workarea executions - optimal                 78,608           21.8          1.3
+write clones created in backgroun                  0            0.0          0.0
+write clones created in foregroun                 56            0.0          0.0
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Statistics with absolute values (should not be diffed)
+
+Statistic                             Begin Value       End Value
+--------------------------------- --------------- ---------------
+logons current                                373             343
+opened cursors current                        545             510
+session cursor cache count             63,875,866      63,931,215
+workarea memory allocated                   2,419           2,419
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Statistics identified by '(derived)' come from sources other than SYSSTAT
+
+Statistic                                      Total  per Hour
+--------------------------------- ------------------ ---------
+log switches (derived)                             1      1.00
+          -------------------------------------------------------------
+
+OS Statistics  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by statistic type (CPU use, Virtual Memory, Hardware Config), Name
+
+Statistic                                  Total
+------------------------- ----------------------
+BUSY_TIME                                100,315
+IDLE_TIME                              2,781,535
+SYS_TIME                                  26,580
+USER_TIME                                 73,745
+PHYSICAL_MEMORY_BYTES             12,884,434,944
+NUM_CPU_CORES                                  8
+NUM_CPUS                                       8
+NUM_CPU_SOCKETS                                2
+          -------------------------------------------------------------
+
+OS Statistics - detail  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+  Snap Snapshot
+    Id Day Time          Load  %Busy  %User %System   %WIO  %WCPU
+------ --------------- ------ ------ ------ ------- ------ ------
+  9791 Fri 05 12:00:04
+  9792 Fri 05 13:00:05           3.5    2.6      .9
+          -------------------------------------------------------------
+IO Stat by Function - summary  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->Data Volume values suffixed with   M,G,T,P are in multiples of 1024,
+  other values suffixed with       K,M,G,T,P are in multiples of 1000
+->ordered by Data Volume (Read+Write) desc
+
+               ---------- Read --------- --------- Write -------- --- Wait ----
+                 Data  Requests    Data   Data  Requests    Data          Avg
+Function        Volume     /sec  Vol/sec Volume     /sec  Vol/sec  Count Tm(ms)
+--------------- ------ -------- -------- ------ -------- -------- ------ ------
+Direct Reads       31G    18.3      8.9M             .0                     0.0
+Buffer Cache Re  5852M    58.8      1.6M                            182K    0.0
+Others            636M     2.4       .2M   565M     1.1       .2M  9232     0.0
+LGWR                        .0             565M    49.4       .2M    40     0.0
+Direct Writes               .0              20M      .4       .0M           0.0
+Streams AQ                  .0                                        3     0.0
+          -------------------------------------------------------------
+
+IO Stat by Function - detail  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->ordered by Data Volume (Read+Write) desc
+
+                   ----------- Read ---------- ----------- Write ---------
+                    Small  Large  Small  Large  Small  Large  Small  Large
+                     Read   Read   Data   Data  Write  Write   Data   Data
+Function             Reqs   Reqs   Read   Read   Reqs   Reqs  Writn  Writn
+------------------ ------ ------ ------ ------ ------ ------ ------ ------
+Direct Reads        1466     64K   145M    31G     3
+Buffer Cache Reads   204K  7727   2040M  3812M
+Others              7950    517    119M   517M  3280    517     48M   517M
+LGWR                  26                         177K   328    490M    75M
+Direct Writes                 1                 1381            20M
+Streams AQ             3
+          -------------------------------------------------------------
+Tablespace IO Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->ordered by IOs (Reads + Writes) desc
+
+Tablespace
+------------------------------
+                 Av      Av     Av                    Av        Buffer Av Buf
+         Reads Reads/s Rd(ms) Blks/Rd       Writes Writes/s      Waits Wt(ms)
+-------------- ------- ------ ------- ------------ -------- ---------- ------
+IDMOREUIL_DATA
+       213,907      59    0.5    22.1       12,432        3     11,575    0.5
+IDMOREUIL_INDX
+        57,532      16    0.9     1.7       14,562        4      1,965    1.8
+PERFSTAT
+         4,731       1    1.1     1.1        1,189        0          0    0.0
+SYSTEM
+         1,589       0    0.9     1.6           39        0          0    0.0
+UNDOTBS1
+            95       0    0.7     1.0        1,398        0          8    0.0
+SYSAUX
+           445       0    1.0     7.7          100        0          0    0.0
+TEMP
+            60       0    0.3    14.3           58        0          0    0.0
+USERS
+             1       0    0.0     1.0            1        0          0    0.0
+          -------------------------------------------------------------
+File IO Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+IDMOREUIL_DATA           U:\ORACLE\DATA\GS2MORP\IDMOREUIL_DATA.DBF
+       202,074      56   0.5 ###    21.3       12,266        3     11,568    0.5
+                         U:\ORACLE\DATA\GS2MORP\IDMOREUIL_DATA_1.DBF
+        11,833       3   0.7  64    35.5          166        0          7    2.9
+
+IDMOREUIL_INDX           U:\ORACLE\DATA\GS2MORP\IDMOREUIL_INDX.DBF
+        57,532      16   0.9 ###     1.7       14,562        4      1,965    1.8
+
+PERFSTAT                 U:\ORACLE\DATA\GS2MORP\STATSPACK01.DBF
+         4,731       1   1.1  32     1.1        1,189        0          0
+
+SYSAUX                   U:\ORACLE\DATA\GS2MORP\SYSAUX01.DBF
+           445       0   1.0  16     7.7          100        0          0
+
+SYSTEM                   U:\ORACLE\DATA\GS2MORP\SYSTEM01.DBF
+         1,589       0   0.9  16     1.6           39        0          0
+
+TEMP                     U:\ORACLE\DATA\GS2MORP\TEMP01.DBF
+            60       0   0.3        14.3           58        0          0
+
+UNDOTBS1                 U:\ORACLE\DATA\GS2MORP\UNDOTBS01.DBF
+            95       0   0.7   8     1.0        1,398        0          8    0.0
+
+USERS                    U:\ORACLE\DATA\GS2MORP\USERS01.DBF
+             1       0   0.0         1.0            1        0          0
+
+          -------------------------------------------------------------
+File Read Histogram Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+SYSTEM                   U:\ORACLE\DATA\GS2MORP\SYSTEM01.DBF
+       1,378          113           13            2            0            0
+
+IDMOREUIL_DATA           U:\ORACLE\DATA\GS2MORP\IDMOREUIL_DATA_1.DBF
+       3,411          212          364          265           26            2
+
+UNDOTBS1                 U:\ORACLE\DATA\GS2MORP\UNDOTBS01.DBF
+          89            4            1            0            0            0
+
+IDMOREUIL_INDX           U:\ORACLE\DATA\GS2MORP\IDMOREUIL_INDX.DBF
+      47,289        2,799          346          640           99           23
+
+PERFSTAT                 U:\ORACLE\DATA\GS2MORP\STATSPACK01.DBF
+       4,124          504           54           36            6            0
+
+SYSAUX                   U:\ORACLE\DATA\GS2MORP\SYSAUX01.DBF
+         294           23            2            2            0            0
+
+IDMOREUIL_DATA           U:\ORACLE\DATA\GS2MORP\IDMOREUIL_DATA.DBF
+     116,450        4,685        1,678          710           77           12
+
+          -------------------------------------------------------------
+Instance Recovery Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> B: Begin snapshot,  E: End snapshot
+
+  Targt Estd                                  Log File  Log Ckpt    Log Ckpt
+  MTTR  MTTR   Recovery   Actual    Target      Size     Timeout    Interval
+   (s)   (s)   Estd IOs  Redo Blks Redo Blks Redo Blks  Redo Blks  Redo Blks
+- ----- ----- ---------- --------- --------- ---------- --------- ------------
+B     0     0       8873    544776    543772    4976640    543772
+E     0     0       3970    164435    164553    4976640    164553
+          -------------------------------------------------------------
+Memory Target Advice  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Advice Reset: if this is null, the data shown has been diffed between
+   the Begin and End snapshots.  If this is 'Y', the advisor has been
+   reset during this interval due to memory resize operations, and
+   the data shown is since the reset operation.
+
+                Memory Size     Est.     Advice
+Memory Size (M)      Factor DB time (s)  Reset
+--------------- ----------- ------------ ------
+          2,000          .5        1,537
+          3,000          .8        1,510
+          4,000         1.0        1,510
+          5,000         1.3        1,510
+          6,000         1.5        1,510
+          7,000         1.8        1,510
+          8,000         2.0        1,510
+          -------------------------------------------------------------
+
+Memory Dynamic Components  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->  Op - memory resize Operation
+->  Cache:    D: Default,  K: Keep,  R:  Recycle
+->   Mode:  DEF: DEFerred mode,  IMM: IMMediate mode
+
+                       Begin Snap End Snap   Op    Last Op
+Cache                    Size (M) Size (M)  Count  Type/Mode   Last Op Time
+---------------------- ---------- -------- ------- ---------- ---------------
+D:buffer cache              1,632                0 GROW/DEF   05-Oct 09:03:46
+java pool                      16                0 STATIC
+large pool                     16                0 STATIC
+PGA Target                  1,392                0 STATIC
+SGA Target                  2,608                0 STATIC
+shared pool                   896                0 SHRINK/DEF 05-Oct 09:03:46
+streams pool                   16                0 SHRINK/DEF 05-Oct 05:07:22
+          -------------------------------------------------------------
+
+Buffer Pool Advisory  DB/Inst: GS2MORP/gs2morp  End Snap: 9792
+-> Only rows with estimated physical reads >0 are displayed
+-> ordered by Pool, Block Size, Buffers For Estimate
+
+                                   Est
+                                  Phys      Estimated                   Est
+    Size for  Size      Buffers   Read     Phys Reads     Est Phys % dbtime
+P    Est (M) Factr  (thousands)  Factr    (thousands)    Read Time  for Rds
+--- -------- ----- ------------ ------ -------------- ------------ --------
+D        160    .1           20    4.4      8,467,164    8,731,554    202.6
+D        320    .2           39    3.8      7,250,079    7,235,060    167.8
+D        480    .3           59    3.2      6,149,652    5,882,004    136.5
+D        640    .4           79    2.7      5,171,405    4,679,177    108.5
+D        800    .5           99    2.3      4,315,979    3,627,368     84.1
+D        960    .6          118    1.9      3,582,039    2,724,936     63.2
+D      1,120    .7          138    1.6      2,967,364    1,969,147     45.7
+D      1,280    .8          158    1.3      2,471,745    1,359,749     31.5
+D      1,440    .9          177    1.1      2,099,009      901,442     20.9
+D      1,600   1.0          197    1.0      1,937,671      703,065     16.3
+D      1,632   1.0          201    1.0      1,914,487      674,559     15.6
+D      1,760   1.1          217    1.0      1,821,754      560,536     13.0
+D      1,920   1.2          236    0.9      1,737,127      456,482     10.6
+D      2,080   1.3          256    0.9      1,673,437      378,170      8.8
+D      2,240   1.4          276    0.8      1,623,390      316,633      7.3
+D      2,400   1.5          296    0.8      1,582,212      266,002      6.2
+D      2,560   1.6          315    0.8      1,546,627      222,248      5.2
+D      2,720   1.7          335    0.8      1,514,368      182,583      4.2
+D      2,880   1.8          355    0.8      1,483,760      144,949      3.4
+D      3,040   1.9          374    0.8      1,453,264      137,752      3.2
+D      3,200   2.0          394    0.7      1,422,771      137,168      3.2
+          -------------------------------------------------------------
+
+Buffer Pool Statistics  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Standard block size Pools  D: default,  K: keep,  R: recycle
+-> Default Pools for other block sizes: 2k, 4k, 8k, 16k, 32k
+-> Buffers: the number of buffers.  Units of K, M, G are divided by 1000
+
+                                                            Free Writ     Buffer
+            Pool         Buffer     Physical    Physical  Buffer Comp       Busy
+P   Buffers Hit%           Gets        Reads      Writes   Waits Wait      Waits
+--- ------- ---- -------------- ------------ ----------- ------- ---- ----------
+D      200K   99    141,074,723      749,104      46,611       0    0     13,562
+          -------------------------------------------------------------
+
+Buffer wait Statistics  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by wait time desc, waits desc
+
+Class
+--------------------------------------------------------------------------------
+      Waits Total Wait Time (s) Avg Time (ms)
+----------- ------------------- -------------
+data block
+     13,536                   9             1
+segment header
+          1                   0            10
+undo header
+          7                   0             0
+undo block
+          1                   0             0
+1st level bmb
+          1                   0             0
+          -------------------------------------------------------------
+PGA Aggr Target Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> B: Begin snap   E: End snap (rows identified with B or E contain data
+   which is absolute i.e. not diffed over the interval)
+-> PGA cache hit % - percentage of W/A (WorkArea) data processed only in-memory
+-> Auto PGA Target - actual workarea memory target
+-> W/A PGA Used    - amount of memory used for all WorkAreas (manual + auto)
+-> %PGA W/A Mem    - percentage of PGA memory allocated to WorkAreas
+-> %Auto W/A Mem   - percentage of WorkArea memory controlled by Auto Mem Mgmt
+-> %Man W/A Mem    - percentage of WorkArea memory under Manual control
+
+PGA Cache Hit % W/A MB Processed Extra W/A MB Read/Written
+--------------- ---------------- -------------------------
+           99.4           12,598                        74
+
+PGA Aggr Target Histogram  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Optimal Executions are purely in-memory operations
+
+    Low    High
+Optimal Optimal    Total Execs Optimal Execs 1-Pass Execs M-Pass Execs
+------- ------- -------------- ------------- ------------ ------------
+     2K      4K         69,612        69,612            0            0
+    64K    128K             63            63            0            0
+   128K    256K            107           107            0            0
+   256K    512K             15            15            0            0
+   512K   1024K          6,765         6,765            0            0
+     1M      2M          1,115         1,115            0            0
+     2M      4M            138           124           14            0
+     4M      8M            745           739            6            0
+     8M     16M             47            47            0            0
+    16M     32M             10            10            0            0
+    32M     64M              2             2            0            0
+    64M    128M              2             2            0            0
+          -------------------------------------------------------------
+
+PGA Memory Advisory  DB/Inst: GS2MORP/gs2morp  End Snap: 9792
+-> When using Auto Memory Mgmt, minimally choose a pga_aggregate_target value
+   where Estd PGA Overalloc Count is 0
+
+                                   Estd Extra                Estd
+  PGA Aggr                           W/A MB      Estd Time    PGA   Estd PGA
+    Target   Size         W/A MB  Read/Written  to Process  Cache  Overalloc
+  Est (MB)  Factr      Processed    to Disk      Bytes (s)  Hit %      Count
+---------- ------ -------------- -------------- ---------- ------ ----------
+       174    0.1     19,207,787      8,381,438   ########   70.0    260,321
+       348    0.3     19,207,787      6,668,545   ########   74.0    216,112
+       696    0.5     19,207,787        380,041   ########   98.0      1,999
+     1,044    0.8     19,207,787        245,941   ########   99.0          7
+     1,392    1.0     19,207,787        234,738   ########   99.0          0
+     1,670    1.2     19,207,787         33,496   ########  100.0          0
+     1,949    1.4     19,207,787         33,357   ########  100.0          0
+     2,227    1.6     19,207,787         33,357   ########  100.0          0
+     2,506    1.8     19,207,787         33,357   ########  100.0          0
+     2,784    2.0     19,207,787         33,357   ########  100.0          0
+     4,176    3.0     19,207,787         33,357   ########  100.0          0
+     5,568    4.0     19,207,787         33,357   ########  100.0          0
+     8,352    6.0     19,207,787         33,357   ########  100.0          0
+    11,136    8.0     19,207,787         33,357   ########  100.0          0
+          -------------------------------------------------------------
+Process Memory Summary Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> B: Begin snap   E: End snap
+-> All rows below contain absolute values (i.e. not diffed over the interval)
+-> Max Alloc is Maximum PGA Allocation size at snapshot time
+   Hist Max Alloc is the Historical Max Allocation for still-connected processes
+-> Num Procs or Allocs:  For Begin/End snapshot lines, it is the number of
+   processes. For Category lines, it is the number of allocations
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                                                                  Hist   Num
+                                          Avg    Std Dev   Max    Max   Procs
+             Alloc     Used    Freeabl   Alloc    Alloc   Alloc  Alloc    or
+  Category   (MB)      (MB)      (MB)     (MB)    (MB)    (MB)    (MB)  Allocs
+- -------- --------- --------- -------- -------- ------- ------- ------ ------
+B --------     826.3     426.5    282.7      2.2     2.1      23    263    372
+  Other        524.8                         1.4     2.0      22     50    372
+  Freeable     282.7        .0                .9      .4       6           331
+  PL/SQL        15.2      10.7                .0      .1       1      1    372
+  SQL            3.6       1.1                .0      .0       0    250    339
+E --------     760.5     403.4    250.8      2.2     2.2      23    263    343
+  Other        489.2                         1.4     2.1      22     49    343
+  Freeable     250.9        .0                .9      .4       6           295
+  PL/SQL        15.5      11.2                .0      .1       1      1    343
+  SQL            4.9       2.2                .0      .1       1    250    310
+          -------------------------------------------------------------
+
+Top Process Memory (by component)  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     21 ARC3 --------    23.2    21.6      1.1       23.2       23.2
+         Other            22.1                        22.1       22.1
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      18 ARC0 --------    23.0    21.6       .9       23.0       23.2
+         Other            22.1                        22.1       22.3
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .0
+      20 ARC2 --------    23.0    21.6       .9       23.0       23.2
+         Other            22.1                        22.1       22.3
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .0
+       8 DIA0 --------     9.9     7.8      1.6        9.9        9.9
+         Other             8.4                         8.4        8.4
+         Freeable          1.6      .0                 1.6
+         PL/SQL             .0      .0                  .0         .0
+      55 SHAD --------     9.0     7.1       .9        9.0      263.5
+         Other             8.0                         8.0       12.6
+         Freeable           .9      .0                  .9
+         PL/SQL             .1      .0                  .1         .1
+         SQL                .1      .0                  .1      249.9
+     160 J000 --------     8.4     1.5      6.4        8.4        8.4
+         Freeable          6.4      .0                 6.4
+         Other             1.5                         1.5        1.5
+         SQL                .2      .2                  .2        6.3
+         PL/SQL             .2      .2                  .2         .2
+      10 DBW0 --------     7.5     6.0      1.3        7.5       51.5
+         Other             6.2                         6.2       50.2
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .0      .0                  .0         .0
+      24 Q000 --------     5.8     3.9      1.3        5.8        5.8
+         Other             4.2                         4.2        4.2
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .2      .2                  .2         .2
+         SQL                .0      .0                  .0         .7
+      11 LGWR --------     5.2     4.8       .1        5.2        5.9
+         Other             5.1                         5.1        5.8
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+      19 ARC1 --------     5.2     4.8       .0        5.2        5.2
+         Other             5.2                         5.2        5.2
+         PL/SQL             .0      .0                  .0         .0
+      41 SHAD --------     4.8     3.1      1.0        4.8       85.0
+         Other             2.7                         2.7        2.7
+         PL/SQL            1.0      .0                 1.0        1.1
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1       81.1
+      15 MMON --------     4.4     1.9       .9        4.4        4.5
+         Other             3.4                         3.4        3.4
+         Freeable           .9      .0                  .9
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        1.1
+     159 SHAD --------     3.4     1.1       .9        3.4        5.3
+
+Top Process Memory (by component)  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B    159 Other             2.4                         2.4        2.4
+         Freeable           .9      .0                  .9
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        3.4
+     165 SHAD --------     3.2     1.2      1.0        3.2        5.6
+         Other             2.1                         2.1        2.1
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        3.4
+      40 SHAD --------     3.0     1.4       .8        3.0       59.1
+         Other             2.1                         2.1        4.5
+         Freeable           .8      .0                  .8
+         SQL                .1      .0                  .1       53.7
+         PL/SQL             .0      .0                  .0         .1
+     370 SHAD --------     3.0     1.1      1.1        3.0        4.6
+         Other             1.9                         1.9        1.9
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        3.4
+     287 SHAD --------     3.0     1.5       .3        3.0        3.0
+         Other             2.6                         2.6        2.6
+         Freeable           .3      .0                  .3
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        1.8
+      13 SMON --------     2.9     1.3      1.3        2.9        5.4
+         Other             1.7                         1.7        2.0
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        2.2
+      68 SHAD --------     2.9     1.3      1.1        2.9       84.0
+         Other             1.8                         1.8        4.0
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .1
+         SQL                .0      .0                  .0       78.9
+     300 SHAD --------     2.8     1.7       .5        2.8      109.9
+         Other             2.2                         2.2       33.0
+         Freeable           .5      .0                  .5
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .1      .0                  .1       76.3
+E     18 ARC0 --------    23.2    21.6      1.1       23.2       23.2
+         Other            22.1                        22.1       22.1
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      20 ARC2 --------    23.0    21.6       .9       23.0       23.2
+         Other            22.1                        22.1       22.3
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .0
+      21 ARC3 --------    22.6    21.6       .5       22.6       23.2
+         Other            22.1                        22.1       22.7
+         Freeable           .5      .0                  .5
+         PL/SQL             .0      .0                  .0         .0
+       8 DIA0 --------     9.9     7.8      1.6        9.9        9.9
+         Other             8.4                         8.4        8.4
+
+Top Process Memory (by component)  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E      8 Freeable          1.6      .0                 1.6
+         PL/SQL             .0      .0                  .0         .0
+     230 SHAD --------     9.8     4.0      2.1        9.8        9.8
+         Other             5.2                         5.2        5.2
+         Freeable          2.1      .0                 2.1
+         PL/SQL            1.3     1.3                 1.3        1.3
+         SQL               1.3     1.2                 1.3        4.2
+      55 SHAD --------     9.0     7.1       .9        9.0      263.5
+         Other             8.0                         8.0       12.6
+         Freeable           .9      .0                  .9
+         PL/SQL             .1      .0                  .1         .1
+         SQL                .1      .0                  .1      249.9
+      10 DBW0 --------     8.9     6.0      2.6        8.9       51.5
+         Other             6.2                         6.2       48.9
+         Freeable          2.6      .0                 2.6
+         PL/SQL             .0      .0                  .0         .0
+     284 J000 --------     8.1     1.5      5.9        8.1        8.1
+         Freeable          6.0      .0                 6.0
+         Other             1.7                         1.7        1.7
+         SQL                .3      .2                  .3        6.2
+         PL/SQL             .2      .2                  .2         .2
+      24 Q000 --------     5.8     3.9      1.3        5.8        5.8
+         Other             4.2                         4.2        4.2
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .2      .2                  .2         .2
+         SQL                .0      .0                  .0         .7
+      11 LGWR --------     5.2     4.8       .1        5.2        5.9
+         Other             5.1                         5.1        5.8
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+      19 ARC1 --------     5.2     4.8       .0        5.2        5.2
+         Other             5.2                         5.2        5.2
+         PL/SQL             .0      .0                  .0         .0
+      41 SHAD --------     4.8     3.1      1.0        4.8       85.0
+         Other             2.7                         2.7        2.7
+         PL/SQL            1.0      .0                 1.0        1.1
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1       81.1
+      15 MMON --------     4.1     1.9      1.8        4.1        4.5
+         Other             2.2                         2.2        2.2
+         Freeable          1.8      .0                 1.8
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        1.1
+      34 SHAD --------     3.0     1.0      1.0        3.0        4.3
+         Other             2.0                         2.0        2.0
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .0      .0                  .0         .1
+         SQL                .0      .0                  .0        3.0
+      40 SHAD --------     3.0     1.4       .8        3.0       59.1
+         Other             2.1                         2.1        4.5
+         Freeable           .8      .0                  .8
+         SQL                .1      .0                  .1       53.7
+         PL/SQL             .0      .0                  .0         .1
+
+Top Process Memory (by component)  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E    257 SHAD --------     2.8     1.3      1.4        2.8       63.0
+         Other             1.4                         1.4        3.3
+         Freeable          1.4      .0                 1.4
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0       58.3
+     300 SHAD --------     2.8     1.7       .5        2.8      109.9
+         Other             2.2                         2.2       33.0
+         Freeable           .5      .0                  .5
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .1      .0                  .1       76.3
+     183 CJQ0 --------     2.8     1.3      1.1        2.8        5.9
+         Other             1.6                         1.6        2.8
+         Freeable          1.1      .0                 1.1
+         SQL                .1      .0                  .1        2.0
+         PL/SQL             .0      .0                  .0         .0
+      80 SHAD --------     2.8     1.2      1.0        2.8        4.6
+         Other             1.7                         1.7        1.7
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .0      .0                  .0         .1
+         SQL                .0      .0                  .0        2.0
+     159 SHAD --------     2.8     1.3      1.1        2.8        9.1
+         Other             1.6                         1.6        1.6
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        6.8
+          -------------------------------------------------------------
+Enqueue activity  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> only enqueues with waits are shown
+-> Enqueue stats gathered prior to 10g should not be compared with 10g data
+-> ordered by Wait Time desc, Waits desc
+
+Enqueue Type (Request Reason)
+------------------------------------------------------------------------------
+    Requests    Succ Gets Failed Gets       Waits Wt Time (s)  Av Wt Time(ms)
+------------ ------------ ----------- ----------- ------------ --------------
+TX-Transaction (row lock contention)
+           9            9           0           6           17       2,912.00
+KO-Multiple Object Checkpoint (fast object checkpoint)
+         504          504           0          56           16         277.73
+TX-Transaction (index contention)
+         163          163           0           3            0            .00
+CR-Reuse Block Range (block range reuse ckpt)
+         504          504           0           1            0            .00
+          -------------------------------------------------------------
+
+Undo Segment Summary  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Min/Max TR (mins) - Min and Max Tuned Retention (minutes)
+-> STO - Snapshot Too Old count,  OOS - Out Of Space count
+-> Undo segment block stats:
+   uS - unexpired Stolen,   uR - unexpired Released,   uU - unexpired reUsed
+   eS - expired   Stolen,   eR - expired   Released,   eU - expired   reUsed
+
+Undo   Num Undo       Number of  Max Qry     Max Tx Min/Max   STO/  uS/uR/uU/
+ TS# Blocks (K)    Transactions  Len (s)      Concy TR (mins) OOS   eS/eR/eU
+---- ---------- --------------- -------- ---------- --------- ----- -----------
+   2       12.7          64,041      716          7 15/25     0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+
+
+Undo Segment Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Most recent 35 Undostat rows, ordered by End Time desc
+
+                Num Undo    Number of Max Qry  Max Tx Tun Ret STO/  uS/uR/uU/
+End Time          Blocks Transactions Len (s)   Concy  (mins) OOS   eS/eR/eU
+------------ ----------- ------------ ------- ------- ------- ----- -----------
+05-Oct 13:00       2,378        9,617     716       6      24 0/0   0/0/0/0/0/0
+05-Oct 12:49         601        3,768     113       5      15 0/0   0/0/0/0/0/0
+05-Oct 12:39         543        3,728     716       3      25 0/0   0/0/0/0/0/0
+05-Oct 12:29       1,486        7,672     115       4      15 0/0   0/0/0/0/0/0
+05-Oct 12:19       4,357       18,219     716       7      25 0/0   0/0/0/0/0/0
+05-Oct 12:09       3,384       21,037     223       6      17 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+Latch Activity  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+active checkpoint queue          14,285    0.0             0            0
+active service list              25,097    0.0    0.5      0       25,886    0.0
+alert log latch                       2    0.0             0            0
+AQ deq hash table latch               1    0.0             0            0
+archive control                     187    0.0             0            0
+archive process latch               298    0.0             0            0
+ASM db client latch               2,700    0.0             0            0
+ASM map operation hash t              1    0.0             0            0
+ASM network state latch              77    0.0             0            0
+AWR Alerted Metric Eleme         38,140    0.0             0            0
+begin backup scn array            2,037    0.0             0            0
+buffer pool                           1    0.0             0            0
+business card                         1    0.0             0            0
+cache buffer handles            685,146    0.0    0.0      0            0
+cache buffers chains        213,431,441    0.0    0.0      0    4,083,796    0.0
+cache buffers lru chain         156,931    0.0    0.1      0    4,468,070    0.0
+cache table scan latch           26,784    0.0             0       26,784    0.0
+call allocation                  12,665    0.5    0.1      0            0
+cas latch                             1    0.0             0            0
+change notification clie              1    0.0             0            0
+Change Notification Hash          1,197    0.0             0            0
+channel handle pool latc          7,465    0.1    0.0      0            0
+channel operations paren         32,909    0.1    0.1      0            0
+checkpoint queue latch          478,152    0.0             0       41,034    0.0
+client/application info          26,682    0.0             0            0
+compile environment latc          3,690    0.0             0            0
+Consistent RBA                   58,096    0.0             0            0
+corrupted undo seg latch            808    0.0             0            0
+cp cmon/server latch                  1    0.0             0            0
+cp pool latch                         1    0.0             0            0
+cp server hash latch                  1    0.0             0            0
+cp sga latch                         77    0.0             0            0
+cvmap freelist lock                   1    0.0             0            0
+deferred cleanup latch               77    0.0             0            0
+DML lock allocation           4,061,292    0.0    0.0      0            0
+dml lock allocation                  77    0.0             0            0
+done queue latch                      1    0.0             0            0
+dummy allocation                  7,411    0.0    0.0      0            0
+enqueue hash chains             425,132    0.0    0.0      0            8    0.0
+enqueues                         79,872    0.0    0.0      0            0
+Event Group Locks                 3,692    0.0             0            0
+FAL Queue                            99    0.0             0            0
+FIB s.o chain latch                  54    0.0             0            0
+fifth spare latch                     1    0.0             0            0
+file cache latch                    622    0.0             0            0
+File State Object Pool P              1    0.0             0            0
+flashback copy                        1    0.0             0            0
+FOB s.o list latch               13,128    0.9    0.0      0            0
+gc element                            1    0.0             0            0
+gcs commit scn state                  1    0.0             0            0
+Latch Activity  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+gcs partitioned table ha              1    0.0             0            0
+gcs pcm hashed value buc              1    0.0             0            0
+gcs resource freelist                 1    0.0             0            0
+gcs resource hash                     1    0.0             0            0
+gcs resource scan list                1    0.0             0            0
+gcs shadows freelist                  1    0.0             0            0
+ges domain table                      1    0.0             0            0
+ges enqueue table freeli              1    0.0             0            0
+ges group table                       1    0.0             0            0
+ges process hash list                 1    0.0             0            0
+ges process parent latch              1    0.0             0            0
+ges resource hash list                1    0.0             0            0
+ges resource scan list                1    0.0             0            0
+ges resource table freel              1    0.0             0            0
+ges value block free lis              1    0.0             0            0
+global KZLD latch for me          3,665    0.0             0            0
+global tx hash mapping              414    0.0             0            0
+granule operation                     1    0.0             0            0
+hash table column usage             588    0.0             0      699,447    0.0
+hash table modification             106    0.0             0            0
+heartbeat check                       1    0.0             0            0
+In memory undo latch            548,616    0.0    0.8      0       59,957    0.0
+intra txn parallel recov              1    0.0             0            0
+io pool granule metadata              1    0.0             0            0
+IPC stats buffer allocat              1    0.0             0            0
+job workq parent latch                2    0.0             0            1    0.0
+job_queue_processes free              2    0.0             0            0
+job_queue_processes para            782    0.0             0            0
+JS queue access latch                 1    0.0             0            0
+JS queue state obj latch         21,630    0.0             0            0
+JS Sh mem access                      5    0.0             0            0
+JS slv state obj latch               15    0.0             0            0
+kcbtsemkid latch                      1    0.0             0            0
+kdlx hb parent latch                  1    0.0             0            0
+KFC FX Hash Latch                     1    0.0             0            0
+KFC Hash Latch                        1    0.0             0            0
+KFCL LE Freelist                      1    0.0             0            0
+kgb parent                            1    0.0             0            0
+KGNFS-NFS:SHM structure               1    0.0             0            0
+KGNFS-NFS:SVR LIST                    1    0.0             0            0
+KJC message pool free li              1    0.0             0            0
+KJCT flow control latch               1    0.0             0            0
+kks stats                         4,210    0.0             0            0
+KMG MMAN ready and start          1,196    0.0             0            0
+krbmrosl                            100    0.0             0            0
+ksfv messages                         1    0.0             0            0
+kss move lock                        23    0.0             0            0
+ksuosstats global area              201    0.0             0            0
+ksv allocation latch                121    0.0             0            0
+ksv class latch                      45    0.0             0            0
+Latch Activity  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+ksv msg queue latch                   1    0.0             0            0
+ksz_so allocation latch           7,412    0.0             0            0
+KTF sga latch                        21    0.0             0        1,142    0.0
+ktm global data                      70    0.0             0            0
+kwqbsn:qsga                         131    0.0             0            0
+KWQP Prop Status                      1    0.0             0            0
+k2q lock allocation                   1    0.0             0            0
+lgwr LWN SCN                     58,753    0.1    0.0      0            0
+list of block allocation          4,338    0.0    0.0      0            0
+loader state object free          3,085    0.0    0.0      0            0
+lob segment dispenser la              1    0.0             0            0
+lob segment hash table l             13    0.0             0            0
+lob segment query latch               1    0.0             0            0
+Locator state objects po              1    0.0             0            0
+lock DBA buffer during m              1    0.0             0            0
+logical standby cache                 1    0.0             0            0
+logminer context allocat              1    0.0             0            0
+logminer work area                    1    0.0             0            0
+longop free list parent              10    0.0             0           11    0.0
+Lsod array latch                      1    0.0             0            0
+managed standby latch                98    0.0             0            0
+mapped buffers lru chain              1    0.0             0            0
+Memory Management Latch               1    0.0             0        1,196    0.0
+Memory Queue                          1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Subscriber               1    0.0             0            0
+message pool operations             469    0.0             0            0
+messages                        233,974    0.0    0.0      0            0
+MinActiveScn Latch                   19    0.0             0            0
+mostly latch-free SCN            58,756    0.1    0.0      0            0
+MQL Tracking Latch                    0                    0           71    0.0
+msg queue latch                       1    0.0             0            0
+multiblock read objects         123,062    0.0    0.0      0            0
+Mutex                                 1    0.0             0            0
+Mutex Stats                           1    0.0             0            0
+name-service namespace b              1    0.0             0            0
+ncodef allocation latch              77    0.0             0            0
+object queue header heap          3,787    0.0             0        3,876    0.0
+object queue header oper      1,724,777    0.0    0.0      0            0
+object stats modificatio          1,707    0.0             0            0
+OS process                       11,242    0.0             0            0
+OS process allocation             8,661    0.4    0.0      0            0
+OS process: request allo          7,412    0.0             0            0
+parallel query alloc buf            481    0.0             0            0
+parallel query stats                  1    0.0             0            0
+parameter list                   33,992    0.0    0.0      0            0
+parameter table manageme          7,410    0.0             0            0
+Latch Activity  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+peshm                                 1    0.0             0            0
+pesom_free_list                       1    0.0             0            0
+pesom_hash_node                       1    0.0             0            0
+PL/SQL warning settings           4,473    0.0             0            0
+post/wait queue                  88,518    0.0             0       58,626    0.0
+process allocation                7,425    0.2    0.0      0        3,691    0.0
+process group creation            7,412    0.1    0.0      0            0
+process queue                         1    0.0             0            0
+process queue reference               1    0.0             0            0
+PX hash array latch                   1    0.0             0            0
+qmn task queue latch                875    2.5    0.5      0            0
+QMT                                   1    0.0             0            0
+query server freelists                1    0.0             0            0
+queued dump request                  12    0.0             0            0
+queuing load statistics               1    0.0             0            0
+recovery domain hash lis              1    0.0             0            0
+redo allocation                 810,732    0.0    0.0      0            0
+redo copy                             1    0.0             0      484,121    0.0
+redo writing                    221,377    0.0    0.0      0            0
+resmgr group change latc          3,867    0.0             0            0
+resmgr:active threads             7,411    0.0             0            0
+resmgr:actses change gro          3,689    0.0             0            0
+resmgr:actses change sta              1    0.0             0            0
+resmgr:free threads list          7,410    0.0    0.0      0            0
+resmgr:plan CPU method                1    0.0             0            0
+resmgr:resource group CP              1    0.0             0            0
+resmgr:schema config                  1    0.0             0            0
+resmgr:session queuing                1    0.0             0            0
+rm cas latch                          1    0.0             0            0
+row cache objects             1,593,122    0.0    0.0      0          131    0.0
+rules engine rule set st            100    0.0             0            0
+second spare latch                    1    0.0             0            0
+sequence cache                   11,081    0.0             0            0
+session allocation              714,419    0.0    0.0      0      238,120    0.0
+session idle bit              2,784,467    0.0    0.0      0            0
+session queue latch                   1    0.0             0            0
+session state list latch          7,047    0.0             0            0
+session switching                18,683    0.0             0            0
+session timer                     1,614    0.0             0            0
+SGA blob parent                       1    0.0             0            0
+SGA bucket locks                      1    0.0             0            0
+SGA heap locks                        1    0.0             0            0
+SGA IO buffer pool latch             86    0.0             0          100    0.0
+SGA pool locks                        1    0.0             0            0
+Shared B-Tree                       132    0.0             0            0
+shared pool                     249,263    0.0    0.1      0            0
+shared pool sim alloc                 1    0.0             0            0
+shared pool simulator             8,410    0.0             0            0
+sim partition latch                   1    0.0             0            0
+simulator hash latch         11,958,828    0.0    0.0      0            0
+Latch Activity  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+simulator lru latch                   1    0.0             0   11,842,553    0.0
+sort extent pool                    223    0.0             0            0
+space background state o              6    0.0             0            0
+space background task la          2,658    0.1    1.0      0        2,392    0.0
+SQL memory manager latch            120    0.0             0        1,196    0.0
+SQL memory manager worka        147,480    0.0    0.0      0            0
+Streams Generic                       1    0.0             0            0
+tablespace key chain                  1    0.0             0            0
+temp lob duration state               3    0.0             0            0
+temporary table state ob              2    0.0             0            0
+test excl. parent l0                  1    0.0             0            0
+test excl. parent2 l0                 1    0.0             0            0
+Testing                               1    0.0             0            0
+third spare latch                     1    0.0             0            0
+threshold alerts latch              155    0.0             0            0
+Token Manager                         1    0.0             0            0
+transaction allocation          960,350    0.0             0            0
+transaction branch alloc          1,991    0.0             0            0
+undo global data                355,351    0.0    0.0      0            0
+virtual circuit buffers               1    0.0             0            0
+virtual circuit holder                1    0.0             0            0
+virtual circuit queues                1    0.0             0            0
+WCR: sync                             1    0.0             0            0
+Write State Object Pool               1    0.0             0            0
+XDB NFS Security Latch                1    0.0             0            0
+XDB unused session pool               1    0.0             0            0
+XDB used session pool                 1    0.0             0            0
+X$KSFQP                         394,896    0.0             0            0
+          -------------------------------------------------------------
+Latch Sleep breakdown  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by misses desc
+
+                                       Get                                 Spin
+Latch Name                        Requests       Misses      Sleeps        Gets
+-------------------------- --------------- ------------ ----------- -----------
+cache buffers chains           213,431,441       58,554         545      57,999
+row cache objects                1,593,122          357           2         355
+session idle bit                 2,784,467          210           1         209
+FOB s.o list latch                  13,128          115           4         111
+shared pool                        249,263          106           7          99
+lgwr LWN SCN                        58,753           87           1          86
+mostly latch-free SCN               58,756           87           2          85
+call allocation                     12,665           63           9          54
+redo allocation                    810,732           61           2          59
+session allocation                 714,419           61           2          59
+cache buffers lru chain            156,931           57           3          54
+cache buffer handles               685,146           46           1          45
+OS process allocation                8,661           35           1          34
+DML lock allocation              4,061,292           31           1          30
+In memory undo latch               548,616           30          25           5
+object queue header operat       1,724,777           28           1          27
+channel operations parent           32,909           25           2          23
+qmn task queue latch                   875           22          10          12
+active service list                 25,097            4           2           2
+space background task latc           2,658            3           3           0
+          -------------------------------------------------------------
+Latch Miss Sources  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> only latches with sleeps are shown
+-> ordered by name, sleeps desc
+
+                                                     NoWait              Waiter
+Latch Name               Where                       Misses     Sleeps   Sleeps
+------------------------ -------------------------- ------- ---------- --------
+active service list      kswslogon: session logout        0          2        2
+cache buffer handles     kcbzgs                           0          1        0
+cache buffers chains     kcbgtcr: fast path (cr pin       0        315      395
+cache buffers chains     kcbgtcr_2                        0        128       50
+cache buffers chains     kcbgtcr: fast path               0        127       11
+cache buffers chains     kcbrls_1                         0         25      130
+cache buffers chains     kcbgtcr: kslbegin excl           0         18        4
+cache buffers chains     kcbzwb                           0          4        2
+cache buffers chains     kcbrls_2                         0          4       26
+cache buffers lru chain  kcbzgws                          0          3        0
+call allocation          ksudlp: top call                 0          6        9
+call allocation          ksuxds                           0          3        0
+channel operations paren ksrchdelete_sub()                0          2        2
+DML lock allocation      ktadmc                           0          1        0
+FOB s.o list latch       ksfd_fobd                        0          4        3
+In memory undo latch     ktiFlush: child                  0         12        7
+In memory undo latch     kticmt: child                    0         11        2
+In memory undo latch     ktichg: child                    0          2       10
+lgwr LWN SCN             kcs023                           0          2        0
+mostly latch-free SCN    kcs024                           0          1        0
+object queue header oper kcbo_switch_mq_bg                0          1        0
+OS process allocation    kso_delete_process:1             0          1        1
+PC and Classifier lists  No latch                         0          2        0
+qmn task queue latch     kwqmnmvtsks: delay to read       0         10        0
+redo allocation          kcrfw_redo_write: before w       0          2        0
+row cache objects        kqreqd: reget                    0          1        0
+row cache objects        kqrpre: find obj                 0          1        1
+session allocation       ksucri_int : licensing           0          1        0
+session allocation       ksuxds_int                       0          1        2
+session idle bit         ksupuc: set busy                 0          1        0
+shared pool              kghalo                           0          5        6
+shared pool              kghupr1                          0          2        0
+space background task la ktsjCreateTask                   0          1        0
+          -------------------------------------------------------------
+Mutex Sleep  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> ordered by Wait Time desc
+
+                                                                         Wait
+Mutex Type         Location                                 Sleeps     Time (s)
+------------------ -------------------------------- -------------- ------------
+Cursor Pin         kkslce [KKSCHLPIN2]                           3          0.0
+Library Cache      kglhdgn1  62                                  2          0.0
+Library Cache      kglhdgn2 106                                237          0.0
+Library Cache      kgllkc1   57                                 10          0.0
+Library Cache      kglpndl1  95                                116          0.0
+Library Cache      kglIsOwnerVersionable 121                   447          0.0
+Library Cache      kglpin1   4                                 156          0.0
+Cursor Pin         kksfbc [KKSCHLFSP2]                       1,491          0.0
+Cursor Pin         kksfbc [KKSCHLPIN1]                       5,690          0.0
+Cursor Pin         kksLockDelete [KKSCHLPIN6]                  809          0.0
+Library Cache      kgllkdl1  85                                  2         -0.0
+Library Cache      kglpnal1  90                                 20         -0.0
+          -------------------------------------------------------------
+Segments by Logical Reads  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Segment Logical Reads Threshold:     10000
+-> Pct Total shows % of logical reads for each top segment compared with total
+   logical reads for all segments captured by the Snapshot
+
+                                           Subobject    Obj.       Logical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SYS        SYSTEM     IND$                              TABLE   71,703,168  32.9
+IDMOREUIL  IDMOREUIL_ LIGNE_ARRIVAGE_DETAI              INDEX   21,731,120  10.0
+IDMOREUIL  IDMOREUIL_ DICO_LEXIQUE_LANGUE_              INDEX   14,192,032   6.5
+IDMOREUIL  IDMOREUIL_ DICO_CONSTANTE                    TABLE   13,361,552   6.1
+IDMOREUIL  IDMOREUIL_ DICO_LEXIQUE_LANGUE               TABLE   12,722,032   5.8
+          -------------------------------------------------------------
+
+
+Segments by Physical Reads  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Segment Physical Reads Threshold:      1000
+
+                                           Subobject    Obj.      Physical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+IDMOREUIL  IDMOREUIL_ ARTICLE_UL                        TABLE    1,667,238  31.9
+IDMOREUIL  IDMOREUIL_ CONTENU                           TABLE      826,008  15.8
+IDMOREUIL  IDMOREUIL_ COLIS                             TABLE      777,660  14.9
+IDMOREUIL  IDMOREUIL_ INFO_CARAC                        TABLE      618,238  11.8
+IDMOREUIL  IDMOREUIL_ HISTORIQUE                        TABLE      606,381  11.6
+          -------------------------------------------------------------
+Segments by Row Lock Waits  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Segment Row Lock Waits Threshold:       100
+
+                                                                       Row
+                                           Subobject    Obj.          Lock   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+IDMOREUIL  IDMOREUIL_ CONTENU_IDX2                      INDEX           28  16.3
+IDMOREUIL  IDMOREUIL_ COLIS_DATE_IDX1                   INDEX           26  15.1
+IDMOREUIL  IDMOREUIL_ COLIS_DATE_IDX3                   INDEX           24  14.0
+IDMOREUIL  IDMOREUIL_ COLIS_DATE_IDX4                   INDEX           18  10.5
+IDMOREUIL  IDMOREUIL_ COLIS_DATE_IDX2                   INDEX            9   5.2
+          -------------------------------------------------------------
+
+
+Segments by Buffer Busy Waits  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> End Segment Buffer Busy Waits Threshold:       100
+
+                                                                    Buffer
+                                           Subobject    Obj.          Busy   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+IDMOREUIL  IDMOREUIL_ DEMANDE_TRAITEMENT_I              INDEX           13  41.9
+IDMOREUIL  IDMOREUIL_ DEMANDE_TRAITEMENT                TABLE           11  35.5
+IDMOREUIL  IDMOREUIL_ DEMANDE_TRAITEMENT_I              INDEX            3   9.7
+IDMOREUIL  IDMOREUIL_ DEMANDE_TRAITEMENT_I              INDEX            2   6.5
+IDMOREUIL  IDMOREUIL_ DEMANDE_TOURNEE_PK                INDEX            1   3.2
+          -------------------------------------------------------------
+Dictionary Cache Stats  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->"Pct Misses"  should be very low (< 2% in most cases)
+->"Final Usage" is the number of cache entries being used in End Snapshot
+
+                                   Get    Pct    Scan   Pct      Mod      Final
+Cache                         Requests   Miss    Reqs  Miss     Reqs      Usage
+------------------------- ------------ ------ ------- ----- -------- ----------
+dc_awr_control                      64    0.0       0              2          1
+dc_global_oids                     765    0.0       0              0         11
+dc_histogram_data               63,503    0.2       0             40      4,087
+dc_histogram_defs               31,929    0.7       0              6      3,420
+dc_object_grants                   644    0.0       0              0         43
+dc_objects                     110,769    0.1       0              0      1,241
+dc_profiles                      3,666    0.0       0              0          1
+dc_rollback_segments             1,731    0.0       0              0         39
+dc_segments                     15,314    0.5       0              1        582
+dc_sequences                         1    0.0       0              1          1
+dc_tablespaces                 136,055    0.0       0              0          8
+dc_users                       222,811    0.0       0              0         35
+global database name             6,078    0.0       0              0          1
+outstanding_alerts                  36    0.0       0              0          6
+          -------------------------------------------------------------
+
+
+Library Cache Activity  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+->"Pct Misses"  should be very low
+
+                                                                      Get  Pct
+Namespace                                                        Requests  Miss
+------------------------------------------------------------ ------------ ------
+     Pin        Pct               Invali-
+   Requests     Miss     Reloads  dations
+-------------- ------ ---------- --------
+BODY                                                               17,111    0.0
+        18,420    0.0          0        0
+CLUSTER                                                                33    3.0
+            14    7.1          0        0
+DBLINK                                                              7,402    0.0
+             0                 0        0
+EDITION                                                             3,685    0.0
+         7,351    0.0          0        0
+INDEX                                                                  28   14.3
+            24   33.3          0        0
+SCHEMA                                                              7,359    0.0
+             0                 0        0
+SQL AREA                                                           74,365    2.1
+     2,235,493    0.2        368      125
+TABLE/PROCEDURE                                                    52,726    0.0
+     1,353,685    0.0        176        0
+TRIGGER                                                            15,218    0.0
+        15,724    0.0          1        0
+          -------------------------------------------------------------
+Rule Sets  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> * indicates Rule Set activity (re)started between Begin/End snaps
+-> Top 25 ordered by Evaluations desc
+
+                                                               No-SQL  SQL
+Rule                                *     Eval/sec Reloads/sec Eval % Eval %
+----------------------------------- - ------------ ----------- ------ ------
+SYS.ALERT_QUE_R                                  0           0      0      0
+          -------------------------------------------------------------
+Streams Pool Advisory  DB/Inst: GS2MORP/gs2morp  End Snap: 9792
+
+Streams Pool Streams Pool Est Spill Est Spill Est Unspill Est Unspill
+    Size (M)  Size Factor     Count  Time (s)       Count    Time (s)
+------------ ------------ --------- --------- ----------- -----------
+         0.0          1.0         0         0           0           0
+         0.0          2.0         0         0           0           0
+         0.0          3.0         0         0           0           0
+         0.0          4.0         0         0           0           0
+         0.0          5.0         0         0           0           0
+         0.0          6.0         0         0           0           0
+         0.0          7.0         0         0           0           0
+         0.0          8.0         0         0           0           0
+         0.0          9.0         0         0           0           0
+         0.0         10.0         0         0           0           0
+         0.0         11.0         0         0           0           0
+         0.0         12.0         0         0           0           0
+         0.0         13.0         0         0           0           0
+         0.0         14.0         0         0           0           0
+         0.0         15.0         0         0           0           0
+         0.0         16.0         0         0           0           0
+         0.0         17.0         0         0           0           0
+         0.0         18.0         0         0           0           0
+         0.0         19.0         0         0           0           0
+         0.0         20.0         0         0           0           0
+          -------------------------------------------------------------
+Shared Pool Advisory  DB/Inst: GS2MORP/gs2morp  End Snap: 9792
+-> SP: Shared Pool     Est LC: Estimated Library Cache   Factr: Factor
+-> Note there is often a 1:Many correlation between a single logical object
+   in the Library Cache, and the physical number of memory objects associated
+   with it.  Therefore comparing the number of Lib Cache objects (e.g. in
+   v$librarycache), with the number of Lib Cache Memory Objects is invalid
+
+                                        Est LC Est LC  Est LC Est LC
+    Shared    SP   Est LC                 Time   Time    Load   Load      Est LC
+      Pool  Size     Size       Est LC   Saved  Saved    Time   Time         Mem
+  Size (M) Factr      (M)      Mem Obj     (s)  Factr     (s)  Factr    Obj Hits
+---------- ----- -------- ------------ ------- ------ ------- ------ -----------
+       512    .6       68        3,686 #######    1.0  53,079    1.1 ###########
+       608    .7      164        7,189 #######    1.0  51,874    1.1 ###########
+       704    .8      260       10,071 #######    1.0  50,244    1.1 ###########
+       800    .9      356       13,040 #######    1.0  48,709    1.0 ###########
+       896   1.0      452       15,939 #######    1.0  47,269    1.0 ###########
+       992   1.1      564       20,228 #######    1.0  45,925    1.0 ###########
+     1,088   1.2      649       22,456 #######    1.0  44,674     .9 ###########
+     1,184   1.3      738       25,342 #######    1.0  43,512     .9 ###########
+     1,280   1.4      834       29,354 #######    1.0  42,432     .9 ###########
+     1,376   1.5      930       33,027 #######    1.0  41,427     .9 ###########
+     1,472   1.6    1,026       36,401 #######    1.0  40,486     .9 ###########
+     1,568   1.8    1,122       39,325 #######    1.0  39,602     .8 ###########
+     1,664   1.9    1,218       42,184 #######    1.0  38,762     .8 ###########
+     1,760   2.0    1,314       45,087 #######    1.0  37,957     .8 ###########
+     1,856   2.1    1,410       47,797 #######    1.0  37,181     .8 ###########
+          -------------------------------------------------------------
+SGA Target Advisory  DB/Inst: GS2MORP/gs2morp  End Snap: 9792
+
+SGA Target SGA Size   Est DB      Est DB   Est Physical
+  Size (M)   Factor Time (s) Time Factor          Reads
+---------- -------- -------- ----------- --------------
+     1,304       .5 ########         2.1  5,916,332,572
+     1,956       .8 ########         1.2  2,827,694,143
+     2,608      1.0 ########         1.0  1,914,484,863
+     3,260      1.3 ########         1.0  1,732,417,353
+     3,912      1.5 ########          .9  1,662,538,655
+     4,564      1.8 ########          .9  1,662,538,655
+     5,216      2.0 ########          .9  1,627,695,031
+          -------------------------------------------------------------
+SGA Memory Summary  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+                                                        End Size (Bytes)
+SGA regions                      Begin Size (Bytes)       (if different)
+------------------------------ -------------------- --------------------
+Database Buffers                      1,711,276,032
+Fixed Size                                2,184,872
+Redo Buffers                              7,913,472
+Variable Size                         3,506,440,536
+                               -------------------- --------------------
+sum                                   5,227,814,912
+          -------------------------------------------------------------
+
+
+SGA breakdown difference  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+-> Top 35 rows by size, ordered by Pool, Name (note rows with null values for
+   Pool column, or Names showing free memory are always shown)
+-> Null value for Begin MB or End MB indicates the size of that Pool/Name was
+   insignificant, or zero in that snapshot
+
+Pool   Name                                 Begin MB         End MB  % Diff
+------ ------------------------------ -------------- -------------- --------
+java p free memory                              16.0           16.0     0.00
+large  free memory                              15.8           15.8     0.00
+large  PX msg pool                                .3             .3     0.00
+shared ASH buffers                              15.5           15.5     0.00
+shared CCUR                                     34.3           34.3     0.01
+shared db_block_hash_buckets                    11.1           11.1     0.00
+shared dbktb: trace buffer                      31.3           31.3     0.00
+shared event statistics per sess                37.0           37.0     0.00
+shared FileOpenBlock                            15.2           15.2     0.00
+shared free memory                             257.8          260.1     0.92
+shared KGH: NO ACCESS                           63.4           63.4     0.00
+shared KGLHD                                    11.3           11.3    -0.00
+shared KGLS                                     13.8           15.2    10.23
+shared kglsim object batch                      10.6           10.6     0.00
+shared ksunfy : SSO free list                   34.3           34.3     0.00
+shared KTI-UNDO                                 22.3           22.3     0.00
+shared PCUR                                     32.4           31.8    -2.05
+shared private strands                          22.4           22.4     0.00
+shared SQLA                                    173.1          170.8    -1.33
+stream free memory                              15.2           15.2     0.00
+stream KTG hash buckets                           .6             .6     0.00
+stream Sender info                               1.1            1.1     0.00
+       buffer_cache                          1,632.0        1,632.0     0.00
+       fixed_sga                                 2.1            2.1     0.00
+       log_buffer                                7.5            7.5     0.00
+          -------------------------------------------------------------
+SQL Memory Statistics  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+                                   Begin            End         % Diff
+                          -------------- -------------- --------------
+   Avg Cursor Size (KB):           39.73          39.26          -1.19
+ Cursor to Parent ratio:            1.35           1.32          -2.61
+          Total Cursors:           5,162          5,143           -.37
+          Total Parents:           3,816          3,901           2.18
+          -------------------------------------------------------------
+init.ora Parameters  DB/Inst: GS2MORP/gs2morp  Snaps: 9791-9792
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+audit_file_dest               U:\ORACLE\ADMIN\GS2MORP\ADUMP
+audit_trail                   NONE
+cluster_database              FALSE
+compatible                    11.2.0.0.0
+control_files                 U:\ORACLE\DATA\GS2MORP\CONTROL01.
+                              CTL, U:\ORACLE\DATA\GS2MORP\CONTR
+                              OL02.CTL
+db_block_size                 8192
+db_cache_size                 16777216
+db_domain
+db_name                       gs2morp
+diagnostic_dest               U:\ORACLE
+log_archive_dest_1            LOCATION=R:\oracle\ARCHIVELOG\gs2
+                              morp
+log_archive_format            ARC%s_%R.%T
+memory_max_target             5251268608
+memory_target                 4194304000
+nls_language                  AMERICAN
+nls_length_semantics          CHAR
+nls_territory                 AMERICA
+open_cursors                  300
+pga_aggregate_target          0
+processes                     2000
+remote_login_passwordfile     EXCLUSIVE
+sec_case_sensitive_logon      FALSE
+sessions                      3024
+sga_target                    0
+spfile                        U:\ORACLE\ADMIN\GS2MORP\PFILE\SPF
+                              ILEGS2MORP.ORA
+undo_tablespace               UNDOTBS1
+          -------------------------------------------------------------
+
+End of Report ( D:\Nexttech\zenity_client\snaps\IDL_sp-GS2MORP-9791_9792.txt )
+

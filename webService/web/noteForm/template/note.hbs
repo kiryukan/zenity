@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+    <div class="panel-body" id="note-{{id}}">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <input  class="panel-title note-name" type="text" width="12" name="name" value="{{ name }}" onchange="updateNoteName(this,{{id}})">
+                <div class="right">
+                    <input type="checkbox" onchange="updateIsAvg(this,{{id}})" {{#if isAvg}}checked{{/if}}> avg of note
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th>
+                            Coeff
+                        </th>
+                        <th>
+                            Classe
+                        </th>
+                        <th>
+                            Indicateur
+                        </th>
+                        <th>
+                            min-max/valeur exacte
+                        </th>
+                        <th>
+                            Indicateur(filtre)
+                        </th>
+                        <th>
+                            valeur(filtre)
+                        </th>
+                    </tr>
+                </thead>
+                {{#each indicator }}
+                    {{> indicator }}
+                {{/each}}
+            </table>
+        </div>
+
+    </div>
+
+    <div class="panel-footer" id="button-note-{{id}}">
+        <button type="button" onclick="addIndicator('note-{{id}}')">Ajouter un indicateur</button>
+        <button type="button" disabled onclick="deleteNote('note-{{id}}')">Supprimer la Note</button>
+    </div>
+</div>

@@ -1,0 +1,2891 @@
+
+STATSPACK report for
+
+Database    DB Id    Instance     Inst Num  Startup Time   Release     RAC
+~~~~~~~~ ----------- ------------ -------- --------------- ----------- ---
+          2329869577 lagmcop             1 22-Mar-18 12:14 11.2.0.4.0  NO
+
+Host             Name             Platform                CPUs Cores Sockets
+  Memory (G)
+~~~~ ---------------- ---------------------- ----- ----- ------- ------------
+     SRV-ORA-LAGMC    Microsoft Windows x86      8     8       2         16.0
+
+Snapshot       Snap Id     Snap Time      Sessions Curs/Sess Comment
+~~~~~~~~    ---------- ------------------ -------- --------- ------------------
+Begin Snap:       4411 05-Oct-18 04:00:01      280       1.3
+  End Snap:       4412 05-Oct-18 05:00:01      220       1.3
+   Elapsed:      60.00 (mins) Av Act Sess:       0.6
+   DB time:      35.11 (mins)      DB CPU:      25.99 (mins)
+
+Cache Sizes            Begin        End
+~~~~~~~~~~~       ---------- ----------
+    Buffer Cache:     3,504M              Std Block Size:         8K
+     Shared Pool:     1,568M                  Log Buffer:     9,912K
+
+Load Profile              Per Second    Per Transaction    Per Exec    Per Call
+~~~~~~~~~~~~      ------------------  ----------------- ----------- -----------
+      DB time(s):                0.6                0.1        0.00        0.00
+       DB CPU(s):                0.4                0.1        0.00        0.00
+       Redo size:           22,883.7            4,241.2
+   Logical reads:          188,560.2           34,947.3
+   Block changes:              123.6               22.9
+  Physical reads:            2,051.1              380.2
+ Physical writes:                7.1                1.3
+      User calls:              152.1               28.2
+          Parses:               63.5               11.8
+     Hard parses:                0.1                0.0
+W/A MB processed:                0.7                0.1
+          Logons:                0.8                0.1
+        Executes:            1,015.9              188.3
+       Rollbacks:                0.0                0.0
+    Transactions:                5.4
+
+Instance Efficiency Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Buffer Nowait %:  100.00       Redo NoWait %:  100.00
+            Buffer  Hit   %:   99.98  Optimal W/A Exec %:  100.00
+            Library Hit   %:   99.92        Soft Parse %:   99.79
+         Execute to Parse %:   93.75         Latch Hit %:  100.01
+Parse CPU to Parse Elapsd %:   83.11     % Non-Parse CPU:   99.63
+
+ Shared Pool Statistics        Begin   End
+                               ------  ------
+             Memory Usage %:   78.52   79.18
+    % SQL with executions>1:   83.29   82.42
+  % Memory for SQL w/exec>1:   76.91   76.43
+
+Top 5 Timed Events                                                    Avg %Total
+~~~~~~~~~~~~~~~~~~                                                   wait   Call
+Event                                            Waits    Time (s)   (ms)   Time
+----------------------------------------- ------------ ----------- ------ ------
+CPU time                                                     1,519          68.5
+direct path read                               222,827         332      1   15.0
+log file sync                                   19,271          97      5    4.4
+log file parallel write                         19,243          85      4    3.8
+db file parallel write                          10,359          54      5    2.5
+          -------------------------------------------------------------
+Host CPU  (CPUs: 8  Cores: 8  Sockets: 2)
+~~~~~~~~              Load Average
+                      Begin     End      User  System    Idle     WIO     WCPU
+                    ------- -------   ------- ------- ------- ------- --------
+                                        17.10    1.64   81.25
+
+Instance CPU
+~~~~~~~~~~~~                                       % Time (seconds)
+                                            -------- --------------
+                     Host: Total time (s):                 28,807.7
+                  Host: Busy CPU time (s):                  5,400.6
+                   % of time Host is Busy:      18.7
+             Instance: Total CPU time (s):                  4,939.4
+          % of Busy CPU used for Instance:      91.5
+        Instance: Total Database time (s):                  6,075.7
+  %DB time waiting for CPU (Resource Mgr):       0.0
+
+Memory Statistics                       Begin          End
+~~~~~~~~~~~~~~~~~                ------------ ------------
+                  Host Mem (MB):     16,383.6     16,383.6
+                   SGA use (MB):      7,964.3      7,964.3
+                   PGA use (MB):        823.1        719.2
+    % Host Mem used for SGA+PGA:         53.6         53.0
+          -------------------------------------------------------------
+
+Time Model System Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Ordered by % of DB time desc, Statistic name
+
+Statistic                                       Time (s) % DB time
+----------------------------------- -------------------- ---------
+RMAN cpu time (backup/restore)                   3,370.8     160.0
+sql execute elapsed time                         1,936.6      91.9
+DB CPU                                           1,559.3      74.0
+PL/SQL execution elapsed time                       46.8       2.2
+connection management call elapsed                   9.0        .4
+parse time elapsed                                   8.4        .4
+hard parse elapsed time                              3.2        .1
+repeated bind elapsed time                           1.0        .0
+hard parse (sharing criteria) elaps                  0.3        .0
+PL/SQL compilation elapsed time                      0.2        .0
+failed parse elapsed time                            0.0        .0
+sequence load elapsed time                           0.0        .0
+inbound PL/SQL rpc elapsed time                      0.0        .0
+DB time                                          2,106.4
+background elapsed time                          3,969.4
+background cpu time                              3,380.2
+          -------------------------------------------------------------
+Foreground Wait Events  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+direct path read                  222,825    0        332      1     11.5   15.0
+log file sync                      19,269    0         97      5      1.0    4.4
+db file parallel read               2,382    0         43     18      0.1    1.9
+db file sequential read            25,558    0         29      1      1.3    1.3
+db file scattered read              5,538    0         10      2      0.3     .5
+Disk file operations I/O              538    0          6     11      0.0     .3
+enq: KO - fast object checkp          190    0          5     27      0.0     .2
+direct path write                   1,189    0          5      4      0.1     .2
+library cache: mutex X             14,615    0          4      0      0.8     .2
+SQL*Net more data to client        24,875    0          2      0      1.3     .1
+control file sequential read        2,478    0          1      0      0.1     .1
+cursor: pin S                         220    0          1      3      0.0     .0
+read by other session                  63    0          0      5      0.0     .0
+switch logfile command                  1    0          0    284      0.0     .0
+control file parallel write            40    0          0      5      0.0     .0
+enq: TX - row lock contentio            5    0          0     23      0.0     .0
+log file switch (private str            2    0          0     31      0.0     .0
+SQL*Net break/reset to clien          142    0          0      0      0.0     .0
+reliable message                      190    0          0      0      0.0     .0
+log file sequential read               13    0          0      2      0.0     .0
+buffer busy waits                     169    0          0      0      0.0     .0
+SQL*Net message from client       414,882    0  2,979,317   7181     21.4
+jobq slave wait                       121  100         62    515      0.0
+SQL*Net message to client         414,824    0          1      0     21.4
+SQL*Net more data from clien          959    0          0      0      0.0
+          -------------------------------------------------------------
+
+Background Wait Events  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+log file parallel write            19,243    0         85      4      1.0    3.8
+db file parallel write             10,359    0         54      5      0.5    2.5
+control file parallel write         1,910    0         10      5      0.1     .4
+control file sequential read        5,884    0          4      1      0.3     .2
+enq: TC - contention                    1    0          4   3562      0.0     .2
+Disk file operations I/O              348    0          3      8      0.0     .1
+RMAN backup & recovery I/O          3,214    0          2      1      0.2     .1
+db file sequential read               583    0          1      1      0.0     .0
+db file async I/O submit            1,920    0          0      0      0.1     .0
+control file single write              44    0          0      6      0.0     .0
+os thread startup                      17    0          0      8      0.0     .0
+SQL*Net more data to client         2,660    0          0      0      0.1     .0
+db file scattered read                 84    0          0      1      0.0     .0
+db file single write                    9    0          0      6      0.0     .0
+ADR block file write                    9    0          0      3      0.0     .0
+enq: CF - contention                    1    0          0     26      0.0     .0
+log file sync                           2    0          0     13      0.0     .0
+reliable message                      100    0          0      0      0.0     .0
+direct path write                       4    0          0      5      0.0     .0
+log file single write                   4    0          0      3      0.0     .0
+asynch descriptor resize            2,778  100          0      0      0.1     .0
+log file sequential read                8    0          0      1      0.0     .0
+ADR block file read                    20    0          0      0      0.0     .0
+ADR file lock                          14    0          0      0      0.0     .0
+latch: redo allocation                  2    0          0      1      0.0     .0
+LGWR wait for redo copy                52    0          0      0      0.0     .0
+direct path read                        2    0          0      1      0.0     .0
+rdbms ipc message                  37,095   48     57,245   1543      1.9
+DIAG idle wait                      7,102  100      7,193   1013      0.4
+Space Manager: slave idle wa          843   99      4,203   4985      0.0
+smon timer                             13   85      3,672 ######      0.0
+Streams AQ: deallocate messa        1,790  100      3,602   2012      0.1
+pmon timer                          1,282   93      3,601   2809      0.1
+Streams AQ: qmn slave idle w          128    0      3,586  28017      0.0
+Streams AQ: qmn coordinator           264   48      3,586  13584      0.0
+class slave wait                       15    0        350  23332      0.0
+SQL*Net message from client        11,163    0         23      2      0.6
+SQL*Net more data from clien        2,660    0          0      0      0.1
+SQL*Net message to client           8,402    0          0      0      0.4
+          -------------------------------------------------------------
+
+Wait Events (fg and bg) DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+direct path read                  222,827    0        332      1     11.5   15.0
+log file sync                      19,271    0         97      5      1.0    4.4
+log file parallel write            19,243    0         85      4      1.0    3.8
+db file parallel write             10,359    0         54      5      0.5    2.5
+db file parallel read               2,382    0         43     18      0.1    1.9
+db file sequential read            26,141    0         30      1      1.3    1.3
+db file scattered read              5,622    0         10      2      0.3     .5
+control file parallel write         1,950    0         10      5      0.1     .4
+Disk file operations I/O              886    0          8      9      0.0     .4
+enq: KO - fast object checkp          190    0          5     27      0.0     .2
+direct path write                   1,193    0          5      4      0.1     .2
+control file sequential read        8,362    0          5      1      0.4     .2
+enq: TC - contention                    1    0          4   3562      0.0     .2
+library cache: mutex X             14,615    0          4      0      0.8     .2
+SQL*Net more data to client        27,535    0          3      0      1.4     .1
+RMAN backup & recovery I/O          3,214    0          2      1      0.2     .1
+cursor: pin S                         220    0          1      3      0.0     .0
+db file async I/O submit            1,920    0          0      0      0.1     .0
+read by other session                  63    0          0      5      0.0     .0
+switch logfile command                  1    0          0    284      0.0     .0
+control file single write              44    0          0      6      0.0     .0
+os thread startup                      17    0          0      8      0.0     .0
+enq: TX - row lock contentio            5    0          0     23      0.0     .0
+log file switch (private str            2    0          0     31      0.0     .0
+db file single write                    9    0          0      6      0.0     .0
+reliable message                      290    0          0      0      0.0     .0
+SQL*Net break/reset to clien          142    0          0      0      0.0     .0
+ADR block file write                    9    0          0      3      0.0     .0
+log file sequential read               21    0          0      1      0.0     .0
+enq: CF - contention                    2    0          0     13      0.0     .0
+log file single write                   4    0          0      3      0.0     .0
+asynch descriptor resize            2,778  100          0      0      0.1     .0
+ADR block file read                    20    0          0      0      0.0     .0
+buffer busy waits                     169    0          0      0      0.0     .0
+ADR file lock                          14    0          0      0      0.0     .0
+latch: redo allocation                  2    0          0      1      0.0     .0
+LGWR wait for redo copy                52    0          0      0      0.0     .0
+SQL*Net message from client       426,045    0  2,979,340   6993     21.9
+rdbms ipc message                  37,095   48     57,245   1543      1.9
+DIAG idle wait                      7,102  100      7,193   1013      0.4
+Space Manager: slave idle wa          843   99      4,203   4985      0.0
+smon timer                             13   85      3,672 ######      0.0
+Streams AQ: deallocate messa        1,790  100      3,602   2012      0.1
+pmon timer                          1,282   93      3,601   2809      0.1
+Streams AQ: qmn slave idle w          128    0      3,586  28017      0.0
+Streams AQ: qmn coordinator           264   48      3,586  13584      0.0
+class slave wait                       15    0        350  23332      0.0
+jobq slave wait                       121  100         62    515      0.0
+SQL*Net message to client         423,226    0          1      0     21.8
+
+Wait Events (fg and bg) DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+SQL*Net more data from clien        3,619    0          0      0      0.2
+          -------------------------------------------------------------
+Wait Event Histogram  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ADR block file read          20  100.0
+ADR block file write          9              100.0
+ADR file lock                14  100.0
+ARCH wait for archivelog l    3  100.0
+asynch descriptor resize   2778  100.0
+buffer busy waits           169  100.0
+control file parallel writ 1950               67.8  23.3   5.4   3.2    .3
+control file sequential re 8362   90.7   5.1   3.6    .5    .2    .0
+control file single write    44               43.2  43.2  11.4   2.3
+cursor: pin S               219   74.0   1.8   3.2   4.1  15.1   1.8
+db file async I/O submit   1920   99.1    .8          .1
+db file parallel read      2382    8.1  16.3  18.3  19.0  16.0  10.1  12.0    .0
+db file parallel write       10K   9.2   1.8  54.9  18.7  11.7   2.8    .8
+db file scattered read     5622   60.6  12.4  12.1  11.7   3.0    .1    .0
+db file sequential read      26K  80.5   9.3   5.5   2.5   1.9    .3    .0
+db file single write          9               77.8  11.1        11.1
+direct path read            222K  55.8  26.2  13.1   3.6   1.1    .1    .0    .0
+direct path write          1193           .3  83.5  12.0   3.3    .7    .3
+Disk file operations I/O    886   11.4  13.9  34.0  24.6   9.8   4.0   2.3    .1
+enq: CF - contention          2   50.0                          50.0
+enq: KO - fast object chec  190               13.2  23.2  27.9  14.7  21.1
+enq: TC - contention          1                                            100.0
+enq: TX - row lock content    5   20.0              20.0  20.0  20.0  20.0
+latch: cache buffers chain   20  100.0
+latch: call allocation        3  100.0
+latch free                    8  100.0
+latch: In memory undo latc   16  100.0
+latch: messages               1  100.0
+latch: redo allocation        2   50.0  50.0
+LGWR wait for redo copy      52  100.0
+library cache: mutex X       14K  97.7    .1    .2    .5   1.4    .1
+Log archive I/O               1  100.0
+log file parallel write      19K              75.9  18.4   3.6   2.0    .1
+log file sequential read     21   76.2        14.3   4.8   4.8
+log file single write         4              100.0
+log file switch (private s    2                                 50.0  50.0
+log file sync                19K              63.6  27.8   5.4   2.9    .2
+os thread startup            17                     70.6  29.4
+Parameter File I/O            2  100.0
+rdbms ipc reply              20  100.0
+read by other session        63   44.4  14.3  17.5  11.1   1.6   7.9   3.2
+reliable message            290   99.0   1.0
+RMAN backup & recovery I/O 3214   96.0   1.0    .9    .5    .7    .4    .5
+SQL*Net break/reset to cli  142   94.4   2.8   2.1    .7
+SQL*Net more data to clien   27K  98.9    .4    .4    .3    .0
+switch logfile command        1                                      100.0
+class slave wait             17   88.2                                      11.8
+DIAG idle wait             7102                                      100.0
+jobq slave wait             120                                      100.0
+pmon timer                 1281    4.2    .2                      .1   2.0  93.5
+rdbms ipc message            37K  10.6   4.8   7.7   6.4   8.5   4.0  29.8  28.2
+Wait Event Histogram  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+smon timer                   13                                            100.0
+Space Manager: slave idle   842                                         .4  99.6
+SQL*Net message from clien  426K  73.4   8.6   3.4   3.5   1.8    .8   4.5   4.1
+SQL*Net message to client   423K 100.0
+SQL*Net more data from cli 3619   99.7    .1    .0    .2    .0
+Streams AQ: deallocate mes 1790                                            100.0
+Streams AQ: qmn coordinato  264   51.5                                      48.5
+Streams AQ: qmn slave idle  128                                            100.0
+          -------------------------------------------------------------
+
+SQL ordered by CPU  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Total DB CPU (s):           1,559
+-> Captured SQL accounts for  149.0% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+    823.97    2,718,274       0.00   52.8     824.11     476,887,772 1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+    347.21            1     347.21   22.3     365.32     184,953,179 3592632207
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'Compans_Lagardère
+', COLIS.ETAT),   TRUNC(SUPPORT_EXPEDITION_COLIS.DATE_EXPEDITION
+),   LIGNE_COLISEE.ID_PRODUIT,   sum(LIGNE_COLISEE.QTE_PREPAREE*
+ARTICLE_E.COEFF_UNITE),   CFG_TRANSPORTEUR_COLIS.RAISON_SOCIALE,
+
+    344.92            1     344.92   22.1     358.31     184,942,642 1518366526
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.ID_TRANSPORTEUR,   CFG_TRANSPORTEUR_COLIS.RAI
+SON_SOCIALE,   ENTETE_OP.NUM_VAGUE,   CFG_TRANSPORTEUR_OP.RAISON
+_SOCIALE,   COLIS.ID_COLIS,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR'
+, 'Compans_Lagardère', COLIS.ETAT),   sum(LIGNE_COLISEE.QTE_COL
+
+    296.71           60       4.95   19.0     297.13     167,392,680 1485743910
+Module: emission.exe
+select lr.num_lr ,lr.num_site ,lr.id_societe ,lr.id_dossier ,lr.
+id_ligne ,lr.num_ligne_n3 ,lr.num_sous_ligne_n3 ,lr.id_commande_
+n3 ,lr.id_produit ,lr.qte_attendue ,lr.qte_max ,lr.qte_deja_recu
+e ,lr.qte_en_reception ,lr.qte_non_receptionnee ,lr.id_ul  from
+
+     94.51            1      94.51    6.1      98.42      36,304,886  655357604
+Module: WIReportServer.exe
+SELECT   TRUNC(LIGNE_COLISEE.MDATE_PICK,'DD'),   nvl(USER_USER_P
+ICK.NOM,LIGNE_COLISEE.MUSER_PICK),   sum(LIGNE_COLISEE.QTE_PREPA
+REE*ARTICLE_E.COEFF_UNITE),   BO_DL_NUM('ARTICLE_E', 'TYPE_ARTIC
+LE', 'fr_FR', 'Compans_Lagardère', ARTICLE_E.TYPE_ARTICLE),   E
+
+     88.20            1      88.20    5.7     133.20      32,598,886 1714337945
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+     76.18            1      76.18    4.9      88.68      31,348,018 1427037620
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+     24.18           60       0.40    1.6      36.19       3,115,863 1781760953
+Module: emission.exe
+update historique  set etat=:b0,mdate=:b1,muser=:b2,mentite=:b3
+SQL ordered by CPU  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Total DB CPU (s):           1,559
+-> Captured SQL accounts for  149.0% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+where (etat=:b4 and id_societe like :b5)
+
+     20.48          106       0.19    1.3     201.61       4,638,666 2395215660
+Module: edition_etiquette_lmreport.exe
+select distinct c.num_op  from colis c where ((((:b0=:b1 and c.n
+um_op=:b2) or (:b0=:b4 and c.num_vague=:b5)) or (:b0=:b7 and c.n
+um_tournee=:b8)) or (:b0=:b10 and c.num_colis_impression=:b11))
+
+
+     19.36          118       0.16    1.2      20.36       2,293,994 2163868179
+Module: JDBC Thin Client
+select * from v_product where  (company_id, product_id) in (sele
+ct distinct company_id, product_id from v_box_line where box_id
+in  (select box_id from v_box where company_id=:1 and po_id=:2 a
+nd  status != LM_REPORT_DICO_CONSTANTE_NUM('ETAT_SUPPRIME') and
+
+          -------------------------------------------------------------
+SQL ordered by Elapsed time for DB: LAGMCOP  Instance: lagmcop  Snaps: 4411 -441
+-> Total DB Time (s):           2,106
+-> Captured SQL accounts for  132.4% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+    824.11    2,718,274       0.00   39.1     823.97               3 1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+    365.32            1     365.32   17.3     347.21         143,436 3592632207
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'Compans_Lagardère
+', COLIS.ETAT),   TRUNC(SUPPORT_EXPEDITION_COLIS.DATE_EXPEDITION
+),   LIGNE_COLISEE.ID_PRODUIT,   sum(LIGNE_COLISEE.QTE_PREPAREE*
+ARTICLE_E.COEFF_UNITE),   CFG_TRANSPORTEUR_COLIS.RAISON_SOCIALE,
+
+    358.31            1     358.31   17.0     344.92         130,423 1518366526
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.ID_TRANSPORTEUR,   CFG_TRANSPORTEUR_COLIS.RAI
+SON_SOCIALE,   ENTETE_OP.NUM_VAGUE,   CFG_TRANSPORTEUR_OP.RAISON
+_SOCIALE,   COLIS.ID_COLIS,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR'
+, 'Compans_Lagardère', COLIS.ETAT),   sum(LIGNE_COLISEE.QTE_COL
+
+    297.13           60       4.95   14.1     296.71               0 1485743910
+Module: emission.exe
+select lr.num_lr ,lr.num_site ,lr.id_societe ,lr.id_dossier ,lr.
+id_ligne ,lr.num_ligne_n3 ,lr.num_sous_ligne_n3 ,lr.id_commande_
+n3 ,lr.id_produit ,lr.qte_attendue ,lr.qte_max ,lr.qte_deja_recu
+e ,lr.qte_en_reception ,lr.qte_non_receptionnee ,lr.id_ul  from
+
+    201.61          106       1.90    9.6      20.48       4,638,242 2395215660
+Module: edition_etiquette_lmreport.exe
+select distinct c.num_op  from colis c where ((((:b0=:b1 and c.n
+um_op=:b2) or (:b0=:b4 and c.num_vague=:b5)) or (:b0=:b7 and c.n
+um_tournee=:b8)) or (:b0=:b10 and c.num_colis_impression=:b11))
+
+
+    133.20            1     133.20    6.3      88.20         190,556 1714337945
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+     98.42            1      98.42    4.7      94.51          86,666  655357604
+Module: WIReportServer.exe
+SELECT   TRUNC(LIGNE_COLISEE.MDATE_PICK,'DD'),   nvl(USER_USER_P
+ICK.NOM,LIGNE_COLISEE.MUSER_PICK),   sum(LIGNE_COLISEE.QTE_PREPA
+REE*ARTICLE_E.COEFF_UNITE),   BO_DL_NUM('ARTICLE_E', 'TYPE_ARTIC
+LE', 'fr_FR', 'Compans_Lagardère', ARTICLE_E.TYPE_ARTICLE),   E
+
+     88.68            1      88.68    4.2      76.18         155,221 1427037620
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+SQL ordered by Elapsed time for DB: LAGMCOP  Instance: lagmcop  Snaps: 4411 -441
+-> Total DB Time (s):           2,106
+-> Captured SQL accounts for  132.4% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+     66.40          118       0.56    3.2      12.36         891,236 3571499656
+Module: JDBC Thin Client
+select * from v_po_line_extend where company_id = :1 and po_id =
+ :2 and  document_key = CASE WHEN :3 = -1 THEN (select max(docum
+ent_key) from v_po_line_extend where company_id=:4 and po_id=:5)
+ ELSE :6 END
+
+     47.29          110       0.43    2.2       2.11         633,160 3937629060
+Module: tournee.exe
+select num_tournee into :b0  from entete_tournee_prep where id_s
+upport=:b1
+
+     36.19           60       0.60    1.7      24.18          98,280 1781760953
+Module: emission.exe
+update historique  set etat=:b0,mdate=:b1,muser=:b2,mentite=:b3
+where (etat=:b4 and id_societe like :b5)
+
+          -------------------------------------------------------------
+SQL ordered by Gets  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     678,816,704
+-> Captured SQL accounts for  170.3% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+    476,887,772    2,718,274          175.4   71.0   823.97    824.11 1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+    184,953,179            1  184,953,179.0   27.5   347.21    365.32 3592632207
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'Compans_Lagardère
+', COLIS.ETAT),   TRUNC(SUPPORT_EXPEDITION_COLIS.DATE_EXPEDITION
+),   LIGNE_COLISEE.ID_PRODUIT,   sum(LIGNE_COLISEE.QTE_PREPAREE*
+ARTICLE_E.COEFF_UNITE),   CFG_TRANSPORTEUR_COLIS.RAISON_SOCIALE,
+
+    184,942,642            1  184,942,642.0   27.5   344.92    358.31 1518366526
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.ID_TRANSPORTEUR,   CFG_TRANSPORTEUR_COLIS.RAI
+SON_SOCIALE,   ENTETE_OP.NUM_VAGUE,   CFG_TRANSPORTEUR_OP.RAISON
+_SOCIALE,   COLIS.ID_COLIS,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR'
+, 'Compans_Lagardère', COLIS.ETAT),   sum(LIGNE_COLISEE.QTE_COL
+
+    167,392,680           60    2,789,878.0   24.9   296.71    297.13 1485743910
+Module: emission.exe
+select lr.num_lr ,lr.num_site ,lr.id_societe ,lr.id_dossier ,lr.
+id_ligne ,lr.num_ligne_n3 ,lr.num_sous_ligne_n3 ,lr.id_commande_
+n3 ,lr.id_produit ,lr.qte_attendue ,lr.qte_max ,lr.qte_deja_recu
+e ,lr.qte_en_reception ,lr.qte_non_receptionnee ,lr.id_ul  from
+
+     36,304,886            1   36,304,886.0    5.4    94.51     98.42  655357604
+Module: WIReportServer.exe
+SELECT   TRUNC(LIGNE_COLISEE.MDATE_PICK,'DD'),   nvl(USER_USER_P
+ICK.NOM,LIGNE_COLISEE.MUSER_PICK),   sum(LIGNE_COLISEE.QTE_PREPA
+REE*ARTICLE_E.COEFF_UNITE),   BO_DL_NUM('ARTICLE_E', 'TYPE_ARTIC
+LE', 'fr_FR', 'Compans_Lagardère', ARTICLE_E.TYPE_ARTICLE),   E
+
+     32,598,886            1   32,598,886.0    4.9    88.20    133.20 1714337945
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+     31,348,018            1   31,348,018.0    4.7    76.18     88.68 1427037620
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+          -------------------------------------------------------------
+SQL ordered by Reads  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Disk Reads Threshold:      1000  Total Disk Reads:       7,384,093
+-> Captured SQL accounts for   99.7% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+      4,638,242          106       43,757.0   62.8    20.48    201.61 2395215660
+Module: edition_etiquette_lmreport.exe
+select distinct c.num_op  from colis c where ((((:b0=:b1 and c.n
+um_op=:b2) or (:b0=:b4 and c.num_vague=:b5)) or (:b0=:b7 and c.n
+um_tournee=:b8)) or (:b0=:b10 and c.num_colis_impression=:b11))
+
+
+        891,236          118        7,552.8   12.1    12.36     66.40 3571499656
+Module: JDBC Thin Client
+select * from v_po_line_extend where company_id = :1 and po_id =
+ :2 and  document_key = CASE WHEN :3 = -1 THEN (select max(docum
+ent_key) from v_po_line_extend where company_id=:4 and po_id=:5)
+ ELSE :6 END
+
+        633,160          110        5,756.0    8.6     2.11     47.29 3937629060
+Module: tournee.exe
+select num_tournee into :b0  from entete_tournee_prep where id_s
+upport=:b1
+
+        190,556            1      190,556.0    2.6    88.20    133.20 1714337945
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+        189,409          261          725.7    2.6     1.83      9.21 3171825421
+Module: lmxt.exe
+  SELECT  "USER_CONTROLE"."NUM_CONTROLE" ,           "USER_CONTR
+OLE"."MDATE" ,           "USER_CONTROLE"."MENTITE" ,           "
+USER_CONTROLE"."MUSER" ,           "USER_CONTROLE"."NUM_ENTITE"
+,           "USER_CONTROLE"."NOM_CONTROLE" ,           "USER_CON
+
+        155,221            1      155,221.0    2.1    76.18     88.68 1427037620
+Module: WIReportServer.exe
+SELECT   MISSION_ARCH.ID_PRODUIT,   BO_DL_NUM('CFG_ALVEOLE', 'TY
+PE_ALVEOLE', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_DESTINAT
+ION_ARCH.TYPE_ALVEOLE),   BO_DL_NUM('CFG_ALVEOLE', 'TYPE_ALVEOLE
+', 'fr_FR', 'Compans_Lagardère', CFG_ALVEOLE_ORIGINE_ARCH.TYPE_
+
+        143,436            1      143,436.0    1.9   347.21    365.32 3592632207
+Module: WIReportServer.exe
+SELECT   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR', 'Compans_Lagardère
+', COLIS.ETAT),   TRUNC(SUPPORT_EXPEDITION_COLIS.DATE_EXPEDITION
+),   LIGNE_COLISEE.ID_PRODUIT,   sum(LIGNE_COLISEE.QTE_PREPAREE*
+ARTICLE_E.COEFF_UNITE),   CFG_TRANSPORTEUR_COLIS.RAISON_SOCIALE,
+
+        130,423            1      130,423.0    1.8   344.92    358.31 1518366526
+Module: WIReportServer.exe
+SELECT   ENTETE_OP.ID_TRANSPORTEUR,   CFG_TRANSPORTEUR_COLIS.RAI
+SON_SOCIALE,   ENTETE_OP.NUM_VAGUE,   CFG_TRANSPORTEUR_OP.RAISON
+_SOCIALE,   COLIS.ID_COLIS,   BO_DL_NUM('COLIS', 'ETAT', 'fr_FR'
+SQL ordered by Reads  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Disk Reads Threshold:      1000  Total Disk Reads:       7,384,093
+-> Captured SQL accounts for   99.7% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+, 'Compans_Lagardère', COLIS.ETAT),   sum(LIGNE_COLISEE.QTE_COL
+
+         98,280           60        1,638.0    1.3    24.18     36.19 1781760953
+Module: emission.exe
+update historique  set etat=:b0,mdate=:b1,muser=:b2,mentite=:b3
+where (etat=:b4 and id_societe like :b5)
+
+         86,666            1       86,666.0    1.2    94.51     98.42  655357604
+Module: WIReportServer.exe
+SELECT   TRUNC(LIGNE_COLISEE.MDATE_PICK,'DD'),   nvl(USER_USER_P
+ICK.NOM,LIGNE_COLISEE.MUSER_PICK),   sum(LIGNE_COLISEE.QTE_PREPA
+REE*ARTICLE_E.COEFF_UNITE),   BO_DL_NUM('ARTICLE_E', 'TYPE_ARTIC
+LE', 'fr_FR', 'Compans_Lagardère', ARTICLE_E.TYPE_ARTICLE),   E
+
+         86,666            1       86,666.0    1.2     1.09      6.95 1231593402
+Module: WIReportServer.exe
+SELECT   TRUNC(LIGNE_COLISEE.MDATE_PICK,'DD'),   nvl(USER_USER_P
+ICK.NOM,LIGNE_COLISEE.MUSER_PICK),   sum(LIGNE_COLISEE.QTE_PREPA
+REE*ARTICLE_E.COEFF_UNITE),   BO_DL_NUM('ARTICLE_E', 'TYPE_ARTIC
+LE', 'fr_FR', 'Compans_Lagardère', ARTICLE_E.TYPE_ARTICLE),   E
+
+          -------------------------------------------------------------
+SQL ordered by Executions  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Executions Threshold:       100  Total Executions:       3,657,389
+-> Captured SQL accounts for   99.8% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+   2,718,274       2,717,920              1.0       0.00        0.00  1471036360
+Module: WIReportServer.exe
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL WHERE DL.NUM_CONSTANTE = DC.NUM_CONSTANTE AN
+D DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE = :B4 AND DL
+.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID_LANGUE = BO_
+
+     442,052         442,032              1.0       0.00        0.00  2304529073
+Module: JDBC Thin Client
+SELECT DC.VALEUR_NUM FROM DICO_CONSTANTE DC WHERE DC.NOM = :B1
+
+     174,179         173,055              1.0       0.00        0.00  3820665992
+Module: JDBC Thin Client
+SELECT DLL.LIBELLE FROM DICO_LEXIQUE DL, DICO_CONSTANTE DC, DICO
+_LEXIQUE_LANGUE DLL, PARAMETRE P WHERE DL.NUM_CONSTANTE = DC.NUM
+_CONSTANTE AND DL.NUM_LEXIQUE = DLL.NUM_LEXIQUE AND DL.NOM_TABLE
+ = :B4 AND DL.NOM_CHAMP = :B3 AND DC.VALEUR_NUM = :B2 AND DLL.ID
+
+      38,204          38,205              1.0       0.00        0.00  1134502873
+Module: radio.exe
+select nvl(min(ext_etat_controle),10) into :b0  from colis where
+ (num_tournee=:b1 and etat<=:b2)
+
+          -------------------------------------------------------------
+SQL ordered by Parse Calls  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Parse Calls Threshold:      1000 Total Parse Calls:         228,677
+-> Captured SQL accounts for   98.3% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+      32,639       32,639    14.27  833580320
+Module: automate.exe
+select num_site ,num_region ,libelle ,num_alveole ,compteur_alve
+ole ,indice ,mode_mission_tournee ,code_barre ,id_gare ,longueur
+ ,largeur ,hauteur ,poids ,accessibilite ,usage ,inventaire ,lib
+_region ,lib_allee ,lib_colonne ,lib_niveau ,lib_indice ,date_in
+
+      11,718       11,718     5.12 3877098055
+Module: lm_net.exe
+select *  from demande_attente  order by date_insertion
+
+
+      10,729       10,729     4.69 1328755058
+Module: edition_laser_lmreport.exe
+select count(af.id_produit) into :b0  from article_famille af ,c
+fg_famille cf where ((((af.id_societe=:b1 and af.id_produit=:b2)
+ and af.categorie=:b3) and cf.id_famille=:b4) and cf.num_famille
+=af.num_famille)
+
+      10,299       10,299     4.50  414674410
+Module: radio.exe
+select * into :s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7 ,:s8 ,:s9 ,:s10
+,:s11 ,:s12 ,:s13 ,:s14 ,:s15 ,:s16 ,:s17 ,:s18 ,:s19   from sup
+port s where id_support=:b1
+
+       5,497        5,497     2.40 2275360153
+select /*+ connect_by_filtering */ privilege#,level from sysauth
+$ connect by grantee#=prior privilege# and privilege#>0 start wi
+th grantee#=:1 and privilege#>0
+
+       5,122        5,122     2.24  823919053
+Module: radio.exe
+select er.chemin_allocation ,er.chemin_parcoure ,er.chemin_inven
+taire ,er.chemin_libre into :b0,:b1,:b2,:b3  from emplacement e
+,emplacement_region er where ((e.id_emplacement=:b4 and er.num_r
+egion=e.num_region) and er.id_emplacement=e.id_emplacement)
+
+       3,607        3,607     1.58  872245187
+Module: JDBC Thin Client
+select CURRENT_TIMESTAMP from dual
+
+       2,762        2,762     1.21 3840591838
+select privilege# from sysauth$ where (grantee#=:1 or grantee#=1
+) and privilege#>0
+
+       2,761        2,761     1.21  801255854
+select SYS_CONTEXT('USERENV', 'SERVER_HOST'), SYS_CONTEXT('USERE
+NV', 'DB_UNIQUE_NAME'), SYS_CONTEXT('USERENV', 'INSTANCE_NAME'),
+ SYS_CONTEXT('USERENV', 'SERVICE_NAME'), INSTANCE_NUMBER, STARTU
+P_TIME, SYS_CONTEXT('USERENV', 'DB_DOMAIN') from v$instance wher
+
+       2,761        2,761     1.21 3425645771
+SQL ordered by Parse Calls  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Parse Calls Threshold:      1000 Total Parse Calls:         228,677
+-> Captured SQL accounts for   98.3% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+select decode(failover_method, NULL, 0 , 'BASIC', 1, 'PRECONNECT
+', 2 , 'PREPARSE', 4 , 0), decode(failover_type, NULL, 1 , 'NONE
+', 1 , 'SESSION', 2, 'SELECT',  4, 1), failover_retries, failove
+r_delay, flags from service$ where name = :1
+
+       2,761        2,761     1.21 4166735688
+select value$ from props$ where name = 'GLOBAL_DB_NAME'
+
+       2,344        2,344     1.03 2542946992
+Module: envoi_document.exe
+update demande_traitement  set date_fin=:b0,etat=:b1,resultat=:b
+2,id_message=:b3,argument=:b4,entite_traite=:b5,mdate=:b6,muser=
+:b7,mentite=:b8 where (num_demande=:b9 and table_demande=:b10)
+
+       2,341        2,341     1.02   10559835
+Module: demande_base.exe
+update demande_traitement  set date_debut=:b0,etat=:b1,resultat=
+:b2,id_message=:b3,argument=:b4,mdate=:b5,muser=:b6,mentite=:b7
+where (num_demande=:b8 and table_demande=:b9)
+
+       2,341        2,341     1.02 4063745102
+Module: serveur_histo_log.exe
+insert into histo_log  values (:s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7
+ ,:s8 ,:s9 ,:s10 ,:s11 ,:s12 ,:s13 )
+
+       2,323        2,323     1.02 1308826584
+Module: reception.exe
+select * into :s1 ,:s2 ,:s3 ,:s4 ,:s5 ,:s6 ,:s7 ,:s8 ,:s9 ,:s10
+,:s11 ,:s12 ,:s13 ,:s14 ,:s15 ,:s16 ,:s17 ,:s18 ,:s19 ,:s20 ,:s2
+1 ,:s22 ,:s23 ,:s24 ,:s25 ,:s26 ,:s27 ,:s28 ,:s29 ,:s30 ,:s31 ,:
+s32 ,:s33 ,:s34 ,:s35 ,:s36 ,:s37 ,:s38 ,:s39 ,:s40 ,:s41 ,:s42
+
+          -------------------------------------------------------------
+SQL ordered by Sharable Memory  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+     26,789      26,789            2           15     1.7  828281227
+select obj#,type#,ctime,mtime,stime, status, dataobj#, flags, oi
+d$, spare1, spare2 from obj$ where owner#=:1 and name=:2 and nam
+espace=:3 and remoteowner is null and linkname is null and subna
+me is null
+
+     23,935      23,935            6           18     1.5 3694268570
+select i.obj#,i.ts#,i.file#,i.block#,i.intcols,i.type#,i.flags,i
+.property,i.pctfree$,i.initrans,i.maxtrans,i.blevel,i.leafcnt,i.
+distkey,i.lblkkey,i.dblkkey,i.clufac,i.cols,i.analyzetime,i.samp
+lesize,i.dataobj#,nvl(i.degree,1),nvl(i.instances,1),i.rowcnt,mo
+
+     15,102      15,102            0            0     0.9 3316840717
+Module: Data Pump Worker
+SELECT /*+rule*/ SYS_XMLGEN(VALUE(KU$), XMLFORMAT.createFormat2(
+'M_VIEW_T', '7')), KU$.MVIEW_TAB.OBJ_NUM ,KU$.VNAME ,KU$.VNAME ,
+'MATERIALIZED_VIEW' ,KU$.SOWNER FROM SYS.KU$_M_VIEW_FH_VIEW KU$
+WHERE  KU$.MVIEW.SOWNER LIKE '%' AND  NOT EXISTS (SELECT 1 FROM
+
+     13,074      13,074           10           10     0.8 3285818817
+select owner#,name,namespace,remoteowner,linkname,p_timestamp,p_
+obj#, nvl(property,0),subname,type#,d_attrs from dependency$ d,
+obj$ o where d_obj#=:1 and p_obj#=obj#(+) order by order#
+
+     11,409      11,409            1            1     0.7 3146531828
+Module: colisage.exe
+delete from DEMANDE_COLISAGE where num_demande = :v1
+
+      9,389       9,389            6           23     0.6  839312984
+select name,intcol#,segcol#,type#,length,nvl(precision#,0),decod
+e(type#,2,nvl(scale,-127/*MAXSB1MINAL*/),178,scale,179,scale,180
+,scale,181,scale,182,scale,183,scale,231,scale,0),null$,fixedsto
+rage,nvl(deflength,0),default$,rowid,col#,property, nvl(charseti
+
+      9,133       9,133          466          466     0.6 4267281597
+Module: radio.exe
+select num_contenu_entete into :b0  from contenu_entete where ((
+(id_support=:b1 and id_societe=:b2) and id_produit=:b3) and id_u
+l=:b4)
+
+      8,442       8,442            8            8     0.5 1572546306
+Module: emission.exe
+insert into DEMANDE_ENVOI_DOCUMENT (num_demande, mdate, mentite,
+ muser, mcomputer, id_societe, num_site, date_insertion, user_de
+mande, entite_demande, urgence, typelm, action, reference, refer
+ence_suite, reference_int, reference_suite_int, commentaire, ent
+
+      8,228       8,228          452          452     0.5   66621391
+Module: ordonnancement.exe
+insert into DEMANDE_EMISSION (num_demande, mdate, mentite, muser
+, mcomputer, id_societe, num_site, date_insertion, user_demande,
+ entite_demande, urgence, typelm, action, reference, reference_s
+uite, reference_int, reference_suite_int, commentaire, entite_tr
+SQL ordered by Sharable Memory  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+
+      8,220       8,220            2            9     0.5  214372507
+select o.owner#,o.name,o.namespace,o.remoteowner,o.linkname,o.su
+bname from obj$ o where o.obj#=:1
+
+      7,687       7,687            2            2     0.5 3618050959
+Module: reception.exe
+insert into DEMANDE_TRAITE_OP (num_demande, mdate, mentite, muse
+r, mcomputer, id_societe, num_site, date_insertion, user_demande
+, entite_demande, urgence, typelm, action, reference, reference_
+suite, reference_int, reference_suite_int, commentaire, entite_t
+
+      7,472       7,472           57           57     0.5 1558397758
+Module: radio.exe
+insert into DEMANDE_LASER (num_demande, mdate, mentite, muser, m
+computer, id_societe, num_site, date_insertion, user_demande, en
+tite_demande, urgence, typelm, action, reference, reference_suit
+e, reference_int, reference_suite_int, commentaire, entite_trait
+
+      7,230       7,230          291          291     0.5 3605876882
+Module: traite_mission.exe
+insert into DEMANDE_TOURNEE (num_demande, mdate, mentite, muser,
+ mcomputer, id_societe, num_site, date_insertion, user_demande,
+entite_demande, urgence, typelm, action, reference, reference_su
+ite, reference_int, reference_suite_int, commentaire, entite_tra
+
+      7,133       7,133            3            3     0.4 3309219733
+select intcol#,type,flags,lobcol,objcol,extracol,schemaoid,  ele
+mnum from opqtype$ where obj# = :1 order by intcol# asc
+
+      7,060       7,060            3            3     0.4 1232162599
+select l.col#, l.intcol#, l.lobj#, l.ind#, l.ts#, l.file#, l.blo
+ck#, l.chunk, l.pctversion$, l.flags, l.property, l.retention, l
+.freepools from lob$ l where l.obj# = :1 order by l.intcol# asc
+
+      6,477       6,477            1            1     0.4 2243411074
+Module: traite_op.exe
+insert into DEMANDE_COLISAGE (num_demande, mdate, mentite, muser
+, mcomputer, id_societe, num_site, date_insertion, user_demande,
+ entite_demande, urgence, typelm, action, reference, reference_s
+uite, reference_int, reference_suite_int, commentaire, entite_tr
+
+      5,676       5,676            6           26     0.4 2030260024
+select pos#,intcol#,col#,spare1,bo#,spare2,spare3 from icol$ whe
+re obj#=:1
+
+      5,510       5,510          424          424     0.3    2803285
+update sys.mon_mods$ set inserts = inserts + :ins, updates = upd
+ates + :upd, deletes = deletes + :del, flags = (decode(bitand(fl
+ags, :flag), :flag, flags, flags + :flag)), drop_segments = drop
+_segments + :dropseg, timestamp = :time where obj# = :objn
+
+      5,409       5,409          452          452     0.3 4206391283
+SQL ordered by Sharable Memory  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+Module: emission.exe
+delete from DEMANDE_EMISSION where num_demande = :v1
+
+      5,346       5,346            0            0     0.3 2502530145
+Module: Data Pump Worker
+SELECT /*+rule*/ SYS_XMLGEN(VALUE(KU$), XMLFORMAT.createFormat2(
+'VIEW_T', '7')), KU$.OBJ_NUM ,KU$.SCHEMA_OBJ.NAME ,KU$.SCHEMA_OB
+J.NAME ,'VIEW' ,KU$.SCHEMA_OBJ.OWNER_NAME FROM SYS.KU$_VIEW_VIEW
+ KU$ WHERE  KU$.OBJ_NUM IN (SELECT * FROM TABLE(DBMS_METADATA.FE
+
+      5,278       5,278           59           59     0.3  986407124
+Module: edition_laser_lmreport.exe
+delete from DEMANDE_LASER where num_demande = :v1
+
+      5,103       5,103            8            8     0.3 4108712371
+Module: envoi_document.exe
+delete from DEMANDE_ENVOI_DOCUMENT where num_demande = :v1
+
+      4,973       4,973           53           53     0.3  533171205
+select u.name, o.name, a.interface_version#, o.obj#      from as
+sociation$ a, user$ u, obj$ o                     where a.obj# =
+ :1                                          and a.property = :2
+                                      and a.statstype# = o.obj#
+
+      4,926       4,926            6            6     0.3 3162845410
+Module: lmxt.exe
+  SELECT  "DICO_LEXIQUE_LANGUE"."LIBELLE" ,           "DICO_CONS
+TANTE"."VALEUR_NUM"     FROM "DICO_LEXIQUE" ,           "DICO_LE
+XIQUE_LANGUE" ,           "DICO_CONSTANTE" ,           "USER_MOD
+ULE_ACCES"     WHERE ( "DICO_LEXIQUE"."NUM_LEXIQUE" = "DICO_LEXI
+
+      4,924       4,900            3            5     0.3 2926525797
+select type#,blocks,extents,minexts,maxexts,extsize,extpct,user#
+,iniexts,NVL(lists,65535),NVL(groups,65535),cachehint,hwmincr, N
+VL(spare1,0),NVL(scanhint,0),NVL(bitmapranges,0) from seg$ where
+ ts#=:1 and file#=:2 and block#=:3
+
+      4,877       4,877            7           29     0.3  947984246
+select con#,type#,condlength,intcols,robj#,rcon#,match#,refact,n
+vl(enabled,0),rowid,cols,nvl(defer,0),mtime,nvl(spare1,0),spare2
+,spare3 from cdef$ where obj#=:1
+
+      4,866       4,866          339          339     0.3  151058121
+Module: consolidation.exe
+delete from DEMANDE_CONSOLIDATION where num_demande = :v1
+
+      4,807       4,807           66           66     0.3 1823808194
+Module: radio.exe
+insert into DEMANDE_ETIQUETTE (num_demande, mdate, mentite, muse
+r, mcomputer, id_societe, num_site, date_insertion, user_demande
+, entite_demande, urgence, typelm, action, reference, reference_
+suite, reference_int, reference_suite_int, commentaire, entite_t
+
+SQL ordered by Sharable Memory  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      4,786       4,786          187          187     0.3 3235184743
+select /*+ INDEX(ol$ ol$signature) */ ol_name,rowid,textlen,vers
+ion,creator,timestamp,flags,hintcount,hash_value, hash_value2 fr
+om outln.ol$ where signature = :1 and category = :2
+
+      4,758       4,758            0            0     0.3 3011400993
+select user#,password,datats#,tempts#,type#,defrole,resource$, p
+time,decode(defschclass,NULL,'DEFAULT_CONSUMER_GROUP',defschclas
+s),spare1,spare4,ext_username,spare2 from user$ where name=:1
+
+      4,649       4,649           23           23     0.3 3468666020
+select text from view$ where rowid=:1
+
+      4,646       4,646           31           31     0.3 4128701160
+Module: radio.exe
+insert into DEMANDE_BASE (num_demande, mdate, mentite, muser, mc
+omputer, id_societe, num_site, date_insertion, user_demande, ent
+ite_demande, urgence, typelm, action, reference, reference_suite
+, reference_int, reference_suite_int, commentaire, entite_traite
+
+      4,570       4,570            3            3     0.3 3302995849
+select col#,intcol#,reftyp,stabid,expctoid from refcon$ where ob
+j#=:1 order by intcol# asc
+
+      4,556       4,556            7          109     0.3 2482976222
+select intcol#,nvl(pos#,0),col#,nvl(spare1,0) from ccol$ where c
+on#=:1
+
+      4,533       4,533          260          520     0.3  153762486
+Module: radio.exe
+select m.*, cts.id_contenant from mission m, contenant_tournee_s
+tock cts where m.num_mission_lm = cts.num_mission_lm_suivant and
+ m.etat = :v1 and m.distribue = :v2 and to_char(m.muser_distribu
+e) in (:v3)
+
+      4,488       4,488            5            5     0.3 3447189756
+insert into sys.mon_mods$ (obj#, inserts, updates, deletes, time
+stamp, flags, drop_segments) values (:1, :2, :3, :4, :5, :6, :7)
+
+      4,432       4,432            6           19     0.3  204386021
+select col#, grantee#, privilege#,max(mod(nvl(option$,0),2)) fro
+m objauth$ where obj#=:1 and col# is not null group by privilege
+#, col#, grantee# order by col#, grantee#
+
+      4,337       4,337           10           10     0.3 1198893840
+select order#,columns,types from access$ where d_obj#=:1
+
+      4,300       4,300           13           13     0.3 2018736380
+select timestamp, flags from fixed_obj$ where obj#=:1
+
+      4,048       4,048            0            0     0.3 1992699962
+Module: lancement.exe
+select su.id_emplacement ,su.id_support ,su.etat_mouvement ,ce.n
+SQL ordered by Sharable Memory  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+um_contenu_entete ,ce.num_preparation ,ce.type_contenu ,ce.qte ,
+ce.qte_a_venir ,ce.qte_reserve into :b0,:b1,:b2,:b3,:b4,:b5,:b6,
+:b7,:b8  from support su ,contenu_entete ce where (((((su.id_emp
+
+      3,911       3,911            4           16     0.2 3716207873
+update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,
+order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:
+1
+
+      3,744       3,744            2            2     0.2 3599780480
+Module: traite_op.exe
+delete from DEMANDE_TRAITE_OP where num_demande = :v1
+
+      3,736       3,736            0            0     0.2 3067124474
+Module: Data Pump Worker
+SELECT /*+rule*/ SYS_XMLGEN(VALUE(KU$), XMLFORMAT.createFormat2(
+'TABLE_DATA_T', '7')), 0 ,KU$.BASE_OBJ.NAME ,KU$.BASE_OBJ.OWNER_
+NAME ,'TABLE' ,to_char(KU$.BYTES_ALLOC) ,KU$.SCHEMA_OBJ.CTIME ,K
+U$.DATAOBJ_NUM ,to_char(KU$.ET_PARALLEL) ,KU$.FGAC ,KU$.LONGCOL
+
+      3,657       3,657            2           17     0.2  199663413
+select /*+ rule */ bucket, endpoint, col#, epvalue from histgrm$
+ where obj#=:1 and intcol#=:2 and row#=:3 order by bucket
+
+      3,642       3,642            3            3     0.2  162044583
+select col#,intcol#,charsetid,charsetform from col$ where obj#=:
+1 order by intcol# asc
+
+      3,621       3,621          340          340     0.2 3458687993
+Module: radio.exe
+insert into DEMANDE_CONSOLIDATION (num_demande, mdate, mentite,
+muser, mcomputer, id_societe, num_site, date_insertion, user_dem
+ande, entite_demande, urgence, typelm, action, reference, refere
+nce_suite, reference_int, reference_suite_int, commentaire, enti
+
+      3,448       3,448            0            0     0.2 4188462329
+select o.owner#, o.name,            o.namespace,    o.obj#,   d.
+d_timestamp, nvl(d.property,0), o.type#, o.subname, d.d_attrs  f
+rom dependency$ d, obj$ o   where d.p_obj#=:1  and   (d.p_timest
+amp=nvl(:2,d.p_timestamp) or d.property=2)  and   o.owner#=nvl(:
+
+      3,432       3,432        2,761        2,761     0.2 3425645771
+select decode(failover_method, NULL, 0 , 'BASIC', 1, 'PRECONNECT
+', 2 , 'PREPARSE', 4 , 0), decode(failover_type, NULL, 1 , 'NONE
+', 1 , 'SESSION', 2, 'SELECT',  4, 1), failover_retries, failove
+r_delay, flags from service$ where name = :1
+
+      3,396       3,396        1,027        1,027     0.2  108845502
+Module: emplacement.exe
+delete from DEMANDE_EMPLACEMENT where num_demande = :v1
+
+      3,388       3,388          291          291     0.2 2588878758
+Module: tournee.exe
+SQL ordered by Sharable Memory  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+delete from DEMANDE_TOURNEE where num_demande = :v1
+
+      3,336       3,336          242          242     0.2 2979403515
+Module: lmxt.exe
+  SELECT  "DEMANDE_TRAITEMENT"."TABLE_DEMANDE" ,           "DEMA
+NDE_TRAITEMENT"."NUM_DEMANDE" ,           "DEMANDE_TRAITEMENT"."
+ETAT" ,           "DEMANDE_TRAITEMENT"."RESULTAT" ,           "D
+EMANDE_TRAITEMENT"."ID_MESSAGE" ,           "DEMANDE_TRAITEMENT"
+
+      3,328       3,328          129          129     0.2 4099654372
+Module: edition_etiquette_lmreport.exe
+delete from DEMANDE_ETIQUETTE where num_demande = :v1
+
+      3,318       3,318           27           27     0.2 3345291888
+Module: archivage.exe
+select dc.nom ,dc.type_valeur ,dc.valeur_char ,dc.valeur_num ,dl
+.num_lexique ,nvl(dll1.libelle,' ') ,nvl(dll2.libelle,' ')  from
+ dico_constante dc ,dico_lexique dl ,dico_lexique_langue dll1 ,d
+ico_lexique_langue dll2 where ((((((dc.num_constante=dl.num_cons
+
+      3,274       3,274           31           31     0.2 3574867509
+Module: demande_base.exe
+delete from DEMANDE_BASE where num_demande = :v1
+
+      3,069       3,069            1            1     0.2 1743353856
+Module: reception.exe
+delete from DEMANDE_RECEPTION where num_demande = :v1
+
+      3,053       3,053            0            0     0.2  654663372
+Module: Data Pump Worker
+SELECT /*+all_rows*/ SYS_XMLGEN(VALUE(KU$), XMLFORMAT.createForm
+at2('CONSTRAINT_T', '7')), 0 ,KU$.BASE_OBJ.NAME ,KU$.BASE_OBJ.OW
+NER_NAME ,KU$.BASE_OBJ.TYPE_NAME ,KU$.NAME ,KU$.NAME ,'CONSTRAIN
+T' ,KU$.OWNER_NAME FROM SYS.KU$_CONSTRAINT_VIEW KU$ WHERE NOT (K
+
+      3,049       3,049            0            0     0.2 4249933645
+Module: Data Pump Worker
+SELECT /*+all_rows*/ SYS_XMLGEN(VALUE(KU$), XMLFORMAT.createForm
+at2('CONSTRAINT_T', '7')), 0 ,KU$.BASE_OBJ.NAME ,KU$.BASE_OBJ.OW
+NER_NAME ,KU$.BASE_OBJ.TYPE_NAME ,KU$.NAME ,KU$.NAME ,'CONSTRAIN
+T' ,KU$.OWNER_NAME FROM SYS.KU$_CONSTRAINT_VIEW KU$ WHERE NOT BI
+
+      3,025       3,025           30           30     0.2 3661686938
+Module: JDBC Thin Client
+select * from v_po where po_num IN (select distinct po_num from
+v_box where support_id = :1)
+
+      3,004       2,992            1            3     0.2  311489723
+select cols,audit$,textlength,intcols,property,flags,rowid from
+view$ where obj#=:1
+
+      2,985       2,985            1            1     0.2 2172187976
+Module: transport.exe
+SQL ordered by Sharable Memory  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+delete from DEMANDE_TRANSPORT where num_demande = :v1
+
+      2,911       2,895            7           29     0.2 3255980345
+select con#,obj#,rcon#,enabled,nvl(defer,0),spare2,spare3 from c
+def$ where robj#=:1
+
+      2,888       2,872            3            3     0.2 2364027057
+select col#,intcol#,toid,version#,packed,intcols,intcol#s,flags,
+ synobj#, nvl(typidcol#, 0) from coltype$ where obj#=:1 order by
+ intcol# desc
+
+      2,821       2,805            3            3     0.2 1520971034
+select intcol#, toid, version#, intcols, intcol#s, flags, synobj
+# from subcoltype$ where obj#=:1 order by intcol# asc
+
+      2,748       2,736            3            3     0.2  120978412
+select col#,intcol#,ntab# from ntab$ where obj#=:1 order by intc
+ol# asc
+
+      2,679       2,667            6           19     0.2 1980305124
+select grantee#,privilege#,nvl(col#,0),max(mod(nvl(option$,0),2)
+)from objauth$ where obj#=:1 group by grantee#,privilege#,nvl(co
+l#,0) order by grantee#
+
+          -------------------------------------------------------------
+SQL ordered by Version Count  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Version Count Threshold:        20
+
+     Max      End    Delta
+ Version  Version  Version                 Old
+   Count    Count    Count   Executions Hash Value
+-------- -------- -------- ------------ ----------
+      91       91        0           18 3694268570
+select i.obj#,i.ts#,i.file#,i.block#,i.intcols,i.type#,i.flags,i
+.property,i.pctfree$,i.initrans,i.maxtrans,i.blevel,i.leafcnt,i.
+distkey,i.lblkkey,i.dblkkey,i.clufac,i.cols,i.analyzetime,i.samp
+lesize,i.dataobj#,nvl(i.degree,1),nvl(i.instances,1),i.rowcnt,mo
+
+      57       57        0          466 4267281597
+Module: radio.exe
+select num_contenu_entete into :b0  from contenu_entete where ((
+(id_support=:b1 and id_societe=:b2) and id_produit=:b3) and id_u
+l=:b4)
+
+      38       38        0            0 3011400993
+select user#,password,datats#,tempts#,type#,defrole,resource$, p
+time,decode(defschclass,NULL,'DEFAULT_CONSUMER_GROUP',defschclas
+s),spare1,spare4,ext_username,spare2 from user$ where name=:1
+
+      36       36        0           15  828281227
+select obj#,type#,ctime,mtime,stime, status, dataobj#, flags, oi
+d$, spare1, spare2 from obj$ where owner#=:1 and name=:2 and nam
+espace=:3 and remoteowner is null and linkname is null and subna
+me is null
+
+      34       34        0            0 1992699962
+Module: lancement.exe
+select su.id_emplacement ,su.id_support ,su.etat_mouvement ,ce.n
+um_contenu_entete ,ce.num_preparation ,ce.type_contenu ,ce.qte ,
+ce.qte_a_venir ,ce.qte_reserve into :b0,:b1,:b2,:b3,:b4,:b5,:b6,
+:b7,:b8  from support su ,contenu_entete ce where (((((su.id_emp
+
+      34       34        0            1 3146531828
+Module: colisage.exe
+delete from DEMANDE_COLISAGE where num_demande = :v1
+
+      32       32        0          242 2979403515
+Module: lmxt.exe
+  SELECT  "DEMANDE_TRAITEMENT"."TABLE_DEMANDE" ,           "DEMA
+NDE_TRAITEMENT"."NUM_DEMANDE" ,           "DEMANDE_TRAITEMENT"."
+ETAT" ,           "DEMANDE_TRAITEMENT"."RESULTAT" ,           "D
+EMANDE_TRAITEMENT"."ID_MESSAGE" ,           "DEMANDE_TRAITEMENT"
+
+      28       28        0            6 3162845410
+Module: lmxt.exe
+  SELECT  "DICO_LEXIQUE_LANGUE"."LIBELLE" ,           "DICO_CONS
+TANTE"."VALEUR_NUM"     FROM "DICO_LEXIQUE" ,           "DICO_LE
+XIQUE_LANGUE" ,           "DICO_CONSTANTE" ,           "USER_MOD
+ULE_ACCES"     WHERE ( "DICO_LEXIQUE"."NUM_LEXIQUE" = "DICO_LEXI
+
+      27       27        0           27 3345291888
+Module: archivage.exe
+select dc.nom ,dc.type_valeur ,dc.valeur_char ,dc.valeur_num ,dl
+.num_lexique ,nvl(dll1.libelle,' ') ,nvl(dll2.libelle,' ')  from
+ dico_constante dc ,dico_lexique dl ,dico_lexique_langue dll1 ,d
+SQL ordered by Version Count  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Version Count Threshold:        20
+
+     Max      End    Delta
+ Version  Version  Version                 Old
+   Count    Count    Count   Executions Hash Value
+-------- -------- -------- ------------ ----------
+ico_lexique_langue dll2 where ((((((dc.num_constante=dl.num_cons
+
+      25       25        0            2 3618050959
+Module: reception.exe
+insert into DEMANDE_TRAITE_OP (num_demande, mdate, mentite, muse
+r, mcomputer, id_societe, num_site, date_insertion, user_demande
+, entite_demande, urgence, typelm, action, reference, reference_
+suite, reference_int, reference_suite_int, commentaire, entite_t
+
+      24       24        0           10 3285818817
+select owner#,name,namespace,remoteowner,linkname,p_timestamp,p_
+obj#, nvl(property,0),subname,type#,d_attrs from dependency$ d,
+obj$ o where d_obj#=:1 and p_obj#=obj#(+) order by order#
+
+      23       23        0            1 2243411074
+Module: traite_op.exe
+insert into DEMANDE_COLISAGE (num_demande, mdate, mentite, muser
+, mcomputer, id_societe, num_site, date_insertion, user_demande,
+ entite_demande, urgence, typelm, action, reference, reference_s
+uite, reference_int, reference_suite_int, commentaire, entite_tr
+
+      23       23        0          187 3235184743
+select /*+ INDEX(ol$ ol$signature) */ ol_name,rowid,textlen,vers
+ion,creator,timestamp,flags,hintcount,hash_value, hash_value2 fr
+om outln.ol$ where signature = :1 and category = :2
+
+      21       21        0            0 2364686721
+Module: transport.exe
+select r.*  from remorque r where ((((r.typelm=:b0 and r.code_to
+urnee=:b1) and r.etat<:b2) and r.date_limite_affectation>:b3) an
+d r.num_expedition not  in (select se.num_expedition  from suppo
+rt_expedition se where (se.num_remorque=r.num_remorque and se.et
+
+          -------------------------------------------------------------
+Instance Activity Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+active txn count during cleanout              11,327            3.2          0.6
+application wait time                            523            0.2          0.0
+auto extends on undo tablespace                    0            0.0          0.0
+background checkpoints completed                   2            0.0          0.0
+background checkpoints started                     1            0.0          0.0
+background timeouts                           17,332            4.8          0.9
+Batched IO block miss count                   77,356           21.5          4.0
+Batched IO (bound) vector count                3,776            1.1          0.2
+Batched IO buffer defrag count                   343            0.1          0.0
+Batched IO double miss count                     708            0.2          0.0
+Batched IO (full) vector count                   149            0.0          0.0
+Batched IO same unit count                    33,105            9.2          1.7
+Batched IO single block count                  1,639            0.5          0.1
+Batched IO slow jump count                       257            0.1          0.0
+Batched IO (space) vector count                    0            0.0          0.0
+Batched IO vector block count                 42,749           11.9          2.2
+Batched IO vector read count                   2,398            0.7          0.1
+Block Cleanout Optim referenced                  149            0.0          0.0
+branch node splits                                 2            0.0          0.0
+buffer is not pinned count               732,569,257      203,491.5     37,714.6
+buffer is pinned count                   393,478,603      109,299.6     20,257.3
+bytes received via SQL*Net from c        217,959,931       60,544.4     11,221.2
+bytes received via SQL*Net from d                  0            0.0          0.0
+bytes sent via SQL*Net to client         462,130,164      128,369.5     23,791.7
+bytes sent via SQL*Net to dblink                   0            0.0          0.0
+Cached Commit SCN referenced                 203,587           56.6         10.5
+calls to get snapshot scn: kcmgss          3,673,307        1,020.4        189.1
+calls to kcmgas                               39,497           11.0          2.0
+calls to kcmgcs                               51,047           14.2          2.6
+CCursor + sql area evicted                         6            0.0          0.0
+cell physical IO interconnect byt    168,754,205,184   46,876,168.1  8,687,922.4
+change write time                                134            0.0          0.0
+cleanout - number of ktugct calls             19,146            5.3          1.0
+cleanouts and rollbacks - consist             10,394            2.9          0.5
+cleanouts only - consistent read               7,071            2.0          0.4
+cluster key scan block gets                   17,981            5.0          0.9
+cluster key scans                             14,060            3.9          0.7
+commit batch performed                             0            0.0          0.0
+commit batch requested                             0            0.0          0.0
+commit batch/immediate performed                  12            0.0          0.0
+commit batch/immediate requested                  12            0.0          0.0
+commit cleanout failures: block l                 17            0.0          0.0
+commit cleanout failures: buffer                   0            0.0          0.0
+commit cleanout failures: callbac                 31            0.0          0.0
+commit cleanout failures: cannot                 291            0.1          0.0
+commit cleanouts                             141,166           39.2          7.3
+commit cleanouts successfully com            140,827           39.1          7.3
+commit immediate performed                        12            0.0          0.0
+commit immediate requested                        12            0.0          0.0
+Commit SCN cached                                  1            0.0          0.0
+commit txn count during cleanout              16,697            4.6          0.9
+concurrency wait time                            427            0.1          0.0
+consistent changes                            29,635            8.2          1.5
+consistent gets                          678,309,142      188,419.2     34,921.2
+consistent gets - examination            476,499,994      132,361.1     24,531.5
+consistent gets direct                     7,221,603        2,006.0        371.8
+Instance Activity Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+consistent gets from cache               671,087,508      186,413.2     34,549.4
+consistent gets from cache (fastp        194,324,643       53,979.1     10,004.4
+CPU used by this session                     151,923           42.2          7.8
+CPU used when call started                   151,729           42.2          7.8
+CR blocks created                             10,586            2.9          0.5
+cursor authentications                           176            0.1          0.0
+data blocks consistent reads - un             26,925            7.5          1.4
+db block changes                             444,985          123.6         22.9
+db block gets                                506,372          140.7         26.1
+db block gets direct                           1,376            0.4          0.1
+db block gets from cache                     504,996          140.3         26.0
+db block gets from cache (fastpat            119,121           33.1          6.1
+DB time                                      214,145           59.5         11.0
+DBWR checkpoint buffers written               23,435            6.5          1.2
+DBWR checkpoints                                 192            0.1          0.0
+DBWR object drop buffers written                   0            0.0          0.0
+DBWR revisited being-written buff                135            0.0          0.0
+DBWR tablespace checkpoint buffer              1,530            0.4          0.1
+DBWR thread checkpoint buffers wr                  0            0.0          0.0
+DBWR transaction table writes                    122            0.0          0.0
+DBWR undo block writes                         3,863            1.1          0.2
+deferred (CURRENT) block cleanout             45,583           12.7          2.4
+dirty buffers inspected                          139            0.0          0.0
+doubling up with imu segment                       0            0.0          0.0
+Effective IO time                        331,759,178       92,155.3     17,079.9
+enqueue conversions                            2,301            0.6          0.1
+enqueue deadlocks                                  0            0.0          0.0
+enqueue releases                              97,216           27.0          5.0
+enqueue requests                              97,157           27.0          5.0
+enqueue timeouts                                   2            0.0          0.0
+enqueue waits                                    198            0.1          0.0
+exchange deadlocks                                 0            0.0          0.0
+execute count                              3,657,389        1,015.9        188.3
+failed probes on index block recl                  0            0.0          0.0
+file io service time                               0            0.0          0.0
+file io wait time                     10,529,542,580    2,924,872.9    542,089.3
+frame signature mismatch                           0            0.0          0.0
+free buffer inspected                        186,209           51.7          9.6
+free buffer requested                        186,981           51.9          9.6
+global undo segment hints helped                   0            0.0          0.0
+global undo segment hints were st                  0            0.0          0.0
+heap block compress                           15,939            4.4          0.8
+Heap Segment Array Inserts                     2,121            0.6          0.1
+Heap Segment Array Updates                         5            0.0          0.0
+hot buffers moved to head of LRU             109,514           30.4          5.6
+HSC Heap Segment Block Changes                60,440           16.8          3.1
+HSC IDL Compressed Blocks                          0            0.0          0.0
+immediate (CR) block cleanout app             17,465            4.9          0.9
+immediate (CURRENT) block cleanou             24,925            6.9          1.3
+IMU bind flushes                                   0            0.0          0.0
+IMU commits                                   14,175            3.9          0.7
+IMU contention                                   229            0.1          0.0
+IMU CR rollbacks                                 946            0.3          0.1
+IMU- failed to get a private stra                  3            0.0          0.0
+IMU Flushes                                    5,191            1.4          0.3
+IMU ktichg flush                                 129            0.0          0.0
+Instance Activity Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+IMU pool not allocated                             3            0.0          0.0
+IMU recursive-transaction flush                   12            0.0          0.0
+IMU Redo allocation size                  17,115,548        4,754.3        881.2
+IMU undo allocation size                  71,819,368       19,949.8      3,697.5
+in call idle wait time                     8,710,111        2,419.5        448.4
+index crx upgrade (positioned)                 1,473            0.4          0.1
+index crx upgrade (prefetch)                       0            0.0          0.0
+index fast full scans (full)                     292            0.1          0.0
+index fetch by key                       286,120,777       79,478.0     14,730.3
+index scans kdiixs1                       23,947,947        6,652.2      1,232.9
+leaf node splits                                 402            0.1          0.0
+leaf node 90-10 splits                            94            0.0          0.0
+lob reads                                         73            0.0          0.0
+LOB table id lookup cache misses                   0            0.0          0.0
+lob writes                                       973            0.3          0.1
+lob writes unaligned                             973            0.3          0.1
+logical read bytes from cache      5,501,684,924,416 ############## ############
+logons cumulative                              2,779            0.8          0.1
+max cf enq hold time                             389            0.1          0.0
+messages received                             30,377            8.4          1.6
+messages sent                                 30,377            8.4          1.6
+min active SCN optimization appli                148            0.0          0.0
+Misses for writing mapping                         0            0.0          0.0
+no buffer to keep pinned count                 4,827            1.3          0.3
+no work - consistent read gets           201,518,949       55,977.5     10,374.7
+non-idle wait count                          801,298          222.6         41.3
+non-idle wait time                            69,835           19.4          3.6
+Number of read IOs issued                    231,244           64.2         11.9
+opened cursors cumulative                  3,581,177          994.8        184.4
+parse count (describe)                             0            0.0          0.0
+parse count (failures)                            51            0.0          0.0
+parse count (hard)                               477            0.1          0.0
+parse count (total)                          228,677           63.5         11.8
+parse time cpu                                   556            0.2          0.0
+parse time elapsed                               669            0.2          0.0
+physical read bytes                   60,490,489,856   16,802,913.9  3,114,213.9
+physical read IO requests                    305,247           84.8         15.7
+physical read total bytes            146,408,442,880   40,669,011.9  7,537,502.2
+physical read total IO requests              468,074          130.0         24.1
+physical read total multi block r            381,859          106.1         19.7
+physical reads                             7,384,093        2,051.1        380.2
+physical reads cache                         164,247           45.6          8.5
+physical reads cache prefetch                130,643           36.3          6.7
+physical reads direct                      7,219,846        2,005.5        371.7
+physical reads direct (lob)                        0            0.0          0.0
+physical reads direct temporary t                  0            0.0          0.0
+physical reads prefetch warmup                     0            0.0          0.0
+physical write bytes                     207,872,000       57,742.2     10,701.8
+physical write IO requests                    19,129            5.3          1.0
+physical write total bytes            22,345,762,304    6,207,156.2  1,150,420.2
+physical write total IO requests              82,572           22.9          4.3
+physical write total multi block              21,168            5.9          1.1
+physical writes                               25,375            7.1          1.3
+physical writes direct                         1,394            0.4          0.1
+physical writes direct (lob)                   1,334            0.4          0.1
+physical writes direct temporary                   0            0.0          0.0
+Instance Activity Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+physical writes from cache                    23,981            6.7          1.2
+physical writes non checkpoint                11,579            3.2          0.6
+pinned buffers inspected                           2            0.0          0.0
+prefetch clients - default                         0            0.0          0.0
+prefetch warmup blocks aged out b                  0            0.0          0.0
+prefetch warmup blocks flushed ou                  0            0.0          0.0
+prefetched blocks aged out before              1,005            0.3          0.1
+process last non-idle time                     3,600            1.0          0.2
+PX local messages recv'd                           0            0.0          0.0
+PX local messages sent                             0            0.0          0.0
+recovery blocks read                               0            0.0          0.0
+recursive aborts on index block r                  0            0.0          0.0
+recursive calls                            3,703,198        1,028.7        190.7
+recursive cpu usage                           92,674           25.7          4.8
+redo blocks checksummed by FG (ex             88,139           24.5          4.5
+redo blocks read for recovery                      0            0.0          0.0
+redo blocks written                          176,464           49.0          9.1
+redo buffer allocation retries                     2            0.0          0.0
+redo entries                                 151,119           42.0          7.8
+redo KB read                                  53,157           14.8          2.7
+redo k-bytes read for recovery                     0            0.0          0.0
+redo log space requests                            3            0.0          0.0
+redo log space wait time                           6            0.0          0.0
+redo ordering marks                              344            0.1          0.0
+redo size                                 82,381,304       22,883.7      4,241.2
+redo size for direct writes               11,321,860        3,145.0        582.9
+redo subscn max counts                         5,474            1.5          0.3
+redo synch long waits                              3            0.0          0.0
+redo synch poll writes                             0            0.0          0.0
+redo synch polls                                   0            0.0          0.0
+redo synch time                                9,762            2.7          0.5
+redo synch time overhead count (<                  0            0.0          0.0
+redo synch time overhead count (>                  3            0.0          0.0
+redo synch time overhead count (<             19,266            5.4          1.0
+redo synch time overhead count (<                  1            0.0          0.0
+redo synch time overhead count (<                  4            0.0          0.0
+redo synch time overhead (usec)        1,766,895,613      490,804.3     90,964.6
+redo synch time (usec)                    97,653,144       27,125.9      5,027.5
+redo synch writes                             19,274            5.4          1.0
+redo wastage                               5,070,156        1,408.4        261.0
+redo write info find                          19,274            5.4          1.0
+redo write info find fail                          0            0.0          0.0
+redo write time                                8,475            2.4          0.4
+redo writes                                   19,243            5.4          1.0
+Requests to/from client                      414,777          115.2         21.4
+rollback changes - undo records a                 11            0.0          0.0
+rollbacks only - consistent read                 102            0.0          0.0
+root node splits                                   0            0.0          0.0
+RowCR - row contention                            97            0.0          0.0
+RowCR attempts                                 8,510            2.4          0.4
+RowCR hits                                     8,410            2.3          0.4
+rows fetched via callback                285,718,589       79,366.3     14,709.6
+scheduler wait time                                0            0.0          0.0
+session connect time                          73,452           20.4          3.8
+session cursor cache hits                  1,076,372          299.0         55.4
+session logical reads                    678,816,704      188,560.2     34,947.3
+Instance Activity Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+session uga memory                       130,250,264       36,180.6      6,705.6
+session uga memory max                 3,962,943,560    1,100,817.7    204,023.0
+shared hash latch upgrades - no w            238,261           66.2         12.3
+shared hash latch upgrades - wait                 12            0.0          0.0
+SMON posted for dropping temp seg                  0            0.0          0.0
+SMON posted for undo segment reco                  0            0.0          0.0
+SMON posted for undo segment shri                  2            0.0          0.0
+sorts (disk)                                       0            0.0          0.0
+sorts (memory)                                91,325           25.4          4.7
+sorts (rows)                                 348,088           96.7         17.9
+sql area evicted                                 225            0.1          0.0
+sql area purged                                   52            0.0          0.0
+SQL*Net roundtrips to/from client            414,992          115.3         21.4
+SQL*Net roundtrips to/from dblink                  0            0.0          0.0
+summed dirty queue length                        782            0.2          0.0
+switch current to new buffer                   8,044            2.2          0.4
+table fetch by rowid                     477,916,184      132,754.5     24,604.4
+table fetch continued row                      3,204            0.9          0.2
+table scan blocks gotten                  16,673,304        4,631.5        858.4
+table scan rows gotten                   646,053,598      179,459.3     33,260.6
+table scans (direct read)                        391            0.1          0.0
+table scans (long tables)                        183            0.1          0.0
+table scans (rowid ranges)                         0            0.0          0.0
+table scans (short tables)                    14,183            3.9          0.7
+TBS Extension: bytes extended                      0            0.0          0.0
+TBS Extension: files extended                      0            0.0          0.0
+TBS Extension: tasks created                       0            0.0          0.0
+TBS Extension: tasks executed                      0            0.0          0.0
+temp space allocated (bytes)               1,048,576          291.3         54.0
+total cf enq hold time                         4,245            1.2          0.2
+total number of cf enq holders                   322            0.1          0.0
+total number of slots                              2            0.0          0.0
+total number of times SMON posted                  2            0.0          0.0
+transaction rollbacks                             12            0.0          0.0
+transaction tables consistent rea                  1            0.0          0.0
+transaction tables consistent rea                  9            0.0          0.0
+undo change vector size                   25,800,716        7,166.9      1,328.3
+user calls                                   547,602          152.1         28.2
+user commits                                  19,268            5.4          1.0
+user I/O wait time                            42,784           11.9          2.2
+user logons cumulative                         2,761            0.8          0.1
+user logouts cumulative                        2,819            0.8          0.2
+user rollbacks                                   156            0.0          0.0
+workarea executions - multipass                    0            0.0          0.0
+workarea executions - onepass                      0            0.0          0.0
+workarea executions - optimal                 25,262            7.0          1.3
+write clones created in backgroun                  0            0.0          0.0
+write clones created in foregroun                 18            0.0          0.0
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Statistics with absolute values (should not be diffed)
+
+Statistic                             Begin Value       End Value
+--------------------------------- --------------- ---------------
+logons current                                280             220
+opened cursors current                        355             282
+session cursor cache count            162,393,954     162,434,507
+workarea memory allocated                   7,737           9,366
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Statistics identified by '(derived)' come from sources other than SYSSTAT
+
+Statistic                                      Total  per Hour
+--------------------------------- ------------------ ---------
+log switches (derived)                             1      1.00
+          -------------------------------------------------------------
+
+OS Statistics  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by statistic type (CPU use, Virtual Memory, Hardware Config), Name
+
+Statistic                                  Total
+------------------------- ----------------------
+BUSY_TIME                                540,061
+IDLE_TIME                              2,340,708
+SYS_TIME                                  47,388
+USER_TIME                                492,728
+RSRC_MGR_CPU_WAIT_TIME                         0
+PHYSICAL_MEMORY_BYTES             17,179,402,240
+NUM_CPU_CORES                                  8
+NUM_CPUS                                       8
+NUM_CPU_SOCKETS                                2
+          -------------------------------------------------------------
+
+OS Statistics - detail  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+  Snap Snapshot
+    Id Day Time          Load  %Busy  %User %System   %WIO  %WCPU
+------ --------------- ------ ------ ------ ------- ------ ------
+  4411 Fri 05 04:00:01
+  4412 Fri 05 05:00:01          18.7   17.1     1.6
+          -------------------------------------------------------------
+IO Stat by Function - summary  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->Data Volume values suffixed with   M,G,T,P are in multiples of 1024,
+  other values suffixed with       K,M,G,T,P are in multiples of 1000
+->ordered by Data Volume (Read+Write) desc
+
+               ---------- Read --------- --------- Write -------- --- Wait ----
+                 Data  Requests    Data   Data  Requests    Data          Avg
+Function        Volume     /sec  Vol/sec Volume     /sec  Vol/sec  Count Tm(ms)
+--------------- ------ -------- -------- ------ -------- -------- ------ ------
+RMAN               80G    43.4     22.7M    20G     6.0      5.8M  2307     0.0
+Direct Reads       55G    64.2     15.7M                                    0.0
+Buffer Cache Re  1284M    20.4       .4M                             34K    0.0
+Others            159M     2.0       .0M   114M     1.3       .0M  8628     0.0
+LGWR                        .0             172M    10.7       .0M    19K    0.0
+          -------------------------------------------------------------
+
+IO Stat by Function - detail  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->ordered by Data Volume (Read+Write) desc
+
+                   ----------- Read ---------- ----------- Write ---------
+                    Small  Large  Small  Large  Small  Large  Small  Large
+                     Read   Read   Data   Data  Write  Write   Data   Data
+Function             Reqs   Reqs   Read   Read   Reqs   Reqs  Writn  Writn
+------------------ ------ ------ ------ ------ ------ ------ ------ ------
+RMAN                1928    154K    29M    80G   607     21K     9M    20G
+Direct Reads        5197    226K   360M    55G
+Buffer Cache Reads    72K  1463    682M   602M
+Others              6974     53    106M    53M  4522     53     62M    52M
+LGWR                  24                          39K    48    150M    22M
+          -------------------------------------------------------------
+Tablespace IO Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->ordered by IOs (Reads + Writes) desc
+
+Tablespace
+------------------------------
+                 Av      Av     Av                    Av        Buffer Av Buf
+         Reads Reads/s Rd(ms) Blks/Rd       Writes Writes/s      Waits Wt(ms)
+-------------- ------- ------ ------- ------------ -------- ---------- ------
+IDCOMPANS_DATA
+       313,919      87    5.6    29.0        4,931        1         71    2.8
+IDCOMPANS_EXCP
+        58,935      16   55.9    63.4        1,606        0          0    0.0
+IDCOMPANS_INDX
+        44,282      12   38.2    40.9       10,324        3         34    4.1
+SYSAUX
+         9,156       3   62.9    59.8          592        0          0    0.0
+UNDOTBS1
+         5,817       2   73.5    63.9          398        0        136    0.1
+PERFSTAT
+         2,653       1   76.2    47.4        1,153        0          0    0.0
+SYSTEM
+         1,031       0   69.8    47.2          123        0          0    0.0
+USERS
+             5       0   36.0    26.0            2        0          0    0.0
+          -------------------------------------------------------------
+File IO Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+IDCOMPANS_DATA           U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_DATA.DBF
+       313,919      87   5.6  64    29.0        4,931        1         71    2.8
+
+IDCOMPANS_EXCP           U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_EXCP.DBF
+        56,370      16  54.4  64    63.4        1,582        0          0
+                         U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_EXCP_2.DBF
+         2,565       1  88.3  16    63.8           24        0          0
+
+IDCOMPANS_INDX           U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_INDX.DBF
+        44,282      12  38.2 ###    40.9       10,324        3         34    4.1
+
+PERFSTAT                 U:\ORACLE\DATA\LAGMCOP\PERFSTAT.DBF
+         2,653       1  76.2  64    47.4        1,153        0          0
+
+SYSAUX                   U:\ORACLE\DATA\LAGMCOP\SYSAUX01.DBF
+         9,156       3  62.9  32    59.8          592        0          0
+
+SYSTEM                   U:\ORACLE\DATA\LAGMCOP\SYSTEM01.DBF
+         1,031       0  69.8   8    47.2          123        0          0
+
+UNDOTBS1                 U:\ORACLE\DATA\LAGMCOP\UNDOTBS01.DBF
+         5,817       2  73.5   2    63.9          398        0        136    0.1
+
+USERS                    U:\ORACLE\DATA\LAGMCOP\USERS01.DBF
+             5       0  36.0        26.0            2        0          0
+
+          -------------------------------------------------------------
+File Read Histogram Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+SYSTEM                   U:\ORACLE\DATA\LAGMCOP\SYSTEM01.DBF
+         234           35            2            0            0            0
+
+UNDOTBS1                 U:\ORACLE\DATA\LAGMCOP\UNDOTBS01.DBF
+           4            0            0            0            0            0
+
+IDCOMPANS_EXCP           U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_EXCP.DBF
+         493           36           15            5            2            1
+
+IDCOMPANS_INDX           U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_INDX.DBF
+      15,579          363          163          137           16            6
+
+IDCOMPANS_DATA           U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_DATA.DBF
+      48,397          894          426          281           37            2
+
+SYSAUX                   U:\ORACLE\DATA\LAGMCOP\SYSAUX01.DBF
+         511           24           21           15            2            0
+
+PERFSTAT                 U:\ORACLE\DATA\LAGMCOP\PERFSTAT.DBF
+         520           80           32           45           18            1
+
+IDCOMPANS_EXCP           U:\ORACLE\DATA\LAGMCOP\IDCOMPANS_EXCP_2.DBF
+           3            0            0            3            0            0
+
+          -------------------------------------------------------------
+Instance Recovery Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> B: Begin snapshot,  E: End snapshot
+
+  Targt Estd                                  Log File  Log Ckpt    Log Ckpt
+  MTTR  MTTR   Recovery   Actual    Target      Size     Timeout    Interval
+   (s)   (s)   Estd IOs  Redo Blks Redo Blks Redo Blks  Redo Blks  Redo Blks
+- ----- ----- ---------- --------- --------- ---------- --------- ------------
+B     0    22       2841     32379     84676    4976640     84676
+E     0    22       2604     23927    120410    4976640    120410
+          -------------------------------------------------------------
+Memory Target Advice  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Advice Reset: if this is null, the data shown has been diffed between
+   the Begin and End snapshots.  If this is 'Y', the advisor has been
+   reset during this interval due to memory resize operations, and
+   the data shown is since the reset operation.
+
+                Memory Size     Est.     Advice
+Memory Size (M)      Factor DB time (s)  Reset
+--------------- ----------- ------------ ------
+          4,000          .5        2,201
+          6,000          .8        2,106
+          7,000          .9        2,106
+          8,000         1.0        2,106
+          9,000         1.1        2,106
+         10,000         1.3        2,106
+         11,000         1.4        2,106
+         12,000         1.5        2,106
+         13,000         1.6        2,106
+         14,000         1.8        2,106
+         15,000         1.9        2,106
+         16,000         2.0        2,106
+          -------------------------------------------------------------
+
+Memory Dynamic Components  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->  Op - memory resize Operation
+->  Cache:    D: Default,  K: Keep,  R:  Recycle
+->   Mode:  DEF: DEFerred mode,  IMM: IMMediate mode
+
+                       Begin Snap End Snap   Op    Last Op
+Cache                    Size (M) Size (M)  Count  Type/Mode   Last Op Time
+---------------------- ---------- -------- ------- ---------- ---------------
+D:buffer cache              3,504                0 SHRINK/IMM 05-Oct 03:00:20
+java pool                      16                0 SHRINK/DEF 22-Mar 22:02:59
+large pool                     32                0 STATIC
+PGA Target                  2,800                0 SHRINK/MAN 04-Aug 06:00:37
+SGA Target                  5,200                0 GROW/DEF   04-Aug 06:00:37
+shared pool                 1,568                0 GROW/DEF   05-Oct 02:01:21
+streams pool                   32                0 GROW/IMM   05-Oct 03:00:20
+          -------------------------------------------------------------
+
+Buffer Pool Advisory  DB/Inst: LAGMCOP/lagmcop  End Snap: 4412
+-> Only rows with estimated physical reads >0 are displayed
+-> ordered by Pool, Block Size, Buffers For Estimate
+
+                                   Est
+                                  Phys      Estimated                   Est
+    Size for  Size      Buffers   Read     Phys Reads     Est Phys % dbtime
+P    Est (M) Factr  (thousands)  Factr    (thousands)    Read Time  for Rds
+--- -------- ----- ------------ ------ -------------- ------------ --------
+D        352    .1           43    1.4     17,103,505   10,411,741     56.5
+D        704    .2           87    1.4     16,355,681    9,231,007     50.1
+D      1,056    .3          130    1.3     15,653,071    8,121,658     44.0
+D      1,408    .4          173    1.3     15,003,006    7,095,275     38.5
+D      1,760    .5          217    1.2     14,399,337    6,142,146     33.3
+D      2,112    .6          260    1.2     13,836,195    5,253,005     28.5
+D      2,464    .7          303    1.1     13,308,506    4,419,839     24.0
+D      2,816    .8          347    1.1     12,812,094    3,636,056     19.7
+D      3,168    .9          390    1.0     12,343,540    2,896,257     15.7
+D      3,520   1.0          433    1.0     11,899,948    2,195,874     11.9
+D      3,872   1.1          476    1.0     11,478,802    1,530,928      8.3
+D      4,224   1.2          520    0.9     11,077,872      897,901      4.9
+D      4,576   1.3          563    0.9     10,695,111      689,312      3.7
+D      4,928   1.4          606    0.9     10,328,592      685,948      3.7
+D      5,280   1.5          650    0.8      9,976,436      682,716      3.7
+D      5,632   1.6          693    0.8      9,636,704      679,598      3.7
+D      5,984   1.7          736    0.8      9,307,322      676,575      3.7
+D      6,336   1.8          780    0.8      8,985,789      673,624      3.7
+D      6,688   1.9          823    0.7      8,668,973      670,716      3.6
+D      7,040   2.0          866    0.7      8,353,575      667,822      3.6
+          -------------------------------------------------------------
+
+Buffer Pool Statistics  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Standard block size Pools  D: default,  K: keep,  R: recycle
+-> Default Pools for other block sizes: 2k, 4k, 8k, 16k, 32k
+-> Buffers: the number of buffers.  Units of K, M, G are divided by 1000
+
+                                                            Free Writ     Buffer
+            Pool         Buffer     Physical    Physical  Buffer Comp       Busy
+P   Buffers Hit%           Gets        Reads      Writes   Waits Wait      Waits
+--- ------- ---- -------------- ------------ ----------- ------- ---- ----------
+D      431K  100 -3,623,896,570      164,238      23,981       0    0        242
+          -------------------------------------------------------------
+
+Buffer wait Statistics  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by wait time desc, waits desc
+
+Class
+--------------------------------------------------------------------------------
+      Waits Total Wait Time (s) Avg Time (ms)
+----------- ------------------- -------------
+data block
+        105                   0             3
+undo block
+        119                   0             0
+undo header
+         17                   0             0
+          -------------------------------------------------------------
+PGA Aggr Target Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> B: Begin snap   E: End snap (rows identified with B or E contain data
+   which is absolute i.e. not diffed over the interval)
+-> PGA cache hit % - percentage of W/A (WorkArea) data processed only in-memory
+-> Auto PGA Target - actual workarea memory target
+-> W/A PGA Used    - amount of memory used for all WorkAreas (manual + auto)
+-> %PGA W/A Mem    - percentage of PGA memory allocated to WorkAreas
+-> %Auto W/A Mem   - percentage of WorkArea memory controlled by Auto Mem Mgmt
+-> %Man W/A Mem    - percentage of WorkArea memory under Manual control
+
+PGA Cache Hit % W/A MB Processed Extra W/A MB Read/Written
+--------------- ---------------- -------------------------
+          100.0            2,493                         0
+
+PGA Aggr Target Histogram  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Optimal Executions are purely in-memory operations
+
+    Low    High
+Optimal Optimal    Total Execs Optimal Execs 1-Pass Execs M-Pass Execs
+------- ------- -------------- ------------- ------------ ------------
+     2K      4K         23,706        23,706            0            0
+    64K    128K            100           100            0            0
+   128K    256K             70            70            0            0
+   256K    512K              2             2            0            0
+   512K   1024K            490           490            0            0
+     1M      2M            825           825            0            0
+     2M      4M             19            19            0            0
+     4M      8M             12            12            0            0
+     8M     16M             15            15            0            0
+    16M     32M              6             6            0            0
+    32M     64M              1             1            0            0
+    64M    128M              2             2            0            0
+   128M    256M              2             2            0            0
+          -------------------------------------------------------------
+
+PGA Memory Advisory  DB/Inst: LAGMCOP/lagmcop  End Snap: 4412
+-> When using Auto Memory Mgmt, minimally choose a pga_aggregate_target value
+   where Estd PGA Overalloc Count is 0
+
+                                   Estd Extra                Estd
+  PGA Aggr                           W/A MB      Estd Time    PGA   Estd PGA
+    Target   Size         W/A MB  Read/Written  to Process  Cache  Overalloc
+  Est (MB)  Factr      Processed    to Disk      Bytes (s)  Hit %      Count
+---------- ------ -------------- -------------- ---------- ------ ----------
+       350    0.1     50,927,434     28,621,467   ########   64.0    226,440
+       700    0.3     50,927,434     17,199,212   ########   75.0     32,235
+     1,400    0.5     50,927,434      4,528,270   ########   92.0        103
+     2,100    0.8     50,927,434      3,493,434   ########   94.0          0
+     2,800    1.0     50,927,434      1,356,444   ########   97.0          0
+     3,360    1.2     50,927,434      1,199,656   ########   98.0          0
+     3,920    1.4     50,927,434      1,197,309   ########   98.0          0
+     4,480    1.6     50,927,434      1,195,059   ########   98.0          0
+     5,040    1.8     50,927,434      1,194,797   ########   98.0          0
+     5,600    2.0     50,927,434      1,194,797   ########   98.0          0
+     8,400    3.0     50,927,434      1,194,797   ########   98.0          0
+    11,200    4.0     50,927,434      1,194,797   ########   98.0          0
+    16,800    6.0     50,927,434      1,194,797   ########   98.0          0
+    22,400    8.0     50,927,434      1,194,797   ########   98.0          0
+          -------------------------------------------------------------
+Process Memory Summary Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> B: Begin snap   E: End snap
+-> All rows below contain absolute values (i.e. not diffed over the interval)
+-> Max Alloc is Maximum PGA Allocation size at snapshot time
+   Hist Max Alloc is the Historical Max Allocation for still-connected processes
+-> Num Procs or Allocs:  For Begin/End snapshot lines, it is the number of
+   processes. For Category lines, it is the number of allocations
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                                                                  Hist   Num
+                                          Avg    Std Dev   Max    Max   Procs
+             Alloc     Used    Freeabl   Alloc    Alloc   Alloc  Alloc    or
+  Category   (MB)      (MB)      (MB)     (MB)    (MB)    (MB)    (MB)  Allocs
+- -------- --------- --------- -------- -------- ------- ------- ------ ------
+B --------     823.4     502.8    237.7      2.9     5.1      43    455    280
+  Other        570.8                         2.0     5.0      42     45    280
+  Freeable     237.7        .0               1.0      .6       7           250
+  PL/SQL        10.6       8.4                .0      .0       0      0    280
+  SQL            4.3        .7                .0      .1       2    429    245
+E --------     719.5     428.2    221.8      3.3     6.3      48    455    220
+  Other        477.0                         2.2     5.3      42     45    220
+  Freeable     221.8        .0               1.2     2.5      35           192
+  SQL           10.8       8.9                .1      .6       8    429    186
+  PL/SQL        10.0       8.1                .0      .1       1      1    220
+          -------------------------------------------------------------
+
+Top Process Memory (by component)  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     26 ARC1 --------    43.2    39.7      1.1       43.2       46.3
+         Other            42.1                        42.1       45.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      25 ARC0 --------    43.2    39.7      1.1       43.2       43.2
+         Other            42.1                        42.1       42.1
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      28 ARC3 --------    43.2    39.7      1.1       43.2       46.3
+         Other            42.1                        42.1       45.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      54 SHAD --------    35.0    28.7      3.9       35.0       35.0
+         Other            30.4                        30.4       30.4
+         Freeable          3.9      .0                 3.9
+         PL/SQL             .5      .4                  .5         .5
+         SQL                .2      .1                  .2        2.9
+     161 SHAD --------    31.9    28.3       .7       31.9       31.9
+         Other            31.1                        31.1       31.1
+         Freeable           .7      .0                  .7
+         PL/SQL             .1      .1                  .1         .2
+         SQL                .0      .0                  .0         .4
+      27 ARC2 --------    18.1    16.9       .0       18.1       18.1
+         Other            18.1                        18.1       18.1
+         PL/SQL             .0      .0                  .0         .0
+      10 DBW0 --------    11.2     6.7      4.2       11.2       34.3
+         Other             7.0                         7.0       30.1
+         Freeable          4.2      .0                 4.2
+         PL/SQL             .0      .0                  .0         .0
+      99 J000 --------     9.5     2.1      6.6        9.5        9.5
+         Freeable          6.6      .0                 6.6
+         Other             2.6                         2.6        2.6
+         SQL                .2      .1                  .2        6.7
+         PL/SQL             .2      .2                  .2         .2
+       8 DIA0 --------     9.2     8.0       .6        9.2       10.5
+         Other             8.6                         8.6       10.0
+         Freeable           .6      .0                  .6
+         PL/SQL             .0      .0                  .0         .0
+      13 SMON --------     5.5     1.3      3.5        5.5        6.0
+         Freeable          3.5      .0                 3.5
+         Other             2.0                         2.0        2.0
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        2.1
+      11 LGWR --------     5.3     4.9       .1        5.3        9.6
+         Other             5.2                         5.2        9.5
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+      30 Q001 --------     5.2     1.6      2.8        5.2        5.2
+         Freeable          2.8      .0                 2.8
+         Other             2.4                         2.4        2.4
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        1.1
+     319 CJQ0 --------     4.2     1.7      1.8        4.2        4.9
+
+Top Process Memory (by component)  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B    319 Other             2.1                         2.1        2.1
+         Freeable          1.8      .0                 1.8
+         SQL                .3      .0                  .3        1.2
+         PL/SQL             .0      .0                  .0         .0
+      97 SHAD --------     3.8     2.6       .0        3.8        3.8
+         Other             2.2                         2.2        2.2
+         SQL               1.6      .0                 1.6        1.6
+         PL/SQL             .0      .0                  .0         .0
+      15 MMON --------     3.7     2.1      1.0        3.7        4.0
+         Other             2.6                         2.6        2.6
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .1      .0                  .1        1.1
+      23 SHAD --------     3.4     1.6      1.0        3.4        6.7
+         Other             2.3                         2.3        2.3
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        5.1
+     136 SHAD --------     3.0     1.4      1.5        3.0        9.1
+         Freeable          1.5      .0                 1.5
+         Other             1.4                         1.4        1.4
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        7.7
+     241 SHAD --------     2.9     1.3      1.4        2.9        9.1
+         Other             1.5                         1.5        1.5
+         Freeable          1.4      .0                 1.4
+         PL/SQL             .0      .0                  .0         .1
+         SQL                .0      .0                  .0        7.7
+      45 SHAD --------     2.8     1.5      1.2        2.8        9.1
+         Other             1.5                         1.5        1.5
+         Freeable          1.2      .0                 1.2
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        7.7
+     152 SHAD --------     2.8     1.2      1.1        2.8        7.0
+         Other             1.7                         1.7        1.7
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        5.2
+E    161 SHAD --------    48.2    12.2     35.0       48.2       48.2
+         Freeable         35.0      .0                35.0
+         Other            13.1                        13.1       13.1
+         PL/SQL             .1      .1                  .1         .2
+         SQL                .0      .0                  .0         .4
+      26 ARC1 --------    43.2    39.7      1.1       43.2       46.3
+         Other            42.1                        42.1       45.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      25 ARC0 --------    43.2    39.7      1.1       43.2       43.2
+         Other            42.1                        42.1       42.1
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      28 ARC3 --------    43.2    39.7      1.1       43.2       46.3
+         Other            42.1                        42.1       45.3
+
+Top Process Memory (by component)  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E     28 Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      54 SHAD --------    35.4    29.1      4.0       35.4       35.4
+         Other            30.4                        30.4       30.4
+         Freeable          4.0      .0                 4.0
+         PL/SQL             .6      .5                  .6         .7
+         SQL                .4      .2                  .4        2.9
+      27 ARC2 --------    18.1    16.9       .0       18.1       18.1
+         Other            18.1                        18.1       18.1
+         PL/SQL             .0      .0                  .0         .0
+      62 SHAD --------    12.7    11.8       .0       12.7       12.7
+         SQL               8.4     8.2                 8.4        8.4
+         Other             2.9                         2.9        2.9
+         PL/SQL            1.4     1.3                 1.4        1.4
+      10 DBW0 --------    11.2     6.7      4.2       11.2       34.3
+         Other             7.0                         7.0       30.1
+         Freeable          4.2      .0                 4.2
+         PL/SQL             .0      .0                  .0         .0
+       8 DIA0 --------     9.2     8.0       .6        9.2       10.5
+         Other             8.6                         8.6       10.0
+         Freeable           .6      .0                  .6
+         PL/SQL             .0      .0                  .0         .0
+      71 J000 --------     8.5     1.9      6.4        8.5        8.5
+         Freeable          6.4      .0                 6.4
+         Other             1.8                         1.8        1.8
+         PL/SQL             .2      .2                  .2         .2
+         SQL                .2      .1                  .2        6.3
+      13 SMON --------     5.5     1.3      4.0        5.5        6.0
+         Freeable          4.0      .0                 4.0
+         Other             1.5                         1.5        1.5
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        2.1
+      11 LGWR --------     5.3     4.9       .1        5.3        9.6
+         Other             5.2                         5.2        9.5
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+      30 Q001 --------     5.2     1.6      2.8        5.2        5.2
+         Freeable          2.8      .0                 2.8
+         Other             2.4                         2.4        2.4
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        1.1
+     319 CJQ0 --------     4.2     1.7      1.8        4.2        4.9
+         Other             2.1                         2.1        2.1
+         Freeable          1.8      .0                 1.8
+         SQL                .3      .0                  .3        1.2
+         PL/SQL             .0      .0                  .0         .0
+      15 MMON --------     3.7     2.1      1.0        3.7        4.0
+         Other             2.6                         2.6        2.6
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .1      .0                  .1        1.1
+     102 SHAD --------     3.0     1.4      1.4        3.0        9.1
+         Other             1.5                         1.5        1.5
+
+Top Process Memory (by component)  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E    102 Freeable          1.4      .0                 1.4
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        7.7
+      69 SHAD --------     2.9     1.5      1.3        2.9        9.1
+         Other             1.5                         1.5        1.5
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        7.7
+     103 SHAD --------     2.9     1.5      1.3        2.9        9.1
+         Other             1.5                         1.5        1.5
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        7.7
+      60 SHAD --------     2.8     1.4      1.0        2.8        9.1
+         Other             1.7                         1.7        1.7
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        7.7
+      96 SHAD --------     2.8     1.5      1.0        2.8        9.1
+         Other             1.7                         1.7        1.7
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        7.7
+          -------------------------------------------------------------
+Enqueue activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> only enqueues with waits are shown
+-> Enqueue stats gathered prior to 10g should not be compared with 10g data
+-> ordered by Wait Time desc, Waits desc
+
+Enqueue Type (Request Reason)
+------------------------------------------------------------------------------
+    Requests    Succ Gets Failed Gets       Waits Wt Time (s)  Av Wt Time(ms)
+------------ ------------ ----------- ----------- ------------ --------------
+KO-Multiple Object Checkpoint (fast object checkpoint)
+       1,900        1,900           0         190            5          26.50
+TC-Tablespace Checkpoint
+           3            3           0           1            4       3,556.00
+TX-Transaction (row lock contention)
+           5            5           0           5            0          22.20
+CF-Controlfile Transaction
+       1,854        1,854           0           2            0          16.00
+          -------------------------------------------------------------
+
+Undo Segment Summary  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Min/Max TR (mins) - Min and Max Tuned Retention (minutes)
+-> STO - Snapshot Too Old count,  OOS - Out Of Space count
+-> Undo segment block stats:
+   uS - unexpired Stolen,   uR - unexpired Released,   uU - unexpired reUsed
+   eS - expired   Stolen,   eR - expired   Released,   eU - expired   reUsed
+
+Undo   Num Undo       Number of  Max Qry     Max Tx Min/Max   STO/  uS/uR/uU/
+ TS# Blocks (K)    Transactions  Len (s)      Concy TR (mins) OOS   eS/eR/eU
+---- ---------- --------------- -------- ---------- --------- ----- -----------
+   2        3.8          25,133    1,223          5 300/300   0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+
+
+Undo Segment Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Most recent 35 Undostat rows, ordered by End Time desc
+
+                Num Undo    Number of Max Qry  Max Tx Tun Ret STO/  uS/uR/uU/
+End Time          Blocks Transactions Len (s)   Concy  (mins) OOS   eS/eR/eU
+------------ ----------- ------------ ------- ------- ------- ----- -----------
+05-Oct 04:54         674        4,297   1,223       5     300 0/0   0/0/0/0/0/0
+05-Oct 04:44         833        5,440     615       5     300 0/0   0/0/0/0/0/0
+05-Oct 04:34         593        4,073   1,211       5     300 0/0   0/0/0/0/0/0
+05-Oct 04:24         326        2,651     602       4     300 0/0   0/0/0/0/0/0
+05-Oct 04:14         128        1,781     763       4     300 0/0   0/0/0/0/0/0
+05-Oct 04:04       1,275        6,891     596       4     300 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+Latch Activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+active checkpoint queue          13,066    0.0             0            0
+active service list              23,640    0.0    0.0      0      217,929    0.0
+alert log latch                       2    0.0             0            0
+AQ deq hash table latch               2    0.0             0            0
+archive control                     312    0.0             0            0
+archive process latch               448    0.0             0            0
+ASM db client latch               2,954    0.0             0            0
+ASM map operation hash t              2    0.0             0            0
+ASM network state latch             159    0.0             0            0
+AWR Alerted Metric Eleme         43,311    0.0             0            0
+begin backup scn array            1,235    0.0             0            0
+buffer pool                           2    0.0             0            0
+business card                         2    0.0             0            0
+cache buffer handles             43,166    0.1    0.0      0            0
+cache buffers lru chain          42,899    0.0    0.0      0    3,718,607    0.0
+cache table scan latch            5,581    0.0             0        5,581    0.0
+call allocation                  11,483    0.1    0.5      0            0
+cas latch                             2    0.0             0            0
+change notification clie              2    0.0             0            0
+Change Notification Hash          1,197    0.0             0            0
+channel handle pool latc          5,628    0.0             0            0
+channel operations paren         28,927    0.0             0            0
+checkpoint queue latch          576,237    0.0             0       23,012    0.0
+client/application info          19,731    0.0             0            0
+compile environment latc          2,779    0.0             0            0
+Consistent RBA                   19,244    0.0             0            0
+corrupted undo seg latch             45    0.0             0            0
+cp cmon/server latch                  2    0.0             0            0
+cp pool latch                         2    0.0             0            0
+cp server hash latch                  2    0.0             0            0
+cp sga latch                        159    0.0             0            0
+cvmap freelist lock                   2    0.0             0            0
+deferred cleanup latch              159    0.0             0            0
+device information                   18    0.0             0            0
+DML lock allocation           2,006,672    0.0    0.0      0            0
+dml lock allocation                 159    0.0             0            0
+done queue latch                      2    0.0             0            0
+dummy allocation                  5,597    0.0    0.0      0            0
+eighth spare latch - X p              2    0.0             0            0
+eleventh spare latch - c              2    0.0             0            0
+enqueue freelist latch                2    0.0             0       64,697    0.0
+enqueue hash chains             197,108    0.0    0.0      0            1    0.0
+enqueue sob latch                     2    0.0             0            0
+Event Group Locks                 5,559    0.0             0            0
+FAL Queue                           148    0.0             0            0
+FIB s.o chain latch                 224    0.0             0            0
+fifteenth spare latch -               2    0.0             0            0
+file cache latch                    281    0.0             0            0
+File State Object Pool P              2    0.0             0            0
+first Audit Vault latch           2,724    0.0             0            0
+Latch Activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+flashback copy                        2    0.0             0            0
+FOB s.o list latch                1,536    0.2    0.0      0            0
+fourteenth spare latch -              2    0.0             0            0
+fourth Audit Vault latch              2    0.0             0            0
+gc element                            2    0.0             0            0
+gcs commit scn state                  2    0.0             0            0
+gcs partitioned table ha              2    0.0             0            0
+gcs pcm hashed value buc              2    0.0             0            0
+gcs resource freelist                 2    0.0             0            0
+gcs resource hash                     2    0.0             0            0
+gcs resource scan list                2    0.0             0            0
+gcs resource validate li              2    0.0             0            0
+gcs shadows freelist                  2    0.0             0            0
+ges domain table                      2    0.0             0            0
+ges enqueue table freeli              2    0.0             0            0
+ges group table                       2    0.0             0            0
+ges process hash list                 2    0.0             0            0
+ges process parent latch              2    0.0             0            0
+ges resource hash list                2    0.0             0            0
+ges resource scan list                2    0.0             0            0
+ges resource table freel              2    0.0             0            0
+ges value block free lis              2    0.0             0            0
+global KZLD latch for me          2,761    0.0             0            0
+global tx hash mapping               50    0.0             0            0
+granule operation                     2    0.0             0            0
+hash table column usage             578    0.0             0      184,092    0.0
+hash table modification             156    0.0             0            0
+heartbeat check                       2    0.0             0            0
+In memory undo latch            309,769    0.0    0.5      0       20,590    0.0
+internal temp table obje              4    0.0             0            0
+intra txn parallel recov              2    0.0             0            0
+io pool granule metadata              2    0.0             0            0
+I/O Staticstics latch                 2    0.0             0            0
+IPC stats buffer allocat              2    0.0             0            0
+job workq parent latch                3    0.0             0            1    0.0
+job_queue_processes free              2    0.0             0            0
+job_queue_processes para            782    0.0             0            0
+JS queue access latch                 2    0.0             0            0
+JS queue state obj latch         21,630    0.0             0            0
+JS Sh mem access                      6    0.0             0            0
+JS slv state obj latch                6    0.0             0            0
+kcbtsemkid latch                      1    0.0             0            0
+kdlx hb parent latch                  2    0.0             0            0
+KFC FX Hash Latch                     2    0.0             0            0
+KFC Hash Latch                        2    0.0             0            0
+KFCL LE Freelist                      2    0.0             0            0
+kgb parent                            2    0.0             0            0
+kgnfs mount latch                     2    0.0             0            0
+KGNFS-NFS:SHM structure               2    0.0             0            0
+KGNFS-NFS:SVR LIST                    2    0.0             0            0
+Latch Activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+KJC message pool free li              2    0.0             0            0
+KJCT flow control latch               2    0.0             0            0
+KMG MMAN ready and start          1,196    0.0             0            0
+kokc descriptor allocati              4    0.0             0            0
+krbmrosl                            120    0.0             0            0
+ksfv messages                         2    0.0             0            0
+ksim group membership ca              2    0.0             0            0
+kss move lock                        32    0.0             0            0
+ksuosstats global area              366    0.0             0            0
+ksv allocation latch                221    0.0             0            0
+ksv class latch                      68    0.0             0            0
+ksv msg queue latch                   2    0.0             0            0
+ksz_so allocation latch           5,616    0.0             0            0
+KTF sga latch                        19    0.0             0          975    0.0
+ktm global data                      49    0.0             0            0
+kwqbsn:qsga                       1,923    0.0             0            0
+KWQMN job cache list lat              1    0.0             0            0
+KWQP Prop Status                      3    0.0             0            0
+KWQS pqueue ctx latch                 2    0.0             0            0
+k2q lock allocation                   2    0.0             0            0
+lgwr LWN SCN                     19,839    0.0             0            0
+list of block allocation          3,264    0.0    0.0      0            0
+loader state object free          3,213    0.0             0            0
+lob segment dispenser la              2    0.0             0            0
+lob segment hash table l             14    0.0             0            0
+lob segment query latch               2    0.0             0            0
+Locator state objects po              2    0.0             0            0
+lock DBA buffer during m              2    0.0             0            0
+logical standby cache                 2    0.0             0            0
+logminer context allocat              3    0.0             0            0
+logminer local                        2    0.0             0            0
+logminer work area                    2    0.0             0            0
+longop free list parent           2,923    0.0             0           20    0.0
+Lsod array latch                      2    0.0             0            0
+managed standby latch               149    0.0             0            0
+mapped buffers lru chain              2    0.0             0            0
+Memory Management Latch               2    0.0             0        1,196    0.0
+Memory Queue                          2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Memory Queue Subscriber               2    0.0             0            0
+message pool operations             872    0.0             0            0
+messages                        121,558    0.1    0.0      0            0
+MinActiveScn Latch                   40    0.0             0            0
+mostly latch-free SCN            19,909    0.3    0.0      0            0
+MQL Tracking Latch                    0                    0           72    0.0
+msg queue latch                       2    0.0             0            0
+multiblock read objects          22,642    0.0             0            0
+Latch Activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+Mutex                                 2    0.0             0            0
+Mutex Stats                           2    0.0             0            0
+name-service namespace b              2    0.0             0            0
+ncodef allocation latch             159    0.0             0            0
+nineth spare latch - X p              2    0.0             0            0
+object queue header heap            663    0.0             0        1,693    0.0
+object queue header oper        434,418    0.0    0.0      0            0
+object stats modificatio          2,112    0.0             0            0
+OS process                       11,379    0.0             0            0
+OS process allocation            12,376    0.0             0            0
+OS process: request allo          5,616    0.0    0.0      0            0
+parallel query alloc buf            482    0.0             0            0
+parallel query stats                  2    0.0             0            0
+parameter list                   25,573    0.0             0            0
+parameter table manageme         12,615    0.0             0            0
+peshm                                 2    0.0             0            0
+pesom_free_list                       2    0.0             0            0
+pesom_hash_node                       2    0.0             0            0
+PL/SQL warning settings           3,298    0.0             0            0
+post/wait queue                  32,373    0.0    0.0      0       22,487    0.0
+process allocation                5,633    0.0    0.0      0        2,778    0.0
+process group creation            5,616    0.0             0            0
+process queue                         2    0.0             0            0
+process queue reference               2    0.0             0            0
+PX hash array latch                   2    0.0             0            0
+qmn state object latch                2    0.0             0            0
+qmn task queue latch                777    0.6    1.0      0            0
+QMT                                   2    0.0             0            0
+QOL Name Generation Latc            187    0.0             0            0
+query server freelists                2    0.0             0            0
+queued dump request                  12    0.0             0            0
+queuing load statistics               2    0.0             0            0
+Real-time plan statistic          8,329    0.0             0            0
+recovery domain hash lis              2    0.0             0            0
+redo allocation                 101,257    0.0    0.1      0      151,070    0.1
+redo copy                             2    0.0             0      151,107    0.0
+redo writing                     72,212    0.0    0.0      0            0
+resmgr group change latc          2,763    0.0             0            0
+resmgr:active threads             5,620    0.0             0            0
+resmgr:actses change gro          2,779    0.0             0            0
+resmgr:actses change sta              2    0.0             0            0
+resmgr:free threads list          5,618    0.0    0.0      0            0
+resmgr:plan CPU method                2    0.0             0            0
+resmgr:resource group CP              2    0.0             0            0
+resmgr:schema config                 82    0.0             0            0
+resmgr:session queuing                2    0.0             0            0
+rm cas latch                          2    0.0             0            0
+row cache objects               688,952    0.0    0.0      0          101    0.0
+rules engine rule set st            200    0.0             0            0
+second Audit Vault latch              2    0.0             0            0
+Latch Activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+sequence cache                    9,035    0.0             0            0
+session allocation              133,751    0.0    0.0      0      128,125    0.0
+session idle bit              1,220,618    0.0    0.0      0            0
+session queue latch                   2    0.0             0            0
+session state list latch          5,375    0.0             0            0
+session switching                 6,648    0.0             0           46    0.0
+session timer                     1,281    0.0             0            0
+seventh spare latch - X               2    0.0             0            0
+SGA blob parent                       2    0.0             0            0
+SGA bucket locks                      2    0.0             0            0
+SGA heap locks                        2    0.0             0            0
+SGA IO buffer pool latch              3    0.0             0            3    0.0
+SGA pool locks                        2    0.0             0            0
+Shared B-Tree                     1,928    0.0             0            0
+shared pool                     269,685    0.1    0.0      0            9    0.0
+shared pool sim alloc                 2    0.0             0            0
+shared pool simulator               839    0.0             0            0
+sim partition latch                   2    0.0             0            0
+simulator hash latch         38,837,189    0.0    0.0      0            0
+simulator lru latch               5,757    0.2    0.1      0   38,439,410    0.9
+sixth spare latch - X pa              2    0.0             0            0
+sort extent pool                    209    0.0             0            0
+space background state o              8    0.0             0            0
+space background task la          4,101    0.2    0.0      0        2,392    0.0
+SQL memory manager latch            122    0.0             0        1,195    0.0
+SQL memory manager worka         92,663    0.0    0.0      0            0
+state object free list                2    0.0             0            0
+statistics aggregation              336    0.0             0            0
+Streams Generic                       2    0.0             0            0
+tablespace key chain                  2    0.0             0            0
+temp lob duration state               3    0.0             0            0
+temporary table state ob              2    0.0             0            0
+tenth spare latch - X pa              2    0.0             0            0
+test excl. parent l0                  2    0.0             0            0
+test excl. parent2 l0                 2    0.0             0            0
+Testing                               2    0.0             0            0
+thirteenth spare latch -              2    0.0             0            0
+threshold alerts latch              168    0.0             0            0
+Token Manager                         2    0.0             0            0
+transaction allocation          481,479    0.0             0            0
+transaction branch alloc          1,323    0.0             0            0
+twelfth spare latch - ch              2    0.0             0            0
+twenty-fifth spare latch              2    0.0             0            0
+twenty-first spare latch              2    0.0             0            0
+twenty-fourth spare latc              2    0.0             0            0
+twenty-second spare latc              2    0.0             0            0
+twenty-third spare latch              2    0.0             0            0
+undo global data                146,986    0.0    0.0      0            0
+virtual circuit buffers               2    0.0             0            0
+virtual circuit holder                2    0.0             0            0
+Latch Activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+virtual circuit queues                2    0.0             0            0
+WCR: sync                             2    0.0             0            0
+write info latch                      0                    0       19,244    0.0
+Write State Object Pool               2    0.0             0            0
+XDB NFS Security Latch                2    0.0             0            0
+XDB unused session pool               2    0.0             0            0
+XDB used session pool                 2    0.0             0            0
+X$KSFQP                          65,714    0.0             0            0
+          -------------------------------------------------------------
+Latch Sleep breakdown  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by misses desc
+
+                                       Get                                 Spin
+Latch Name                        Requests       Misses      Sleeps        Gets
+-------------------------- --------------- ------------ ----------- -----------
+cache buffers chains        -3,426,727,283      310,702          20     310,682
+messages                           121,558          115           1         114
+mostly latch-free SCN               19,909           57           2          55
+In memory undo latch               309,769           31          16          15
+redo allocation                    101,257           30           2          28
+simulator lru latch                  5,757            9           1           8
+call allocation                     11,483            6           3           3
+qmn task queue latch                   777            5           5           0
+          -------------------------------------------------------------
+Latch Miss Sources  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> only latches with sleeps are shown
+-> ordered by name, sleeps desc
+
+                                                     NoWait              Waiter
+Latch Name               Where                       Misses     Sleeps   Sleeps
+------------------------ -------------------------- ------- ---------- --------
+cache buffers chains     kcbgtcr: fast path (cr pin       0         11        1
+cache buffers chains     kcbzibmlt: multi-block rea       0          7        0
+cache buffers chains     kcbgcur_2                        0          7        1
+cache buffers chains     kcbgtcr_2                        0          2        0
+cache buffers chains     kcbzgb: scan from tail. no       0          1        0
+cache buffers chains     kcbgtcr: kslbegin excl           0          1        1
+call allocation          ksuxds                           0          3        2
+In memory undo latch     kticmt: child                    0          8        3
+In memory undo latch     ktiFlush: child                  0          8        8
+In memory undo latch     ktbchg2ro                        0          3        0
+lgwr LWN SCN             kcs023                           0          2        0
+messages                 ksarcv: after wait               0          1        1
+qmn task queue latch     kwqmnmvtsks: delay to read       0          4        0
+qmn task queue latch     kwqmnaddtsk: add task            0          1        0
+redo allocation          kcrfw_redo_gen: redo alloc       0          2        0
+simulator lru latch      kcbs_simulate: simulate se       0          1        0
+          -------------------------------------------------------------
+Mutex Sleep  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> ordered by Wait Time desc
+
+                                                                         Wait
+Mutex Type         Location                                 Sleeps     Time (s)
+------------------ -------------------------------- -------------- ------------
+Cursor Pin         kksLockDelete [KKSCHLPIN6]                  141          0.0
+Cursor Pin         kksfbc [KKSCHLFSP2]                         232          0.0
+Library Cache      kglget2   2                                   1          0.0
+Library Cache      kglhdgn1  62                                  4          0.0
+Library Cache      kglpndl1  95                              2,533          0.0
+Library Cache      kgllkc1   57                                 23          0.0
+Library Cache      kgllkdl1  85                                  2          0.0
+Library Cache      kglpin1   4                               4,535          0.0
+Library Cache      kglpnal1  90                              8,273          0.0
+Library Cache      kglhdgn2 106                                 55          0.0
+          -------------------------------------------------------------
+Segments by Logical Reads  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Segment Logical Reads Threshold:     10000
+-> Pct Total shows % of logical reads for each top segment compared with total
+   logical reads for all segments captured by the Snapshot
+
+                                           Subobject    Obj.       Logical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SYS        SYSTEM     IND$                              TABLE  360,778,240  33.0
+IDCOMPANS  IDCOMPANS_ DICO_LEXIQUE_LANGUE               TABLE  128,385,200  11.7
+IDCOMPANS  IDCOMPANS_ DICO_LEXIQUE_LANGUE_              INDEX  109,729,472  10.0
+IDCOMPANS  IDCOMPANS_ DICO_CONSTANTE                    TABLE  101,183,152   9.3
+IDCOMPANS  IDCOMPANS_ DICO_CONSTANTE_PK                 INDEX   65,787,360   6.0
+          -------------------------------------------------------------
+
+
+Segments by Physical Reads  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Segment Physical Reads Threshold:      1000
+
+                                           Subobject    Obj.      Physical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+IDCOMPANS  IDCOMPANS_ COLIS                             TABLE    4,815,278  60.7
+IDCOMPANS  IDCOMPANS_ DOCUMENT_LIGNE_OP                 TABLE      891,136  11.2
+IDCOMPANS  IDCOMPANS_ ENTETE_TOURNEE_PREP               TABLE      684,964   8.6
+SYS        SYSTEM     CDEF$                             TABLE      405,500   5.1
+IDCOMPANS  IDCOMPANS_ MISSION_ARCH                      TABLE      310,073   3.9
+          -------------------------------------------------------------
+Segments by Row Lock Waits  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Segment Row Lock Waits Threshold:       100
+
+                                                                       Row
+                                           Subobject    Obj.          Lock   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+IDCOMPANS  IDCOMPANS_ MISSION                           TABLE            4  80.0
+IDCOMPANS  IDCOMPANS_ LIGNE_TOURNEE_PREP                TABLE            1  20.0
+          -------------------------------------------------------------
+
+
+Segments by Buffer Busy Waits  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> End Segment Buffer Busy Waits Threshold:       100
+
+                                                                    Buffer
+                                           Subobject    Obj.          Busy   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+IDCOMPANS  IDCOMPANS_ PARA_ORDO_DETAIL                  TABLE           14  29.2
+SYS        SYSTEM     IND$                              TABLE            8  16.7
+IDCOMPANS  IDCOMPANS_ COLIS                             TABLE            7  14.6
+IDCOMPANS  IDCOMPANS_ DEMANDE_TRAITEMENT                TABLE            6  12.5
+IDCOMPANS  IDCOMPANS_ DEMANDE_TRAITEMENT_P              INDEX            5  10.4
+          -------------------------------------------------------------
+Dictionary Cache Stats  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Pct Misses"  should be very low (< 2% in most cases)
+->"Final Usage" is the number of cache entries being used in End Snapshot
+
+                                   Get    Pct    Scan   Pct      Mod      Final
+Cache                         Requests   Miss    Reqs  Miss     Reqs      Usage
+------------------------- ------------ ------ ------- ----- -------- ----------
+dc_awr_control                      65    0.0       0              2          1
+dc_global_oids                     779    0.0       0              0        302
+dc_histogram_data               21,690    0.1       0             18      8,758
+dc_histogram_defs               19,910    1.0       0              4     11,378
+dc_object_grants                   134    0.7       0              0         64
+dc_objects                      41,134    0.1       0              3      4,936
+dc_profiles                      5,523    0.0       0              0          1
+dc_rollback_segments             5,448    0.0       0              3         47
+dc_segments                      5,781    0.1       0              0      2,184
+dc_sequences                        16    0.0       0             16          4
+dc_tablespaces                  33,641    0.0       0              0         10
+dc_users                       122,066    0.0       0              0         80
+global database name             5,168    0.0       0              0          2
+outstanding_alerts                  42    0.0       0              0          7
+          -------------------------------------------------------------
+
+
+Library Cache Activity  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+->"Pct Misses"  should be very low
+
+                                                                      Get  Pct
+Namespace                                                        Requests  Miss
+------------------------------------------------------------ ------------ ------
+     Pin        Pct               Invali-
+   Requests     Miss     Reloads  dations
+-------------- ------ ---------- --------
+ACCOUNT_STATUS                                                      8,283    0.0
+             0                 0        0
+BODY                                                               12,583    0.0
+        14,142    0.0          1        0
+CLUSTER                                                                45    0.0
+            45    0.0          0        0
+DBLINK                                                              8,285    0.0
+             0                 0        0
+EDITION                                                             2,773    0.0
+         5,535    0.0          0        0
+INDEX                                                                  29   10.3
+            26   26.9          1        0
+RULE                                                                    3    0.0
+             3  100.0          3        0
+SCHEMA                                                              2,800    0.0
+             0                 0        0
+SQL AREA                                                           37,505    0.6
+     3,690,990    0.1        209       52
+SQL AREA BUILD                                                        472   83.3
+             0                 0        0
+SQL AREA STATS                                                        416   78.4
+           416   78.4          0        0
+STORED OUTLINE                                                        208   91.8
+           198   97.0          1        0
+TABLE/PROCEDURE                                                    25,441    0.1
+     2,851,921    0.0        140        0
+TRIGGER                                                               146    0.0
+        13,669    0.0          1        0
+          -------------------------------------------------------------
+Rule Sets  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> * indicates Rule Set activity (re)started between Begin/End snaps
+-> Top 25 ordered by Evaluations desc
+
+                                                               No-SQL  SQL
+Rule                                *     Eval/sec Reloads/sec Eval % Eval %
+----------------------------------- - ------------ ----------- ------ ------
+SYS.ALERT_QUE_R                                  0           0      0      0
+          -------------------------------------------------------------
+Streams Pool Advisory  DB/Inst: LAGMCOP/lagmcop  End Snap: 4412
+
+Streams Pool Streams Pool Est Spill Est Spill Est Unspill Est Unspill
+    Size (M)  Size Factor     Count  Time (s)       Count    Time (s)
+------------ ------------ --------- --------- ----------- -----------
+         0.0           .5         0         0           0           0
+         0.0          1.0         0         0           0           0
+         0.0          1.5         0         0           0           0
+         0.0          2.0         0         0           0           0
+         0.0          2.5         0         0           0           0
+         0.0          3.0         0         0           0           0
+         0.0          3.5         0         0           0           0
+         0.0          4.0         0         0           0           0
+         0.0          4.5         0         0           0           0
+         0.0          5.0         0         0           0           0
+         0.0          5.5         0         0           0           0
+         0.0          6.0         0         0           0           0
+         0.0          6.5         0         0           0           0
+         0.0          7.0         0         0           0           0
+         0.0          7.5         0         0           0           0
+         0.0          8.0         0         0           0           0
+         0.0          8.5         0         0           0           0
+         0.0          9.0         0         0           0           0
+         0.0          9.5         0         0           0           0
+         0.0         10.0         0         0           0           0
+          -------------------------------------------------------------
+Shared Pool Advisory  DB/Inst: LAGMCOP/lagmcop  End Snap: 4412
+-> SP: Shared Pool     Est LC: Estimated Library Cache   Factr: Factor
+-> Note there is often a 1:Many correlation between a single logical object
+   in the Library Cache, and the physical number of memory objects associated
+   with it.  Therefore comparing the number of Lib Cache objects (e.g. in
+   v$librarycache), with the number of Lib Cache Memory Objects is invalid
+
+                                        Est LC Est LC  Est LC Est LC
+    Shared    SP   Est LC                 Time   Time    Load   Load      Est LC
+      Pool  Size     Size       Est LC   Saved  Saved    Time   Time         Mem
+  Size (M) Factr      (M)      Mem Obj     (s)  Factr     (s)  Factr    Obj Hits
+---------- ----- -------- ------------ ------- ------ ------- ------ -----------
+     1,088    .7       45        4,477 #######     .5 #######  ##### ###########
+     1,248    .8      204       11,438 #######     .7 #######  ##### ###########
+     1,408    .9      364       17,186 #######     .8 #######  ##### ###########
+     1,424    .9      380       17,770 #######     .9 #######  ##### ###########
+     1,440    .9      396       18,272 #######     .9 #######  ##### ###########
+     1,456    .9      412       19,094 #######     .9 #######  ##### ###########
+     1,472    .9      428       19,624 #######     .9 #######  ##### ###########
+     1,488    .9      444       19,975 #######     .9 #######  ##### ###########
+     1,504   1.0      460       20,574 #######    1.0 #######  ##### ###########
+     1,520   1.0      476       21,038 #######    1.0 #######  ##### ###########
+     1,536   1.0      491       21,489 #######    1.0 #######   14.3  51,885,722
+     1,552   1.0      507       22,056 #######    1.0 #######    7.5 ###########
+     1,568   1.0      523       22,433 #######    1.0 #######    1.0 ###########
+     1,584   1.0      539       22,842 #######    1.0 #######    1.0 ###########
+     1,600   1.0      555       23,191 #######    1.0 #######    1.0 ###########
+     1,616   1.0      571       23,660 #######    1.0 #######    1.0 ###########
+     1,632   1.0      587       24,209 #######    1.0 #######    1.0 ###########
+     1,648   1.1      603       24,810 #######    1.0 #######    1.0 ###########
+     1,664   1.1      619       25,251 #######    1.0 #######    1.0 ###########
+     1,680   1.1      635       25,822 #######    1.0 #######    1.0 ###########
+     1,696   1.1      651       26,577 #######    1.0 #######    1.0 ###########
+     1,712   1.1      667       27,499 #######    1.0 #######    1.0 ###########
+     1,728   1.1      683       28,421 #######    1.0 #######    1.0 ###########
+     1,888   1.2      843       34,360 #######    1.0 #######    1.0 ###########
+     2,048   1.3    1,003       38,340 #######    1.0 #######    1.0 ###########
+     2,208   1.4    1,163       43,360 #######    1.0 #######    1.0 ###########
+     2,368   1.5    1,323       49,444 #######    1.0 #######     .9 ###########
+     2,528   1.6    1,483       53,170 #######    1.0 #######     .9 ###########
+     2,688   1.7    1,643       56,848 #######    1.0 #######     .9 ###########
+     2,848   1.8    1,803       61,338 #######    1.0 #######     .9 ###########
+     3,008   1.9    1,963       66,505 #######    1.0 #######     .9 ###########
+     3,168   2.0    2,123       71,151 #######    1.0 #######     .9 ###########
+          -------------------------------------------------------------
+SGA Target Advisory  DB/Inst: LAGMCOP/lagmcop  End Snap: 4412
+
+SGA Target SGA Size   Est DB      Est DB   Est Physical
+  Size (M)   Factor Time (s) Time Factor          Reads
+---------- -------- -------- ----------- --------------
+     1,950       .4 ########         3.8 ##############
+     2,600       .5 ########         1.4 ##############
+     3,250       .6 ########         1.3 ##############
+     3,900       .8 ########         1.2 ##############
+     4,550       .9 ########         1.1 ##############
+     5,200      1.0 ########         1.0 ##############
+     5,850      1.1 ########          .9 ##############
+     6,500      1.3 ########          .9 ##############
+     7,150      1.4 ########          .9  9,636,577,846
+     7,800      1.5 ########          .9  9,976,916,357
+     8,450      1.6 ########          .9  9,306,949,288
+     9,100      1.8 ########          .9  8,985,650,693
+     9,750      1.9 ########          .9  8,353,763,457
+    10,400      2.0 ########          .9  8,353,763,457
+          -------------------------------------------------------------
+SGA Memory Summary  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+                                                        End Size (Bytes)
+SGA regions                      Begin Size (Bytes)       (if different)
+------------------------------ -------------------- --------------------
+Database Buffers                      3,674,210,304
+Fixed Size                                2,297,864
+Redo Buffers                             10,571,776
+Variable Size                         4,664,070,136
+                               -------------------- --------------------
+sum                                   8,351,150,080
+          -------------------------------------------------------------
+
+
+SGA breakdown difference  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+-> Top 35 rows by size, ordered by Pool, Name (note rows with null values for
+   Pool column, or Names showing free memory are always shown)
+-> Null value for Begin MB or End MB indicates the size of that Pool/Name was
+   insignificant, or zero in that snapshot
+
+Pool   Name                                 Begin MB         End MB  % Diff
+------ ------------------------------ -------------- -------------- --------
+java p free memory                              16.0           16.0     0.00
+large  free memory                              24.2           24.2     0.00
+large  PX msg pool                               7.8            7.8     0.00
+shared dbktb: trace buffer                      31.3           31.3     0.00
+shared event statistics per sess                37.9           37.9     0.00
+shared free memory                             336.8          326.5    -3.05
+shared KGH: NO ACCESS                           79.9           79.9     0.00
+shared KGLHD                                    60.6           61.3     1.12
+shared KGLH0                                   358.1          362.6     1.26
+shared KGLS                                     41.0           41.3     0.75
+shared ksunfy : SSO free list                   36.1           36.1     0.00
+shared KTI-UNDO                                 22.3           22.3     0.00
+shared private strands                          22.4           22.4     0.00
+shared SQLA                                    325.8          334.4     2.63
+stream free memory                              32.0           32.0     0.00
+stream KGH: NO ACCESS                           16.0           16.0     0.00
+       buffer_cache                          3,504.0        3,504.0     0.00
+       fixed_sga                                 2.2            2.2     0.00
+       log_buffer                               10.1           10.1     0.00
+          -------------------------------------------------------------
+SQL Memory Statistics  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+                                   Begin            End         % Diff
+                          -------------- -------------- --------------
+   Avg Cursor Size (KB):           25.47          25.74           1.04
+ Cursor to Parent ratio:            1.58           1.57           -.32
+          Total Cursors:          16,913         17,164           1.46
+          Total Parents:          10,726         10,920           1.78
+          -------------------------------------------------------------
+init.ora Parameters  DB/Inst: LAGMCOP/lagmcop  Snaps: 4411-4412
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+audit_file_dest               U:\ORACLE\ADMIN\LAGMCOP\ADUMP
+audit_trail                   NONE
+cluster_database              FALSE
+compatible                    11.2.0.0.0
+control_files                 U:\ORACLE\DATA\LAGMCOP\CONTROL01.
+                              CTL, U:\ORACLE\DATA\LAGMCOP\CONTR
+                              OL02.CTL
+create_stored_outlines        NULL
+db_block_size                 8192
+db_cache_size                 16777216
+db_domain
+db_name                       LAGMCOP
+diagnostic_dest               U:\ORACLE
+log_archive_dest_1            LOCATION=F:\oracle\ARCHIVELOG\LAG
+                              MCOP
+log_archive_format            ARC%s_%R.%T
+memory_max_target             8388608000
+memory_target                 8388608000
+nls_language                  AMERICAN
+nls_length_semantics          CHAR
+nls_territory                 AMERICA
+open_cursors                  300
+pga_aggregate_target          0
+processes                     2000
+remote_login_passwordfile     EXCLUSIVE
+sec_case_sensitive_logon      FALSE
+session_cached_cursors        300
+sessions                      3024
+sga_target                    0
+spfile                        U:\ORACLE\ADMIN\LAGMCOP\PFILE\SPF
+                              ILELAGMCOP.ORA
+undo_retention                18000
+undo_tablespace               UNDOTBS1
+          -------------------------------------------------------------
+
+End of Report ( D:\Nexttech\zenity_client\snaps\IDL_sp-LAGMCOP-4411_4412.txt )
+

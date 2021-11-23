@@ -1,0 +1,3189 @@
+
+STATSPACK report for
+
+Database    DB Id    Instance     Inst Num  Startup Time   Release     RAC
+~~~~~~~~ ----------- ------------ -------- --------------- ----------- ---
+           279386154 SOCOSP              1 30-Sep-18 10:01 11.2.0.4.0  NO
+
+Host                             Name             Platform                CPUs
+Cores Sockets   Memory (G)
+~~~~ ---------------- ---------------------- ----- ----- ------- ------------
+     SRVODA010        Linux x86 64-bit           8     4       2        503.5
+
+Snapshot       Snap Id     Snap Time      Sessions Curs/Sess Comment
+~~~~~~~~    ---------- ------------------ -------- --------- ------------------
+Begin Snap:       8524 04-Oct-18 23:00:00       61       1.8
+  End Snap:       8525 05-Oct-18 00:00:00       77       2.6
+   Elapsed:      60.00 (mins) Av Act Sess:       0.1
+   DB time:       6.52 (mins)      DB CPU:       3.11 (mins)
+
+Cache Sizes            Begin        End
+~~~~~~~~~~~       ---------- ----------
+    Buffer Cache:     9,920M              Std Block Size:         8K
+     Shared Pool:     2,144M                  Log Buffer:    15,624K
+
+Load Profile              Per Second    Per Transaction    Per Exec    Per Call
+~~~~~~~~~~~~      ------------------  ----------------- ----------- -----------
+      DB time(s):                0.1                0.1        0.00        0.00
+       DB CPU(s):                0.1                0.1        0.00        0.00
+       Redo size:           77,414.6           95,116.9
+   Logical reads:            4,561.7            5,604.8
+   Block changes:              262.4              322.4
+  Physical reads:              188.5              231.6
+ Physical writes:                2.7                3.3
+      User calls:               61.3               75.3
+          Parses:               25.7               31.6
+     Hard parses:                0.2                0.3
+W/A MB processed:                1.3                1.6
+          Logons:                0.1                0.1
+        Executes:               28.1               34.5
+       Rollbacks:                0.0                0.0
+    Transactions:                0.8
+
+Instance Efficiency Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Buffer Nowait %:  100.00       Redo NoWait %:  100.00
+            Buffer  Hit   %:   99.91  Optimal W/A Exec %:  100.00
+            Library Hit   %:   98.98        Soft Parse %:   99.16
+         Execute to Parse %:    8.54         Latch Hit %:   99.92
+Parse CPU to Parse Elapsd %:   73.27     % Non-Parse CPU:   98.23
+
+ Shared Pool Statistics        Begin   End
+                               ------  ------
+             Memory Usage %:   80.77   79.39
+    % SQL with executions>1:   66.95   66.21
+  % Memory for SQL w/exec>1:   87.40   87.18
+
+Top 5 Timed Events                                                    Avg %Total
+~~~~~~~~~~~~~~~~~~                                                   wait   Call
+Event                                            Waits    Time (s)   (ms)   Time
+----------------------------------------- ------------ ----------- ------ ------
+CPU time                                                       179          41.2
+direct path read                                78,010         120      2   27.7
+db file parallel write                           3,407          57     17   13.1
+db file sequential read                         20,349          36      2    8.3
+resmgr:cpu quantum                                 196          12     59    2.6
+          -------------------------------------------------------------
+Host CPU  (CPUs: 8  Cores: 4  Sockets: 2)
+~~~~~~~~              Load Average
+                      Begin     End      User  System    Idle     WIO     WCPU
+                    ------- -------   ------- ------- ------- ------- --------
+                       4.12    3.30     11.00    4.42   84.53    0.60
+
+Instance CPU
+~~~~~~~~~~~~                                       % Time (seconds)
+                                            -------- --------------
+                     Host: Total time (s):                 28,614.2
+                  Host: Busy CPU time (s):                  4,427.2
+                   % of time Host is Busy:      15.5
+             Instance: Total CPU time (s):                    211.0
+          % of Busy CPU used for Instance:       4.8
+        Instance: Total Database time (s):                    495.1
+  %DB time waiting for CPU (Resource Mgr):       0.0
+
+Memory Statistics                       Begin          End
+~~~~~~~~~~~~~~~~~                ------------ ------------
+                  Host Mem (MB):    515,625.2    515,625.2
+                   SGA use (MB):     12,233.1     12,233.1
+                   PGA use (MB):        384.7        432.4
+    % Host Mem used for SGA+PGA:          2.4          2.5
+          -------------------------------------------------------------
+
+Time Model System Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Ordered by % of DB time desc, Statistic name
+
+Statistic                                       Time (s) % DB time
+----------------------------------- -------------------- ---------
+sql execute elapsed time                           258.3      66.0
+DB CPU                                             186.7      47.7
+parse time elapsed                                   6.2       1.6
+hard parse elapsed time                              2.5        .6
+PL/SQL execution elapsed time                        2.2        .6
+hard parse (sharing criteria) elaps                  1.4        .4
+connection management call elapsed                   0.6        .1
+failed parse elapsed time                            0.5        .1
+PL/SQL compilation elapsed time                      0.1        .0
+sequence load elapsed time                           0.1        .0
+repeated bind elapsed time                           0.0        .0
+DB time                                            391.5
+background elapsed time                            103.6
+background cpu time                                 24.3
+          -------------------------------------------------------------
+Foreground Wait Events  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+direct path read                   78,010    0        120      2     26.6   27.7
+db file sequential read            20,309    0         36      2      6.9    8.2
+resmgr:cpu quantum                    196    0         12     59      0.1    2.6
+SQL*Net break/reset to clien       24,984    0          8      0      8.5    1.7
+control file sequential read       44,601    0          6      0     15.2    1.3
+Disk file Mirror Read              13,221    0          2      0      4.5     .5
+direct path write                     302    0          2      7      0.1     .5
+Disk file operations I/O            1,363    0          1      1      0.5     .3
+SQL*Net more data to client       100,362    0          1      0     34.3     .2
+log file sync                       2,916    0          1      0      1.0     .2
+latch: shared pool                    115    0          0      2      0.0     .1
+library cache: mutex X                427    0          0      0      0.1     .0
+enq: KO - fast object checkp            2    0          0     14      0.0     .0
+undo segment extension                  4  100          0      5      0.0     .0
+CSS initialization                      7    0          0      2      0.0     .0
+cursor: pin S wait on X                12    0          0      1      0.0     .0
+latch: redo allocation                 20    0          0      0      0.0     .0
+latch: object queue header o            1    0          0      4      0.0     .0
+CSS operation: action                   7    0          0      0      0.0     .0
+ADR block file read                    36    0          0      0      0.0     .0
+SQL*Net message from client       158,950    0     45,091    284     54.2
+jobq slave wait                       146  100         73    500      0.0
+SQL*Net message to client         158,951    0          0      0     54.2
+wait for unread message on b          168    0          0      1      0.1
+SQL*Net more data from clien        2,099    0          0      0      0.7
+          -------------------------------------------------------------
+
+Background Wait Events  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+db file parallel write              3,407    0         57     17      1.2   13.1
+control file sequential read       14,650    0          2      0      5.0     .5
+log file parallel write             6,984    0          2      0      2.4     .5
+control file parallel write         4,916    0          1      0      1.7     .3
+Disk file Mirror Read               3,361    0          1      0      1.1     .2
+Parameter File I/O                    960    0          1      1      0.3     .2
+direct path write                      44    0          1     16      0.0     .2
+os thread startup                      37    0          1     17      0.0     .1
+db file sequential read                40    0          0     10      0.0     .1
+LNS wait on SENDREQ                 6,959    0          0      0      2.4     .1
+Disk file operations I/O            1,066    0          0      0      0.4     .1
+db file async I/O submit            3,407    0          0      0      1.2     .1
+CGS wait for IPC msg               35,059  100          0      0     12.0     .0
+LGWR wait for redo copy             2,028    0          0      0      0.7     .0
+db flash cache single block           300    0          0      0      0.1     .0
+latch: shared pool                      1    0          0     28      0.0     .0
+latch: redo allocation                 12    0          0      2      0.0     .0
+CSS operation: action                  17    0          0      1      0.0     .0
+db file scattered read                  1    0          0      7      0.0     .0
+reliable message                        9    0          0      0      0.0     .0
+CSS initialization                      1    0          0      2      0.0     .0
+rdbms ipc message                  68,873   88     86,366   1254     23.5
+EMON slave idle wait                3,605  100     18,025   5000      1.2
+DIAG idle wait                     36,690  100      7,201    196     12.5
+Space Manager: slave idle wa          856   98      4,214   4923      0.3
+smon timer                             21   52      3,810 ######      0.0
+Streams AQ: qmn slave idle w          129    0      3,613  28006      0.0
+Streams AQ: qmn coordinator           258   50      3,613  14003      0.1
+Streams AQ: emn coordinator           360  100      3,603  10009      0.1
+ges remote message                  2,762  100      3,603   1304      0.9
+pmon timer                          1,199  100      3,602   3004      0.4
+LNS ASYNC end of log                9,913   30      3,602    363      3.4
+PING                                  832   33      3,601   4328      0.3
+shared server idle wait               120  100      3,601  30009      0.0
+dispatcher timer                       60  100      3,601  60010      0.0
+GCR sleep                             720  100      3,600   5000      0.2
+SQL*Net message from client           939    0          1      1      0.3
+wait for unread message on b           24    0          0      0      0.0
+class slave wait                       20    0          0      0      0.0
+          -------------------------------------------------------------
+
+Wait Events (fg and bg) DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+direct path read                   78,010    0        120      2     26.6   27.7
+db file parallel write              3,407    0         57     17      1.2   13.1
+db file sequential read            20,349    0         36      2      6.9    8.3
+resmgr:cpu quantum                    196    0         12     59      0.1    2.6
+control file sequential read       59,251    0          8      0     20.2    1.9
+SQL*Net break/reset to clien       24,984    0          8      0      8.5    1.7
+Disk file Mirror Read              16,582    0          3      0      5.7     .7
+direct path write                     346    0          3      8      0.1     .6
+log file parallel write             6,984    0          2      0      2.4     .5
+Disk file operations I/O            2,429    0          1      1      0.8     .3
+control file parallel write         4,916    0          1      0      1.7     .3
+SQL*Net more data to client       100,362    0          1      0     34.3     .2
+Parameter File I/O                    960    0          1      1      0.3     .2
+log file sync                       2,919    0          1      0      1.0     .2
+os thread startup                      37    0          1     17      0.0     .1
+latch: shared pool                    116    0          0      3      0.0     .1
+LNS wait on SENDREQ                 6,959    0          0      0      2.4     .1
+db file async I/O submit            3,407    0          0      0      1.2     .1
+CGS wait for IPC msg               35,059  100          0      0     12.0     .0
+LGWR wait for redo copy             2,028    0          0      0      0.7     .0
+library cache: mutex X                427    0          0      0      0.1     .0
+db flash cache single block           300    0          0      0      0.1     .0
+latch: redo allocation                 32    0          0      1      0.0     .0
+enq: KO - fast object checkp            2    0          0     14      0.0     .0
+undo segment extension                  4  100          0      5      0.0     .0
+CSS operation: action                  24    0          0      1      0.0     .0
+CSS initialization                      8    0          0      2      0.0     .0
+cursor: pin S wait on X                12    0          0      1      0.0     .0
+db file scattered read                  1    0          0      7      0.0     .0
+latch: object queue header o            1    0          0      4      0.0     .0
+reliable message                       11    0          0      0      0.0     .0
+ADR block file read                    52    0          0      0      0.0     .0
+rdbms ipc message                  68,873   88     86,366   1254     23.5
+SQL*Net message from client       159,889    0     45,092    282     54.6
+EMON slave idle wait                3,605  100     18,025   5000      1.2
+DIAG idle wait                     36,690  100      7,201    196     12.5
+Space Manager: slave idle wa          856   98      4,214   4923      0.3
+smon timer                             21   52      3,810 ######      0.0
+Streams AQ: qmn slave idle w          129    0      3,613  28006      0.0
+Streams AQ: qmn coordinator           258   50      3,613  14003      0.1
+Streams AQ: emn coordinator           360  100      3,603  10009      0.1
+ges remote message                  2,762  100      3,603   1304      0.9
+pmon timer                          1,199  100      3,602   3004      0.4
+LNS ASYNC end of log                9,913   30      3,602    363      3.4
+PING                                  832   33      3,601   4328      0.3
+shared server idle wait               120  100      3,601  30009      0.0
+dispatcher timer                       60  100      3,601  60010      0.0
+GCR sleep                             720  100      3,600   5000      0.2
+jobq slave wait                       146  100         73    500      0.0
+
+Wait Events (fg and bg) DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+SQL*Net message to client         159,655    0          0      0     54.5
+wait for unread message on b          192    0          0      1      0.1
+SQL*Net more data from clien        2,099    0          0      0      0.7
+class slave wait                       20    0          0      0      0.0
+          -------------------------------------------------------------
+Wait Event Histogram  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ADR block file read          52  100.0
+ADR block file write         10  100.0
+ADR file lock                12  100.0
+asynch descriptor resize    272  100.0
+buffer busy waits            20  100.0
+CGS wait for IPC msg         35K 100.0
+control file parallel writ 4916   99.7    .1          .2    .0    .0    .0
+control file sequential re   59K  99.9    .1    .0    .0
+CSS initialization            8         62.5  37.5
+CSS operation: action        24   66.7  33.3
+cursor: pin S                 1  100.0
+cursor: pin S wait on X      12        100.0
+db file async I/O submit   3407   99.9                      .0    .0
+db file parallel write     3407           .1   1.2  16.4  51.5  22.1   8.7
+db file scattered read        1                    100.0
+db file sequential read      20K  80.3   2.5   2.4   6.2   7.3   1.3    .1
+db flash cache single bloc  300   99.3          .3    .3
+direct path read             78K  78.5   2.8   5.4   7.5   4.9    .8    .2
+direct path write           346   11.0  10.1  19.9  21.1  29.5   6.4   2.0
+Disk file Mirror Read        16K  99.8    .1    .1    .0                .0
+Disk file operations I/O   2429   94.5          .3   1.6   3.3    .3    .0
+enq: KO - fast object chec    2                          100.0
+enq: TX - row lock content    1  100.0
+latch: cache buffers lru c    1  100.0
+latch: checkpoint queue la    1  100.0
+latch: enqueue hash chains    1  100.0
+latch free                    8  100.0
+latch: In memory undo latc    1  100.0
+latch: object queue header    1                    100.0
+latch: redo allocation       32   81.3   6.3   9.4         3.1
+latch: shared pool          116   86.2    .9    .9   2.6   1.7   6.0   1.7
+LGWR wait for redo copy    2031   99.2    .3    .1    .1    .2
+library cache lock            2  100.0
+library cache: mutex X      427   98.4                      .9    .7
+LNS wait on SENDREQ        6962  100.0    .0
+log file parallel write    6987   96.5   1.7   1.5    .2    .0          .0
+log file sync              2919   98.0   1.4    .3    .1    .1
+os thread startup            37                           48.6  51.4
+Parameter File I/O          960   91.8    .4    .4   3.3   3.5    .5
+reliable message             11  100.0
+resmgr:cpu quantum          201   16.9   1.5   1.0   1.5   8.0   8.0  63.2
+SQL*Net break/reset to cli   24K  94.2   2.6   1.4   1.6    .2    .0    .0
+SQL*Net more data to clien  100K 100.0    .0    .0    .0    .0
+undo segment extension        4   50.0                    50.0
+class slave wait             20  100.0
+DIAG idle wait               36K                           4.2        95.8
+dispatcher timer             60                                            100.0
+EMON slave idle wait       3605                                            100.0
+GCR sleep                   720                                            100.0
+ges remote message         2762                                            100.0
+jobq slave wait             147                                      100.0
+Wait Event Histogram  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+LNS ASYNC end of log       9916   21.5   9.7   3.5   1.2   6.2   6.8  51.1
+PING                        832   66.7                                      33.3
+pmon timer                 1200                                            100.0
+rdbms ipc message            68K   2.2    .1    .2    .2   1.1   1.0  75.1  20.1
+shared server idle wait     120                                            100.0
+smon timer                   21                            9.5   4.8   9.5  76.2
+Space Manager: slave idle   855     .6    .1                .1    .1    .2  98.8
+SQL*Net message from clien  159K  57.0   9.3   4.4   4.5   8.0   4.8   9.4   2.6
+SQL*Net message to client   158K 100.0
+SQL*Net more data from cli 2099  100.0
+Streams AQ: emn coordinato  360                                            100.0
+Streams AQ: qmn coordinato  258   50.0                                      50.0
+Streams AQ: qmn slave idle  129                                            100.0
+wait for unread message on  192   86.5   7.3   6.3
+          -------------------------------------------------------------
+
+SQL ordered by CPU  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Total DB CPU (s):             187
+-> Captured SQL accounts for  100.5% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+     81.88           12       6.82   43.9      82.58               0 1190406530
+Module: SQL*Plus
+select xmlelement("ALERT", xmlforest(to_char(originating_timesta
+mp,:"SYS_B_0") timestamp,message_text,module_id,message_type)) f
+rom    alert_log where    originating_timestamp > sysdate-:"SYS_
+B_1"/:"SYS_B_2" and (    message_text like :"SYS_B_3"    or    m
+
+     10.51           41       0.26    5.6      10.59       2,764,384   15082226
+Module: dllhost.exe
+SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.
+BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7,
+a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODI
+F3 AS f11,a0.CODIF4 AS f12,a0.CODIF5_R AS f13,a0.CODIF6 AS f14,a
+
+     10.40           41       0.25    5.6      10.48       2,764,384  292105008
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+      4.83            1       4.83    2.6      19.99         264,588  333476733
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN statspack.snap; :mydate := next_d
+ate; IF broken THEN :b := 1; ELSE :b := 0; END IF; END;
+
+      3.02            0               1.6      17.47         345,320 3093217152
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_LS_FILEOBJECT"'); :mydate := next_date; IF broken THEN :b := 1;
+ ELSE :b := 0; END IF; END;
+
+      2.96            0               1.6      17.01         212,247  821448707
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_RELATEDFILES"'); :mydate := next_date; IF broken THEN :b :=
+1; ELSE :b := 0; END IF; END;
+
+      2.94            0               1.6      16.98         211,872  912925779
+ delete from "GED_VM"."V_P3_RELATEDFILES"
+
+      2.92            1       2.92    1.6      15.84         195,180  282584495
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_OT_AVIS"'); :mydate := next_date; IF broken THEN :b := 1; ELSE
+:b := 0; END IF; END;
+
+      2.89            0               1.5      17.03          93,571  995608360
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_OTI"'); :mydate := next_date; IF broken THEN :b := 1; ELSE :
+b := 0; END IF; END;
+SQL ordered by CPU  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Total DB CPU (s):             187
+-> Captured SQL accounts for  100.5% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+
+      2.86            0               1.5      17.00          93,206 1984015282
+ delete from "GED_VM"."V_P3_OTI"
+
+      2.80            1       2.80    1.5      17.16         124,396  673924437
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_VW_VALIDATION"'); :mydate := next_date; IF broken THEN :b := 1;
+ ELSE :b := 0; END IF; END;
+
+      2.60            0               1.4      17.11          81,057 1762443450
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_LINKS"'); :mydate := next_date; IF broken THEN :b := 1; ELSE
+ :b := 0; END IF; END;
+
+      2.56            0               1.4      17.01          80,724 1099173897
+ delete from "GED_VM"."V_P3_LINKS"
+
+      2.55            1       2.55    1.4      15.37         111,652 1437117490
+ delete from "GED_VM"."V_VW_VALIDATION"
+
+      2.20          660       0.00    1.2       2.22               0 3547921727
+SELECT value,type FROM v$parameter WHERE name = :1
+
+          -------------------------------------------------------------
+SQL ordered by Elapsed time for DB: SOCOSP  Instance: SOCOSP  Snaps: 8524 -8525
+-> Total DB Time (s):             391
+-> Captured SQL accounts for   91.7% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+     82.58           12       6.88   21.1      81.88               0 1190406530
+Module: SQL*Plus
+select xmlelement("ALERT", xmlforest(to_char(originating_timesta
+mp,:"SYS_B_0") timestamp,message_text,module_id,message_type)) f
+rom    alert_log where    originating_timestamp > sysdate-:"SYS_
+B_1"/:"SYS_B_2" and (    message_text like :"SYS_B_3"    or    m
+
+     19.99            1      19.99    5.1       4.83               0  333476733
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN statspack.snap; :mydate := next_d
+ate; IF broken THEN :b := 1; ELSE :b := 0; END IF; END;
+
+     19.19            5       3.84    4.9       0.82          14,230 2325072255
+Module: SQL*Plus
+select upper(decode(:"SYS_B_00", :"SYS_B_01", d.NAME, i.instance
+_name))                   || :"SYS_B_02" || file_name ||:"SYS_B_
+03"|| tablespace_name ||:"SYS_B_04"|| fstatus ||:"SYS_B_05"|| AU
+TOEXTENSIBLE                   ||:"SYS_B_06"|| blocks ||:"SYS_B_
+
+     19.07            2       9.54    4.9       1.53         538,323 3831242582
+Module: Oracle Enterprise Manager.Metric Engine
+SELECT TO_CHAR(current_timestamp AT TIME ZONE :"SYS_B_0", :"SYS_
+B_1") AS curr_timestamp, COUNT(username) AS failed_count, TO_CHA
+R(MIN(timestamp), :"SYS_B_2") AS first_occur_time, TO_CHAR(MAX(t
+imestamp), :"SYS_B_3") AS last_occur_time FROM  sys.dba_audit_se
+
+     17.47            0               4.5       3.02               0 3093217152
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_LS_FILEOBJECT"'); :mydate := next_date; IF broken THEN :b := 1;
+ ELSE :b := 0; END IF; END;
+
+     17.16            1      17.16    4.4       2.80               0  673924437
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_VW_VALIDATION"'); :mydate := next_date; IF broken THEN :b := 1;
+ ELSE :b := 0; END IF; END;
+
+     17.11            0               4.4       2.60               0 1762443450
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_LINKS"'); :mydate := next_date; IF broken THEN :b := 1; ELSE
+ :b := 0; END IF; END;
+
+     17.03            0               4.4       2.89               0  995608360
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_OTI"'); :mydate := next_date; IF broken THEN :b := 1; ELSE :
+b := 0; END IF; END;
+
+     17.01            0               4.3       2.56               0 1099173897
+ delete from "GED_VM"."V_P3_LINKS"
+SQL ordered by Elapsed time for DB: SOCOSP  Instance: SOCOSP  Snaps: 8524 -8525
+-> Total DB Time (s):             391
+-> Captured SQL accounts for   91.7% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+
+     17.01            0               4.3       2.96               0  821448707
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_RELATEDFILES"'); :mydate := next_date; IF broken THEN :b :=
+1; ELSE :b := 0; END IF; END;
+
+     17.00            0               4.3       2.86               0 1984015282
+ delete from "GED_VM"."V_P3_OTI"
+
+     16.98            0               4.3       2.94               0  912925779
+ delete from "GED_VM"."V_P3_RELATEDFILES"
+
+     15.84            1      15.84    4.0       2.92               0  282584495
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_OT_AVIS"'); :mydate := next_date; IF broken THEN :b := 1; ELSE
+:b := 0; END IF; END;
+
+     15.37            1      15.37    3.9       2.55               0 1437117490
+ delete from "GED_VM"."V_VW_VALIDATION"
+
+     14.27           54       0.26    3.6       1.14           4,277  123609568
+Module: dllhost.exe
+UPDATE LS_PACKAGEOBJECT SET PackageXML = :v0 WHERE PackageId = :
+v1
+
+     12.52            1      12.52    3.2       1.59               0 3479188637
+INSERT /*+ BYPASS_RECURSIVE_CHECK */ INTO "GED_VM"."V_OT_AVIS" s
+elect * from COSEAV3.OT_AVIS
+
+     10.59           41       0.26    2.7      10.51               0   15082226
+Module: dllhost.exe
+SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.
+BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7,
+a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODI
+F3 AS f11,a0.CODIF4 AS f12,a0.CODIF5_R AS f13,a0.CODIF6 AS f14,a
+
+     10.48           41       0.26    2.7      10.40               0  292105008
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+      9.90            0               2.5       1.18               0  229885265
+INSERT /*+ BYPASS_RECURSIVE_CHECK */ INTO "GED_VM"."V_LS_FILEOBJ
+ECT"("FILEID","CACHEID","VOLUMEID","LOCATIONID","ISAVAILABLE","F
+ILESTORAGEOBJECTXML","REFCOUNT","RELATIVEPATH") SELECT "LS_FILEO
+BJECT"."FILEID","LS_FILEOBJECT"."CACHEID","LS_FILEOBJECT"."VOLUM
+
+      7.55            1       7.55    1.9       1.76               0 1931645824
+SQL ordered by Elapsed time for DB: SOCOSP  Instance: SOCOSP  Snaps: 8524 -8525
+-> Total DB Time (s):             391
+-> Captured SQL accounts for   91.7% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_ADVDISTRIBUTIONS"'); :mydate := next_date; IF broken THEN :b
+ := 1; ELSE :b := 0; END IF; END;
+
+      7.54            1       7.54    1.9       1.82               0  986785779
+ delete from "GED_VM"."V_LS_FILEOBJECT"
+
+      6.46           57       0.11    1.7       0.25               0 1575619852
+Module: SQL*Plus
+SELECT upper(decode(0, 0, d.NAME, i.instance_name))
+         ||'|'|| d.DB_UNIQUE_NAME                      ||'|'|| d
+.DATABASE_ROLE                      ||'|'|| d.open_mode
+             ||'|'|| dh.file#                      ||'|'|| round
+
+      6.28            1       6.28    1.6       1.19               0 1221782610
+INSERT INTO STATS$SQL_SUMMARY ( SNAP_ID , DBID , INSTANCE_NUMBER
+ , TEXT_SUBSET , SQL_ID , SHARABLE_MEM , SORTS , MODULE , LOADED
+_VERSIONS , FETCHES , EXECUTIONS , PX_SERVERS_EXECUTIONS , END_O
+F_FETCH_COUNT , LOADS , INVALIDATIONS , PARSE_CALLS , DISK_READS
+
+      5.65            1       5.65    1.4       0.89               0  750515295
+INSERT /*+ BYPASS_RECURSIVE_CHECK */ INTO "GED_VM"."V_P3_ADVDIST
+RIBUTIONS" select * from COSEAV3.P3_ADVDISTRIBUTIONS
+
+      5.36            1       5.36    1.4       0.64               0  195971808
+INSERT INTO STATS$SQL_STATISTICS ( SNAP_ID , DBID , INSTANCE_NUM
+BER , TOTAL_SQL , TOTAL_SQL_MEM , SINGLE_USE_SQL , SINGLE_USE_SQ
+L_MEM , TOTAL_CURSORS ) SELECT :B3 , :B2 , :B1 , COUNT(1) , SUM(
+SHARABLE_MEM) , SUM(DECODE(EXECUTIONS, 1, 1, 0)) , SUM(DECODE(EX
+
+      5.24            2       2.62    1.3       1.13               0 3513617024
+Module: emagent_SQL_oracle_database
+ with last_run as ( SELECT all_runs.OWNER, all_runs.JOB_NAME, al
+l_runs.STATUS FROM DBA_SCHEDULER_JOB_RUN_DETAILS all_runs, (SELE
+CT OWNER, JOB_NAME, MAX(ACTUAL_START_DATE) AS START_DATE FROM DB
+A_SCHEDULER_JOB_RUN_DETAILS GROUP BY OWNER,JOB_NAME) latest_runs
+
+          -------------------------------------------------------------
+SQL ordered by Gets  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:      16,422,155
+-> Captured SQL accounts for   99.4% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+      2,764,384           41       67,424.0   17.5    10.51     10.59   15082226
+Module: dllhost.exe
+SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.
+BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7,
+a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODI
+F3 AS f11,a0.CODIF4 AS f12,a0.CODIF5_R AS f13,a0.CODIF6 AS f14,a
+
+      2,764,384           41       67,424.0   17.5    10.40     10.48  292105008
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+        655,647           97        6,759.2    4.2     1.02      1.03 4201130880
+Module: dllhost.exe
+SELECT COUNT(*) FROM LS_EventQueue WHERE SystemId = :v0 AND Queu
+eState = :v1
+
+        538,359            2      269,179.5    3.4     1.53     19.07 3831242582
+Module: Oracle Enterprise Manager.Metric Engine
+SELECT TO_CHAR(current_timestamp AT TIME ZONE :"SYS_B_0", :"SYS_
+B_1") AS curr_timestamp, COUNT(username) AS failed_count, TO_CHA
+R(MIN(timestamp), :"SYS_B_2") AS first_occur_time, TO_CHAR(MAX(t
+imestamp), :"SYS_B_3") AS last_occur_time FROM  sys.dba_audit_se
+
+        439,438           41       10,718.0    2.8     0.61      0.62  898977806
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+        439,438           41       10,718.0    2.8     0.68      0.69 2123372830
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+        439,356           41       10,716.0    2.8     0.65      0.66  867492824
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+        439,356           41       10,716.0    2.8     0.64      0.64 1696664758
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+SQL ordered by Gets  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:      16,422,155
+-> Captured SQL accounts for   99.4% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+        439,356           41       10,716.0    2.8     0.68      0.70 1976722063
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+        439,356           41       10,716.0    2.8     0.66      0.67 2953656253
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+        439,356           41       10,716.0    2.8     0.61      0.61 3021882282
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+        439,356           41       10,716.0    2.8     0.63      0.64 4038057362
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+        345,320            0                   2.2     3.02     17.47 3093217152
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_LS_FILEOBJECT"'); :mydate := next_date; IF broken THEN :b := 1;
+ ELSE :b := 0; END IF; END;
+
+        264,588            1      264,588.0    1.7     4.83     19.99  333476733
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN statspack.snap; :mydate := next_d
+ate; IF broken THEN :b := 1; ELSE :b := 0; END IF; END;
+
+        263,970        8,851           29.8    1.7     1.37      1.33 3371869367
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml , LS_Queue."ROWID"  FROM LS_Queue
+WHERE  LS_Queue.QueueEntryState=:"SYS_B_0" AND LS_Queue.QueuePro
+cessorId IN (:"SYS_B_1", :"SYS_B_2") AND LS_Queue.ExecutionDate
+< to_date(:"SYS_B_3", :"SYS_B_4") ORDER BY Priority DESC, Execut
+
+        230,323            1      230,323.0    1.5     1.82      7.54  986785779
+ delete from "GED_VM"."V_LS_FILEOBJECT"
+
+        230,297            1      230,297.0    1.5     1.22      1.22 2783330933
+SQL ordered by Gets  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:      16,422,155
+-> Captured SQL accounts for   99.4% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+INSERT INTO STATS$SQL_PLAN ( PLAN_HASH_VALUE , ID , OPERATION ,
+OPTIONS , OBJECT_NODE , OBJECT# , OBJECT_OWNER , OBJECT_NAME , O
+BJECT_ALIAS , OBJECT_TYPE , OPTIMIZER , PARENT_ID , DEPTH , POSI
+TION , SEARCH_COLUMNS , COST , CARDINALITY , BYTES , OTHER_TAG ,
+
+        212,247            0                   1.3     2.96     17.01  821448707
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_P3_RELATEDFILES"'); :mydate := next_date; IF broken THEN :b :=
+1; ELSE :b := 0; END IF; END;
+
+        211,872            0                   1.3     2.94     16.98  912925779
+ delete from "GED_VM"."V_P3_RELATEDFILES"
+
+        195,180            1      195,180.0    1.2     2.92     15.84  282584495
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN dbms_refresh.refresh('"GED_VM"."V
+_OT_AVIS"'); :mydate := next_date; IF broken THEN :b := 1; ELSE
+:b := 0; END IF; END;
+
+        189,543           41        4,623.0    1.2     0.38      0.38 1897434075
+Module: dllhost.exe
+SELECT COUNT(DISTINCT(p1.ADRESS)) FROM OT20_PLANS a0 ,P3_OTI p1,
+P3_STATUS p2 ,AV20_REVISIONSTATUS a5,AV20_CODIF1 a15,AV20_CODIF2
+ a16,AV20_CODIF3 a17,AV20_CODIF4 a18,AV20_CODIF6 a20,AV20_CODIF7
+ a21,P3_Confid a24,P3V_OT_STATES a33, ( SELECT P3L_AdvancedAccRg
+
+        189,543           41        4,623.0    1.2     0.35      0.36 2496074237
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+          -------------------------------------------------------------
+SQL ordered by Reads  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Disk Reads Threshold:      1000  Total Disk Reads:         678,646
+-> Captured SQL accounts for   82.1% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+        538,323            2      269,161.5   79.3     1.53     19.07 3831242582
+Module: Oracle Enterprise Manager.Metric Engine
+SELECT TO_CHAR(current_timestamp AT TIME ZONE :"SYS_B_0", :"SYS_
+B_1") AS curr_timestamp, COUNT(username) AS failed_count, TO_CHA
+R(MIN(timestamp), :"SYS_B_2") AS first_occur_time, TO_CHAR(MAX(t
+imestamp), :"SYS_B_3") AS last_occur_time FROM  sys.dba_audit_se
+
+         14,230            5        2,846.0    2.1     0.82     19.19 2325072255
+Module: SQL*Plus
+select upper(decode(:"SYS_B_00", :"SYS_B_01", d.NAME, i.instance
+_name))                   || :"SYS_B_02" || file_name ||:"SYS_B_
+03"|| tablespace_name ||:"SYS_B_04"|| fstatus ||:"SYS_B_05"|| AU
+TOEXTENSIBLE                   ||:"SYS_B_06"|| blocks ||:"SYS_B_
+
+          -------------------------------------------------------------
+SQL ordered by Executions  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Executions Threshold:       100  Total Executions:         101,081
+-> Captured SQL accounts for  103.8% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+       8,851               0              0.0       0.00        0.00  3371869367
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml , LS_Queue."ROWID"  FROM LS_Queue
+WHERE  LS_Queue.QueueEntryState=:"SYS_B_0" AND LS_Queue.QueuePro
+cessorId IN (:"SYS_B_1", :"SYS_B_2") AND LS_Queue.ExecutionDate
+< to_date(:"SYS_B_3", :"SYS_B_4") ORDER BY Priority DESC, Execut
+
+       8,837               0              0.0       0.00        0.00  3734442382
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml FROM LS_Queue WHERE LS_Queue.Queue
+EntryState=:"SYS_B_0" AND LS_Queue.QueueProcessorId IN (:"SYS_B_
+1", :"SYS_B_2") AND LS_Queue.ExecutionDate < to_date(:"SYS_B_3",
+ :"SYS_B_4") ORDER BY Priority DESC, ExecutionDate ASC, DateQueu
+
+       6,148               0              0.0       0.00        0.00  2753401063
+Module: dllhost.exe
+SELECT PrepostName FROM LS_PrePost WHERE UPPER(PrepostId) = UPPE
+R(:1) AND Enabled = :"SYS_B_0"
+
+       6,121           6,062              1.0       0.00        0.00  4223786936
+Module: dllhost.exe
+SELECT ResourceId,        SettingsXML FROM LS_UserSettings WHERE
+ ResourceId=:1 and SettingId=:"SYS_B_0" and SettingType=:"SYS_B_
+1"
+
+       5,426           5,426              1.0       0.00        0.00  3295776856
+Module: dllhost.exe
+INSERT INTO LS_PackageCustomProperties (PackageId, PropName, Pro
+pType, PropValue)             VALUES(:v0, :v1, :v2, :v3)
+
+       5,115           5,115              1.0       0.00        0.00  3516086038
+Module: dllhost.exe
+SELECT SystemId,    SystemXML FROM LS_System WHERE (SystemId=:1)
+
+       4,625               0              0.0       0.00        0.00  1140691896
+Module: dllhost.exe
+SELECT PrepostName,ScriptLanguage,AllowUI,Enabled,Script FROM LS
+_PrePost WHERE UPPER(PrepostId) = UPPER(:1) AND Enabled = :"SYS_
+B_0"
+
+       4,625               6              0.0       0.00        0.00  3716539604
+Module: dllhost.exe
+SELECT PrepostName , ScriptLanguage , AllowUI , Enabled , Script
+ , LS_PrePost."ROWID"  FROM LS_PrePost WHERE  UPPER(PrepostId) =
+ UPPER(:1) AND Enabled = :"SYS_B_0"
+
+       2,167               0              0.0       0.00        0.00   858560634
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml , LS_Queue."ROWID"  FROM LS_Queue
+WHERE  LS_Queue.QueueEntryState=:"SYS_B_0" AND LS_Queue.QueuePro
+cessorId IN (:"SYS_B_1", :"SYS_B_2", :"SYS_B_3") AND LS_Queue.Ex
+ecutionDate < to_date(:"SYS_B_4", :"SYS_B_5") ORDER BY Priority
+SQL ordered by Executions  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Executions Threshold:       100  Total Executions:         101,081
+-> Captured SQL accounts for  103.8% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+
+       2,165               0              0.0       0.00        0.00  1947307730
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml FROM LS_Queue WHERE LS_Queue.Queue
+EntryState=:"SYS_B_0" AND LS_Queue.QueueProcessorId IN (:"SYS_B_
+1", :"SYS_B_2", :"SYS_B_3") AND LS_Queue.ExecutionDate < to_date
+(:"SYS_B_4", :"SYS_B_5") ORDER BY Priority DESC, ExecutionDate A
+
+       1,846           1,846              1.0       0.00        0.00   995273610
+Module: dllhost.exe
+SELECT ServerSessionId FROM LS_SessionObject WHERE (SessionId=:1
+)
+
+       1,846           1,846              1.0       0.00        0.00  3291615136
+Module: dllhost.exe
+UPDATE LS_SessionObject SET DateStop=to_date(:"SYS_B_0", :"SYS_B
+_1") WHERE (SessionId=:"SYS_B_2" AND IsActive=:"SYS_B_3")
+
+       1,508           1,508              1.0       0.00        0.00   428407688
+Module: dllhost.exe
+SELECT DisplayName FROM LS_ResourceObject WHERE ResourceId=:1
+
+       1,485           7,751              5.2       0.00        0.00   107673612
+Module: dllhost.exe
+SELECT P3_USERS.NAME AS UserName, P3E_FLTCTX.CATEGORY as Categor
+y, P3E_FLTCTX.INTNAME as InternalName, P3E_FLTNAM.FLTNAME AS Fil
+terName, P3E_FLTNAM.FLTNUM as FilterNum, P3E_DBCOND.LOGOP As Con
+dLogicOperator, P3E_DBCOND.CMPFLD as CondField, P3E_DBCOND.CMPOP
+
+       1,485           1,485              1.0       0.00        0.00   792815569
+Module: dllhost.exe
+SELECT a0.NAME AS f1,a0.COMPTE AS f2,a0.LASTNAME AS f3,a0.FIRSTN
+AME AS f4,a0.PASSWD AS f5,a0.TPHONE AS f6,a0.POSTE AS f7,a0.EMAI
+L AS f8,a0.ISLDAP AS f9,a0.LDAPPATH AS f10,a0.ISLOGGEDIN AS f11,
+a0.ISACTIVE AS f12,a0.PRINTERS AS f13,a0.SECTEURS AS f14,a0.IMPU
+
+       1,485           1,485              1.0       0.00        0.00  1852428796
+Module: dllhost.exe
+SELECT a0.CATEGORY AS f1,a0.INTNAME AS f2,a0.GUICTX AS f3,a0.CTX
+NUM AS f4 FROM P3E_FLTCTX a0  WHERE ( ((a0.CATEGORY=:"SYS_B_0")
+AND (a0.GUICTX is NULL) AND (a0.INTNAME=:"SYS_B_1")))
+
+       1,485           1,485              1.0       0.00        0.00  2415908551
+Module: dllhost.exe
+SELECT a0.CTXNUM AS f1,a0.FLTNAME AS f2, a3.NAME AS f3,a0.PROJEC
+TNAME AS f4,a0.FLTNUM AS f5 FROM P3E_FLTNAM a0 ,P3_USERS a3 WHER
+E (a0.OWNER= a3.ADRESS(+) AND  ((a0.CTXNUM=:"SYS_B_0") AND (a3.N
+AME=:"SYS_B_1") AND (a0.FLTNAME=:"SYS_B_2") AND (a0.PROJECTNAME
+
+       1,171           1,171              1.0       0.00        0.00   189641676
+select text from sumkey$ where rowid = :1
+
+SQL ordered by Executions  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Executions Threshold:       100  Total Executions:         101,081
+-> Captured SQL accounts for  103.8% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+          -------------------------------------------------------------
+SQL ordered by Parse Calls  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Parse Calls Threshold:      1000 Total Parse Calls:          92,447
+-> Captured SQL accounts for  102.2% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+       8,780        8,851     9.50 3371869367
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml , LS_Queue."ROWID"  FROM LS_Queue
+WHERE  LS_Queue.QueueEntryState=:"SYS_B_0" AND LS_Queue.QueuePro
+cessorId IN (:"SYS_B_1", :"SYS_B_2") AND LS_Queue.ExecutionDate
+< to_date(:"SYS_B_3", :"SYS_B_4") ORDER BY Priority DESC, Execut
+
+       8,699        8,837     9.41 3734442382
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml FROM LS_Queue WHERE LS_Queue.Queue
+EntryState=:"SYS_B_0" AND LS_Queue.QueueProcessorId IN (:"SYS_B_
+1", :"SYS_B_2") AND LS_Queue.ExecutionDate < to_date(:"SYS_B_3",
+ :"SYS_B_4") ORDER BY Priority DESC, ExecutionDate ASC, DateQueu
+
+       6,148        6,148     6.65 2753401063
+Module: dllhost.exe
+SELECT PrepostName FROM LS_PrePost WHERE UPPER(PrepostId) = UPPE
+R(:1) AND Enabled = :"SYS_B_0"
+
+       6,121        6,121     6.62 4223786936
+Module: dllhost.exe
+SELECT ResourceId,        SettingsXML FROM LS_UserSettings WHERE
+ ResourceId=:1 and SettingId=:"SYS_B_0" and SettingType=:"SYS_B_
+1"
+
+       5,115        5,115     5.53 3516086038
+Module: dllhost.exe
+SELECT SystemId,    SystemXML FROM LS_System WHERE (SystemId=:1)
+
+       4,625        4,625     5.00 1140691896
+Module: dllhost.exe
+SELECT PrepostName,ScriptLanguage,AllowUI,Enabled,Script FROM LS
+_PrePost WHERE UPPER(PrepostId) = UPPER(:1) AND Enabled = :"SYS_
+B_0"
+
+       4,625        4,625     5.00 3716539604
+Module: dllhost.exe
+SELECT PrepostName , ScriptLanguage , AllowUI , Enabled , Script
+ , LS_PrePost."ROWID"  FROM LS_PrePost WHERE  UPPER(PrepostId) =
+ UPPER(:1) AND Enabled = :"SYS_B_0"
+
+       2,160        2,167     2.34  858560634
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml , LS_Queue."ROWID"  FROM LS_Queue
+WHERE  LS_Queue.QueueEntryState=:"SYS_B_0" AND LS_Queue.QueuePro
+cessorId IN (:"SYS_B_1", :"SYS_B_2", :"SYS_B_3") AND LS_Queue.Ex
+ecutionDate < to_date(:"SYS_B_4", :"SYS_B_5") ORDER BY Priority
+
+       2,149        2,165     2.32 1947307730
+Module: dllhost.exe
+SELECT LS_Queue.QueueEntryXml FROM LS_Queue WHERE LS_Queue.Queue
+EntryState=:"SYS_B_0" AND LS_Queue.QueueProcessorId IN (:"SYS_B_
+SQL ordered by Parse Calls  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Parse Calls Threshold:      1000 Total Parse Calls:          92,447
+-> Captured SQL accounts for  102.2% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+1", :"SYS_B_2", :"SYS_B_3") AND LS_Queue.ExecutionDate < to_date
+(:"SYS_B_4", :"SYS_B_5") ORDER BY Priority DESC, ExecutionDate A
+
+       1,846        1,846     2.00  995273610
+Module: dllhost.exe
+SELECT ServerSessionId FROM LS_SessionObject WHERE (SessionId=:1
+)
+
+       1,846        1,846     2.00 3291615136
+Module: dllhost.exe
+UPDATE LS_SessionObject SET DateStop=to_date(:"SYS_B_0", :"SYS_B
+_1") WHERE (SessionId=:"SYS_B_2" AND IsActive=:"SYS_B_3")
+
+       1,508        1,508     1.63  428407688
+Module: dllhost.exe
+SELECT DisplayName FROM LS_ResourceObject WHERE ResourceId=:1
+
+       1,485        1,485     1.61  107673612
+Module: dllhost.exe
+SELECT P3_USERS.NAME AS UserName, P3E_FLTCTX.CATEGORY as Categor
+y, P3E_FLTCTX.INTNAME as InternalName, P3E_FLTNAM.FLTNAME AS Fil
+terName, P3E_FLTNAM.FLTNUM as FilterNum, P3E_DBCOND.LOGOP As Con
+dLogicOperator, P3E_DBCOND.CMPFLD as CondField, P3E_DBCOND.CMPOP
+
+       1,485        1,485     1.61  792815569
+Module: dllhost.exe
+SELECT a0.NAME AS f1,a0.COMPTE AS f2,a0.LASTNAME AS f3,a0.FIRSTN
+AME AS f4,a0.PASSWD AS f5,a0.TPHONE AS f6,a0.POSTE AS f7,a0.EMAI
+L AS f8,a0.ISLDAP AS f9,a0.LDAPPATH AS f10,a0.ISLOGGEDIN AS f11,
+a0.ISACTIVE AS f12,a0.PRINTERS AS f13,a0.SECTEURS AS f14,a0.IMPU
+
+       1,485        1,485     1.61 1852428796
+Module: dllhost.exe
+SELECT a0.CATEGORY AS f1,a0.INTNAME AS f2,a0.GUICTX AS f3,a0.CTX
+NUM AS f4 FROM P3E_FLTCTX a0  WHERE ( ((a0.CATEGORY=:"SYS_B_0")
+AND (a0.GUICTX is NULL) AND (a0.INTNAME=:"SYS_B_1")))
+
+       1,485        1,485     1.61 2415908551
+Module: dllhost.exe
+SELECT a0.CTXNUM AS f1,a0.FLTNAME AS f2, a3.NAME AS f3,a0.PROJEC
+TNAME AS f4,a0.FLTNUM AS f5 FROM P3E_FLTNAM a0 ,P3_USERS a3 WHER
+E (a0.OWNER= a3.ADRESS(+) AND  ((a0.CTXNUM=:"SYS_B_0") AND (a3.N
+AME=:"SYS_B_1") AND (a0.FLTNAME=:"SYS_B_2") AND (a0.PROJECTNAME
+
+          -------------------------------------------------------------
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      5,685       5,168           20           20     0.3 2403415231
+Module: SQL*Plus
+insert into stats$temp_sqlstats   ( old_hash_value, text_subset,
+ module   , delta_buffer_gets, delta_executions, delta_cpu_time
+  , delta_elapsed_time, avg_hard_parse_time, delta_disk_reads, d
+elta_parse_calls   , max_sharable_mem, last_sharable_mem   , del
+
+      5,480       5,480            0            0     0.2 2663158053
+Module: dllhost.exe
+SELECT * FROM(  SELECT P3_UserGroup.*  FROM P3_ABILITY INNER JOI
+N    P3_UserGroup ON P3_ABILITY.NAME = P3_UserGroup.NAME INNER J
+OIN    P3L_USERS_ABIL ON P3_ABILITY.ADRESS = P3L_USERS_ABIL.ADRC
+LASSE INNER JOIN    P3_USERS ON P3L_USERS_ABIL.ADRINTERVENANT =
+
+      5,159       5,159            5            5     0.2 1746271389
+Module: SQL*Plus
+SELECT upper(decode(:"SYS_B_00", :"SYS_B_01", vd.NAME, i.instanc
+e_name))                      ||:"SYS_B_02"|| j.OWNER
+           ||:"SYS_B_03"|| j.JOB_NAME                      ||:"S
+YS_B_04"|| j.STATE                      ||:"SYS_B_05"|| ROUND((T
+
+      5,015       5,015            0            0     0.2 3916442973
+Module: dllhost.exe
+UPDATE OT20_PLANS SET OTIDENT=:1,LABEL4=:2,REVISIONSTATUS=:3,COD
+IF1=:4,CODIF2=:5,CODIF3=:6,CODIF4=:7,CODIF5_R=:8,CODIF6=:9,NUMBE
+RDOC_R=:10,REVISION_R=:11,CODIF1_LIB=:12,CODIF2_LIB=:13,CODIF3_L
+IB=:14,CODIF4_LIB=:15,CODIF5=:16,CODIF6_LIB=:17,CODIF7_LIB=:18,C
+
+      4,969       4,969            0            0     0.2 2528406960
+Module: DBMS_SCHEDULER
+/* SQL Analyze(185,1) */ select xmlelement("TEST",xmlforest(name
+,STATUS,MESSAGE) ) xmlelement FROM (select :"SYS_B_000" name,dec
+ode(ceil((sysdate-max(snap_time))/:"SYS_B_001"),:"SYS_B_002",:"S
+YS_B_003",:"SYS_B_004") status,decode(sysdate-max(snap_time),nul
+
+      3,564       3,564            0            0     0.2 2338553353
+Module: dllhost.exe
+SELECT     LS_PackageData.PackageId,     LS_PackageData.Name AS
+PackageName,     LS_PackageData.Description,     LS_PackageData.
+Type,     LS_PackageData.PackageNumber,     LS_PackageData.Revis
+ion,     LS_PackageData.Context,     LS_PackageData.State,     L
+
+      3,384       3,384            0            0     0.2 2838344140
+Module: dllhost.exe
+SELECT     LS_PackageData.PackageId,     LS_PackageData.Name AS
+PackageName,     LS_PackageData.Description,     LS_PackageData.
+Type,     LS_PackageData.PackageNumber,     LS_PackageData.Revis
+ion,     LS_PackageData.Context,     LS_PackageData.State,     L
+
+      3,334       3,334            2            2     0.2 3513617024
+Module: emagent_SQL_oracle_database
+ with last_run as ( SELECT all_runs.OWNER, all_runs.JOB_NAME, al
+l_runs.STATUS FROM DBA_SCHEDULER_JOB_RUN_DETAILS all_runs, (SELE
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+CT OWNER, JOB_NAME, MAX(ACTUAL_START_DATE) AS START_DATE FROM DB
+A_SCHEDULER_JOB_RUN_DETAILS GROUP BY OWNER,JOB_NAME) latest_runs
+
+      2,398       2,398            0            0     0.1 1440126209
+Module: DBMS_SCHEDULER
+MERGE /*+ dynamic_sampling(ST 4) dynamic_sampling_est_cdn(ST) */
+ INTO STATS_TARGET$ ST USING (SELECT STALENESS, OSIZE, OBJ#, TYP
+E#, AFLAGS, STATUS, SID, SERIAL#, PART#, BO# FROM ( SELECT /*+ n
+o_expand dynamic_sampling(4) dynamic_sampling_est_cdn */ DECODE(
+
+      2,292       2,292            0            0     0.1 2487949792
+Module: DBMS_SCHEDULER
+/* SQL Analyze(16,1) */ SELECT distinct * FROM (SELECT IQ1.*, RO
+WNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.
+NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.
+LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,237       2,237            2            2     0.1  954141548
+select OBJOID,  CLSOID, RUNTIME, PRI, JOBTYPE,  SCHLIM,  WT, INS
+T,  RUNNOW, ENQ_SCHLIM from ( select a.obj# OBJOID, a.class_oid
+CLSOID,    decode(bitand(a.flags, 16384), 0, a.next_run_date,
+        a.last_enabled_time) RUNTIME,    (2*a.priority +     dec
+
+      2,140       2,140           41           41     0.1  898977806
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      2,112       2,112            0            0     0.1  235333683
+Module: DBMS_SCHEDULER
+/* SQL Analyze(341,1) */ SELECT distinct * FROM (SELECT IQ1.*, R
+OWNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2
+.NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0
+.LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,112       2,112            0            0     0.1 2601176380
+Module: DBMS_SCHEDULER
+/* SQL Analyze(185,1) */ SELECT distinct * FROM (SELECT IQ1.*, R
+OWNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2
+.NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0
+.LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,112       2,112            0            0     0.1 4099295009
+Module: DBMS_SCHEDULER
+/* SQL Analyze(185,1) */ SELECT distinct * FROM (SELECT IQ1.*, R
+OWNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2
+.NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0
+.LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,103       2,103            0            0     0.1  247586706
+Module: dllhost.exe
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      2,103       2,103           22           22     0.1  251976864
+Module: dllhost.exe
+SELECT groups.NAME ,groups.LABEL ,groups.DESCRIPTION ,groups.CON
+STRAINT ,groups.PROJECTNAME ,groups.FAMILY ,groups.CATEGORY ,gro
+ups.ISPROFILE ,groups.ISLDAP ,groups.LDAPPATH ,groups.OTTYPE ,gr
+oups.TPLNAME ,groups.PROFILETPL ,groups.ISTEMPLATE FROM(  SELECT
+
+      2,091       2,091            0            0     0.1 1683904261
+Module: DBMS_SCHEDULER
+/* SQL Analyze(16,1) */ SELECT distinct * FROM (SELECT IQ1.*, RO
+WNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.
+NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.
+LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,091       2,091            0            0     0.1  624523220
+Module: DBMS_SCHEDULER
+/* SQL Analyze(185,1) */ SELECT distinct * FROM (SELECT IQ1.*, R
+OWNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2
+.NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0
+.LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,091       2,091            0            0     0.1 1705205983
+Module: DBMS_SCHEDULER
+/* SQL Analyze(185,1) */ SELECT distinct * FROM (SELECT IQ1.*, R
+OWNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2
+.NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0
+.LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,083       2,083            0            0     0.1    9861608
+Module: MMON_SLAVE
+SELECT T.CLIENT_ID,         T.OPERATION_ID,         T.TARGET_TYP
+E,         T.TARGET_NAME,         T.CURR_JOB_NAME,         TO_NU
+MBER(BITAND(T.ATTRIBUTES, 131072)),         CASE NVL((SELECT J.S
+TATE                     FROM DBA_SCHEDULER_JOBS J
+
+      2,083       2,083            0            0     0.1 3467407754
+Module: DBMS_SCHEDULER
+/* SQL Analyze(341,1) */ SELECT distinct * FROM (SELECT IQ1.*, R
+OWNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2
+.NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0
+.LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+
+      2,074       2,074            0            0     0.1 1287939450
+Module: DBMS_SCHEDULER
+/* SQL Analyze(341,1) */ SELECT distinct * FROM (SELECT IQ1.*, R
+OWNUM f0 FROM (SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2
+.NAME AS f3,a0.BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0
+.LABEL4 AS f7, a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+
+      1,850         925            1            1     0.1 3373206300
+Module: SQL*Plus
+select xmlelement("TEST",xmlforest(name,STATUS,MESSAGE) ) xmlele
+ment FROM (select :"SYS_B_000" name,decode(ceil((sysdate-max(sna
+p_time))/:"SYS_B_001"),:"SYS_B_002",:"SYS_B_003",:"SYS_B_004") s
+tatus,decode(sysdate-max(snap_time),null,:"SYS_B_005",:"SYS_B_00
+
+      1,775       1,775            0            0     0.1 2305675086
+select nvl2(stale_stats, decode(stale_stats, 'NO', 3, 1), 2) fro
+m   dba_ind_statistics where  owner=:1 and index_name=:2
+
+      1,724       1,724           41           41     0.1 3171815765
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,709       1,709           41           41     0.1  867492824
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,709       1,709          164          164     0.1 3833773740
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,709       1,709           41           41     0.1 4038057362
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,708       1,708           41           41     0.1 2496074237
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,708       1,708            0            0     0.1 1635097329
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+
+      1,693       1,693           41           41     0.1  901449696
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,693       1,693           41           41     0.1 1955468636
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,693       1,693           41           41     0.1 3026969004
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,693       1,693            1            1     0.1 1806786978
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,693       1,693           41           41     0.1 2533106936
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,692       1,692            1            1     0.1  243346498
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,692       1,692           41           41     0.1 2623992667
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,692       1,692            0            0     0.1 3526687112
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,692       1,692            0            0     0.1 3955771498
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,691       1,691            0            0     0.1 2313969690
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,690       1,690            0            0     0.1 1862377091
+Module: dllhost.exe
+SELECT COUNT(*) as TotalResultCount FROM LS_PackageObject, LS_Pa
+ckageParticipant, LS_PackageData, LS_ResourceObject, LS_Resource
+Object LS_ResourceObject_1, LS_ResourceObject LS_ResourceObject_
+2  WHERE LS_PackageParticipant.PackageId = LS_PackageObject.Pack
+
+      1,679       1,679            0            0     0.1 2583252551
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,676       1,676           41           41     0.1 3202942019
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,676       1,676            0            0     0.1 1015709041
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,676       1,676            0            0     0.1 1251229679
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      1,676       1,676           41           41     0.1  196404762
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,676       1,676            0            0     0.1 3312078364
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,675       1,675            0            0     0.1  500683593
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,483       1,483            0            0     0.1 1225105017
+Module: dllhost.exe
+ SELECT DISTINCT CASE WHEN parentAsChild.ADRINSTANCE IS NULL THE
+N :"SYS_B_00" ELSE :"SYS_B_01" END,  :"SYS_B_02" AS SECURITYLEVE
+LOK, OT_NON_VISIBLE.ADROT as OTVISIBLE, P3_OT_TYPES_b4.name, P3_
+OTI_b3.sonreference, P3_LINKS_b0.adrnode,b8.name,b7.UUID,b7.ORIG
+
+      1,464       1,464            5            5     0.1 1531264302
+Module: emagent_SQL_oracle_database
+WITH RECINFO AS ( SELECT /*+ NO_MERGE */ FINDING_ID, COUNT(R.REC
+_ID) RECCOUNT,R.TYPE FROM DBA_ADVISOR_RECOMMENDATIONS R WHERE TA
+SK_ID=:B1 GROUP BY R.FINDING_ID, R.TYPE ), F_CURR AS ( SELECT /*
++ NO_MERGE */ DISTINCT FINDING_NAME FROM DBA_ADVISOR_FINDINGS WH
+
+      1,424       1,424           41           41     0.1   15082226
+Module: dllhost.exe
+SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.
+BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7,
+a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODI
+F3 AS f11,a0.CODIF4 AS f12,a0.CODIF5_R AS f13,a0.CODIF6 AS f14,a
+
+      1,380       1,380            0            0     0.1 2406927845
+Module: dllhost.exe
+INSERT INTO OT20_PLANS (ADRESS,BLType,BLIdent,OTIDENT,LABEL4,REV
+ISIONSTATUS,CODIF1,CODIF2,CODIF3,CODIF4,CODIF5_R,CODIF6,CODIF7,N
+UMBERDOC_R,REVISION_R,CODIF1_LIB,CODIF2_LIB,CODIF3_LIB,CODIF4_LI
+B,CODIF5,CODIF6_LIB,CODIF7_LIB,NUMBERDOC,REVISION,CONFID,LOT,COD
+
+      1,358       1,358            0            0     0.1  421007614
+Module: dllhost.exe
+SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.
+BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7,
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODI
+F3 AS f11,a0.CODIF4 AS f12,a0.CODIF5_R AS f13,a0.CODIF6 AS f14,a
+
+      1,342       1,342            0            0     0.1 3687211398
+Module: dllhost.exe
+SELECT p1.adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.
+BLType AS f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7,
+a5.REVISIONSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODI
+F3 AS f11,a0.CODIF4 AS f12,a0.CODIF5_R AS f13,a0.CODIF6 AS f14,a
+
+      1,303       1,303           41           41     0.1  172890918
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,280       1,280           41           41     0.1 1834951107
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,279       1,279           41           41     0.1 3021882282
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,279       1,279           41           41     0.1 3875836604
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,279       1,279           41           41     0.1   54177585
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,278       1,278            0            0     0.1   83933587
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,276       1,276            1            1     0.1 2248399226
+SQL ordered by Sharable Memory  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+ SELECT source,        (case when time_secs < 1 then 1 else time
+_secs end) as time_secs,        operation  FROM   ( SELECT  1  a
+s source,                 trunc((sysdate - cast(ll.log_date as d
+ate)) * 86400)                   as time_secs,                 d
+
+      1,268       1,268           41           41     0.1 3967471482
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,267       1,267          123          123     0.1 1144808268
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+      1,267       1,267           41           41     0.1 1428083537
+Module: dllhost.exe
+SELECT distinct * FROM (SELECT IQ1.*, ROWNUM f0 FROM (SELECT p1.
+adrwhocart AS f1,p1.adrwholink AS f2,p2.NAME AS f3,a0.BLType AS
+f4,a0.BLIdent AS f5,a0.OTIDENT AS f6,a0.LABEL4 AS f7, a5.REVISIO
+NSTATUS AS f8,a0.CODIF1 AS f9,a0.CODIF2 AS f10,a0.CODIF3 AS f11,
+
+          -------------------------------------------------------------
+SQL ordered by Version Count  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Version Count Threshold:        20
+
+     Max      End    Delta
+ Version  Version  Version                 Old
+   Count    Count    Count   Executions Hash Value
+-------- -------- -------- ------------ ----------
+      33       33        0            0 2663158053
+Module: dllhost.exe
+SELECT * FROM(  SELECT P3_UserGroup.*  FROM P3_ABILITY INNER JOI
+N    P3_UserGroup ON P3_ABILITY.NAME = P3_UserGroup.NAME INNER J
+OIN    P3L_USERS_ABIL ON P3_ABILITY.ADRESS = P3L_USERS_ABIL.ADRC
+LASSE INNER JOIN    P3_USERS ON P3L_USERS_ABIL.ADRINTERVENANT =
+
+      33       33        0            0 3916442973
+Module: dllhost.exe
+UPDATE OT20_PLANS SET OTIDENT=:1,LABEL4=:2,REVISIONSTATUS=:3,COD
+IF1=:4,CODIF2=:5,CODIF3=:6,CODIF4=:7,CODIF5_R=:8,CODIF6=:9,NUMBE
+RDOC_R=:10,REVISION_R=:11,CODIF1_LIB=:12,CODIF2_LIB=:13,CODIF3_L
+IB=:14,CODIF4_LIB=:15,CODIF5=:16,CODIF6_LIB=:17,CODIF7_LIB=:18,C
+
+      32       32        0            0 2338553353
+Module: dllhost.exe
+SELECT     LS_PackageData.PackageId,     LS_PackageData.Name AS
+PackageName,     LS_PackageData.Description,     LS_PackageData.
+Type,     LS_PackageData.PackageNumber,     LS_PackageData.Revis
+ion,     LS_PackageData.Context,     LS_PackageData.State,     L
+
+      31       31        0            0 2838344140
+Module: dllhost.exe
+SELECT     LS_PackageData.PackageId,     LS_PackageData.Name AS
+PackageName,     LS_PackageData.Description,     LS_PackageData.
+Type,     LS_PackageData.PackageNumber,     LS_PackageData.Revis
+ion,     LS_PackageData.Context,     LS_PackageData.State,     L
+
+      25       25        0        5,426 3295776856
+Module: dllhost.exe
+INSERT INTO LS_PackageCustomProperties (PackageId, PropName, Pro
+pType, PropValue)             VALUES(:v0, :v1, :v2, :v3)
+
+      23       23        0            0 1862377091
+Module: dllhost.exe
+SELECT COUNT(*) as TotalResultCount FROM LS_PackageObject, LS_Pa
+ckageParticipant, LS_PackageData, LS_ResourceObject, LS_Resource
+Object LS_ResourceObject_1, LS_ResourceObject LS_ResourceObject_
+2  WHERE LS_PackageParticipant.PackageId = LS_PackageObject.Pack
+
+      22       20       20           20 2403415231
+Module: SQL*Plus
+insert into stats$temp_sqlstats   ( old_hash_value, text_subset,
+ module   , delta_buffer_gets, delta_executions, delta_cpu_time
+  , delta_elapsed_time, avg_hard_parse_time, delta_disk_reads, d
+elta_parse_calls   , max_sharable_mem, last_sharable_mem   , del
+
+      21       21        0            0 2848792221
+Module: dllhost.exe
+SELECT COUNT(*) as ResultCount FROM LS_PackageData WHERE  (LS_Pa
+ckageData.OwnerId = :"SYS_B_0")  AND (LS_PackageData.Context = :
+"SYS_B_1")
+
+SQL ordered by Version Count  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Version Count Threshold:        20
+
+     Max      End    Delta
+ Version  Version  Version                 Old
+   Count    Count    Count   Executions Hash Value
+-------- -------- -------- ------------ ----------
+          -------------------------------------------------------------
+Instance Activity Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+active txn count during cleanout               3,108            0.9          1.1
+application wait time                            753            0.2          0.3
+background checkpoints completed                   0            0.0          0.0
+background checkpoints started                     0            0.0          0.0
+background timeouts                           25,411            7.1          8.7
+Batched IO block miss count                        0            0.0          0.0
+Batched IO (bound) vector count                    0            0.0          0.0
+Batched IO buffer defrag count                     0            0.0          0.0
+Batched IO double miss count                       0            0.0          0.0
+Batched IO (full) vector count                     0            0.0          0.0
+Batched IO same unit count                         0            0.0          0.0
+Batched IO single block count                      0            0.0          0.0
+Batched IO vector block count                      0            0.0          0.0
+Batched IO vector read count                       0            0.0          0.0
+Block Cleanout Optim referenced                    9            0.0          0.0
+branch node splits                                 0            0.0          0.0
+buffer is not pinned count                10,126,044        2,812.8      3,456.0
+buffer is pinned count                    13,268,977        3,685.8      4,528.7
+bytes received via SQL*Net from c         82,856,502       23,015.7     28,278.7
+bytes sent via SQL*Net to client         910,681,805      252,967.2    310,812.9
+Cached Commit SCN referenced                     100            0.0          0.0
+calls to get snapshot scn: kcmgss            235,036           65.3         80.2
+calls to kcmgas                               20,834            5.8          7.1
+calls to kcmgcs                               71,612           19.9         24.4
+CCursor + sql area evicted                         5            0.0          0.0
+cell physical IO interconnect byt      6,999,858,688    1,944,405.2  2,389,030.3
+change write time                                844            0.2          0.3
+cleanout - number of ktugct calls              2,940            0.8          1.0
+cleanouts and rollbacks - consist                159            0.0          0.1
+cleanouts only - consistent read                 132            0.0          0.1
+cluster key scan block gets                   49,841           13.8         17.0
+cluster key scans                             28,869            8.0          9.9
+commit batch performed                             0            0.0          0.0
+commit batch requested                             0            0.0          0.0
+commit batch/immediate performed                   1            0.0          0.0
+commit batch/immediate requested                   1            0.0          0.0
+commit cleanout failures: block l                 25            0.0          0.0
+commit cleanout failures: buffer                   0            0.0          0.0
+commit cleanout failures: cannot                   3            0.0          0.0
+commit cleanouts                              15,519            4.3          5.3
+commit immediate performed                         1            0.0          0.0
+commit immediate requested                         1            0.0          0.0
+Commit SCN cached                                 21            0.0          0.0
+commit txn count during cleanout                 361            0.1          0.1
+concurrency wait time                            107            0.0          0.0
+consistent changes                             1,061            0.3          0.4
+consistent gets                           15,654,670        4,348.5      5,342.9
+consistent gets - examination                253,075           70.3         86.4
+consistent gets direct                       664,385          184.6        226.8
+consistent gets from cache                14,990,285        4,164.0      5,116.1
+consistent gets from cache (fastp         14,611,844        4,058.9      4,987.0
+CPU used by this session                      17,916            5.0          6.1
+CPU used when call started                    16,249            4.5          5.6
+CR blocks created                              1,507            0.4          0.5
+cursor authentications                           207            0.1          0.1
+data blocks consistent reads - un                795            0.2          0.3
+Instance Activity Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+db block changes                             944,503          262.4        322.4
+db block gets                                767,519          213.2        262.0
+db block gets direct                           4,299            1.2          1.5
+db block gets from cache                     763,220          212.0        260.5
+db block gets from cache (fastpat            128,770           35.8         44.0
+DB time                                       39,889           11.1         13.6
+DBWR checkpoint buffers written                5,430            1.5          1.9
+DBWR checkpoints                                   2            0.0          0.0
+DBWR object drop buffers written                   0            0.0          0.0
+DBWR revisited being-written buff                  0            0.0          0.0
+DBWR tablespace checkpoint buffer                  4            0.0          0.0
+DBWR transaction table writes                    182            0.1          0.1
+DBWR undo block writes                         1,545            0.4          0.5
+deferred (CURRENT) block cleanout             23,586            6.6          8.1
+Effective IO time                        120,322,506       33,422.9     41,065.7
+enqueue conversions                            2,221            0.6          0.8
+enqueue releases                             115,176           32.0         39.3
+enqueue requests                             115,226           32.0         39.3
+enqueue timeouts                                   6            0.0          0.0
+enqueue waits                                      3            0.0          0.0
+exchange deadlocks                                 0            0.0          0.0
+execute count                                101,081           28.1         34.5
+failed probes on index block recl                  1            0.0          0.0
+file io service time                               0            0.0          0.0
+file io wait time                         87,367,037       24,268.6     29,818.1
+flash cache insert skip: not curr                  0            0.0          0.0
+frame signature mismatch                           0            0.0          0.0
+free buffer inspected                              3            0.0          0.0
+free buffer requested                         44,537           12.4         15.2
+global enqueue gets sync                           0            0.0          0.0
+heap block compress                            2,389            0.7          0.8
+Heap Segment Array Inserts                       803            0.2          0.3
+Heap Segment Array Updates                        16            0.0          0.0
+HSC Heap Segment Block Changes               316,817           88.0        108.1
+HSC IDL Compressed Blocks                          0            0.0          0.0
+immediate (CR) block cleanout app                291            0.1          0.1
+immediate (CURRENT) block cleanou              5,252            1.5          1.8
+IMU commits                                    2,733            0.8          0.9
+IMU contention                                    21            0.0          0.0
+IMU CR rollbacks                                  82            0.0          0.0
+IMU- failed to get a private stra                  0            0.0          0.0
+IMU Flushes                                      536            0.2          0.2
+IMU ktichg flush                                   2            0.0          0.0
+IMU pool not allocated                             0            0.0          0.0
+IMU recursive-transaction flush                    6            0.0          0.0
+IMU Redo allocation size                   1,833,032          509.2        625.6
+IMU undo allocation size                   4,746,512        1,318.5      1,620.0
+in call idle wait time                    14,852,788        4,125.8      5,069.2
+index crx upgrade (positioned)                84,524           23.5         28.9
+index fast full scans (full)                     747            0.2          0.3
+index fetch by key                            88,997           24.7         30.4
+index scans kdiixs1                          428,269          119.0        146.2
+leaf node splits                                 159            0.0          0.1
+leaf node 90-10 splits                            17            0.0          0.0
+lob reads                                     25,121            7.0          8.6
+LOB table id lookup cache misses                   0            0.0          0.0
+Instance Activity Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+lob writes                                       239            0.1          0.1
+lob writes unaligned                             185            0.1          0.1
+logical read bytes from cache        129,052,712,960   35,847,975.8 ############
+logons cumulative                                306            0.1          0.1
+max cf enq hold time                              50            0.0          0.0
+messages received                             14,912            4.1          5.1
+messages sent                                 14,912            4.1          5.1
+min active SCN optimization appli                 31            0.0          0.0
+no buffer to keep pinned count                     5            0.0          0.0
+no work - consistent read gets            15,092,636        4,192.4      5,151.1
+non-idle wait count                          588,432          163.5        200.8
+non-idle wait time                            25,651            7.1          8.8
+Number of read IOs issued                    122,247           34.0         41.7
+opened cursors cumulative                     76,906           21.4         26.3
+parse count (describe)                             1            0.0          0.0
+parse count (failures)                           316            0.1          0.1
+parse count (hard)                               773            0.2          0.3
+parse count (total)                           92,447           25.7         31.6
+parse time cpu                                   318            0.1          0.1
+parse time elapsed                               434            0.1          0.2
+physical read bytes                    5,559,468,032    1,544,296.7  1,897,429.4
+physical read IO requests                    140,763           39.1         48.0
+physical read requests optimized                 300            0.1          0.1
+physical read total bytes              6,549,487,616    1,819,302.1  2,235,320.0
+physical read total bytes optimiz          2,457,600          682.7        838.8
+physical read total IO requests              203,111           56.4         69.3
+physical read total multi block r              4,210            1.2          1.4
+physical reads                               678,646          188.5        231.6
+physical reads cache                          14,261            4.0          4.9
+physical reads cache prefetch                      6            0.0          0.0
+physical reads direct                        664,385          184.6        226.8
+physical reads direct (lob)                  121,801           33.8         41.6
+physical reads direct temporary t                  0            0.0          0.0
+physical reads prefetch warmup                     6            0.0          0.0
+physical write bytes                      79,699,968       22,138.9     27,201.4
+physical write IO requests                     7,528            2.1          2.6
+physical write total bytes               450,371,072      125,103.1    153,710.3
+physical write total IO requests              19,940            5.5          6.8
+physical write total multi block                 473            0.1          0.2
+physical writes                                9,729            2.7          3.3
+physical writes direct                         4,299            1.2          1.5
+physical writes direct (lob)                   4,292            1.2          1.5
+physical writes direct temporary                   0            0.0          0.0
+physical writes from cache                     5,430            1.5          1.9
+physical writes non checkpoint                 5,063            1.4          1.7
+pinned cursors current                            36            0.0          0.0
+prefetch warmup blocks flushed ou                  0            0.0          0.0
+process last non-idle time                     3,602            1.0          1.2
+recursive calls                              140,810           39.1         48.1
+recursive cpu usage                            1,034            0.3          0.4
+redo blocks checksummed by FG (ex            227,612           63.2         77.7
+redo blocks written                          566,655          157.4        193.4
+redo buffer allocation retries                     0            0.0          0.0
+redo entries                                 501,744          139.4        171.2
+redo entries for lost write detec                  3            0.0          0.0
+redo KB read                                 281,564           78.2         96.1
+Instance Activity Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+redo KB read for transport                   281,564           78.2         96.1
+redo KB read (memory)                        281,564           78.2         96.1
+redo KB read (memory) for transpo            281,564           78.2         96.1
+redo log space requests                            0            0.0          0.0
+redo ordering marks                                9            0.0          0.0
+redo size                                278,692,444       77,414.6     95,116.9
+redo size for direct writes               35,372,172        9,825.6     12,072.4
+redo size for lost write detectio                156            0.0          0.1
+redo subscn max counts                         2,461            0.7          0.8
+redo synch long waits                            115            0.0          0.0
+redo synch time                                  101            0.0          0.0
+redo synch time overhead count (<                  2            0.0          0.0
+redo synch time overhead count (>                  1            0.0          0.0
+redo synch time overhead count (<              3,028            0.8          1.0
+redo synch time overhead count (<                  0            0.0          0.0
+redo synch time overhead count (<                  0            0.0          0.0
+redo synch time overhead (usec)              394,345          109.5        134.6
+redo synch time (usec)                     1,103,831          306.6        376.7
+redo synch writes                              3,156            0.9          1.1
+redo wastage                               2,446,624          679.6        835.0
+redo write info find                           3,031            0.8          1.0
+redo write info find fail                          0            0.0          0.0
+redo write time                                  203            0.1          0.1
+redo writes                                    6,987            1.9          2.4
+Requests to/from client                      158,838           44.1         54.2
+rollback changes - undo records a                  0            0.0          0.0
+rollbacks only - consistent read                  39            0.0          0.0
+RowCR - row contention                             3            0.0          0.0
+RowCR attempts                                    20            0.0          0.0
+RowCR hits                                        20            0.0          0.0
+rows fetched via callback                     56,934           15.8         19.4
+scheduler wait time                            1,196            0.3          0.4
+session connect time                               0            0.0          0.0
+session cursor cache hits                     81,811           22.7         27.9
+session logical reads                     16,422,155        4,561.7      5,604.8
+session pga memory                       128,910,304       35,808.4     43,996.7
+session pga memory max                   195,167,200       54,213.1     66,610.0
+session uga memory                        68,218,112       18,949.5     23,282.6
+session uga memory max                   609,290,752      169,247.4    207,949.1
+shared hash latch upgrades - no w             99,736           27.7         34.0
+shared hash latch upgrades - wait                  0            0.0          0.0
+SMON posted for undo segment shri                  4            0.0          0.0
+sorts (memory)                                29,992            8.3         10.2
+sorts (rows)                               1,583,745          439.9        540.5
+sql area evicted                                 512            0.1          0.2
+sql area purged                                  334            0.1          0.1
+SQL*Net roundtrips to/from client            158,839           44.1         54.2
+switch current to new buffer                  12,685            3.5          4.3
+table fetch by rowid                      11,074,966        3,076.4      3,779.9
+table fetch continued row                    451,527          125.4        154.1
+table scan blocks gotten                   4,598,223        1,277.3      1,569.4
+table scan rows gotten                    77,455,578       21,515.4     26,435.4
+table scans (direct read)                          2            0.0          0.0
+table scans (long tables)                          2            0.0          0.0
+table scans (short tables)                    31,177            8.7         10.6
+temp space allocated (bytes)                       0            0.0          0.0
+Instance Activity Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+total cf enq hold time                           420            0.1          0.1
+total number of cf enq holders                   699            0.2          0.2
+total number of times SMON posted                 10            0.0          0.0
+transaction rollbacks                              0            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+undo change vector size                  154,125,924       42,812.8     52,602.7
+user calls                                   220,750           61.3         75.3
+user commits                                   2,930            0.8          1.0
+user I/O wait time                            16,470            4.6          5.6
+user logons cumulative                           235            0.1          0.1
+user logouts cumulative                          234            0.1          0.1
+user rollbacks                                     0            0.0          0.0
+workarea executions - optimal                 14,656            4.1          5.0
+write clones created in backgroun                  0            0.0          0.0
+write clones created in foregroun                  0            0.0          0.0
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Statistics with absolute values (should not be diffed)
+
+Statistic                             Begin Value       End Value
+--------------------------------- --------------- ---------------
+logons current                                 61              77
+opened cursors current                        112             203
+session cursor cache count              1,449,510       1,462,319
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Statistics identified by '(derived)' come from sources other than SYSSTAT
+
+Statistic                                      Total  per Hour
+--------------------------------- ------------------ ---------
+log switches (derived)                             0       .00
+          -------------------------------------------------------------
+
+OS Statistics  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> ordered by statistic type (CPU use, Virtual Memory, Hardware Config), Name
+
+Statistic                                  Total
+------------------------- ----------------------
+BUSY_TIME                                442,723
+IDLE_TIME                              2,418,695
+IOWAIT_TIME                               17,278
+NICE_TIME                                      0
+SYS_TIME                                 126,519
+USER_TIME                                314,855
+RSRC_MGR_CPU_WAIT_TIME                     2,709
+PHYSICAL_MEMORY_BYTES            540,672,225,280
+NUM_CPU_CORES                                  4
+NUM_CPUS                                       8
+NUM_CPU_SOCKETS                                2
+GLOBAL_RECEIVE_SIZE_MAX              134,217,728
+GLOBAL_SEND_SIZE_MAX                 134,217,728
+TCP_RECEIVE_SIZE_DEFAULT                  87,380
+TCP_RECEIVE_SIZE_MAX                 134,217,728
+TCP_RECEIVE_SIZE_MIN                       4,096
+TCP_SEND_SIZE_DEFAULT                     65,536
+TCP_SEND_SIZE_MAX                    134,217,728
+TCP_SEND_SIZE_MIN                          4,096
+          -------------------------------------------------------------
+
+OS Statistics - detail  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+  Snap Snapshot
+    Id Day Time          Load  %Busy  %User %System   %WIO  %WCPU
+------ --------------- ------ ------ ------ ------- ------ ------
+  8524 Thu 04 23:00:00    4.1
+  8525 Fri 05 00:00:00    3.3   15.5   11.0     4.4    0.6
+          -------------------------------------------------------------
+IO Stat by Function - summary  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->Data Volume values suffixed with   M,G,T,P are in multiples of 1024,
+  other values suffixed with       K,M,G,T,P are in multiples of 1000
+->ordered by Data Volume (Read+Write) desc
+
+               ---------- Read --------- --------- Write -------- --- Wait ----
+                 Data  Requests    Data   Data  Requests    Data          Avg
+Function        Volume     /sec  Vol/sec Volume     /sec  Vol/sec  Count Tm(ms)
+--------------- ------ -------- -------- ------ -------- -------- ------ ------
+Direct Reads     5157M    34.0      1.4M                                    0.0
+Others            977M    18.5       .3M    83M     1.6       .0M    55K    0.0
+Buffer Cache Re   112M     4.0       .0M                             14K    0.0
+          -------------------------------------------------------------
+
+IO Stat by Function - detail  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->ordered by Data Volume (Read+Write) desc
+
+                   ----------- Read ---------- ----------- Write ---------
+                    Small  Large  Small  Large  Small  Large  Small  Large
+                     Read   Read   Data   Data  Write  Write   Data   Data
+Function             Reqs   Reqs   Read   Read   Reqs   Reqs  Writn  Writn
+------------------ ------ ------ ------ ------ ------ ------ ------ ------
+Direct Reads         118K  4210    952M  4205M
+Others                67K          977M         5784            83M
+Buffer Cache Reads    14K          112M
+          -------------------------------------------------------------
+Tablespace IO Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->ordered by IOs (Reads + Writes) desc
+
+Tablespace
+------------------------------
+                 Av      Av     Av                    Av        Buffer Av Buf
+         Reads Reads/s Rd(ms) Blks/Rd       Writes Writes/s      Waits Wt(ms)
+-------------- ------- ------ ------- ------------ -------- ---------- ------
+LASCOM_AEC
+       124,450      35    0.1     1.0        4,889        1          0    0.0
+SYSTEM
+        11,564       3    0.7    47.2           49        0          4    0.0
+SYSAUX
+         4,613       1    1.1     1.0          550        0          0    0.0
+PERFSTAT
+           126       0    7.2     1.0        1,614        0          0    0.0
+UNDOTBS1
+             0       0    0.0                  426        0         11    0.0
+GED_VM
+            10       0    5.0     1.0            0        0          0    0.0
+          -------------------------------------------------------------
+File IO Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+GED_VM                   /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+            10       0   5.0  16     1.0            0        0          0
+
+LASCOM_AEC               /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+        23,872       7   0.1 ###     1.0        2,413        1          0
+                         /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+        16,055       4   0.1  64     1.0          955        0          0
+                         /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+        24,150       7   0.1  64     1.0          458        0          0
+                         /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+        16,472       5   0.1  32     1.0          293        0          0
+                         /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+        27,617       8   0.1  64     1.0          153        0          0
+                         /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+        16,284       5   0.4  64     1.0          617        0          0
+
+PERFSTAT                 /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+           126       0   7.2  64     1.0        1,614        0          0
+
+SYSAUX                   /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+         4,613       1   1.1 ###     1.0          550        0          0
+
+SYSTEM                   /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+        11,564       3   0.7  64    47.2           49        0          4    0.0
+
+UNDOTBS1                 /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+             0       0                            426        0         11    0.0
+
+          -------------------------------------------------------------
+File Read Histogram Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+PERFSTAT                 /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+          11           16           53           43            2            1
+
+LASCOM_AEC               /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+         176           26           56           56           11            0
+                         /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+       2,518           81          200          221           54            6
+                         /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+         263           29           46           58           18            6
+
+GED_VM                   /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+           3            1            2            4            0            0
+
+LASCOM_AEC               /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+       1,305           46           80          100           33            3
+
+SYSAUX                   /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+       4,132           74          171          211           22            2
+
+LASCOM_AEC               /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+         359           49           45           76           22            3
+
+SYSTEM                   /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+       6,623           63          221          385           44            4
+
+LASCOM_AEC               /u02/app/oracle/oradata/datastore/.ACFS/snaps/SOCOSP
+         320           34           55           50           20            2
+
+          -------------------------------------------------------------
+Instance Recovery Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> B: Begin snapshot,  E: End snapshot
+
+  Targt Estd                                  Log File  Log Ckpt    Log Ckpt
+  MTTR  MTTR   Recovery   Actual    Target      Size     Timeout    Interval
+   (s)   (s)   Estd IOs  Redo Blks Redo Blks Redo Blks  Redo Blks  Redo Blks
+- ----- ----- ---------- --------- --------- ---------- --------- ------------
+B   168    24        363      2472      4021    3397383      4021
+E   300    71      44508    594483    627660    3397383    627660
+          -------------------------------------------------------------
+
+Memory Dynamic Components  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->  Op - memory resize Operation
+->  Cache:    D: Default,  K: Keep,  R:  Recycle
+->   Mode:  DEF: DEFerred mode,  IMM: IMMediate mode
+
+                       Begin Snap End Snap   Op    Last Op
+Cache                    Size (M) Size (M)  Count  Type/Mode   Last Op Time
+---------------------- ---------- -------- ------- ---------- ---------------
+D:buffer cache              9,920                0 SHRINK/DEF 04-Oct 22:00:19
+java pool                      32                0 STATIC
+large pool                     64                0 SHRINK/DEF 30-Sep 10:03:10
+PGA Target                  2,048                0 STATIC
+SGA Target                 12,288                0 STATIC
+shared pool                 2,144                0 GROW/DEF   04-Oct 22:00:19
+streams pool                   32                0 STATIC
+          -------------------------------------------------------------
+
+Buffer Pool Advisory  DB/Inst: SOCOSP/SOCOSP  End Snap: 8525
+-> Only rows with estimated physical reads >0 are displayed
+-> ordered by Pool, Block Size, Buffers For Estimate
+
+                                   Est
+                                  Phys      Estimated                   Est
+    Size for  Size      Buffers   Read     Phys Reads     Est Phys % dbtime
+P    Est (M) Factr  (thousands)  Factr    (thousands)    Read Time  for Rds
+--- -------- ----- ------------ ------ -------------- ------------ --------
+D        928    .1          114    3.4          7,769       20,692     46.8
+D      1,856    .2          229    2.7          6,033       16,020     36.2
+D      2,784    .3          343    1.7          3,894       10,263     23.2
+D      3,712    .4          457    1.1          2,391        6,217     14.1
+D      4,640    .5          571    1.0          2,265        5,877     13.3
+D      5,568    .6          686    1.0          2,264        5,876     13.3
+D      6,496    .7          800    1.0          2,264        5,876     13.3
+D      7,424    .8          914    1.0          2,264        5,876     13.3
+D      8,352    .9        1,028    1.0          2,264        5,876     13.3
+D      9,280   1.0        1,143    1.0          2,264        5,876     13.3
+D      9,536   1.0        1,174    1.0          2,264        5,876     13.3
+D     10,208   1.1        1,257    1.0          2,264        5,876     13.3
+D     11,136   1.2        1,371    1.0          2,264        5,876     13.3
+D     12,064   1.3        1,485    1.0          2,264        5,876     13.3
+D     12,992   1.4        1,600    1.0          2,264        5,876     13.3
+D     13,920   1.5        1,714    1.0          2,264        5,876     13.3
+D     14,848   1.6        1,828    1.0          2,264        5,876     13.3
+D     15,776   1.7        1,942    1.0          2,264        5,876     13.3
+D     16,704   1.8        2,057    1.0          2,264        5,876     13.3
+D     17,632   1.8        2,171    1.0          2,264        5,876     13.3
+D     18,560   1.9        2,285    1.0          2,264        5,876     13.3
+          -------------------------------------------------------------
+
+Buffer Pool Statistics  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Standard block size Pools  D: default,  K: keep,  R: recycle
+-> Default Pools for other block sizes: 2k, 4k, 8k, 16k, 32k
+-> Buffers: the number of buffers.  Units of K, M, G are divided by 1000
+
+                                                            Free Writ     Buffer
+            Pool         Buffer     Physical    Physical  Buffer Comp       Busy
+P   Buffers Hit%           Gets        Reads      Writes   Waits Wait      Waits
+--- ------- ---- -------------- ------------ ----------- ------- ---- ----------
+D     1174K  100     15,726,791       14,261       5,430       0    0         20
+          -------------------------------------------------------------
+
+Buffer wait Statistics  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> ordered by wait time desc, waits desc
+
+Class                        Waits Total Wait Time (s) Avg Time (ms)
+---------------------- ----------- ------------------- -------------
+undo header                     15                   0             0
+data block                       4                   0             0
+undo block                       1                   0             0
+          -------------------------------------------------------------
+PGA Aggr Target Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> B: Begin snap   E: End snap (rows identified with B or E contain data
+   which is absolute i.e. not diffed over the interval)
+-> PGA cache hit % - percentage of W/A (WorkArea) data processed only in-memory
+-> Auto PGA Target - actual workarea memory target
+-> W/A PGA Used    - amount of memory used for all WorkAreas (manual + auto)
+-> %PGA W/A Mem    - percentage of PGA memory allocated to WorkAreas
+-> %Auto W/A Mem   - percentage of WorkArea memory controlled by Auto Mem Mgmt
+-> %Man W/A Mem    - percentage of WorkArea memory under Manual control
+
+PGA Cache Hit % W/A MB Processed Extra W/A MB Read/Written
+--------------- ---------------- -------------------------
+          100.0            4,810                         0
+
+                                             %PGA  %Auto   %Man
+  PGA Aggr  Auto PGA   PGA Mem    W/A PGA    W/A    W/A    W/A   Global Mem
+  Target(M) Target(M)  Alloc(M)   Used(M)    Mem    Mem    Mem    Bound(K)
+- --------- --------- ---------- ---------- ------ ------ ------ ----------
+B     2,048     1,571      384.7        0.0     .0     .0     .0    209,710
+E     2,048     1,545      432.4        0.0     .0     .0     .0    209,710
+          -------------------------------------------------------------
+
+PGA Aggr Target Histogram  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Optimal Executions are purely in-memory operations
+
+    Low    High
+Optimal Optimal    Total Execs Optimal Execs 1-Pass Execs M-Pass Execs
+------- ------- -------------- ------------- ------------ ------------
+     2K      4K         11,617        11,617            0            0
+    64K    128K             98            98            0            0
+   128K    256K            100           100            0            0
+   256K    512K              2             2            0            0
+   512K   1024K            762           762            0            0
+     1M      2M          1,113         1,113            0            0
+     2M      4M            894           894            0            0
+     4M      8M             88            88            0            0
+          -------------------------------------------------------------
+
+PGA Memory Advisory  DB/Inst: SOCOSP/SOCOSP  End Snap: 8525
+-> When using Auto Memory Mgmt, minimally choose a pga_aggregate_target value
+   where Estd PGA Overalloc Count is 0
+
+                                   Estd Extra                Estd
+  PGA Aggr                           W/A MB      Estd Time    PGA   Estd PGA
+    Target   Size         W/A MB  Read/Written  to Process  Cache  Overalloc
+  Est (MB)  Factr      Processed    to Disk      Bytes (s)  Hit %      Count
+---------- ------ -------------- -------------- ---------- ------ ----------
+       256    0.1      1,302,216         43,548    5,867.0   97.0      3,612
+       512    0.3      1,302,216              0    5,677.2  100.0          0
+     1,024    0.5      1,302,216              0    5,677.2  100.0          0
+     1,536    0.8      1,302,216              0    5,677.2  100.0          0
+     2,048    1.0      1,302,216              0    5,677.2  100.0          0
+     2,458    1.2      1,302,216              0    5,677.2  100.0          0
+     2,867    1.4      1,302,216              0    5,677.2  100.0          0
+     3,277    1.6      1,302,216              0    5,677.2  100.0          0
+     3,686    1.8      1,302,216              0    5,677.2  100.0          0
+     4,096    2.0      1,302,216              0    5,677.2  100.0          0
+     6,144    3.0      1,302,216              0    5,677.2  100.0          0
+     8,192    4.0      1,302,216              0    5,677.2  100.0          0
+    12,288    6.0      1,302,216              0    5,677.2  100.0          0
+    16,384    8.0      1,302,216              0    5,677.2  100.0          0
+          -------------------------------------------------------------
+Process Memory Summary Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> B: Begin snap   E: End snap
+-> All rows below contain absolute values (i.e. not diffed over the interval)
+-> Max Alloc is Maximum PGA Allocation size at snapshot time
+   Hist Max Alloc is the Historical Max Allocation for still-connected processes
+-> Num Procs or Allocs:  For Begin/End snapshot lines, it is the number of
+   processes. For Category lines, it is the number of allocations
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                                                                  Hist   Num
+                                          Avg    Std Dev   Max    Max   Procs
+             Alloc     Used    Freeabl   Alloc    Alloc   Alloc  Alloc    or
+  Category   (MB)      (MB)      (MB)     (MB)    (MB)    (MB)    (MB)  Allocs
+- -------- --------- --------- -------- -------- ------- ------- ------ ------
+B --------     384.7     303.0     29.8      6.1    11.8      70     70     63
+  Other        352.0                         5.6    11.4      70     70     63
+  Freeable      29.8        .0               1.4     2.2       9            21
+  PL/SQL         2.2        .9                .0      .2       1      1     61
+  SQL             .7        .2                .0      .0       0     16     24
+E --------     432.5     331.8     41.3      5.4    10.6      70     70     80
+  Other        383.4                         4.8    10.2      70     70     80
+  Freeable      41.2        .0               1.1     1.6       9            39
+  PL/SQL         6.5       4.9                .1      .2       1      1     78
+  SQL            1.4        .4                .0      .0       0     16     33
+          -------------------------------------------------------------
+
+Top Process Memory (by component)  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     31 ARC0 --------    70.5    51.3       .0       70.5       70.5
+         Other            70.5                        70.5       70.5
+         PL/SQL             .0      .0                  .0         .0
+      34 ARC3 --------    50.7    39.2      8.9       50.7       50.7
+         Other            41.8                        41.8       41.8
+         Freeable          8.9      .0                 8.9
+         PL/SQL             .0      .0                  .0         .0
+      32 ARC1 --------    35.0    32.2       .0       35.0       35.0
+         Other            35.0                        35.0       35.0
+         PL/SQL             .0      .0                  .0         .0
+      35 NSA2 --------    28.9    28.1       .0       28.9       28.9
+         Other            28.9                        28.9       28.9
+         PL/SQL             .0      .0                  .0         .0
+      33 ARC2 --------    20.5    17.4       .0       20.5       20.5
+         Other            20.5                        20.5       20.5
+         PL/SQL             .0      .0                  .0         .0
+      12 LMD0 --------    13.0    12.4       .0       13.0       13.0
+         Other            13.0                        13.0       13.0
+         PL/SQL             .0      .0                  .0         .0
+      18 LGWR --------    12.8    11.3       .0       12.8       12.8
+         Other            12.8                        12.8       12.8
+         PL/SQL             .0      .0                  .0         .0
+      53 J000 --------     9.3     2.2      6.8        9.3        9.3
+         Freeable          6.8      .0                 6.8
+         Other             2.3                         2.3        2.3
+         PL/SQL             .2      .2                  .2         .2
+         SQL                .1      .1                  .1        6.6
+      16 DBW0 --------     8.8     7.1      1.4        8.8        8.8
+         Other             7.4                         7.4        7.4
+         Freeable          1.4      .0                 1.4
+         PL/SQL             .0      .0                  .0         .0
+      10 DIA0 --------     7.6     7.3       .1        7.6        7.6
+         Other             7.5                         7.5        7.5
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+      17 DBW1 --------     7.2     7.1       .0        7.2        7.2
+         Other             7.2                         7.2        7.2
+         PL/SQL             .0      .0                  .0         .0
+      11 LMON --------     6.8     6.0       .0        6.8        6.8
+         Other             6.8                         6.8        6.8
+         PL/SQL             .0      .0                  .0         .0
+       6 DIAG --------     6.2     6.1       .0        6.2        6.2
+         Other             6.2                         6.2        6.2
+         PL/SQL             .0      .0                  .0         .0
+      41  ------------     6.1     4.2      1.0        6.1       29.6
+         Other             3.7                         3.7       13.9
+         PL/SQL            1.2      .0                 1.2        1.3
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1       13.4
+      38 Q001 --------     5.6     3.0       .1        5.6        5.6
+         Other             5.5                         5.5        5.5
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+
+Top Process Memory (by component)  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     38 SQL                .0      .0                  .0         .5
+      29 NSV1 --------     5.2     5.1       .0        5.2        5.2
+         Other             5.2                         5.2        5.2
+         PL/SQL             .0      .0                  .0         .0
+      26 DMON --------     4.9     3.8       .3        4.9        4.9
+         Other             4.6                         4.6        4.6
+         Freeable           .3      .0                  .3
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0         .2
+      51 CJQ0 --------     4.5     1.7      2.3        4.5        4.5
+         Freeable          2.3      .0                 2.3
+         Other             2.2                         2.2        2.2
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0         .9
+      22 MMON --------     4.0     2.6       .8        4.0        4.0
+         Other             3.1                         3.1        3.1
+         Freeable           .8      .0                  .8
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0         .9
+      20 SMON --------     3.7     1.5      1.6        3.7        3.7
+         Other             2.1                         2.1        2.1
+         Freeable          1.6      .0                 1.6
+         SQL                .0      .0                  .0        1.0
+         PL/SQL             .0      .0                  .0         .0
+E     31 ARC0 --------    70.5    51.3       .0       70.5       70.5
+         Other            70.5                        70.5       70.5
+         PL/SQL             .0      .0                  .0         .0
+      34 ARC3 --------    50.7    39.2      8.9       50.7       50.7
+         Other            41.8                        41.8       41.8
+         Freeable          8.9      .0                 8.9
+         PL/SQL             .0      .0                  .0         .0
+      32 ARC1 --------    35.0    32.2       .0       35.0       35.0
+         Other            35.0                        35.0       35.0
+         PL/SQL             .0      .0                  .0         .0
+      35 NSA2 --------    28.9    28.1       .0       28.9       28.9
+         Other            28.9                        28.9       28.9
+         PL/SQL             .0      .0                  .0         .0
+      33 ARC2 --------    20.5    17.4       .0       20.5       20.5
+         Other            20.5                        20.5       20.5
+         PL/SQL             .0      .0                  .0         .0
+      12 LMD0 --------    13.0    12.4       .0       13.0       13.0
+         Other            13.0                        13.0       13.0
+         PL/SQL             .0      .0                  .0         .0
+      18 LGWR --------    12.8    11.3       .0       12.8       12.8
+         Other            12.8                        12.8       12.8
+         PL/SQL             .0      .0                  .0         .0
+      63 J000 --------     9.5     2.1      6.4        9.5        9.5
+         Freeable          6.4      .0                 6.4
+         Other             2.8                         2.8        2.8
+         SQL                .2      .1                  .2        6.3
+         PL/SQL             .2      .2                  .2         .6
+      16 DBW0 --------     8.8     7.1      1.4        8.8        8.8
+         Other             7.4                         7.4        7.4
+
+Top Process Memory (by component)  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E     16 Freeable          1.4      .0                 1.4
+         PL/SQL             .0      .0                  .0         .0
+      10 DIA0 --------     7.6     7.3       .1        7.6        7.6
+         Other             7.5                         7.5        7.5
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+      17 DBW1 --------     7.2     7.1       .0        7.2        7.2
+         Other             7.2                         7.2        7.2
+         PL/SQL             .0      .0                  .0         .0
+      11 LMON --------     6.8     6.0       .0        6.8        6.8
+         Other             6.8                         6.8        6.8
+         PL/SQL             .0      .0                  .0         .0
+      41  ------------     6.4     4.3      1.0        6.4       29.6
+         Other             4.1                         4.1       13.9
+         PL/SQL            1.3      .0                 1.3        1.3
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1       13.4
+       6 DIAG --------     6.2     6.1       .0        6.2        6.2
+         Other             6.2                         6.2        6.2
+         PL/SQL             .0      .0                  .0         .0
+      38 Q001 --------     5.6     3.0       .1        5.6        5.6
+         Other             5.5                         5.5        5.5
+         Freeable           .1      .0                  .1
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0         .5
+      29 NSV1 --------     5.2     5.1       .0        5.2        5.2
+         Other             5.2                         5.2        5.2
+         PL/SQL             .0      .0                  .0         .0
+      26 DMON --------     4.9     3.8       .3        4.9        4.9
+         Other             4.6                         4.6        4.6
+         Freeable           .3      .0                  .3
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0         .2
+      51 CJQ0 --------     4.5     1.7      2.3        4.5        4.5
+         Freeable          2.3      .0                 2.3
+         Other             2.2                         2.2        2.2
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0         .9
+      22 MMON --------     4.0     2.6       .8        4.0        4.0
+         Other             3.1                         3.1        3.1
+         Freeable           .8      .0                  .8
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0         .9
+      64 J001 --------     4.0     2.2       .9        4.0        4.0
+         Other             2.3                         2.3        2.3
+         Freeable           .9      .0                  .9
+         PL/SQL             .6      .6                  .6         .6
+         SQL                .1      .0                  .1         .8
+          -------------------------------------------------------------
+Enqueue activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> only enqueues with waits are shown
+-> Enqueue stats gathered prior to 10g should not be compared with 10g data
+-> ordered by Wait Time desc, Waits desc
+
+Enqueue Type (Request Reason)
+------------------------------------------------------------------------------
+    Requests    Succ Gets Failed Gets       Waits Wt Time (s)  Av Wt Time(ms)
+------------ ------------ ----------- ----------- ------------ --------------
+KO-Multiple Object Checkpoint (fast object checkpoint)
+          20           20           0           2            0          10.00
+TX-Transaction (row lock contention)
+           1            1           0           1            0            .00
+          -------------------------------------------------------------
+
+Undo Segment Summary  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Min/Max TR (mins) - Min and Max Tuned Retention (minutes)
+-> STO - Snapshot Too Old count,  OOS - Out Of Space count
+-> Undo segment block stats:
+   uS - unexpired Stolen,   uR - unexpired Released,   uU - unexpired reUsed
+   eS - expired   Stolen,   eR - expired   Released,   eU - expired   reUsed
+
+Undo   Num Undo       Number of  Max Qry     Max Tx Min/Max   STO/  uS/uR/uU/
+ TS# Blocks (K)    Transactions  Len (s)      Concy TR (mins) OOS   eS/eR/eU
+---- ---------- --------------- -------- ---------- --------- ----- -----------
+   2       35.0           9,303    1,418         13 26.6/38.6 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+
+
+Undo Segment Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Most recent 35 Undostat rows, ordered by End Time desc
+
+                Num Undo    Number of Max Qry  Max Tx Tun Ret STO/  uS/uR/uU/
+End Time          Blocks Transactions Len (s)   Concy  (mins) OOS   eS/eR/eU
+------------ ----------- ------------ ------- ------- ------- ----- -----------
+05-Oct 00:01      33,578        1,260     818      13      29 0/0   0/0/0/0/0/0
+04-Oct 23:51         913        5,447   1,291       3      37 0/0   0/0/0/0/0/0
+04-Oct 23:41           8          388   1,418       1      39 0/0   0/0/0/0/0/0
+04-Oct 23:31          10          425   1,297       1      37 0/0   0/0/0/0/0/0
+04-Oct 23:21           5          395     694       1      27 0/0   0/0/0/0/0/0
+04-Oct 23:11           6          597   1,416       1      39 0/0   0/0/0/0/0/0
+04-Oct 23:01         438          791     816       3      29 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+Latch Activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+active checkpoint queue           9,156    0.0             0            0
+active service list               9,234    0.0             0       24,170    0.0
+AQ deq hash table latch               2    0.0             0            0
+AQ dequeue txn counter l            726    0.0             0            0
+archive control                  27,636    0.0             0            0
+archive process latch               432    0.0             0            0
+ASM db client latch               7,213    0.0             0            0
+ASM map operation hash t              2    0.0             0            0
+ASM network state latch              57    0.0             0            0
+AWR Alerted Metric Eleme         28,471    0.0             0            0
+begin backup scn array            4,121    0.0             0            0
+buffer pool                           2    0.0             0            0
+business card                         2    0.0             0            0
+cache buffer handles              6,218    0.0             0            0
+cache buffers chains         33,036,962    0.0    0.0      0       25,371    0.0
+cache buffers lru chain          45,696    0.1    0.0      0       57,418    0.1
+call allocation                   2,924    0.0             0            0
+cas latch                             2    0.0             0            0
+change notification clie              2    0.0             0            0
+Change Notification Hash          1,202    0.0             0            0
+channel handle pool latc            584    0.0             0            0
+channel operations paren         47,780    0.0    0.0      0            0
+checkpoint queue latch          314,641    0.0    0.1      0       42,936    0.0
+client/application info           2,343    0.0             0            0
+compile environment latc            306    0.0             0            0
+Consistent RBA                    6,994    0.0    0.0      0            0
+constraint object alloca             69    0.0             0            0
+cp cmon/server latch                  2    0.0             0            0
+cp pool latch                         2    0.0             0            0
+cp server hash latch                  2    0.0             0            0
+cp sga latch                         57    0.0             0            0
+cvmap freelist lock                   2    0.0             0            0
+deferred cleanup latch               57    0.0             0            0
+DML lock allocation             455,133    0.0             0            0
+dml lock allocation                  57    0.0             0            0
+DMON Work Queues Latch              744    0.0             0            0
+done queue latch                      2    0.0             0            0
+dummy allocation                    598    0.0             0            0
+eighth spare latch - X p              2    0.0             0            0
+eleventh spare latch - c              2    0.0             0            0
+enqueue freelist latch                2    0.0             0      198,500    0.0
+enqueue hash chains             232,700    0.0    0.1      0            0
+enqueues                             12    0.0             0            0
+Event Group Locks                   580    0.0             0            0
+FAL Queue                           204    0.0             0            0
+FIB s.o chain latch                 960    0.0             0            0
+fifteenth spare latch -               2    0.0             0            0
+file cache latch                    691    0.0             0            0
+File State Object Pool P              2    0.0             0            0
+first Audit Vault latch             235    0.0             0            0
+Latch Activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+flashback copy                        2    0.0             0            0
+FOB s.o list latch                3,881    0.0             0            0
+fourteenth spare latch -              2    0.0             0            0
+fourth Audit Vault latch              2    0.0             0            0
+gc element                            2    0.0             0            0
+gcs commit scn state                  2    0.0             0            0
+gcs partitioned table ha              2    0.0             0            0
+gcs pcm hashed value buc              2    0.0             0            0
+gcs resource freelist                 2    0.0             0            0
+gcs resource hash                     2    0.0             0            0
+gcs resource scan list                2    0.0             0            0
+gcs resource validate li              2    0.0             0            0
+gcs shadows freelist                  2    0.0             0            0
+ges caches resource list              0                    0        2,762    0.0
+ges domain table                      2    0.0             0            0
+ges enqueue table freeli              2    0.0             0            0
+ges group table                       2    0.0             0            0
+ges process hash list             2,250    0.0             0            0
+ges process parent latch            258    0.0             0            0
+ges process table freeli            528    0.0             0            0
+ges resource hash list                2    0.0             0            0
+ges resource scan list                2    0.0             0            0
+ges resource table freel              2    0.0             0            0
+ges value block free lis              2    0.0             0            0
+global KZLD latch for me            235    0.0             0            0
+global tx hash mapping                2    0.0             0            0
+granule operation                     2    0.0             0            0
+hash table column usage             262    0.0             0      128,536    0.0
+hash table modification             188    0.0             0            0
+heartbeat check                       2    0.0             0          420    0.0
+heartbeat structure mana              0                    0          720    0.0
+In memory undo latch             20,667    0.0    1.0      0        4,034    0.0
+internal temp table obje              3    0.0             0            0
+intra txn parallel recov              2    0.0             0            0
+io pool granule metadata              2    0.0             0            0
+I/O Staticstics latch                 2    0.0             0            0
+IPC other latch                      28    0.0             0            0
+IPC stats buffer allocat            514    0.0             0          544    0.0
+job workq parent latch               43    0.0             0           41    0.0
+job_queue_processes free             86    0.0             0            0
+job_queue_processes para            819    0.0             0            0
+JS mem alloc latch                   12    0.0             0            0
+JS queue access latch                14    0.0             0            0
+JS queue state obj latch         26,204    0.0             0            0
+JS Sh mem access                     10    0.0             0            0
+JS slv state obj latch               33    0.0             0            0
+kdlx hb parent latch                  2    0.0             0            0
+KFC FX Hash Latch                     2    0.0             0            0
+KFC Hash Latch                        2    0.0             0            0
+KFCL LE Freelist                      2    0.0             0            0
+Latch Activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+kgb parent                            2    0.0             0            0
+kgnfs mount latch                     2    0.0             0            0
+KGNFS-NFS:SHM structure               2    0.0             0            0
+KGNFS-NFS:SVR LIST                    2    0.0             0            0
+KJC message pool free li              2    0.0             0            0
+KJCT flow control latch               2    0.0             0            0
+KMG MMAN ready and start          1,201    0.0             0            0
+kokc descriptor allocati              4    0.0             0            0
+krbmrosl                             34    0.0             0            0
+ksfv messages                         2    0.0             0            0
+ksim group membership ca              2    0.0             0            0
+kss move lock                        42    0.0             0            0
+ksuosstats global area              366    0.0             0            0
+ksv allocation latch                137    0.0             0            0
+ksv class latch                      82    0.0             0            0
+ksv msg queue latch                   2    0.0             0            0
+ksxp shared latch                   528    0.0             0            0
+ksxp so latch                       528    0.0             0            0
+ksz_so allocation latch             528    0.0             0            0
+KTF sga latch                        25    0.0             0        1,191    0.0
+ktm global data                      83    0.0             0            0
+kwqbsn:qsga                         134    0.0             0            0
+KWQMN job cache list lat              1    0.0             0            0
+KWQP Prop Status                      3    0.0             0            0
+KWQS pqsubs latch                     4    0.0             0            0
+KWQS pqueue ctx latch                 9    0.0             0            0
+k2q lock allocation                   2    0.0             0            0
+lgwr LWN SCN                      7,047    0.2    0.0      0            0
+LGWR NS Write                    14,072    0.0             0            0
+list of block allocation          1,894    0.0             0            0
+loader state object free         52,402    0.0             0            0
+lob segment dispenser la              2    0.0             0            0
+lob segment hash table l             14    0.0             0            0
+lob segment query latch               2    0.0             0            0
+Locator state objects po              2    0.0             0            0
+lock DBA buffer during m              2    0.0             0            0
+logical standby cache                 2    0.0             0            0
+logminer context allocat              3    0.0             0            0
+logminer local                        2    0.0             0            0
+logminer work area                    2    0.0             0            0
+longop free list parent               4    0.0             0            2    0.0
+Lsod array latch                      2    0.0             0            0
+managed standby latch               144    0.0             0            0
+mapped buffers lru chain              2    0.0             0            0
+Memory Management Latch               2    0.0             0        1,201    0.0
+Memory Queue                          2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Memory Queue Message Sub              2    0.0             0            0
+Latch Activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+Memory Queue Subscriber               2    0.0             0            0
+message pool operations           1,679    0.2    0.0      0            0
+messages                        160,222    0.0    0.0      0            0
+MinActiveScn Latch                   40    0.0             0            0
+mostly latch-free SCN             7,262    2.6    0.0      0            0
+MQL Tracking Latch                    0                    0           72    0.0
+msg queue latch                       2    0.0             0            0
+multiblock read objects               2    0.0             0            0
+Mutex                                 2    0.0             0            0
+Mutex Stats                           2    0.0             0            0
+name-service memory obje            794    0.0             0            0
+name-service namespace b         17,929    0.0             0            0
+name-service pending que            794    0.0             0            0
+name-service request que         35,457    0.0             0            0
+ncodef allocation latch              57    0.0             0            0
+nineth spare latch - X p              2    0.0             0            0
+NSV command ID generatio             72    0.0             0            0
+NSV creation/termination             72    0.0             0            0
+object queue header heap         31,565    0.0             0       13,271    0.0
+object queue header oper        158,259    0.0    0.0      0            0
+object stats modificatio          4,266    0.0             0            0
+OS process                        1,227    0.0             0            0
+OS process allocation             7,852    0.0             0            0
+OS process: request allo            528    0.0             0            0
+parallel query alloc buf            474    0.0             0            0
+parallel query stats                  2    0.0             0            0
+parameter list                    2,603    0.0             0            0
+parameter table manageme          3,704    0.1    0.0      0            0
+peshm                                 2    0.0             0            0
+pesom_free_list                       2    0.0             0            0
+pesom_hash_node                       2    0.0             0            0
+PL/SQL warning settings           1,507    0.0             0            0
+post/wait queue                  12,549    0.0    0.0      0       10,922    0.0
+process allocation                  565    0.0             0          272    0.0
+process group creation              528    0.0             0            0
+process queue                         2    0.0             0            0
+process queue reference               2    0.0             0            0
+PX hash array latch                   2    0.0             0            0
+qmn task queue latch                525    0.0             0            0
+QMT                                   2    0.0             0            0
+query server freelists                2    0.0             0            0
+queued dump request                  12    0.0             0            0
+queuing load statistics               2    0.0             0            0
+readredo stats and histo          6,964    0.0             0            0
+Real-time plan statistic         37,720    0.0             0            0
+recovery domain hash lis              2    0.0             0            0
+redo allocation                  31,250    4.2    0.0      0      502,493    2.8
+redo copy                             2    0.0             0      504,235    0.4
+redo writing                     37,204    0.0             0            0
+Request id generation la            228    0.0             0            0
+Latch Activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+resmgr group change latc            342    0.0             0            0
+resmgr:active threads            18,926    0.0             0        1,260    0.0
+resmgr:actses change gro            346    0.0             0            0
+resmgr:actses change sta             21    0.0             0            0
+resmgr:free threads list            628    0.0             0            0
+resmgr:plan CPU method                2    0.0             0            0
+resmgr:resource group CP          3,682    0.5    0.0      0            0
+resmgr:schema config            193,656    0.0    0.5      0           60    0.0
+resmgr:session queuing                2    0.0             0            0
+Result Cache: RC Latch            5,250    0.0             0            0
+resumable state object                5    0.0             0            0
+rm cas latch                          2    0.0             0            0
+row cache objects               529,702    0.0    0.0      0           85    2.4
+RSM process latch                   360    0.0             0            0
+rules engine rule set st            200    0.0             0            0
+second Audit Vault latch              2    0.0             0            0
+sequence cache                    1,086    0.0             0            0
+session allocation                2,583    0.0             0        1,763    0.0
+session idle bit                442,914    0.2    0.0      0            0
+session queue latch                   2    0.0             0            0
+session state list latch            403    0.0             0            0
+session switching                   315    0.0             0            0
+session timer                     1,200    0.0             0            0
+seventh spare latch - X               2    0.0             0            0
+SGA blob parent                       2    0.0             0            0
+SGA bucket locks                      2    0.0             0            0
+SGA heap locks                        2    0.0             0            0
+SGA pool locks                        2    0.0             0            0
+Shared B-Tree                       150    0.0             0            0
+shared pool                     318,683    8.2    0.0      0            0
+shared pool sim alloc                 7    0.0             0            0
+shared pool simulator               744    0.0             0            0
+sim partition latch                   3    0.0             0          327    0.0
+simulator hash latch            939,780    0.0             0            0
+simulator lru latch               5,432    0.0    0.0      0      934,342    0.1
+sixth spare latch - X pa              2    0.0             0            0
+sort extent pool                    123    0.0             0            0
+space background state o              8    0.0             0            0
+space background task la          4,150    0.5    0.4      0        2,407    0.0
+SQL memory manager latch              2    0.0             0        3,600    0.0
+SQL memory manager worka        262,390    0.0             0            0
+state object free list               12    0.0             0            0
+statistics aggregation              560    0.0             0            0
+Streams Generic                       2    0.0             0            0
+tablespace key chain                  2    0.0             0            0
+temp lob duration state               4    0.0             0            0
+temporary table state ob              4    0.0             0            0
+tenth spare latch - X pa              2    0.0             0            0
+test excl. parent l0                  2    0.0             0            0
+test excl. parent2 l0                 2    0.0             0            0
+Latch Activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+Testing                               2    0.0             0            0
+thirteenth spare latch -              2    0.0             0            0
+threshold alerts latch              153    0.0             0            0
+Token Manager                         2    0.0             0            0
+transaction allocation          108,877    0.0             0            0
+transaction branch alloc          1,200    0.0             0            0
+twelfth spare latch - ch              2    0.0             0            0
+twenty-fifth spare latch              2    0.0             0            0
+twenty-first spare latch              2    0.0             0            0
+twenty-fourth spare latc              2    0.0             0            0
+twenty-second spare latc              2    0.0             0            0
+twenty-third spare latch              2    0.0             0            0
+undo global data                 59,032    0.0    0.0      0            0
+virtual circuit buffers               2    0.0             0            0
+virtual circuit holder                2    0.0             0            0
+virtual circuit queues                2    0.0             0            0
+WCR: sync                             2    0.0             0            0
+write info latch                      0                    0        6,989    0.0
+Write State Object Pool               2    0.0             0            0
+XDB NFS Security Latch                2    0.0             0            0
+XDB unused session pool               2    0.0             0            0
+XDB used session pool                 2    0.0             0            0
+X$KSFQP                          18,315    0.0             0            0
+          -------------------------------------------------------------
+Latch Sleep breakdown  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> ordered by misses desc
+
+                                       Get                                 Spin
+Latch Name                        Requests       Misses      Sleeps        Gets
+-------------------------- --------------- ------------ ----------- -----------
+shared pool                        318,683       26,021         118      25,909
+redo allocation                     31,250        1,324          33       1,292
+object queue header operat         158,259           48           1          47
+cache buffers lru chain             45,696           41           1          40
+space background task latc           4,150           20           7          13
+enqueue hash chains                232,700            7           1           6
+checkpoint queue latch             314,641            7           1           6
+resmgr:schema config               193,656            2           1           1
+In memory undo latch                20,667            1           1           0
+          -------------------------------------------------------------
+Latch Miss Sources  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> only latches with sleeps are shown
+-> ordered by name, sleeps desc
+
+                                                     NoWait              Waiter
+Latch Name               Where                       Misses     Sleeps   Sleeps
+------------------------ -------------------------- ------- ---------- --------
+cache buffers lru chain  kcbzgws                          0          1        0
+checkpoint queue latch   kcbklbc_cql                      0          1        0
+enqueue hash chains      ksqgtl3                          0          1        1
+In memory undo latch     ktichg: child                    0          1        0
+object queue header oper kcbo_switch_cq                   0          1        0
+PC and Classifier lists  No latch                         0          4        0
+redo allocation          kcrfw_redo_gen: redo alloc       0         29        0
+redo allocation          kcrfw_redo_gen: redo alloc       0          3        0
+redo allocation          kcrfw_redo_gen: redo alloc       0          1       20
+resmgr:schema config     kgskgmaxdop1                     0          1        0
+shared pool              kghalo                           0         93       91
+shared pool              kghupr1                          0         15       23
+shared pool              kghalp                           0          9        2
+shared pool              kghfre                           0          1        2
+space background task la ktsj_grab_task                   0          3        7
+          -------------------------------------------------------------
+Mutex Sleep  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> ordered by Wait Time desc
+
+                                                                         Wait
+Mutex Type         Location                                 Sleeps     Time (s)
+------------------ -------------------------------- -------------- ------------
+Cursor Pin         kkslce [KKSCHLPIN2]                          13          0.0
+Library Cache      kglUpgradeLock 119                            1          0.0
+Library Cache      kglget1   1                                  51          0.0
+Library Cache      kglhdgh1  64                                 22          0.0
+Library Cache      kglpndl1  95                                  1          0.0
+Library Cache      kglhdgn2 106                                  7          0.0
+Library Cache      kgllkc1   57                                  1          0.0
+Library Cache      kgllkdl1  85                                 10          0.0
+Library Cache      kglhdgn1  62                                354          0.0
+          -------------------------------------------------------------
+Segments by Logical Reads  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Segment Logical Reads Threshold:     10000
+-> Pct Total shows % of logical reads for each top segment compared with total
+   logical reads for all segments captured by the Snapshot
+
+                                           Subobject    Obj.       Logical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+COSEAV3    LASCOM_AEC OT20_PLANS                        TABLE   11,597,440  62.1
+COSEAV3    LASCOM_AEC LS_EVENTQUEUE                     TABLE    1,132,480   6.1
+SYS        SYSTEM     COLTYPE$                          TABLE      856,400   4.6
+COSEAV3    LASCOM_AEC IDX_OT20_PLANS                    INDEX      553,376   3.0
+SYS        SYSTEM     AUD$                              TABLE      541,232   2.9
+          -------------------------------------------------------------
+
+
+Segments by Physical Reads  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Segment Physical Reads Threshold:      1000
+
+                                           Subobject    Obj.      Physical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SYS        SYSTEM     AUD$                              TABLE      538,323  81.5
+COSEAV3    LASCOM_AEC SYS_LOB0000067842C00              LOB         75,519  11.4
+COSEAV3    LASCOM_AEC SYS_LOB0000067905C00              LOB         31,967   4.8
+COSEAV3    LASCOM_AEC SYS_LOB0000067851C00              LOB         13,543   2.1
+COSEAV3    LASCOM_AEC SYS_LOB0000067908C00              LOB            487    .1
+          -------------------------------------------------------------
+Segments by Row Lock Waits  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Segment Row Lock Waits Threshold:       100
+
+                                                                       Row
+                                           Subobject    Obj.          Lock   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+COSEAV3    LASCOM_AEC IX_PACKAGECUSTOMPROP              INDEX            2 100.0
+          -------------------------------------------------------------
+
+
+Segments by Buffer Busy Waits  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> End Segment Buffer Busy Waits Threshold:       100
+
+                                                                    Buffer
+                                           Subobject    Obj.          Busy   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SYS        SYSTEM     AUD$                              TABLE            1 100.0
+          -------------------------------------------------------------
+Dictionary Cache Stats  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Pct Misses"  should be very low (< 2% in most cases)
+->"Final Usage" is the number of cache entries being used in End Snapshot
+
+                                   Get    Pct    Scan   Pct      Mod      Final
+Cache                         Requests   Miss    Reqs  Miss     Reqs      Usage
+------------------------- ------------ ------ ------- ----- -------- ----------
+dc_awr_control                      65    0.0       0              2          2
+dc_files                            65    0.0       0              0         13
+dc_global_oids                   1,153    0.0       0              0         41
+dc_histogram_data               13,841    0.6       0              0      6,819
+dc_histogram_defs               33,537    0.8       0              0      6,380
+dc_object_grants                   212    0.0       0              0         24
+dc_objects                      35,437    0.2       0             18      2,832
+dc_profiles                        576    0.0       0              0          2
+dc_rollback_segments               894    0.0       0              0         22
+dc_segments                      7,972    0.2       0             12      1,473
+dc_sequences                         9    0.0       0              9         10
+dc_table_scns                      197    0.0       0             12         36
+dc_tablespaces                  40,463    0.0       0              0          9
+dc_users                        50,390    0.0       0              0        107
+global database name             2,772    0.0       0              0          2
+outstanding_alerts                  36    0.0       0              0          6
+sch_lj_oids                          4    0.0       0              0         19
+          -------------------------------------------------------------
+
+
+Library Cache Activity  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+->"Pct Misses"  should be very low
+
+                         Get  Pct        Pin        Pct               Invali-
+Namespace           Requests  Miss     Requests     Miss     Reloads  dations
+--------------- ------------ ------ -------------- ------ ---------- --------
+ACCOUNT_STATUS           705    0.0              0                 0        0
+BODY                   1,258    1.0          3,466    0.3          0        0
+CLUSTER                  465    0.2            465    0.2          0        0
+DBLINK                   707    0.0              0                 0        0
+EDITION                  292    0.0            566    0.0          0        0
+INDEX                     15    0.0             15   13.3          2        0
+QUEUE                    722    0.0          1,445    0.0          0        0
+SCHEMA                   302    0.0              0                 0        0
+SQL AREA              66,168   35.8        111,991    0.9        570      334
+SQL AREA BUILD           614   33.9              0                 0        0
+SQL AREA STATS           585   13.5            585   13.5          0        0
+SUMMARY                  281   13.5            265   20.4          9       16
+TABLE/PROCEDURE        5,330    0.0         16,904    1.3        165        0
+TRANSFORMATION           360    0.0            360    0.0          0        0
+TRIGGER                   36    0.0             36    0.0          0        0
+          -------------------------------------------------------------
+Rule Sets  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> * indicates Rule Set activity (re)started between Begin/End snaps
+-> Top 25 ordered by Evaluations desc
+
+                                                               No-SQL  SQL
+Rule                                *     Eval/sec Reloads/sec Eval % Eval %
+----------------------------------- - ------------ ----------- ------ ------
+SYS.ALERT_QUE_R                                  0           0      0      0
+          -------------------------------------------------------------
+Streams Pool Advisory  DB/Inst: SOCOSP/SOCOSP  End Snap: 8525
+
+Streams Pool Streams Pool Est Spill Est Spill Est Unspill Est Unspill
+    Size (M)  Size Factor     Count  Time (s)       Count    Time (s)
+------------ ------------ --------- --------- ----------- -----------
+         0.0          1.0         0         0           0           0
+         0.0          2.0         0         0           0           0
+         0.0          3.0         0         0           0           0
+         0.0          4.0         0         0           0           0
+         0.0          5.0         0         0           0           0
+         0.0          6.0         0         0           0           0
+         0.0          7.0         0         0           0           0
+         0.0          8.0         0         0           0           0
+         0.0          9.0         0         0           0           0
+         0.0         10.0         0         0           0           0
+         0.0         11.0         0         0           0           0
+         0.0         12.0         0         0           0           0
+         0.0         13.0         0         0           0           0
+         0.0         14.0         0         0           0           0
+         0.0         15.0         0         0           0           0
+         0.0         16.0         0         0           0           0
+         0.0         17.0         0         0           0           0
+         0.0         18.0         0         0           0           0
+         0.0         19.0         0         0           0           0
+         0.0         20.0         0         0           0           0
+          -------------------------------------------------------------
+Shared Pool Advisory  DB/Inst: SOCOSP/SOCOSP  End Snap: 8525
+-> SP: Shared Pool     Est LC: Estimated Library Cache   Factr: Factor
+-> Note there is often a 1:Many correlation between a single logical object
+   in the Library Cache, and the physical number of memory objects associated
+   with it.  Therefore comparing the number of Lib Cache objects (e.g. in
+   v$librarycache), with the number of Lib Cache Memory Objects is invalid
+
+                                        Est LC Est LC  Est LC Est LC
+    Shared    SP   Est LC                 Time   Time    Load   Load      Est LC
+      Pool  Size     Size       Est LC   Saved  Saved    Time   Time         Mem
+  Size (M) Factr      (M)      Mem Obj     (s)  Factr     (s)  Factr    Obj Hits
+---------- ----- -------- ------------ ------- ------ ------- ------ -----------
+     1,696    .8       92        4,421 #######    1.0   3,594    3.2  17,575,464
+     1,824    .9      219        8,494 #######    1.0   2,312    2.0  17,705,466
+     1,856    .9      251       10,025 #######    1.0   2,031    1.8  17,729,092
+     1,888    .9      283       10,363 #######    1.0   1,757    1.6  17,753,993
+     1,920    .9      315       10,904 #######    1.0   1,642    1.4  17,760,845
+     1,952    .9      347       11,407 #######    1.0   1,536    1.4  17,767,489
+     1,984    .9      378       12,320 #######    1.0   1,446    1.3  17,773,479
+     2,016    .9      409       13,125 #######    1.0   1,359    1.2  17,779,449
+     2,048   1.0      440       13,918 #######    1.0   1,272    1.1  17,785,009
+     2,080   1.0      471       14,811 #######    1.0   1,219    1.1  17,788,434
+     2,112   1.0      503       15,584 #######    1.0   1,176    1.0  17,790,960
+     2,144   1.0      534       16,527 #######    1.0   1,133    1.0  17,793,473
+     2,176   1.0      566       17,527 #######    1.0   1,131    1.0  17,794,343
+     2,208   1.0      598       18,356 #######    1.0   1,131    1.0  17,794,587
+     2,240   1.0      630       19,696 #######    1.0   1,130    1.0  17,794,749
+     2,272   1.1      661       20,559 #######    1.0   1,121    1.0  17,794,894
+     2,304   1.1      693       21,566 #######    1.0   1,121    1.0  17,795,041
+     2,336   1.1      725       22,573 #######    1.0   1,121    1.0  17,795,162
+     2,368   1.1      757       23,471 #######    1.0   1,121    1.0  17,795,288
+     2,400   1.1      789       24,236 #######    1.0   1,121    1.0  17,795,380
+     2,432   1.1      821       25,042 #######    1.0   1,121    1.0  17,795,406
+     2,592   1.2      980       30,554 #######    1.0   1,121    1.0  17,795,496
+     2,816   1.3      988       30,915 #######    1.0   1,121    1.0  17,795,496
+     3,040   1.4      988       30,915 #######    1.0   1,121    1.0  17,795,496
+     3,264   1.5      988       30,915 #######    1.0   1,121    1.0  17,795,496
+     3,488   1.6      988       30,915 #######    1.0   1,121    1.0  17,795,496
+     3,712   1.7      988       30,915 #######    1.0   1,121    1.0  17,795,496
+     3,936   1.8      988       30,915 #######    1.0   1,121    1.0  17,795,496
+     4,160   1.9      988       30,915 #######    1.0   1,121    1.0  17,795,496
+     4,384   2.0      988       30,915 #######    1.0   1,121    1.0  17,795,496
+          -------------------------------------------------------------
+SGA Target Advisory  DB/Inst: SOCOSP/SOCOSP  End Snap: 8525
+
+SGA Target SGA Size   Est DB      Est DB   Est Physical
+  Size (M)   Factor Time (s) Time Factor          Reads
+---------- -------- -------- ----------- --------------
+     4,608       .4   54,160         1.2      5,944,429
+     6,144       .5   44,825         1.0      2,391,177
+     7,680       .6   44,245         1.0      2,264,825
+     9,216       .8   44,262         1.0      2,264,372
+    10,752       .9   44,272         1.0      2,264,372
+    12,288      1.0   44,245         1.0      2,264,372
+    13,824      1.1   44,272         1.0      2,264,372
+    15,360      1.3   44,272         1.0      2,264,372
+    16,896      1.4   44,272         1.0      2,264,372
+    18,432      1.5   44,279         1.0      2,264,372
+    19,968      1.6   44,279         1.0      2,264,372
+    21,504      1.8   44,279         1.0      2,264,372
+    23,040      1.9   44,279         1.0      2,264,372
+    24,576      2.0   44,307         1.0      2,264,372
+          -------------------------------------------------------------
+SGA Memory Summary  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+                                                        End Size (Bytes)
+SGA regions                      Begin Size (Bytes)       (if different)
+------------------------------ -------------------- --------------------
+Database Buffers                     10,401,873,920
+Fixed Size                                2,265,224
+Redo Buffers                             40,861,696
+Variable Size                         2,382,368,632
+                               -------------------- --------------------
+sum                                  12,827,369,472
+          -------------------------------------------------------------
+
+
+SGA breakdown difference  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+-> Top 35 rows by size, ordered by Pool, Name (note rows with null values for
+   Pool column, or Names showing free memory are always shown)
+-> Null value for Begin MB or End MB indicates the size of that Pool/Name was
+   insignificant, or zero in that snapshot
+
+Pool   Name                                 Begin MB         End MB  % Diff
+------ ------------------------------ -------------- -------------- --------
+java p free memory                              32.0           32.0     0.00
+large  free memory                              56.2           56.2     0.00
+large  PX msg pool                               7.8            7.8     0.00
+shared db_block_hash_buckets                    89.0           89.0     0.00
+shared dbwriter coalesce buffer                 32.0           32.0     0.00
+shared FileOpenBlock                            24.7           24.7     0.00
+shared free memory                             412.4          441.8     7.12
+shared KGLHD                                   489.6          465.0    -5.03
+shared kglhdusr                                 31.2           29.5    -5.29
+shared KGLH0                                   148.3          149.7     0.93
+shared kkslBind_value                           79.2           74.9    -5.53
+shared kkslLoadParentOnLock:lite               144.5          136.7    -5.34
+shared SQLA                                    471.1          476.8     1.22
+stream free memory                              31.4           31.4     0.00
+stream KTG hash buckets                           .6             .6     0.00
+       buffer_cache                          9,920.0        9,920.0     0.00
+       fixed_sga                                 2.2            2.2     0.00
+       log_buffer                               39.0           39.0     0.00
+          -------------------------------------------------------------
+SQL Memory Statistics  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+                                   Begin            End         % Diff
+                          -------------- -------------- --------------
+   Avg Cursor Size (KB):           56.79          57.20            .71
+ Cursor to Parent ratio:            1.83           1.84            .37
+          Total Cursors:           9,313          9,370            .61
+          Total Parents:           5,090          5,102            .24
+          -------------------------------------------------------------
+init.ora Parameters  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+archive_lag_target            0
+audit_file_dest               /u01/app/oracle/admin/SOCOSP/adum
+                              p
+audit_sys_operations          TRUE
+audit_trail                   DB
+compatible                    11.2.0.4.0
+control_files                 /u01/app/oracle/oradata/datastore
+                              /SOCOSP/SOCOSP/controlfile/o1_mf_
+                              cmc83zx5_.ctl
+cpu_count                     4
+cursor_sharing                FORCE
+_datafile_write_errors_crash_ FALSE
+db_block_checking             FULL
+db_block_checksum             FULL
+db_block_size                 8192
+db_create_file_dest           /u02/app/oracle/oradata/datastore
+                              /.ACFS/snaps/SOCOSP
+db_create_online_log_dest_1   /u01/app/oracle/oradata/datastore
+                              /SOCOSP
+db_domain
+db_files                      1024
+db_flash_cache_file           /u02/app/oracle/oradata/flashdata
+                              /.ACFS/snaps/flashcache/SOCOSP/fl
+                              ash1
+db_flash_cache_size           25769803776
+db_lost_write_protect         TYPICAL
+db_name                       SOCOSP
+db_recovery_file_dest         /u01/app/oracle/fast_recovery_are
+                              a/datastore/SOCOSP
+db_recovery_file_dest_size    1932735283200
+_db_writer_coalesce_area_size 16777216
+db_writer_processes           2
+dg_broker_start               TRUE
+diagnostic_dest               /u01/app/oracle
+_disable_interface_checking   TRUE
+dispatchers                   (PROTOCOL=TCP) (SERVICE=SOCOSPXDB
+                              )
+_enable_NUMA_support          FALSE
+fal_client                    SOCOSP
+fal_server                    SOCOSSEC
+fast_start_mttr_target        300
+_file_size_increase_increment 2143289344
+filesystemio_options          setall
+_fix_control                  18960760:on
+_gc_policy_time               0
+_gc_undo_affinity             FALSE
+global_names                  TRUE
+job_queue_processes           1000
+local_listener                 (ADDRESS=(PROTOCOL=TCP)(HOST=10.
+                              99.25.112)(PORT=1521))
+log_archive_config            DG_CONFIG=(SOCOSP,SOCOSSEC)
+log_archive_dest_state_2      ENABLE
+log_archive_dest_1            location=USE_DB_RECOVERY_FILE_DES
+                              T, valid_for=(ALL_LOGFILES, ALL_R
+                              OLES)
+init.ora Parameters  DB/Inst: SOCOSP/SOCOSP  Snaps: 8524-8525
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+log_archive_dest_2            SERVICE=SOCOSSEC LGWR ASYNC DELAY
+                              =0 MAX_FAILURE=0 REOPEN=300 DB_UN
+                              IQUE_NAME=SOCOSSEC VALID_FOR=(ONL
+                              INE_LOGFILES,PRIMARY_ROLE)
+log_archive_format            %t_%s_%r.dbf
+log_archive_max_processes     4
+log_archive_min_succeed_dest  1
+log_archive_trace             0
+log_buffer                    15998976
+nls_language                  AMERICAN
+nls_territory                 AMERICA
+open_cursors                  1000
+open_links                    4
+open_links_per_instance       4
+optimizer_index_caching       50
+optimizer_index_cost_adj      50
+os_authent_prefix
+parallel_adaptive_multi_user  FALSE
+parallel_execution_message_si 16384
+parallel_threads_per_cpu      2
+pga_aggregate_target          2147483648
+processes                     400
+remote_listener                SRVODA01-SCAN:1521
+remote_login_passwordfile     EXCLUSIVE
+session_cached_cursors        300
+sga_max_size                  12884901888
+sga_target                    12884901888
+spfile                        /u02/app/oracle/oradata/datastore
+                              /.ACFS/snaps/SOCOSP/SOCOSP/spfile
+                              SOCOSP.ora
+sql92_security                TRUE
+standby_file_management       AUTO
+undo_retention                900
+undo_tablespace               UNDOTBS1
+use_large_pages               TRUE
+          -------------------------------------------------------------
+
+End of Report ( /zenity_client/reports/VINCI_sp-SOCOSP-8524_8525.txt )
+

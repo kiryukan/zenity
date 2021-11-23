@@ -1,0 +1,40 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: simonvivier
+ * Date: 21/07/17
+ * Time: 14:52
+ */
+
+namespace AppBundle\Entity\Snapshots;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="advisory")
+ * Contient les conseils sur les tailles de pga/sga...
+ */
+class Advisory
+{
+    /**
+     *  @ORM\Id
+     *  @ORM\Column(type="integer")
+     *  @ORM\GeneratedValue
+     */
+    private $id;
+    /** nécessaire pour un OneToMany dans @link Ressources
+     * @ORM\ManyToOne(targetEntity="Snapshot", inversedBy="events",cascade={"persist","remove"}))
+     */
+    private $snapshot;
+    /**
+     *
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $memoryAreaName;
+    /**
+     *
+     * @ORM\Column(type="array",nullable=true)
+     */
+    private $gainFactor;
+}

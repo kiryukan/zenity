@@ -1,0 +1,204 @@
+{% extends 'gestion/cloud/mainCloud.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-treeview-master/dist/bootstrap-treeview.min.css') }}">
+<style>
+.currencyinput {
+    border: 1px solid #ccc;
+    padding-top: 5px;
+  padding-bottom: 5px;
+}
+.currencyinput input {
+    border: 0;
+}
+#btn2{
+  background-color: green;
+}
+</style>
+{% endblock %}
+{% block subMenu %}
+    <div id="#nested_menu">
+            <a class="button" id="btn1" href="{{ url('gestion_cloud_paas') }}" onclick="active(this)">PAAS</a>
+            <a class="button" id="btn2" href="{{ url('gestion_cloud_iaas') }}" onclick="active(this)">IAAS</a>
+    </div>
+{% endblock %}
+{% block body %}
+    {{ parent() }}
+    <div class="row">
+      <div  class="col-sm-4">
+        <div id="cloudInstanceTree" ></div>
+        <button onClick="addProvider()">Add provider</button>
+      </div>
+
+      <div id="cloud-instance-container" class="col-sm-8">
+        <form action="javascript: handleForm();" id="cloud-instance-form">
+          <input id="instance_id" hidden name="id"/>
+          <div class="form-group">
+            <label for="instance-name">Nom</label>
+            <input id="instance-name" name="name" type="text" size="50" />
+          </div>
+          <div class="form-group">
+            <label for="spec-sheet" style="display:block">Fiche technique:</label>
+            <textarea id="spec-sheet" name="specSheet" cols="55" rows="7"></textarea>
+          </div>
+          <div class="pricing panel panel-default">
+            <div class="panel-heading">Pricing</div>
+            <div class="panel-body">
+              {% for priceName in pricesName %}
+                <fieldset name="prices">
+                  <div class="form-group">
+                    <label for="price-{{priceName}}">{{priceName}}</label>
+                    <span class="currencyinput"><i>$</i><input id="price-{{priceName}}" name="prices[{{priceName}}]" type="number" value="0"/></span>
+                  </div>
+                </fieldset
+              {% endfor %}
+              </div>
+          </div>
+          <div class="performance panel panel-default">
+            <div class="panel-heading">performance benchmark</div>
+            <div class="panel-body">
+              {% for indicatorName in performanceIndicators %}
+                <div class="form-group">
+                  <label for="indicator-{{indicatorName}}">{{indicatorName}}</label>
+                  <input name="performanceBench[{{indicatorName}}]" id="indicator-{{indicatorName}}" type="number" value="0" step="0.01"/>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="cpu panel panel-default">
+            <div class="panel-heading">vCpu cost</div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label for="costPerCpu">cost per vcpu</label>
+                <span class="currencyinput"><i>$</i> <input name="costPerCpu" id="costPerCpu" type="number" value="0" step="0.01"/></span>
+                <label for="costPerCpuPerHour"></label>
+                <span class="currencyinput"><i>$/h</i> <input name="costPerCpuPerHour" id="costPerCpuPerHour" type="number" value="0" step="0.01"/></span>
+              </div>
+              <div class="form-group">
+                <label for="minCpu">vcpu count min</label>
+                <input name="minCpu" id="minCpu" type="number" value="0" />
+                <label for="maxCpu">max</label>
+                <input name="maxCpu" id="maxCpu" type="number" value="0"/>
+              </div>
+              <div class="form-group">
+                <label for="cpuCountRule">cpu count rule</label>
+                <input name="cpuCountRule" id="cpuCountRule" type="text" value="$n" />
+              </div>
+            </div>
+          </div>
+          <div class="storage panel panel-default">
+            <div class="panel-heading">Storage</div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label for="baseStorage">Base storage</label>
+                <span class="currencyinput"><i>Go</i> <input id="baseStorage" name="baseStorage" type="number" value="0"/></span>
+              </div>
+              <div class="form-group">
+                <label for="costPerGo">Additional cost per GO</label>
+                <span class="currencyinput"><i>$</i> <input id="costPerGo" name="costPerGo" type="number" value="0" step="0.00001"/></span>
+              </div>
+            </div>
+          </div>
+          <button type="button" onclick="deleteInstance()">Delete</button> <input type="submit">
+        </form>
+      </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('vendor/bootstrap-treeview-master/dist/bootstrap-treeview.min.js') }}"></script>
+    <script type="text/javascript">
+    $("#costPerCpuPerHour").change((eventData)=>{
+      let costPerMonth = $("#costPerCpuPerHour").val() * 24*30.5;
+      $("#costPerCpu").val(Math.round(costPerMonth * 10000) / 10000)
+    })
+    $("#costPerCpu").change((eventData)=>{
+      let costPerHour = $("#costPerCpu").val() / 24/30.5;
+      $("#costPerCpuPerHour").val(Math.round(costPerHour * 10000) / 10000)
+    })
+    function addProvider(){
+      let provider_name = prompt("Provider name");
+      $.ajax({
+        url: `${config.serverPath}/gestion/cloudInstances/createProvider`,
+        data:{provider_name:provider_name},
+        success: function (result) {
+          location.reload();
+        }
+      });
+    }
+    function deleteProvider(providerId){
+      $.ajax({
+        url: `${config.serverPath}/gestion/cloudInstances/deleteProvider`,
+        data:{provider_id:providerId},
+        success: function (result) {
+          location.reload();
+        }
+      });
+    }
+    function getTree() {
+      let tree = []
+      $.ajax({
+            url: `${config.serverPath}/gestion/cloudInstances/getTree`,
+            success: function (result) {
+                tree=result
+            },
+            async: false
+        });
+        console.log(tree)
+        return tree.map(node=>{
+          return {
+            nodes:node.nodes,
+            id:node.id,
+            text:`${node.text} 
+            <button class="add-instance-button" onClick="appendInstance('${node.text}')"" >add</button>
+            <button class="add-instance-button" onClick="deleteProvider('${node.id}')"" >-</button>
+            `
+          }
+        })
+    }
+    function appendInstance(nodeText){
+      $.ajax({url: `${config.serverPath}/gestion/cloudInstances/createCloudInstance?provider_name=${nodeText}&instance_name=${prompt('instance name')}`}).then(result=>{      })
+      location.reload();
+    }
+    console.log( getTree());
+    let tree = $('#cloudInstanceTree').treeview({
+      data: getTree(),
+      onNodeSelected:(event,node)=>{
+        if(!node.isRoot){
+          $.ajax({
+                url: `${config.serverPath}/gestion/cloudInstances/getCloudInstance/${node.id}`,
+                success: function (result) {
+                  $('#instance_id').val(result.id);
+                  $('#instance-name').val(result.name)
+                  $('#spec-sheet').val(result.technicalInfos)
+                  $('#baseStorage').val(result.baseStorageCapacity)
+                  $('#costPerCpu').val(result.costPerCpu)
+                  $('#costPerGo').val(result.costPerGo)
+                  $('#minCpu').val(result.minCpuCount)
+                  $('#maxCpu').val(result.maxCpuCount)
+                  $('#cpuCountRule').val(result.cpuCountRule)
+                  for (let indicatorName in result.performanceBench){
+                    let value = result.performanceBench[indicatorName]
+                    $(`#indicator-${indicatorName}`).val(value)
+                  }
+                  for (let price of result.licencePrices){
+                    $(`#price-${price.name}`).val(price.value)
+                  }
+                }
+            });
+        }else{
+
+        }
+      }
+    });
+    function handleForm(){
+      $.post(`${config.serverPath}/gestion/cloudInstances/updateCloudInstance`, $('#cloud-instance-form').serialize())
+      return false
+    }
+    function deleteInstance(){
+      let instance_id = $('#instance_id').val()
+      $.post(`${config.serverPath}/gestion/cloudInstances/deleteInstance`,{'instance_id':instance_id})
+      location.reload();
+    }
+    </script>
+{% endblock %}

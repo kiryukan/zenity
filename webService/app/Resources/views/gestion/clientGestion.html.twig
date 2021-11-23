@@ -1,0 +1,83 @@
+{% extends 'gestion/homePage.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <table class="table table-condensed" id = "clientInterface">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Nombre de base auditées</th>
+                    <th>Nombre de snapshots enregistrés</th>
+                    <th>date d'inscription</th>
+
+                </tr>
+            </thead>
+            <tbody id="clientList"></tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <button onclick="
+                        $( function() {
+                             $( '#addClientDialog' ).dialog();
+                        } ) ">
+                            Ajouter
+                        </button>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div id="addClientDialog" title="ajouter un client" hidden>
+        {% include 'gestion/form/addClient.html.twig' %}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        function deleteClient(name) {
+            $.ajax({
+                url:`${config.serverPath}/gestion/deleteClient`,
+                data:{
+                    name:name
+                },
+                success: function (clientsData) {
+                    $('#client-'+name).remove();
+                }
+            });
+        }
+
+        $.ajax({
+            async: false,
+            type: 'GET',
+            url:`${config.serverPath}/template/client.hbs`,
+            success: function (template) {
+            Handlebars.registerPartial('client',Handlebars.compile(template));
+            }
+        });
+
+        $.ajax({
+            type:'GET',
+            url:`${config.serverPath}/gestion/ressources`,
+            success: function (clientsData) {
+                for (i in clientsData ){
+                    loadClients(clientsData[i]);
+                }
+            }
+        });
+        function loadClients(data) {
+            {% verbatim %}
+                clientTemplate = Handlebars.compile("{{> client }}");
+            {% endverbatim %}
+            console.log(data);
+            $('#clientList').append(clientTemplate(data));
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,2882 @@
+
+STATSPACK report for
+
+Database    DB Id    Instance     Inst Num  Startup Time   Release     RAC
+~~~~~~~~ ----------- ------------ -------- --------------- ----------- ---
+           217966092 SMPROD              1 04-Oct-18 23:21 11.2.0.4.0  NO
+
+Host         Name             Platform                CPUs Cores Sockets
+  Memory (G)
+~~~~ ---------------- ---------------------- ----- ----- ------- ------------
+     bddfip           Linux x86 64-bit           4     4       1         15.6
+
+Snapshot       Snap Id     Snap Time      Sessions Curs/Sess Comment
+~~~~~~~~    ---------- ------------------ -------- --------- ------------------
+Begin Snap:        886 05-Oct-18 11:00:00      134       3.9
+  End Snap:        887 05-Oct-18 12:00:01      138       4.3
+   Elapsed:      60.02 (mins) Av Act Sess:       0.3
+   DB time:      20.07 (mins)      DB CPU:      19.87 (mins)
+
+Cache Sizes            Begin        End
+~~~~~~~~~~~       ---------- ----------
+    Buffer Cache:     2,784M              Std Block Size:         8K
+     Shared Pool:     4,992M                  Log Buffer:     6,816K
+
+Load Profile              Per Second    Per Transaction    Per Exec    Per Call
+~~~~~~~~~~~~      ------------------  ----------------- ----------- -----------
+      DB time(s):                0.3                0.2        0.00        0.00
+       DB CPU(s):                0.3                0.2        0.00        0.00
+       Redo size:           14,408.0            9,553.2
+   Logical reads:           46,196.2           30,630.2
+   Block changes:               54.5               36.1
+  Physical reads:            4,625.1            3,066.6
+ Physical writes:                4.5                3.0
+      User calls:              535.1              354.8
+          Parses:              220.0              145.9
+     Hard parses:                2.7                1.8
+W/A MB processed:               15.0                9.9
+          Logons:                0.4                0.3
+        Executes:              230.9              153.1
+       Rollbacks:                0.5                0.4
+    Transactions:                1.5
+
+Instance Efficiency Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Buffer Nowait %:  100.00       Redo NoWait %:  100.00
+            Buffer  Hit   %:   99.79  Optimal W/A Exec %:  100.00
+            Library Hit   %:   96.44        Soft Parse %:   98.75
+         Execute to Parse %:    4.75         Latch Hit %:  100.00
+Parse CPU to Parse Elapsd %:  119.19     % Non-Parse CPU:   95.54
+
+ Shared Pool Statistics        Begin   End
+                               ------  ------
+             Memory Usage %:   49.55   57.12
+    % SQL with executions>1:   44.26   40.56
+  % Memory for SQL w/exec>1:   43.13   40.60
+
+Top 5 Timed Events                                                    Avg %Total
+~~~~~~~~~~~~~~~~~~                                                   wait   Call
+Event                                            Waits    Time (s)   (ms)   Time
+----------------------------------------- ------------ ----------- ------ ------
+CPU time                                                     1,137          92.8
+direct path read                             2,061,900          29      0    2.4
+log file parallel write                          4,513          13      3    1.1
+log file sync                                    3,798          12      3     .9
+db file sequential read                        164,057          10      0     .8
+          -------------------------------------------------------------
+Host CPU  (CPUs: 4  Cores: 4  Sockets: 1)
+~~~~~~~~              Load Average
+                      Begin     End      User  System    Idle     WIO     WCPU
+                    ------- -------   ------- ------- ------- ------- --------
+                       0.23    0.14      8.51    1.16   90.23    0.26
+
+Instance CPU
+~~~~~~~~~~~~                                       % Time (seconds)
+                                            -------- --------------
+                     Host: Total time (s):                 14,350.9
+                  Host: Busy CPU time (s):                  1,402.1
+                   % of time Host is Busy:       9.8
+             Instance: Total CPU time (s):                  1,200.6
+          % of Busy CPU used for Instance:      85.6
+        Instance: Total Database time (s):                  1,256.5
+  %DB time waiting for CPU (Resource Mgr):       0.0
+
+Virtual Memory Paging
+~~~~~~~~~~~~~~~~~~~~~
+                     KB paged out per sec:             6.6
+                     KB paged  in per sec:              .9
+
+Memory Statistics                       Begin          End
+~~~~~~~~~~~~~~~~~                ------------ ------------
+                  Host Mem (MB):     15,953.7     15,953.7
+                   SGA use (MB):     12,233.1     12,233.1
+                   PGA use (MB):        452.3        463.9
+    % Host Mem used for SGA+PGA:         79.5         79.6
+          -------------------------------------------------------------
+
+Time Model System Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Ordered by % of DB time desc, Statistic name
+
+Statistic                                       Time (s) % DB time
+----------------------------------- -------------------- ---------
+DB CPU                                           1,192.1      99.0
+sql execute elapsed time                         1,045.4      86.8
+parse time elapsed                                  77.1       6.4
+hard parse elapsed time                             57.3       4.8
+PL/SQL execution elapsed time                       39.8       3.3
+hard parse (sharing criteria) elaps                  4.9        .4
+connection management call elapsed                   2.6        .2
+PL/SQL compilation elapsed time                      0.9        .1
+failed parse elapsed time                            0.1        .0
+sequence load elapsed time                           0.0        .0
+repeated bind elapsed time                           0.0        .0
+DB time                                          1,204.1
+background elapsed time                             52.3
+background cpu time                                  8.5
+          -------------------------------------------------------------
+Foreground Wait Events  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+direct path read                2,061,900    0         29      0    379.7    2.4
+log file sync                       3,797    0         12      3      0.7     .9
+db file sequential read           163,560    0         10      0     30.1     .8
+db file parallel read               2,185    0          2      1      0.4     .2
+enq: TX - row lock contentio            1    0          2   1502      0.0     .1
+SQL*Net more data to client        76,338    0          1      0     14.1     .1
+enq: TM - contention                    1    0          1    928      0.0     .1
+db file scattered read             25,608    0          1      0      4.7     .1
+enq: KO - fast object checkp          159    0          0      3      0.0     .0
+read by other session                 103    0          0      2      0.0     .0
+Disk file operations I/O            1,171    0          0      0      0.2     .0
+SQL*Net break/reset to clien          210    0          0      0      0.0     .0
+reliable message                      158    0          0      0      0.0     .0
+control file sequential read        5,827    0          0      0      1.1     .0
+direct path write                     682    0          0      0      0.1     .0
+ADR block file read                    36    0          0      0      0.0     .0
+ADR block file write                    5    0          0      0      0.0     .0
+latch: shared pool                      1    0          0      1      0.0     .0
+SQL*Net message from client     1,183,481    0    215,450    182    217.9
+jobq slave wait                     7,260  100      3,630    500      1.3
+SQL*Net more data from clien       35,878    0         11      0      6.6
+SQL*Net message to client       1,183,485    0          1      0    217.9
+          -------------------------------------------------------------
+
+Background Wait Events  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+log file parallel write             4,513    0         13      3      0.8    1.1
+db file async I/O submit            1,695    0          9      6      0.3     .8
+control file parallel write         3,134    0          6      2      0.6     .5
+os thread startup                     139    0          2     14      0.0     .2
+Log archive I/O                        92    0          0      1      0.0     .0
+control file sequential read        9,781    0          0      0      1.8     .0
+db file parallel read                  18    0          0      3      0.0     .0
+db file sequential read               497    0          0      0      0.1     .0
+db file scattered read                 88    0          0      0      0.0     .0
+log file sequential read              112    0          0      0      0.0     .0
+db file single write                   42    0          0      0      0.0     .0
+Disk file operations I/O              173    0          0      0      0.0     .0
+asynch descriptor resize            1,494  100          0      0      0.3     .0
+ADR block file read                    16    0          0      0      0.0     .0
+log file sync                           1    0          0      5      0.0     .0
+log file single write                   8    0          0      1      0.0     .0
+reliable message                       14    0          0      0      0.0     .0
+ADR block file write                    5    0          0      0      0.0     .0
+LGWR wait for redo copy                38    0          0      0      0.0     .0
+rdbms ipc message                  25,475   74     68,376   2684      4.7
+EMON slave idle wait                3,600  100     18,000   5000      0.7
+DIAG idle wait                      7,203  100      7,201   1000      1.3
+smon timer                             13   92      3,683 ######      0.0
+Streams AQ: qmn slave idle w          129    0      3,613  28009      0.0
+Streams AQ: qmn coordinator           258   50      3,613  14004      0.0
+Streams AQ: emn coordinator           360  100      3,603  10008      0.1
+pmon timer                          1,199  100      3,600   3003      0.2
+Space Manager: slave idle wa          720  100      3,595   4993      0.1
+SQL*Net message from client         5,339    0          4      1      1.0
+SQL*Net message to client           3,984    0          0      0      0.7
+class slave wait                       19    0          0      0      0.0
+          -------------------------------------------------------------
+
+Wait Events (fg and bg) DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+direct path read                2,061,900    0         29      0    379.7    2.4
+log file parallel write             4,513    0         13      3      0.8    1.1
+log file sync                       3,798    0         12      3      0.7     .9
+db file sequential read           164,057    0         10      0     30.2     .8
+db file async I/O submit            1,695    0          9      6      0.3     .8
+control file parallel write         3,134    0          6      2      0.6     .5
+db file parallel read               2,203    0          2      1      0.4     .2
+os thread startup                     139    0          2     14      0.0     .2
+enq: TX - row lock contentio            1    0          2   1502      0.0     .1
+SQL*Net more data to client        76,398    0          1      0     14.1     .1
+enq: TM - contention                    1    0          1    928      0.0     .1
+db file scattered read             25,696    0          1      0      4.7     .1
+enq: KO - fast object checkp          159    0          0      3      0.0     .0
+read by other session                 103    0          0      2      0.0     .0
+Disk file operations I/O            1,344    0          0      0      0.2     .0
+Log archive I/O                        92    0          0      1      0.0     .0
+control file sequential read       15,608    0          0      0      2.9     .0
+SQL*Net break/reset to clien          210    0          0      0      0.0     .0
+reliable message                      172    0          0      0      0.0     .0
+ADR block file read                    52    0          0      0      0.0     .0
+log file sequential read              112    0          0      0      0.0     .0
+direct path write                     682    0          0      0      0.1     .0
+db file single write                   42    0          0      0      0.0     .0
+asynch descriptor resize            1,494  100          0      0      0.3     .0
+log file single write                   8    0          0      1      0.0     .0
+ADR block file write                   10    0          0      0      0.0     .0
+LGWR wait for redo copy                38    0          0      0      0.0     .0
+latch: shared pool                      1    0          0      1      0.0     .0
+SQL*Net message from client     1,188,820    0    215,454    181    218.9
+rdbms ipc message                  25,475   74     68,376   2684      4.7
+EMON slave idle wait                3,600  100     18,000   5000      0.7
+DIAG idle wait                      7,203  100      7,201   1000      1.3
+smon timer                             13   92      3,683 ######      0.0
+jobq slave wait                     7,260  100      3,630    500      1.3
+Streams AQ: qmn slave idle w          129    0      3,613  28009      0.0
+Streams AQ: qmn coordinator           258   50      3,613  14004      0.0
+Streams AQ: emn coordinator           360  100      3,603  10008      0.1
+pmon timer                          1,199  100      3,600   3003      0.2
+Space Manager: slave idle wa          720  100      3,595   4993      0.1
+SQL*Net more data from clien       35,938    0         11      0      6.6
+SQL*Net message to client       1,187,469    0          1      0    218.6
+class slave wait                       19    0          0      0      0.0
+          -------------------------------------------------------------
+Wait Event Histogram  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ADR block file read          52   96.2         1.9   1.9
+ADR block file write         10  100.0
+ADR file lock                12  100.0
+ARCH wait for archivelog l    2  100.0
+asynch descriptor resize   1494  100.0
+buffer busy waits             2  100.0
+control file parallel writ 3134   50.2  33.6   9.5   2.5   3.1    .7    .4
+control file sequential re   15K 100.0
+cursor: pin S                 3  100.0
+db file async I/O submit   1695   54.6  21.5   9.3   5.6   3.9   2.5   2.5
+db file parallel read      2203   85.3   6.3   4.3   2.0   1.2    .6    .3
+db file scattered read       25K  99.8    .1    .0    .0    .0    .0    .0
+db file sequential read     164K  99.5    .4    .1    .0    .0    .0    .0
+db file single write         42  100.0
+direct path read           2061K 100.0    .0    .0    .0    .0    .0
+direct path write           682   99.9                .1
+Disk file operations I/O   1344   99.7          .1    .1                .1
+enq: KO - fast object chec  159   40.9  34.6   9.4   8.8   3.8   1.9    .6
+enq: TM - contention          1                                      100.0
+enq: TX - row lock content    1                                            100.0
+latch: cache buffers chain    6  100.0
+latch: call allocation        3  100.0
+latch free                    1  100.0
+latch: row cache objects      4  100.0
+latch: shared pool            1        100.0
+LGWR wait for redo copy      38  100.0
+library cache: mutex X        2  100.0
+Log archive I/O              92  100.0
+log file parallel write    4513   21.8  44.4  22.2   6.4   3.0   1.2    .9
+log file sequential read    112  100.0
+log file single write         8  100.0
+log file sync              3798   21.6  42.7  23.2   7.0   3.1   1.4   1.1
+os thread startup           139                           95.7   4.3
+Parameter File I/O            2  100.0
+read by other session       103   90.3   3.9         1.0   1.9         2.9
+reliable message            172  100.0
+SQL*Net break/reset to cli  210   91.4   7.6    .5          .5
+SQL*Net more data to clien   76K 100.0
+class slave wait             19   94.7   5.3
+DIAG idle wait             7203                                      100.0
+EMON slave idle wait       3600                                            100.0
+jobq slave wait            7257                                      100.0
+pmon timer                 1199                                            100.0
+rdbms ipc message            25K   5.7   1.1    .9   1.0   1.0   1.2  28.0  61.1
+smon timer                   13                                            100.0
+Space Manager: slave idle   720     .1                                      99.9
+SQL*Net message from clien 1188K  66.4  13.4   6.9   3.4   1.9   1.8   5.1   1.1
+SQL*Net message to client  1187K 100.0
+SQL*Net more data from cli   35K  98.1    .7    .5    .3    .1    .1    .3
+Streams AQ: emn coordinato  360                                            100.0
+Streams AQ: qmn coordinato  258   50.0                                      50.0
+Wait Event Histogram  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+Streams AQ: qmn slave idle  129                                            100.0
+          -------------------------------------------------------------
+
+SQL ordered by CPU  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Total DB CPU (s):           1,192
+-> Captured SQL accounts for   86.3% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+    218.64            8      27.33   18.3     220.20      14,763,216 4011465387
+Module: JDBC Thin Client
+select * from ( select marchelot0_.IDENTIFIANT as col_0_0_, marc
+helot0_.VERSION as col_1_0_, marchelot0_.CODEMARCHELOT as col_2_
+0_, marchelot0_.LIBELLE as col_3_0_, marchelot0_.MARCHE_LOT as c
+ol_4_0_, marchelot0_.ATRANCHES as col_5_0_, marchelot0_.ABONDECO
+
+    109.67        1,153       0.10    9.2     110.11      15,733,842 3971988054
+Module: JDBC Thin Client
+select this_.ROO_IMA_REF as ROO1_387_2_, this_.UPDATOKEN as UPDA
+TOKEN387_2_, this_.POBJ_EXTRACT as POBJ3_387_2_, this_.DATE_CREA
+T as DATE4_387_2_, this_.USER_CREAT as USER5_387_2_, this_.USER_
+MODIF as USER6_387_2_, this_.DATE_MODIF as DATE7_387_2_, this_.C
+
+     65.38       15,207       0.00    5.5      65.15      13,536,015  320970223
+Module: JDBC Thin Client
+select listhabili0_.TACHE as TACHE35_1_, listhabili0_.ROO_IMA_RE
+F as ROO1_1_, listhabili0_.ROO_IMA_REF as ROO1_25_0_, listhabili
+0_.UPDATOKEN as UPDATOKEN25_0_, listhabili0_.POBJ_EXTRACT as POB
+J3_25_0_, listhabili0_.DATE_CREAT as DATE4_25_0_, listhabili0_.U
+
+     47.33          309       0.15    4.0      47.72      19,629,752   68838548
+Module: JDBC Thin Client
+select dompers0_.ROO_IMA_REF as ROO1_436_0_, banque1_.ROO_IMA_RE
+F as ROO1_501_1_, personne2_.ROO_IMA_REF as ROO1_427_2_, paiemen
+tpm3_.ROO_IMA_REF as ROO1_481_3_, dompers0_.UPDATOKEN as UPDATOK
+EN436_0_, dompers0_.POBJ_EXTRACT as POBJ3_436_0_, dompers0_.DATE
+
+     46.57           56       0.83    3.9      47.16       3,323,962 3905865960
+Module: JDBC Thin Client
+select count(distinct marchelot0_.IDENTIFIANT) as col_0_0_ from
+MAR_MARCHE_LOT marchelot0_ left outer join MAR_TRANCHE listtranc
+h1_ on marchelot0_.IDENTIFIANT=listtranch1_.MARCHELOTID cross jo
+in SERVICEFI service21_ where marchelot0_.SERVICEGESTIONNAIRERIR
+
+     39.20          170       0.23    3.3      40.13         202,130 2475393149
+Module: SQL*Plus
+begin   STATSPACK.STAT_CHANGES    ( :bid,    :eid    , :dbid,
+:inst_num    , :para                     -- End of IN arguments
+   , :lhtr,   :bfwt    , :tran,   :chng    , :ucal,   :urol    ,
+ :rsiz    , :phyr,   :phyrd    , :phyrdl, :phyrc    , :phyw,   :
+
+     36.94           49       0.75    3.1      37.21       2,443,120  256165306
+Module: JDBC Thin Client
+select * from ( select distinct marchelot0_.IDENTIFIANT as IDENT
+IFI1_350_, marchelot0_.VERSION as VERSION350_, marchelot0_.DATED
+EBUT as DATEDEBUT350_, marchelot0_.DATEFIN as DATEFIN350_, march
+elot0_.CODEMARCHELOT as CODEMARC5_350_, marchelot0_.LIBELLE as L
+
+     30.74          180       0.17    2.6      31.19       7,693,382 3014337174
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_ from FA
+SQL ordered by CPU  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Total DB CPU (s):           1,192
+-> Captured SQL accounts for   86.3% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+CTURE facture0_ left outer join EFAC_SAS facturesas1_ on facture
+0_.FACTURE_SAS=facturesas1_.IDENTIFIANT where (upper(facture0_.F
+ACTURE) like upper(:1 )) and facture0_.ORGAFI=:2
+
+     24.82           96       0.26    2.1      25.12       5,082,807  266390512
+Module: JDBC Thin Client
+select * from ( select distinct facture0_.ROO_IMA_REF as col_0_0
+_, facture0_.UPDATOKEN as col_1_0_, facture0_.FACTURE as col_2_0
+_, facture0_.FACTIERS as col_3_0_, facture0_.LIBELLE1 as col_4_0
+_, facture0_.LIBELLE2 as col_5_0_ from FACTURE facture0_ left ou
+
+     19.11          185       0.10    1.6      19.23       1,297,269 3551372368
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_ from FA
+CTURE facture0_ left outer join EFAC_SAS facturesas1_ on facture
+0_.FACTURE_SAS=facturesas1_.IDENTIFIANT where (upper(facture0_.F
+ACTURE) like upper(:1 )) and facture0_.ROO_IMA_REF<>:2  and fact
+
+     19.03          117       0.16    1.6      19.20       7,449,457 2094175283
+Module: JDBC Thin Client
+select sum(round(mandatlign0_.MONTANTTC_E-mandatlign0_.MTVA_E, 2
+)) as col_0_0_, sum(round(mandatlign0_.MTVA_E, 2)) as col_1_0_,
+sum(round(mandatlign0_.MONTANTTC_E, 2)) as col_2_0_ from MANDLIG
+NE mandatlign0_ cross join MANDAT mandat1_ cross join MANDTIERS
+
+     18.99          117       0.16    1.6      19.22       6,949,037  605913649
+Module: JDBC Thin Client
+select sum(round(mandatlign0_.MONTANTTC_E-mandatlign0_.MTVA_E, 2
+)) as col_0_0_, sum(round(mandatlign0_.MTVA_E, 2)) as col_1_0_,
+sum(round(mandatlign0_.MONTANTTC_E, 2)) as col_2_0_ from MANDLIG
+NE mandatlign0_ cross join MANDAT mandat1_ cross join MANDTIERS
+
+     17.40           29       0.60    1.5      17.49       4,105,212 3007846326
+Module: JDBC Thin Client
+select this_.ROO_IMA_REF as ROO1_434_4_, this_.UPDATOKEN as UPDA
+TOKEN434_4_, this_.POBJ_EXTRACT as POBJ3_434_4_, this_.DATE_CREA
+T as DATE4_434_4_, this_.USER_CREAT as USER5_434_4_, this_.USER_
+MODIF as USER6_434_4_, this_.DATE_MODIF as DATE7_434_4_, this_.C
+
+     17.13           18       0.95    1.4      17.20         641,306 2033281724
+Module: fimanval.exe
+update facture  set fac_avancement='10' where roo_ima_ref in (se
+lect facture.roo_ima_ref  from mandat ,mandligne ,mvtligne ,fact
+ure where ((((((((mandat.roo_ima_ref=mandligne.mandat and mandli
+gne.mvtligne=mvtligne.roo_ima_ref) and mvtligne.facture=facture.
+
+     15.52          970       0.02    1.3      15.68       2,320,136 2223868640
+Module: JDBC Thin Client
+select listcumul0_.MARCHELOTID as MARCHEL37_350_1_, listcumul0_.
+IDENTIFIANT as IDENTIFI1_1_, listcumul0_.IDENTIFIANT as IDENTIFI
+1_334_0_, listcumul0_.VERSION as VERSION334_0_, listcumul0_.COMM
+ANDEAPHT as COMMANDE3_334_0_, listcumul0_.COMMANDEAPTVA as COMMA
+SQL ordered by CPU  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Total DB CPU (s):           1,192
+-> Captured SQL accounts for   86.3% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+
+          -------------------------------------------------------------
+SQL ordered by Elapsed time for DB: SMPROD  Instance: SMPROD  Snaps: 886 -887
+-> Total DB Time (s):           1,204
+-> Captured SQL accounts for   87.1% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+    220.20            8      27.53   18.3     218.64             744 4011465387
+Module: JDBC Thin Client
+select * from ( select marchelot0_.IDENTIFIANT as col_0_0_, marc
+helot0_.VERSION as col_1_0_, marchelot0_.CODEMARCHELOT as col_2_
+0_, marchelot0_.LIBELLE as col_3_0_, marchelot0_.MARCHE_LOT as c
+ol_4_0_, marchelot0_.ATRANCHES as col_5_0_, marchelot0_.ABONDECO
+
+    110.11        1,153       0.10    9.1     109.67               0 3971988054
+Module: JDBC Thin Client
+select this_.ROO_IMA_REF as ROO1_387_2_, this_.UPDATOKEN as UPDA
+TOKEN387_2_, this_.POBJ_EXTRACT as POBJ3_387_2_, this_.DATE_CREA
+T as DATE4_387_2_, this_.USER_CREAT as USER5_387_2_, this_.USER_
+MODIF as USER6_387_2_, this_.DATE_MODIF as DATE7_387_2_, this_.C
+
+     65.15       15,207       0.00    5.4      65.38              87  320970223
+Module: JDBC Thin Client
+select listhabili0_.TACHE as TACHE35_1_, listhabili0_.ROO_IMA_RE
+F as ROO1_1_, listhabili0_.ROO_IMA_REF as ROO1_25_0_, listhabili
+0_.UPDATOKEN as UPDATOKEN25_0_, listhabili0_.POBJ_EXTRACT as POB
+J3_25_0_, listhabili0_.DATE_CREAT as DATE4_25_0_, listhabili0_.U
+
+     47.72          309       0.15    4.0      47.33               0   68838548
+Module: JDBC Thin Client
+select dompers0_.ROO_IMA_REF as ROO1_436_0_, banque1_.ROO_IMA_RE
+F as ROO1_501_1_, personne2_.ROO_IMA_REF as ROO1_427_2_, paiemen
+tpm3_.ROO_IMA_REF as ROO1_481_3_, dompers0_.UPDATOKEN as UPDATOK
+EN436_0_, dompers0_.POBJ_EXTRACT as POBJ3_436_0_, dompers0_.DATE
+
+     47.16           56       0.84    3.9      46.57             156 3905865960
+Module: JDBC Thin Client
+select count(distinct marchelot0_.IDENTIFIANT) as col_0_0_ from
+MAR_MARCHE_LOT marchelot0_ left outer join MAR_TRANCHE listtranc
+h1_ on marchelot0_.IDENTIFIANT=listtranch1_.MARCHELOTID cross jo
+in SERVICEFI service21_ where marchelot0_.SERVICEGESTIONNAIRERIR
+
+     40.13          170       0.24    3.3      39.20           4,512 2475393149
+Module: SQL*Plus
+begin   STATSPACK.STAT_CHANGES    ( :bid,    :eid    , :dbid,
+:inst_num    , :para                     -- End of IN arguments
+   , :lhtr,   :bfwt    , :tran,   :chng    , :ucal,   :urol    ,
+ :rsiz    , :phyr,   :phyrd    , :phyrdl, :phyrc    , :phyw,   :
+
+     37.21           49       0.76    3.1      36.94              20  256165306
+Module: JDBC Thin Client
+select * from ( select distinct marchelot0_.IDENTIFIANT as IDENT
+IFI1_350_, marchelot0_.VERSION as VERSION350_, marchelot0_.DATED
+EBUT as DATEDEBUT350_, marchelot0_.DATEFIN as DATEFIN350_, march
+elot0_.CODEMARCHELOT as CODEMARC5_350_, marchelot0_.LIBELLE as L
+
+     31.19          180       0.17    2.6      30.74       7,692,660 3014337174
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_ from FA
+SQL ordered by Elapsed time for DB: SMPROD  Instance: SMPROD  Snaps: 886 -887
+-> Total DB Time (s):           1,204
+-> Captured SQL accounts for   87.1% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+CTURE facture0_ left outer join EFAC_SAS facturesas1_ on facture
+0_.FACTURE_SAS=facturesas1_.IDENTIFIANT where (upper(facture0_.F
+ACTURE) like upper(:1 )) and facture0_.ORGAFI=:2
+
+     25.12           96       0.26    2.1      24.82       4,106,335  266390512
+Module: JDBC Thin Client
+select * from ( select distinct facture0_.ROO_IMA_REF as col_0_0
+_, facture0_.UPDATOKEN as col_1_0_, facture0_.FACTURE as col_2_0
+_, facture0_.FACTIERS as col_3_0_, facture0_.LIBELLE1 as col_4_0
+_, facture0_.LIBELLE2 as col_5_0_ from FACTURE facture0_ left ou
+
+     19.23          185       0.10    1.6      19.11               0 3551372368
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_ from FA
+CTURE facture0_ left outer join EFAC_SAS facturesas1_ on facture
+0_.FACTURE_SAS=facturesas1_.IDENTIFIANT where (upper(facture0_.F
+ACTURE) like upper(:1 )) and facture0_.ROO_IMA_REF<>:2  and fact
+
+     19.22          117       0.16    1.6      18.99           2,258  605913649
+Module: JDBC Thin Client
+select sum(round(mandatlign0_.MONTANTTC_E-mandatlign0_.MTVA_E, 2
+)) as col_0_0_, sum(round(mandatlign0_.MTVA_E, 2)) as col_1_0_,
+sum(round(mandatlign0_.MONTANTTC_E, 2)) as col_2_0_ from MANDLIG
+NE mandatlign0_ cross join MANDAT mandat1_ cross join MANDTIERS
+
+     19.20          117       0.16    1.6      19.03             706 2094175283
+Module: JDBC Thin Client
+select sum(round(mandatlign0_.MONTANTTC_E-mandatlign0_.MTVA_E, 2
+)) as col_0_0_, sum(round(mandatlign0_.MTVA_E, 2)) as col_1_0_,
+sum(round(mandatlign0_.MONTANTTC_E, 2)) as col_2_0_ from MANDLIG
+NE mandatlign0_ cross join MANDAT mandat1_ cross join MANDTIERS
+
+     17.49           29       0.60    1.5      17.40         838,756 3007846326
+Module: JDBC Thin Client
+select this_.ROO_IMA_REF as ROO1_434_4_, this_.UPDATOKEN as UPDA
+TOKEN434_4_, this_.POBJ_EXTRACT as POBJ3_434_4_, this_.DATE_CREA
+T as DATE4_434_4_, this_.USER_CREAT as USER5_434_4_, this_.USER_
+MODIF as USER6_434_4_, this_.DATE_MODIF as DATE7_434_4_, this_.C
+
+     17.20           18       0.96    1.4      17.13           2,760 2033281724
+Module: fimanval.exe
+update facture  set fac_avancement='10' where roo_ima_ref in (se
+lect facture.roo_ima_ref  from mandat ,mandligne ,mvtligne ,fact
+ure where ((((((((mandat.roo_ima_ref=mandligne.mandat and mandli
+gne.mvtligne=mvtligne.roo_ima_ref) and mvtligne.facture=facture.
+
+     15.68          970       0.02    1.3      15.52               0 2223868640
+Module: JDBC Thin Client
+select listcumul0_.MARCHELOTID as MARCHEL37_350_1_, listcumul0_.
+IDENTIFIANT as IDENTIFI1_1_, listcumul0_.IDENTIFIANT as IDENTIFI
+1_334_0_, listcumul0_.VERSION as VERSION334_0_, listcumul0_.COMM
+ANDEAPHT as COMMANDE3_334_0_, listcumul0_.COMMANDEAPTVA as COMMA
+SQL ordered by Elapsed time for DB: SMPROD  Instance: SMPROD  Snaps: 886 -887
+-> Total DB Time (s):           1,204
+-> Captured SQL accounts for   87.1% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+
+          -------------------------------------------------------------
+SQL ordered by Gets  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     166,352,526
+-> Captured SQL accounts for   99.2% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+     19,629,752          309       63,526.7   13.1    47.33     47.72   68838548
+Module: JDBC Thin Client
+select dompers0_.ROO_IMA_REF as ROO1_436_0_, banque1_.ROO_IMA_RE
+F as ROO1_501_1_, personne2_.ROO_IMA_REF as ROO1_427_2_, paiemen
+tpm3_.ROO_IMA_REF as ROO1_481_3_, dompers0_.UPDATOKEN as UPDATOK
+EN436_0_, dompers0_.POBJ_EXTRACT as POBJ3_436_0_, dompers0_.DATE
+
+     15,733,842        1,153       13,646.0   10.5   109.67    110.11 3971988054
+Module: JDBC Thin Client
+select this_.ROO_IMA_REF as ROO1_387_2_, this_.UPDATOKEN as UPDA
+TOKEN387_2_, this_.POBJ_EXTRACT as POBJ3_387_2_, this_.DATE_CREA
+T as DATE4_387_2_, this_.USER_CREAT as USER5_387_2_, this_.USER_
+MODIF as USER6_387_2_, this_.DATE_MODIF as DATE7_387_2_, this_.C
+
+     14,763,216            8    1,845,402.0    9.8   218.64    220.20 4011465387
+Module: JDBC Thin Client
+select * from ( select marchelot0_.IDENTIFIANT as col_0_0_, marc
+helot0_.VERSION as col_1_0_, marchelot0_.CODEMARCHELOT as col_2_
+0_, marchelot0_.LIBELLE as col_3_0_, marchelot0_.MARCHE_LOT as c
+ol_4_0_, marchelot0_.ATRANCHES as col_5_0_, marchelot0_.ABONDECO
+
+     13,536,015       15,207          890.1    9.0    65.38     65.15  320970223
+Module: JDBC Thin Client
+select listhabili0_.TACHE as TACHE35_1_, listhabili0_.ROO_IMA_RE
+F as ROO1_1_, listhabili0_.ROO_IMA_REF as ROO1_25_0_, listhabili
+0_.UPDATOKEN as UPDATOKEN25_0_, listhabili0_.POBJ_EXTRACT as POB
+J3_25_0_, listhabili0_.DATE_CREAT as DATE4_25_0_, listhabili0_.U
+
+      7,693,382          180       42,741.0    5.1    30.74     31.19 3014337174
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_ from FA
+CTURE facture0_ left outer join EFAC_SAS facturesas1_ on facture
+0_.FACTURE_SAS=facturesas1_.IDENTIFIANT where (upper(facture0_.F
+ACTURE) like upper(:1 )) and facture0_.ORGAFI=:2
+
+      7,449,457          117       63,670.6    5.0    19.03     19.20 2094175283
+Module: JDBC Thin Client
+select sum(round(mandatlign0_.MONTANTTC_E-mandatlign0_.MTVA_E, 2
+)) as col_0_0_, sum(round(mandatlign0_.MTVA_E, 2)) as col_1_0_,
+sum(round(mandatlign0_.MONTANTTC_E, 2)) as col_2_0_ from MANDLIG
+NE mandatlign0_ cross join MANDAT mandat1_ cross join MANDTIERS
+
+      6,949,037          117       59,393.5    4.6    18.99     19.22  605913649
+Module: JDBC Thin Client
+select sum(round(mandatlign0_.MONTANTTC_E-mandatlign0_.MTVA_E, 2
+)) as col_0_0_, sum(round(mandatlign0_.MTVA_E, 2)) as col_1_0_,
+sum(round(mandatlign0_.MONTANTTC_E, 2)) as col_2_0_ from MANDLIG
+NE mandatlign0_ cross join MANDAT mandat1_ cross join MANDTIERS
+
+      5,082,807           96       52,945.9    3.4    24.82     25.12  266390512
+Module: JDBC Thin Client
+select * from ( select distinct facture0_.ROO_IMA_REF as col_0_0
+SQL ordered by Gets  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     166,352,526
+-> Captured SQL accounts for   99.2% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+_, facture0_.UPDATOKEN as col_1_0_, facture0_.FACTURE as col_2_0
+_, facture0_.FACTIERS as col_3_0_, facture0_.LIBELLE1 as col_4_0
+_, facture0_.LIBELLE2 as col_5_0_ from FACTURE facture0_ left ou
+
+      4,105,212           29      141,559.0    2.7    17.40     17.49 3007846326
+Module: JDBC Thin Client
+select this_.ROO_IMA_REF as ROO1_434_4_, this_.UPDATOKEN as UPDA
+TOKEN434_4_, this_.POBJ_EXTRACT as POBJ3_434_4_, this_.DATE_CREA
+T as DATE4_434_4_, this_.USER_CREAT as USER5_434_4_, this_.USER_
+MODIF as USER6_434_4_, this_.DATE_MODIF as DATE7_434_4_, this_.C
+
+      3,323,962           56       59,356.5    2.2    46.57     47.16 3905865960
+Module: JDBC Thin Client
+select count(distinct marchelot0_.IDENTIFIANT) as col_0_0_ from
+MAR_MARCHE_LOT marchelot0_ left outer join MAR_TRANCHE listtranc
+h1_ on marchelot0_.IDENTIFIANT=listtranch1_.MARCHELOTID cross jo
+in SERVICEFI service21_ where marchelot0_.SERVICEGESTIONNAIRERIR
+
+      2,460,229            1    2,460,229.0    1.6    10.67     11.17  333476733
+DECLARE job BINARY_INTEGER := :job; next_date DATE := :mydate;
+broken BOOLEAN := FALSE; BEGIN statspack.snap; :mydate := next_d
+ate; IF broken THEN :b := 1; ELSE :b := 0; END IF; END;
+
+      2,443,120           49       49,859.6    1.6    36.94     37.21  256165306
+Module: JDBC Thin Client
+select * from ( select distinct marchelot0_.IDENTIFIANT as IDENT
+IFI1_350_, marchelot0_.VERSION as VERSION350_, marchelot0_.DATED
+EBUT as DATEDEBUT350_, marchelot0_.DATEFIN as DATEFIN350_, march
+elot0_.CODEMARCHELOT as CODEMARC5_350_, marchelot0_.LIBELLE as L
+
+      2,411,695            1    2,411,695.0    1.6     8.25      8.41 2783330933
+INSERT INTO STATS$SQL_PLAN ( PLAN_HASH_VALUE , ID , OPERATION ,
+OPTIONS , OBJECT_NODE , OBJECT# , OBJECT_OWNER , OBJECT_NAME , O
+BJECT_ALIAS , OBJECT_TYPE , OPTIMIZER , PARENT_ID , DEPTH , POSI
+TION , SEARCH_COLUMNS , COST , CARDINALITY , BYTES , OTHER_TAG ,
+
+      2,320,136          970        2,391.9    1.5    15.52     15.68 2223868640
+Module: JDBC Thin Client
+select listcumul0_.MARCHELOTID as MARCHEL37_350_1_, listcumul0_.
+IDENTIFIANT as IDENTIFI1_1_, listcumul0_.IDENTIFIANT as IDENTIFI
+1_334_0_, listcumul0_.VERSION as VERSION334_0_, listcumul0_.COMM
+ANDEAPHT as COMMANDE3_334_0_, listcumul0_.COMMANDEAPTVA as COMMA
+
+      1,995,669          106       18,827.1    1.3     1.34      1.40 1285789833
+Module: JDBC Thin Client
+select mandat2_.ROO_IMA_REF as col_0_0_, mandat2_.UPDATOKEN as c
+ol_1_0_, mandat2_.ROO_IMA_REF as col_2_0_, mandat2_.REDUCTION as
+ col_3_0_, mandat2_.REJET as col_4_0_, mandat2_.MANDREJETE as co
+l_5_0_, mandatlign0_.ROO_IMA_REF as col_6_0_, mandatlign0_.MONTA
+
+      1,995,253          106       18,823.1    1.3     1.28      1.27 2600713517
+Module: JDBC Thin Client
+SQL ordered by Gets  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     166,352,526
+-> Captured SQL accounts for   99.2% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+select count(*) as col_0_0_ from MANDLIGNE mandatlign0_ inner jo
+in MVTLIGNE mvtligne1_ on mandatlign0_.MVTLIGNE=mvtligne1_.ROO_I
+MA_REF left outer join IMPUTATION imputation3_ on mvtligne1_.IMP
+UTATION=imputation3_.ROO_IMA_REF left outer join COMPTE compte4_
+
+          -------------------------------------------------------------
+SQL ordered by Reads  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Disk Reads Threshold:      1000  Total Disk Reads:      16,654,877
+-> Captured SQL accounts for   99.9% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+      7,692,660          180       42,737.0   46.2    30.74     31.19 3014337174
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_ from FA
+CTURE facture0_ left outer join EFAC_SAS facturesas1_ on facture
+0_.FACTURE_SAS=facturesas1_.IDENTIFIANT where (upper(facture0_.F
+ACTURE) like upper(:1 )) and facture0_.ORGAFI=:2
+
+      4,106,335           96       42,774.3   24.7    24.82     25.12  266390512
+Module: JDBC Thin Client
+select * from ( select distinct facture0_.ROO_IMA_REF as col_0_0
+_, facture0_.UPDATOKEN as col_1_0_, facture0_.FACTURE as col_2_0
+_, facture0_.FACTIERS as col_3_0_, facture0_.LIBELLE1 as col_4_0
+_, facture0_.LIBELLE2 as col_5_0_ from FACTURE facture0_ left ou
+
+        838,756           29       28,922.6    5.0    17.40     17.49 3007846326
+Module: JDBC Thin Client
+select this_.ROO_IMA_REF as ROO1_434_4_, this_.UPDATOKEN as UPDA
+TOKEN434_4_, this_.POBJ_EXTRACT as POBJ3_434_4_, this_.DATE_CREA
+T as DATE4_434_4_, this_.USER_CREAT as USER5_434_4_, this_.USER_
+MODIF as USER6_434_4_, this_.DATE_MODIF as DATE7_434_4_, this_.C
+
+        769,864           18       42,770.2    4.6     8.20      8.39  553507897
+Module: fimanval.exe
+select fac.roo_ima_ref ,fac.pobj_extract ,TO_CHAR(fac.date_creat
+,'DD-MM-YYYY HH24:MI:SS') ,fac.notice ,fac.user_creat ,fac.user_
+modif ,TO_CHAR(fac.date_modif,'DD-MM-YYYY HH24:MI:SS') ,fac.orga
+fi ,fac.budget ,fac.budannu ,fac.tiers ,fac.facture ,fac.factier
+
+        598,320           14       42,737.1    3.6     2.42      2.46 2153091737
+Module: JDBC Thin Client
+select * from ( select distinct budget4_.BUDGET as col_0_0_, bud
+annu12_.EXERCICE as col_1_0_, (select count(*) from MVTLIGNE mvt
+ligne14_ where mvtligne14_.FACTURE=facture0_.ROO_IMA_REF) as col
+_2_0_, facture0_.FACTURE as col_3_0_, facture0_.FACTIERS as col_
+
+        598,318           14       42,737.0    3.6     2.43      2.45 1923963877
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_, sum(fa
+cture0_.MONTANTTC_E) as col_1_0_ from FACTURE facture0_ left out
+er join MVTLIGNE listmvtlig1_ on facture0_.ROO_IMA_REF=listmvtli
+g1_.FACTURE left outer join IMPUTATION imputation2_ on listmvtli
+
+        598,318           14       42,737.0    3.6     2.34      2.35 2665113397
+Module: JDBC Thin Client
+select distinct budget4_.BUDGET as col_0_0_, (select count(disti
+nct mvtligne14_.MANDAT) from MVTLIGNE mvtligne14_ where mvtligne
+14_.FACTURE=facture0_.ROO_IMA_REF) as col_1_0_, facture0_.FACTUR
+E as col_2_0_, facture0_.MONTANTTC_E as col_3_0_ from FACTURE fa
+
+        256,113            9       28,457.0    1.5     1.00      1.03 2758380998
+Module: fi.exe
+SELECT COUNT ( * ) FROM COMMANDE WHERE EPGL = 'NOT_INITIALIZED'
+SQL ordered by Reads  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Disk Reads Threshold:      1000  Total Disk Reads:      16,654,877
+-> Captured SQL accounts for   99.9% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+
+        213,685            5       42,737.0    1.3     1.03      1.04 1522639059
+Module: JDBC Thin Client
+select count(distinct facture0_.ROO_IMA_REF) as col_0_0_, sum(fa
+cture0_.MONTANTTC_E) as col_1_0_ from FACTURE facture0_ left out
+er join MVTLIGNE listmvtlig1_ on facture0_.ROO_IMA_REF=listmvtli
+g1_.FACTURE left outer join IMPUTATION imputation2_ on listmvtli
+
+        213,685            5       42,737.0    1.3     0.97      0.97 3213335415
+Module: JDBC Thin Client
+select distinct budget4_.BUDGET as col_0_0_, (select count(disti
+nct mvtligne14_.MANDAT) from MVTLIGNE mvtligne14_ where mvtligne
+14_.FACTURE=facture0_.ROO_IMA_REF) as col_1_0_, facture0_.FACTUR
+E as col_2_0_, facture0_.MONTANTTC_E as col_3_0_ from FACTURE fa
+
+        213,685            5       42,737.0    1.3     1.07      1.11 4129162147
+Module: JDBC Thin Client
+select * from ( select distinct budget4_.BUDGET as col_0_0_, bud
+annu12_.EXERCICE as col_1_0_, (select count(*) from MVTLIGNE mvt
+ligne14_ where mvtligne14_.FACTURE=facture0_.ROO_IMA_REF) as col
+_2_0_, facture0_.FACTURE as col_3_0_, facture0_.FACTIERS as col_
+
+          -------------------------------------------------------------
+SQL ordered by Executions  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Executions Threshold:       100  Total Executions:         831,607
+-> Captured SQL accounts for   96.2% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+      31,149          16,089              0.5       0.00        0.00  2224769283
+Module: JDBC Thin Client
+select habilitati0_.ROO_IMA_REF as ROO1_25_, habilitati0_.UPDATO
+KEN as UPDATOKEN25_, habilitati0_.POBJ_EXTRACT as POBJ3_25_, hab
+ilitati0_.DATE_CREAT as DATE4_25_, habilitati0_.USER_CREAT as US
+ER5_25_, habilitati0_.USER_MODIF as USER7_25_, habilitati0_.DATE
+
+      28,466           1,286              0.0       0.00        0.00  3850814293
+Module: JDBC Thin Client
+select operation0_.OPER_IDENT as OPER1_222_0_, operation0_.NS_CL
+ASS as NS2_222_0_, operation0_.OPER_CODE as OPER3_222_0_, operat
+ion0_.OPER_CODEXT as OPER4_222_0_, operation0_.OPER_LIB1 as OPER
+5_222_0_, operation0_.OPER_DATCRE as OPER6_222_0_, operation0_.O
+
+      28,300           1,120              0.0       0.00        0.00  1056417857
+Module: JDBC Thin Client
+select opld0_.OPLD_IDENT as OPLD1_241_0_, opld0_.OPLD_NUM_LIGNE
+as OPLD2_241_0_, opld0_.OPLD_ANNEE_PROCEDURE as OPLD3_241_0_, op
+ld0_.OPLD_ROPER_IDE as OPLD4_241_0_, opld0_.OPLD_ROPIM_IDE as OP
+LD5_241_0_, opld0_.OPLD_ROPLD_IDE as OPLD6_241_0_ from OPLD opld
+
+      27,999               0              0.0       0.00        0.00  1920858697
+Module: JDBC Thin Client
+select operligned0_.OLDG_IDENT as OLDG1_253_0_, operligned0_.OLD
+G_NUM_LIGNE as OLDG2_253_0_, operligned0_.OLDG_LIB1 as OLDG3_253
+_0_, operligned0_.OLDG_LIB2 as OLDG4_253_0_, operligned0_.OLDG_M
+ONPRO_E as OLDG5_253_0_, operligned0_.OLDG_MONVAL_E as OLDG6_253
+
+      27,969               0              0.0       0.00        0.00  1703062730
+Module: JDBC Thin Client
+select oldi0_.OLDI_IDENT as OLDI1_244_0_, oldi0_.OLDI_NUM_LIGNE
+as OLDI2_244_0_, oldi0_.OLDI_ANNEE_PROCEDURE as OLDI3_244_0_, ol
+di0_.OLDI_ROLDG_IDE as OLDI4_244_0_, oldi0_.OLDI_ROPIM_IDE as OL
+DI5_244_0_, oldi0_.OLDI_ROPLD_IDE as OLDI6_244_0_ from OLDI oldi
+
+      21,878          21,878              1.0       0.00        0.00  1307714173
+Module: SQL*Plus
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+
+      19,666          19,665              1.0       0.00        0.00  3896870762
+Module: JDBC Thin Client
+select orgafi0_.ROO_IMA_REF as ROO1_433_0_, orgafi0_.UPDATOKEN a
+s UPDATOKEN433_0_, orgafi0_.POBJ_EXTRACT as POBJ3_433_0_, orgafi
+0_.DATE_CREAT as DATE4_433_0_, orgafi0_.USER_CREAT as USER5_433_
+0_, orgafi0_.USER_MODIF as USER6_433_0_, orgafi0_.DATE_MODIF as
+
+      18,103          18,103              1.0       0.00        0.00   166198080
+Module: JDBC Thin Client
+select adresse0_.ROO_IMA_REF as ROO1_380_0_, adresse0_.UPDATOKEN
+ as UPDATOKEN380_0_, adresse0_.POBJ_EXTRACT as POBJ3_380_0_, adr
+esse0_.DATE_CREAT as DATE4_380_0_, adresse0_.USER_CREAT as USER5
+_380_0_, adresse0_.USER_MODIF as USER6_380_0_, adresse0_.DATE_MO
+SQL ordered by Executions  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Executions Threshold:       100  Total Executions:         831,607
+-> Captured SQL accounts for   96.2% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+
+      15,207       2,221,049            146.1       0.00        0.00   320970223
+Module: JDBC Thin Client
+select listhabili0_.TACHE as TACHE35_1_, listhabili0_.ROO_IMA_RE
+F as ROO1_1_, listhabili0_.ROO_IMA_REF as ROO1_25_0_, listhabili
+0_.UPDATOKEN as UPDATOKEN25_0_, listhabili0_.POBJ_EXTRACT as POB
+J3_25_0_, listhabili0_.DATE_CREAT as DATE4_25_0_, listhabili0_.U
+
+      13,389          13,389              1.0       0.00        0.00  3245360870
+Module: JDBC Thin Client
+select banque0_.ROO_IMA_REF as ROO1_501_0_, banque0_.UPDATOKEN a
+s UPDATOKEN501_0_, banque0_.POBJ_EXTRACT as POBJ3_501_0_, banque
+0_.DATE_CREAT as DATE4_501_0_, banque0_.USER_CREAT as USER5_501_
+0_, banque0_.USER_MODIF as USER6_501_0_, banque0_.DATE_MODIF as
+
+      12,190          12,190              1.0       0.00        0.00   471048104
+Module: JDBC Thin Client
+select tiers0_.ROO_IMA_REF as ROO1_475_0_, tiers0_.UPDATOKEN as
+UPDATOKEN475_0_, tiers0_.POBJ_EXTRACT as POBJ3_475_0_, tiers0_.D
+ATE_CREAT as DATE4_475_0_, tiers0_.USER_CREAT as USER5_475_0_, t
+iers0_.USER_MODIF as USER6_475_0_, tiers0_.DATE_MODIF as DATE7_4
+
+      11,261           2,618              0.2       0.00        0.00  1534672776
+Module: JDBC Thin Client
+select habilitati0_.ROO_IMA_REF as ROO1_25_, habilitati0_.UPDATO
+KEN as UPDATOKEN25_, habilitati0_.POBJ_EXTRACT as POBJ3_25_, hab
+ilitati0_.DATE_CREAT as DATE4_25_, habilitati0_.USER_CREAT as US
+ER5_25_, habilitati0_.USER_MODIF as USER7_25_, habilitati0_.DATE
+
+       9,078           9,078              1.0       0.00        0.00   269991143
+Module: fi.exe
+select POBJ_EXTRACT from SMCTX_ENVIRO where ROO_IMA_REF='0000100
+0000001002626000'
+
+          -------------------------------------------------------------
+SQL ordered by Parse Calls  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Parse Calls Threshold:      1000 Total Parse Calls:         792,109
+-> Captured SQL accounts for   95.5% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+      31,150       31,149     3.93 2224769283
+Module: JDBC Thin Client
+select habilitati0_.ROO_IMA_REF as ROO1_25_, habilitati0_.UPDATO
+KEN as UPDATOKEN25_, habilitati0_.POBJ_EXTRACT as POBJ3_25_, hab
+ilitati0_.DATE_CREAT as DATE4_25_, habilitati0_.USER_CREAT as US
+ER5_25_, habilitati0_.USER_MODIF as USER7_25_, habilitati0_.DATE
+
+      28,466       28,466     3.59 3850814293
+Module: JDBC Thin Client
+select operation0_.OPER_IDENT as OPER1_222_0_, operation0_.NS_CL
+ASS as NS2_222_0_, operation0_.OPER_CODE as OPER3_222_0_, operat
+ion0_.OPER_CODEXT as OPER4_222_0_, operation0_.OPER_LIB1 as OPER
+5_222_0_, operation0_.OPER_DATCRE as OPER6_222_0_, operation0_.O
+
+      28,300       28,300     3.57 1056417857
+Module: JDBC Thin Client
+select opld0_.OPLD_IDENT as OPLD1_241_0_, opld0_.OPLD_NUM_LIGNE
+as OPLD2_241_0_, opld0_.OPLD_ANNEE_PROCEDURE as OPLD3_241_0_, op
+ld0_.OPLD_ROPER_IDE as OPLD4_241_0_, opld0_.OPLD_ROPIM_IDE as OP
+LD5_241_0_, opld0_.OPLD_ROPLD_IDE as OPLD6_241_0_ from OPLD opld
+
+      27,999       27,999     3.53 1920858697
+Module: JDBC Thin Client
+select operligned0_.OLDG_IDENT as OLDG1_253_0_, operligned0_.OLD
+G_NUM_LIGNE as OLDG2_253_0_, operligned0_.OLDG_LIB1 as OLDG3_253
+_0_, operligned0_.OLDG_LIB2 as OLDG4_253_0_, operligned0_.OLDG_M
+ONPRO_E as OLDG5_253_0_, operligned0_.OLDG_MONVAL_E as OLDG6_253
+
+      27,969       27,969     3.53 1703062730
+Module: JDBC Thin Client
+select oldi0_.OLDI_IDENT as OLDI1_244_0_, oldi0_.OLDI_NUM_LIGNE
+as OLDI2_244_0_, oldi0_.OLDI_ANNEE_PROCEDURE as OLDI3_244_0_, ol
+di0_.OLDI_ROLDG_IDE as OLDI4_244_0_, oldi0_.OLDI_ROPIM_IDE as OL
+DI5_244_0_, oldi0_.OLDI_ROPLD_IDE as OLDI6_244_0_ from OLDI oldi
+
+      21,872       21,878     2.76 1307714173
+Module: SQL*Plus
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+
+      19,666       19,666     2.48 3896870762
+Module: JDBC Thin Client
+select orgafi0_.ROO_IMA_REF as ROO1_433_0_, orgafi0_.UPDATOKEN a
+s UPDATOKEN433_0_, orgafi0_.POBJ_EXTRACT as POBJ3_433_0_, orgafi
+0_.DATE_CREAT as DATE4_433_0_, orgafi0_.USER_CREAT as USER5_433_
+0_, orgafi0_.USER_MODIF as USER6_433_0_, orgafi0_.DATE_MODIF as
+
+      18,103       18,103     2.29  166198080
+Module: JDBC Thin Client
+select adresse0_.ROO_IMA_REF as ROO1_380_0_, adresse0_.UPDATOKEN
+ as UPDATOKEN380_0_, adresse0_.POBJ_EXTRACT as POBJ3_380_0_, adr
+esse0_.DATE_CREAT as DATE4_380_0_, adresse0_.USER_CREAT as USER5
+_380_0_, adresse0_.USER_MODIF as USER6_380_0_, adresse0_.DATE_MO
+SQL ordered by Parse Calls  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Parse Calls Threshold:      1000 Total Parse Calls:         792,109
+-> Captured SQL accounts for   95.5% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+
+      15,207       15,207     1.92  320970223
+Module: JDBC Thin Client
+select listhabili0_.TACHE as TACHE35_1_, listhabili0_.ROO_IMA_RE
+F as ROO1_1_, listhabili0_.ROO_IMA_REF as ROO1_25_0_, listhabili
+0_.UPDATOKEN as UPDATOKEN25_0_, listhabili0_.POBJ_EXTRACT as POB
+J3_25_0_, listhabili0_.DATE_CREAT as DATE4_25_0_, listhabili0_.U
+
+      13,389       13,389     1.69 3245360870
+Module: JDBC Thin Client
+select banque0_.ROO_IMA_REF as ROO1_501_0_, banque0_.UPDATOKEN a
+s UPDATOKEN501_0_, banque0_.POBJ_EXTRACT as POBJ3_501_0_, banque
+0_.DATE_CREAT as DATE4_501_0_, banque0_.USER_CREAT as USER5_501_
+0_, banque0_.USER_MODIF as USER6_501_0_, banque0_.DATE_MODIF as
+
+      12,190       12,190     1.54  471048104
+Module: JDBC Thin Client
+select tiers0_.ROO_IMA_REF as ROO1_475_0_, tiers0_.UPDATOKEN as
+UPDATOKEN475_0_, tiers0_.POBJ_EXTRACT as POBJ3_475_0_, tiers0_.D
+ATE_CREAT as DATE4_475_0_, tiers0_.USER_CREAT as USER5_475_0_, t
+iers0_.USER_MODIF as USER6_475_0_, tiers0_.DATE_MODIF as DATE7_4
+
+      11,261       11,261     1.42 1534672776
+Module: JDBC Thin Client
+select habilitati0_.ROO_IMA_REF as ROO1_25_, habilitati0_.UPDATO
+KEN as UPDATOKEN25_, habilitati0_.POBJ_EXTRACT as POBJ3_25_, hab
+ilitati0_.DATE_CREAT as DATE4_25_, habilitati0_.USER_CREAT as US
+ER5_25_, habilitati0_.USER_MODIF as USER7_25_, habilitati0_.DATE
+
+       9,078        9,078     1.15  269991143
+Module: fi.exe
+select POBJ_EXTRACT from SMCTX_ENVIRO where ROO_IMA_REF='0000100
+0000001002626000'
+
+          -------------------------------------------------------------
+SQL ordered by Sharable Memory  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      6,818       6,818           59           59     0.1  614283869
+Module: JDBC Thin Client
+select * from ( select tiers0_.ROO_IMA_REF as ROO1_475_0_, perso
+nne1_.ROO_IMA_REF as ROO1_427_1_, naturejuri2_.IDENTIFIANT as ID
+ENTIFI1_364_2_, tiers0_.UPDATOKEN as UPDATOKEN475_0_, tiers0_.PO
+BJ_EXTRACT as POBJ3_475_0_, tiers0_.DATE_CREAT as DATE4_475_0_,
+
+      3,653       3,653            0            0     0.1 1500035769
+Module: JDBC Thin Client
+select mouvement0_.ROO_IMA_REF as ROO1_505_0_, budannu1_.ROO_IMA
+_REF as ROO1_432_1_, dompers2_.ROO_IMA_REF as ROO1_436_2_, tiers
+3_.ROO_IMA_REF as ROO1_475_3_, personne4_.ROO_IMA_REF as ROO1_42
+7_4_, listemvtli5_.ROO_IMA_REF as ROO1_421_5_, avancement6_.ROO_
+
+      2,642       2,642        1,160        1,160     0.1 2519719045
+Module: JDBC Thin Client
+select sum(round( mvtligne0_.MONTANTTC_E * Decode( mvtligne0_.AV
+ANCEMENT , NULL , Decode( mvtligne0_.MANDATRAT,null,0,0,0,
+       Decode(mvtligne0_.EXORAT ,                         (SELEC
+T bua.exercice from BUDANNU bua,MOUVEMENT mvt where bua.Roo_ima_
+
+      2,102       2,102        1,456        1,456     0.0  520747235
+Module: JDBC Thin Client
+select sum(round( mvtligne0_.MONTANTTC_E * Decode( mvtligne0_.AV
+ANCEMENT , NULL , Decode( mvtligne0_.MANDATRAT,null,0,0,0,
+       Decode(mvtligne0_.EXORAT ,                         (SELEC
+T bua.exercice from BUDANNU bua,MOUVEMENT mvt where bua.Roo_ima_
+
+      1,705       1,705          118          118     0.0 3300103786
+Module: JDBC Thin Client
+select ventilatio0_.IDENTIFIANT as IDENTIFI1_327_0_, cumulimput1
+_.IDENTIFIANT as IDENTIFI1_353_1_, chapitre2_.ROO_IMA_REF as ROO
+1_441_2_, compte3_.ROO_IMA_REF as ROO1_395_3_, divers1x4_.ROO_IM
+A_REF as ROO1_424_4_, divers2x5_.ROO_IMA_REF as ROO1_409_5_, div
+
+      1,645       1,645        3,640        3,640     0.0 1115553446
+Module: JDBC Thin Client
+select sum(round( mvtligne0_.MONTANTTC_E * Decode( mvtligne0_.AV
+ANCEMENT , NULL , Decode( mvtligne0_.MANDATRAT,null,0,0,0,
+       Decode(mvtligne0_.EXORAT ,                         (SELEC
+T bua.exercice from BUDANNU bua,MOUVEMENT mvt where bua.Roo_ima_
+
+      1,550       1,550          251          251     0.0  206196833
+Module: JDBC Thin Client
+select mvtligne0_.ROO_IMA_REF as ROO1_421_0_, oldi1_.OLDI_IDENT
+as OLDI1_244_1_, opld2_.OPLD_IDENT as OPLD1_241_2_, operation3_.
+OPER_IDENT as OPER1_222_3_, operligned4_.OLDG_IDENT as OLDG1_253
+_4_, tva5_.ROO_IMA_REF as ROO1_455_5_, imputation6_.ROO_IMA_REF
+
+      1,431       1,431          747          747     0.0 2827946266
+Module: JDBC Thin Client
+select mvtligne0_.ROO_IMA_REF as ROO1_421_0_, mouvement1_.ROO_IM
+A_REF as ROO1_505_1_, budannu3_.ROO_IMA_REF as ROO1_432_2_, budg
+SQL ordered by Sharable Memory  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+et4_.ROO_IMA_REF as ROO1_431_3_, tiers8_.ROO_IMA_REF as ROO1_475
+_4_, avancement2_.ROO_IMA_REF as ROO1_400_5_, tranche5_.IDENTIFI
+
+      1,379       1,379            1            1     0.0 3524300188
+SELECT SUM(USED), SUM(TOTAL) FROM (SELECT /*+ ORDERED */ SUM(D.B
+YTES)/(1024*1024)-MAX(S.BYTES) USED, SUM(D.BYTES)/(1024*1024) TO
+TAL FROM (SELECT TABLESPACE_NAME, SUM(BYTES)/(1024*1024) BYTES F
+ROM (SELECT /*+ ORDERED USE_NL(obj tab) */ DISTINCT TS.NAME FROM
+
+      1,335       1,335          814          814     0.0 4061316376
+Module: JDBC Thin Client
+select sum(round( mvtligne0_.MONTANTTC_E * Decode( mvtligne0_.AV
+ANCEMENT , NULL , Decode( mvtligne0_.MANDATRAT,null,0,0,0,
+       Decode(mvtligne0_.EXORAT ,                         (SELEC
+T bua.exercice from BUDANNU bua,MOUVEMENT mvt where bua.Roo_ima_
+
+      1,316       1,316            1            2     0.0 3694268570
+select i.obj#,i.ts#,i.file#,i.block#,i.intcols,i.type#,i.flags,i
+.property,i.pctfree$,i.initrans,i.maxtrans,i.blevel,i.leafcnt,i.
+distkey,i.lblkkey,i.dblkkey,i.clufac,i.cols,i.analyzetime,i.samp
+lesize,i.dataobj#,nvl(i.degree,1),nvl(i.instances,1),i.rowcnt,mo
+
+      1,308       1,308            0            0     0.0 2852752887
+Module: SQL*Plus
+insert into OPBO.imab  select a.ident,lpad(a.exercice,4,'0'),a.l
+ibelle,a.delibnum,a.delibdat,   dr.imputation,a.impudr1,a.impudr
+2,a.impudr3,a.impudr4,a.impudr5,   a.impudr6,a.impudr7,a.impudr8
+,a.impudr9,dr.libelle,   rr.imputation,a.impurr1,a.impurr2,a.imp
+
+      1,291       1,291            0            0     0.0 3167289670
+Module: emagent_SVRGENALRT_oracle_database
+SELECT /*+RULE*/ATTR_NO, ATTR_NAME, ATTR_TYPE_NAME, ATTR_TYPE_OW
+NER FROM USER_TYPE_ATTRS WHERE TYPE_NAME IN (SELECT TABLE_NAME F
+ROM ALL_SYNONYMS START WITH SYNONYM_NAME = :1 AND  OWNER = 'PUBL
+IC' CONNECT BY NOCYCLE PRIOR TABLE_NAME = SYNONYM_NAME AND TABLE
+
+      1,254       1,254        2,900        2,900     0.0 1465647034
+Module: JDBC Thin Client
+select sum(round( mvtligne0_.MONTANTTC_E * Decode( mvtligne0_.AV
+ANCEMENT , NULL , Decode( mvtligne0_.MANDATRAT,null,0,0,0,
+       Decode(mvtligne0_.EXORAT ,                         (SELEC
+T bua.exercice from BUDANNU bua,MOUVEMENT mvt where bua.Roo_ima_
+
+      1,184       1,184            4            4     0.0 4174732601
+Module: JDBC Thin Client
+select * from ( select ventilatio0_.IDENTIFIANT as IDENTIFI1_327
+_0_, cumulimput1_.IDENTIFIANT as IDENTIFI1_353_1_, sens2_.ROO_IM
+A_REF as ROO1_465_2_, chapitre3_.ROO_IMA_REF as ROO1_441_3_, sou
+schapit4_.ROO_IMA_REF as ROO1_504_4_, compte5_.ROO_IMA_REF as RO
+
+      1,141       1,141            0            0     0.0 2522335213
+Module: SQL*Plus
+insert into OPBO.imsb  select co.orgafi,bu.budget,i.nuimio,s.num
+SQL ordered by Sharable Memory  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+lig,s.dateprov,s.libelle,   s.reprise,s.montante,ip.imputation,s
+.provchap,s.provcomp,s.provdiv1,   s.provdiv2,s.provoper,s.provs
+cha,s.provsens,s.provserd,s.provserg,   ip.libelle,id.imputation
+
+      1,134       1,134            0            0     0.0 2046662109
+Module: SQL*Plus
+insert into OPBO.conb  select decode(c.etat,0,'Inactif',1,'Actif
+',2,'Clos',3,'Régul',4,'Suspendu',''),   decode(c.freuro,0,'F','
+E'),c.code,c.type,c.descrip,   c.objet,c.raisoc,   c.dateclot,c.
+dateffet,c.dtfincont,   c.dureeini,c.datereco,c.dateresi,   deco
+
+      1,125       1,125            0            0     0.0  491137228
+Module: SQL*Plus
+insert into OPBO.immb  select m.ident,co.orgafi,bu.budget,i.nuim
+io,lpad(m.exerci,4,'0'),m.mvtnum,m.mvtlig,   decode(m.mvttype,'E
+A','Amort.','EF','Frais étude',   'EC','Cession ordre','EP','Pro
+vision','RC','Cession réelle','Acquisition'),   m.mvtlib,m.sens,
+
+      1,116       1,116            0            0     0.0  426609125
+Module: JDBC Thin Client
+update FAST_ENVOI set VERSION=:1 , ROO_IMA_REF=:2 , CREATING_DAT
+E=:3 , DATE_PES_ACQUIT=:4 , SENDING_DATE=:5 , AR_DATE=:6 , DATE_
+DEBLOCAGE=:7 , USER_DEBLOCAGE=:8 , SENDING_STATUS=:9 , CLOTURE=:
+10 , ARCHIVE=:11 , CREATING_USER=:12 , XML_DATA=:13 , RAPPORT_TE
+
+      1,101       1,101          468          468     0.0 2256931666
+Module: JDBC Thin Client
+select distinct mandat0_.ROO_IMA_REF as ROO1_493_0_, prebordere1
+_.ROO_IMA_REF as ROO1_467_1_, bordereau2_.ROO_IMA_REF as ROO1_50
+7_2_, activite3_.ROO_IMA_REF as ROO1_458_3_, paiementpm4_.ROO_IM
+A_REF as ROO1_481_4_, modeleimpu5_.ROO_IMA_REF as ROO1_447_5_, m
+
+      1,086       1,086          228          228     0.0 2081131658
+Module: JDBC Thin Client
+select sum(round(epcf0_.EPCF_DISHT_E, 2)) as col_0_0_, sum(round
+(epcf0_.EPCF_DISTTC_E, 2)) as col_1_0_, sum(round(epcf0_.EPCF_DI
+STVA_E, 2)) as col_2_0_ from EPCF epcf0_ left outer join EPGL ep
+gl1_ on epcf0_.EPCF_EPGL_ROO=epgl1_.ROO_IMA_REF left outer join
+
+      1,056       1,056          116          116     0.0 1590237558
+Module: JDBC Thin Client
+select distinct marchelot5_.IDENTIFIANT as IDENTIFI1_350_0_, tra
+nche6_.IDENTIFIANT as IDENTIFI1_289_1_, budget7_.ROO_IMA_REF as
+ROO1_431_2_, sens0_.ROO_IMA_REF as ROO1_465_3_, marchelot5_.VERS
+ION as VERSION350_0_, marchelot5_.DATEDEBUT as DATEDEBUT350_0_,
+
+      1,038       1,038            0            0     0.0 3550723399
+Module: SQL*Plus
+insert into OPBO.immd  select lpad(m.exerci,4,'0'),m.mvtnum,m.mv
+tlig,   decode(m.mvttype,'ED','Reprise DDEC','EN','Neutral. DDEC
+'),   m.mvtlib,m.sens,m.reord,m.reduc,m.pienum,m.pielig,m.pieord
+,   m.piebor,m.piedat,m.pieeta,m.hteu,m.tvaeu,m.monteu,   im.imp
+
+SQL ordered by Sharable Memory  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      1,027       1,027          442          442     0.0 2452089843
+Module: JDBC Thin Client
+select sum(round( mvtligne0_.MONTANTTC_E * Decode( mvtligne0_.AV
+ANCEMENT , NULL , Decode( mvtligne0_.MANDATRAT,null,0,0,0,
+       Decode(mvtligne0_.EXORAT ,                         (SELEC
+T bua.exercice from BUDANNU bua,MOUVEMENT mvt where bua.Roo_ima_
+
+          -------------------------------------------------------------
+SQL ordered by Version Count  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Version Count Threshold:        20
+
+     Max      End    Delta
+ Version  Version  Version                 Old
+   Count    Count    Count   Executions Hash Value
+-------- -------- -------- ------------ ----------
+      31       31       11           59  614283869
+Module: JDBC Thin Client
+select * from ( select tiers0_.ROO_IMA_REF as ROO1_475_0_, perso
+nne1_.ROO_IMA_REF as ROO1_427_1_, naturejuri2_.IDENTIFIANT as ID
+ENTIFI1_364_2_, tiers0_.UPDATOKEN as UPDATOKEN475_0_, tiers0_.PO
+BJ_EXTRACT as POBJ3_475_0_, tiers0_.DATE_CREAT as DATE4_475_0_,
+
+          -------------------------------------------------------------
+Instance Activity Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+active txn count during cleanout               2,401            0.7          0.4
+application wait time                            291            0.1          0.1
+background checkpoints completed                   2            0.0          0.0
+background checkpoints started                     2            0.0          0.0
+background timeouts                           18,861            5.2          3.5
+Batched IO block miss count                   58,693           16.3         10.8
+Batched IO (bound) vector count                4,152            1.2          0.8
+Batched IO buffer defrag count                   281            0.1          0.1
+Batched IO double miss count                   3,549            1.0          0.7
+Batched IO (full) vector count                    66            0.0          0.0
+Batched IO same unit count                    27,793            7.7          5.1
+Batched IO single block count                  2,304            0.6          0.4
+Batched IO slow jump count                     3,479            1.0          0.6
+Batched IO (space) vector count                    0            0.0          0.0
+Batched IO vector block count                 28,641            8.0          5.3
+Batched IO vector read count                   2,256            0.6          0.4
+Block Cleanout Optim referenced                   86            0.0          0.0
+branch node splits                                 7            0.0          0.0
+buffer is not pinned count                83,686,628       23,239.8     15,409.1
+buffer is pinned count                   125,355,597       34,811.3     23,081.5
+bytes received via SQL*Net from c      1,622,524,490      450,576.1    298,752.4
+bytes sent via SQL*Net to client       2,111,941,505      586,487.5    388,867.9
+Cached Commit SCN referenced               4,711,604        1,308.4        867.5
+calls to get snapshot scn: kcmgss            825,352          229.2        152.0
+calls to kcmgas                                9,795            2.7          1.8
+calls to kcmgcs                            1,098,521          305.1        202.3
+CCursor + sql area evicted                         0            0.0          0.0
+cell physical IO interconnect byt    137,229,613,056   38,108,751.2 ############
+change write time                                 43            0.0          0.0
+cleanout - number of ktugct calls              4,365            1.2          0.8
+cleanouts and rollbacks - consist              1,068            0.3          0.2
+cleanouts only - consistent read               2,242            0.6          0.4
+cluster key scan block gets                    9,721            2.7          1.8
+cluster key scans                              9,466            2.6          1.7
+commit batch performed                             0            0.0          0.0
+commit batch requested                             0            0.0          0.0
+commit batch/immediate performed                 184            0.1          0.0
+commit batch/immediate requested                 184            0.1          0.0
+commit cleanout failures: block l                770            0.2          0.1
+commit cleanout failures: buffer                   0            0.0          0.0
+commit cleanout failures: callbac                 41            0.0          0.0
+commit cleanout failures: cannot                   0            0.0          0.0
+commit cleanouts                              34,318            9.5          6.3
+commit cleanouts successfully com             33,507            9.3          6.2
+commit immediate performed                       184            0.1          0.0
+commit immediate requested                       184            0.1          0.0
+Commit SCN cached                                419            0.1          0.1
+commit txn count during cleanout               3,131            0.9          0.6
+concurrency wait time                            189            0.1          0.0
+consistent changes                            19,149            5.3          3.5
+consistent gets                          166,128,889       46,134.1     30,589.0
+consistent gets - examination             26,087,362        7,244.5      4,803.4
+consistent gets direct                    16,347,052        4,539.6      3,010.0
+consistent gets from cache               149,781,837       41,594.5     27,579.1
+consistent gets from cache (fastp        123,223,674       34,219.3     22,689.0
+CPU used by this session                     113,743           31.6         20.9
+Instance Activity Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+CPU used when call started                   112,382           31.2         20.7
+CR blocks created                              1,349            0.4          0.3
+cursor authentications                         1,970            0.6          0.4
+data blocks consistent reads - un              3,923            1.1          0.7
+db block changes                             196,141           54.5         36.1
+db block gets                                223,637           62.1         41.2
+db block gets direct                             684            0.2          0.1
+db block gets from cache                     222,953           61.9         41.1
+db block gets from cache (fastpat             68,363           19.0         12.6
+DB time                                      472,979          131.4         87.1
+DBWR checkpoint buffers written                2,460            0.7          0.5
+DBWR checkpoints                                 161            0.0          0.0
+DBWR object drop buffers written                   0            0.0          0.0
+DBWR revisited being-written buff                  0            0.0          0.0
+DBWR tablespace checkpoint buffer                423            0.1          0.1
+DBWR thread checkpoint buffers wr              2,037            0.6          0.4
+DBWR transaction table writes                     21            0.0          0.0
+DBWR undo block writes                         2,731            0.8          0.5
+deferred (CURRENT) block cleanout             20,143            5.6          3.7
+dirty buffers inspected                        9,345            2.6          1.7
+enqueue conversions                            1,939            0.5          0.4
+enqueue deadlocks                                  0            0.0          0.0
+enqueue releases                              74,881           20.8         13.8
+enqueue requests                              74,885           20.8         13.8
+enqueue timeouts                                   0            0.0          0.0
+enqueue waits                                    161            0.0          0.0
+execute count                                831,607          230.9        153.1
+failed probes on index block recl                  0            0.0          0.0
+file io service time                           1,149            0.3          0.2
+file io wait time                         20,369,329        5,656.6      3,750.6
+free buffer inspected                        598,730          166.3        110.2
+free buffer requested                        315,776           87.7         58.1
+heap block compress                            2,560            0.7          0.5
+Heap Segment Array Inserts                     4,956            1.4          0.9
+Heap Segment Array Updates                       211            0.1          0.0
+hot buffers moved to head of LRU           1,548,459          430.0        285.1
+HSC Heap Segment Block Changes                34,375            9.6          6.3
+immediate (CR) block cleanout app              3,310            0.9          0.6
+immediate (CURRENT) block cleanou              6,387            1.8          1.2
+IMU commits                                    2,283            0.6          0.4
+IMU contention                                   197            0.1          0.0
+IMU CR rollbacks                                 303            0.1          0.1
+IMU- failed to get a private stra                  3            0.0          0.0
+IMU Flushes                                    1,816            0.5          0.3
+IMU ktichg flush                                 171            0.1          0.0
+IMU pool not allocated                             3            0.0          0.0
+IMU recursive-transaction flush                    8            0.0          0.0
+IMU Redo allocation size                  10,254,716        2,847.7      1,888.2
+IMU undo allocation size                  20,362,328        5,654.6      3,749.3
+in call idle wait time                    11,891,453        3,302.3      2,189.6
+index crx upgrade (positioned)                 3,342            0.9          0.6
+index crx upgrade (prefetch)                     941            0.3          0.2
+index fast full scans (full)                 107,994           30.0         19.9
+index fetch by key                        20,599,723        5,720.6      3,793.0
+index scans kdiixs1                        3,677,741        1,021.3        677.2
+leaf node splits                                 324            0.1          0.1
+Instance Activity Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+leaf node 90-10 splits                            63            0.0          0.0
+lob reads                                      3,232            0.9          0.6
+LOB table id lookup cache misses                   0            0.0          0.0
+lob writes                                       228            0.1          0.0
+lob writes unaligned                               0            0.0          0.0
+logical read bytes from cache      1,228,839,239,680  341,249,441.7 ############
+logons cumulative                              1,555            0.4          0.3
+max cf enq hold time                               0            0.0          0.0
+messages received                              8,428            2.3          1.6
+messages sent                                  8,428            2.3          1.6
+min active SCN optimization appli              2,013            0.6          0.4
+no buffer to keep pinned count                 1,916            0.5          0.4
+no work - consistent read gets           138,693,010       38,515.1     25,537.3
+non-idle wait count                        3,586,015          995.8        660.3
+non-idle wait time                            10,055            2.8          1.9
+Number of read IOs issued                  2,061,895          572.6        379.7
+opened cursors cumulative                    815,909          226.6        150.2
+parse count (failures)                            90            0.0          0.0
+parse count (hard)                             9,870            2.7          1.8
+parse count (total)                          792,109          220.0        145.9
+parse time cpu                                 5,075            1.4          0.9
+parse time elapsed                             4,258            1.2          0.8
+physical read bytes                  136,436,752,384   37,888,573.3 ############
+physical read IO requests                  2,280,145          633.2        419.8
+physical read total bytes            136,789,410,304   37,986,506.6 ############
+physical read total IO requests            2,295,909          637.6        422.7
+physical read total multi block r                 96            0.0          0.0
+physical reads                            16,654,877        4,625.1      3,066.6
+physical reads cache                         307,765           85.5         56.7
+physical reads cache prefetch                116,533           32.4         21.5
+physical reads direct                     16,347,112        4,539.6      3,010.0
+physical reads direct (lob)                    6,418            1.8          1.2
+physical reads prefetch warmup                     0            0.0          0.0
+physical write bytes                     131,760,128       36,589.9     24,260.8
+physical write IO requests                    10,401            2.9          1.9
+physical write total bytes               440,202,752      122,244.6     81,053.7
+physical write total IO requests              31,705            8.8          5.8
+physical write total multi block                 298            0.1          0.1
+physical writes                               16,084            4.5          3.0
+physical writes direct                           684            0.2          0.1
+physical writes direct (lob)                     684            0.2          0.1
+physical writes direct temporary                   0            0.0          0.0
+physical writes from cache                    15,400            4.3          2.8
+physical writes non checkpoint                14,113            3.9          2.6
+pinned buffers inspected                           5            0.0          0.0
+pinned cursors current                             5            0.0          0.0
+prefetch warmup blocks aged out b                  0            0.0          0.0
+prefetched blocks aged out before                  6            0.0          0.0
+process last non-idle time                     3,602            1.0          0.7
+recursive calls                              217,604           60.4         40.1
+recursive cpu usage                            7,245            2.0          1.3
+redo blocks checksummed by FG (ex             57,231           15.9         10.5
+redo blocks written                          108,838           30.2         20.0
+redo buffer allocation retries                     0            0.0          0.0
+redo entries                                  76,606           21.3         14.1
+redo KB read                                  91,746           25.5         16.9
+Instance Activity Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+redo log space requests                            0            0.0          0.0
+redo log space wait time                           0            0.0          0.0
+redo ordering marks                              180            0.1          0.0
+redo size                                 51,883,312       14,408.0      9,553.2
+redo size for direct writes                5,627,952        1,562.9      1,036.3
+redo subscn max counts                         3,520            1.0          0.7
+redo synch long waits                              0            0.0          0.0
+redo synch time                                1,071            0.3          0.2
+redo synch time overhead count (<                  0            0.0          0.0
+redo synch time overhead count (>                  0            0.0          0.0
+redo synch time overhead count (<              3,798            1.1          0.7
+redo synch time overhead count (<                  0            0.0          0.0
+redo synch time overhead count (<                  0            0.0          0.0
+redo synch time overhead (usec)              112,886           31.4         20.8
+redo synch time (usec)                    11,648,743        3,234.9      2,144.9
+redo synch writes                              3,798            1.1          0.7
+redo wastage                               1,966,424          546.1        362.1
+redo write info find                           3,798            1.1          0.7
+redo write info find fail                          0            0.0          0.0
+redo write time                                1,302            0.4          0.2
+redo writes                                    4,513            1.3          0.8
+Requests to/from client                    1,183,376          328.6        217.9
+rollback changes - undo records a              6,682            1.9          1.2
+rollbacks only - consistent read                 270            0.1          0.1
+root node splits                                   0            0.0          0.0
+RowCR - row contention                           314            0.1          0.1
+RowCR attempts                                69,292           19.2         12.8
+RowCR hits                                    68,788           19.1         12.7
+rows fetched via callback                 16,667,893        4,628.7      3,069.0
+session connect time                               0            0.0          0.0
+session logical reads                    166,352,526       46,196.2     30,630.2
+session pga memory                       145,472,800       40,397.9     26,785.6
+session pga memory max                   426,328,672      118,391.7     78,499.1
+session uga memory                       180,712,024       50,183.8     33,274.2
+session uga memory max                 2,719,910,760      755,321.0    500,812.2
+shared hash latch upgrades - no w            262,345           72.9         48.3
+shared hash latch upgrades - wait                 26            0.0          0.0
+SMON posted for dropping temp seg                  0            0.0          0.0
+SMON posted for undo segment shri                  2            0.0          0.0
+sorts (memory)                               151,265           42.0         27.9
+sorts (rows)                               3,768,555        1,046.5        693.9
+sql area evicted                                 269            0.1          0.1
+sql area purged                                  268            0.1          0.1
+SQL*Net roundtrips to/from client          1,183,486          328.7        217.9
+summed dirty queue length                     10,088            2.8          1.9
+switch current to new buffer                   1,501            0.4          0.3
+table fetch by rowid                      93,132,402       25,862.9     17,148.3
+table fetch continued row                     40,288           11.2          7.4
+table scan blocks gotten                  50,808,900       14,109.7      9,355.4
+table scan rows gotten                 1,621,697,186      450,346.3    298,600.1
+table scans (direct read)                        391            0.1          0.1
+table scans (long tables)                        393            0.1          0.1
+table scans (short tables)                    88,530           24.6         16.3
+temp space allocated (bytes)                       0            0.0          0.0
+total cf enq hold time                         2,080            0.6          0.4
+total number of cf enq holders                   739            0.2          0.1
+Instance Activity Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+total number of times SMON posted                  2            0.0          0.0
+transaction rollbacks                            184            0.1          0.0
+undo change vector size                   17,362,740        4,821.6      3,197.0
+user calls                                 1,927,035          535.1        354.8
+user commits                                   3,541            1.0          0.7
+user I/O wait time                             4,264            1.2          0.8
+user logons cumulative                         1,355            0.4          0.3
+user logouts cumulative                        1,351            0.4          0.3
+user rollbacks                                 1,890            0.5          0.4
+workarea executions - optimal                175,475           48.7         32.3
+write clones created in backgroun                  0            0.0          0.0
+write clones created in foregroun                  2            0.0          0.0
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Statistics with absolute values (should not be diffed)
+
+Statistic                             Begin Value       End Value
+--------------------------------- --------------- ---------------
+logons current                                134             138
+opened cursors current                        517             593
+session cursor cache count                 90,301         123,044
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Statistics identified by '(derived)' come from sources other than SYSSTAT
+
+Statistic                                      Total  per Hour
+--------------------------------- ------------------ ---------
+log switches (derived)                             2      2.00
+          -------------------------------------------------------------
+
+OS Statistics  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by statistic type (CPU use, Virtual Memory, Hardware Config), Name
+
+Statistic                                  Total
+------------------------- ----------------------
+BUSY_TIME                                140,207
+IDLE_TIME                              1,294,881
+IOWAIT_TIME                                3,715
+NICE_TIME                                    215
+SYS_TIME                                  16,579
+USER_TIME                                122,147
+RSRC_MGR_CPU_WAIT_TIME                         0
+VM_IN_BYTES                            3,219,456
+VM_OUT_BYTES                          24,330,240
+PHYSICAL_MEMORY_BYTES             16,728,678,400
+NUM_CPU_CORES                                  4
+NUM_CPUS                                       4
+NUM_CPU_SOCKETS                                1
+GLOBAL_RECEIVE_SIZE_MAX                4,194,304
+GLOBAL_SEND_SIZE_MAX                   1,048,576
+TCP_RECEIVE_SIZE_DEFAULT                  87,380
+TCP_RECEIVE_SIZE_MAX                   6,291,456
+TCP_RECEIVE_SIZE_MIN                       4,096
+TCP_SEND_SIZE_DEFAULT                     16,384
+TCP_SEND_SIZE_MAX                      4,194,304
+TCP_SEND_SIZE_MIN                          4,096
+          -------------------------------------------------------------
+
+OS Statistics - detail  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+  Snap Snapshot
+    Id Day Time          Load  %Busy  %User %System   %WIO  %WCPU
+------ --------------- ------ ------ ------ ------- ------ ------
+   886 Fri 05 11:00:00     .2
+   887 Fri 05 12:00:01     .1    9.8    8.5     1.2    0.3
+          -------------------------------------------------------------
+IO Stat by Function - summary  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->Data Volume values suffixed with   M,G,T,P are in multiples of 1024,
+  other values suffixed with       K,M,G,T,P are in multiples of 1000
+->ordered by Data Volume (Read+Write) desc
+
+               ---------- Read --------- --------- Write -------- --- Wait ----
+                 Data  Requests    Data   Data  Requests    Data          Avg
+Function        Volume     /sec  Vol/sec Volume     /sec  Vol/sec  Count Tm(ms)
+--------------- ------ -------- -------- ------ -------- -------- ------ ------
+Direct Reads      125G   572.6     35.5M                           2062K    0.0
+Buffer Cache Re  2404M    60.4       .7M                            193K    0.0
+Others            248M     2.9       .1M   131M      .8       .0M    13K    0.0
+LGWR               94M     1.7       .0M   163M     5.1       .0M    19K    0.0
+Streams AQ                  .0                                        6     0.0
+          -------------------------------------------------------------
+
+IO Stat by Function - detail  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->ordered by Data Volume (Read+Write) desc
+
+                   ----------- Read ---------- ----------- Write ---------
+                    Small  Large  Small  Large  Small  Large  Small  Large
+                     Read   Read   Data   Data  Write  Write   Data   Data
+Function             Reqs   Reqs   Read   Read   Reqs   Reqs  Writn  Writn
+------------------ ------ ------ ------ ------ ------ ------ ------ ------
+Direct Reads        2062K          125G
+Buffer Cache Reads   218K     2   2402M     2M
+Others                10K    94    155M    93M  2670     90     41M    90M
+LGWR                6042            94M           19K    36    149M    14M
+Streams AQ             6
+          -------------------------------------------------------------
+Tablespace IO Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->ordered by IOs (Reads + Writes) desc
+
+Tablespace
+------------------------------
+                 Av      Av     Av                    Av        Buffer Av Buf
+         Reads Reads/s Rd(ms) Blks/Rd       Writes Writes/s      Waits Wt(ms)
+-------------- ------- ------ ------- ------------ -------- ---------- ------
+FI
+     2,192,320     609    0.0     7.5        3,022        1        150    0.4
+FI_IDX
+        41,112      11    0.1     1.3        4,360        1          6   25.0
+SYSAUX
+        30,078       8    0.1     1.0        1,206        0          0    0.0
+SM
+         7,621       2    0.0     1.0          993        0          1    0.0
+SYSTEM
+         3,168       1    0.1     1.2           48        0          0    0.0
+FIBO
+         2,915       1    0.0     1.1            0        0          0    0.0
+OP
+         1,909       1    0.0     6.9           81        0          0    0.0
+SM_IDX
+           565       0    0.2     1.0          207        0          0    0.0
+UNDO
+            55       0    0.0     1.0          335        0          0    0.0
+KSLFI
+           137       0    0.3     1.0          141        0          0    0.0
+OP_IDX
+           180       0    0.3     2.3            7        0          0    0.0
+FIBO_IDX
+            38       0    0.0     1.0            0        0          0    0.0
+XNETFI
+             1       0    0.0     1.0            0        0          0    0.0
+TOOLS
+             1       0    0.0     1.0            0        0          0    0.0
+PERFTBS
+             1       0    0.0     1.0            0        0          0    0.0
+OPBO_IDX
+             1       0    0.0     1.0            0        0          0    0.0
+TMP
+             1       0    0.0     1.0            0        0          0    0.0
+MAMP
+             1       0    0.0     1.0            0        0          0    0.0
+KSLFI_IDX
+             1       0    0.0     1.0            0        0          0    0.0
+INVENTAIRE
+             1       0    0.0     1.0            0        0          0    0.0
+AST
+             1       0    0.0     1.0            0        0          0    0.0
+OPBO
+             1       0    0.0     1.0            0        0          0    0.0
+          -------------------------------------------------------------
+File IO Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+AST                      /home/oradata/SMPROD/dat01ast.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+FI                       /home/oradata/SMPROD/dat01fi.dbf
+     2,192,320     609   0.0 ###     7.5        3,022        1        150    0.4
+
+FIBO                     /home/oradata/SMPROD/dat01fibo.dbf
+         2,915       1   0.0   1     1.1            0        0          0
+
+FIBO_IDX                 /home/oradata/SMPROD/idx01fibo.dbf
+            38       0   0.0   1     1.0            0        0          0
+
+FI_IDX                   /home/oradata/SMPROD/idx01fi.dbf
+        41,112      11   0.1 ###     1.3        4,360        1          6   25.0
+
+INVENTAIRE               /home/oradata/SMPROD/dat01inventaire.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+KSLFI                    /home/oradata/SMPROD/dat01KSLFI.dbf
+           137       0   0.3  32     1.0          141        0          0
+
+KSLFI_IDX                /home/oradata/SMPROD/idx01KSLFI.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+MAMP                     /home/oradata/SMPROD/dat01MAMP.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+OP                       /home/oradata/SMPROD/dat01op.dbf
+         1,909       1   0.0   4     6.9           81        0          0
+
+OPBO                     /home/oradata/SMPROD/dat01opbo.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+OPBO_IDX                 /home/oradata/SMPROD/idx01opbo.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+OP_IDX                   /home/oradata/SMPROD/idx01op.dbf
+           180       0   0.3  16     2.3            7        0          0
+
+PERFTBS                  /home/oradata/SMPROD/perfstat.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+SM                       /home/oradata/SMPROD/dat01sm.dbf
+         7,621       2   0.0  32     1.0          993        0          1    0.0
+
+SM_IDX                   /home/oradata/SMPROD/idx01sm.dbf
+           565       0   0.2  64     1.0          207        0          0
+
+SYSAUX                   /home/oradata/SMPROD/sysaux01.dbf
+        30,078       8   0.1  16     1.0        1,206        0          0
+File IO Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+
+SYSTEM                   /home/oradata/SMPROD/system01.dbf
+         3,168       1   0.1  32     1.2           48        0          0
+
+TMP                      /home/oradata/SMPROD/tmp01.dbf
+             1       0   0.0         1.0            0        0          0
+
+TOOLS                    /home/oradata/SMPROD/tools01.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+UNDO                     /home/oradata/SMPROD/undo01.dbf
+            55       0   0.0   1     1.0          335        0          0
+
+XNETFI                   /home/oradata/SMPROD/dat01xnetfi.dbf
+             1       0   0.0   1     1.0            0        0          0
+
+          -------------------------------------------------------------
+File Read Histogram Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+FIBO_IDX                 /home/oradata/SMPROD/idx01fibo.dbf
+          38            0            0            0            0            0
+
+KSLFI_IDX                /home/oradata/SMPROD/idx01KSLFI.dbf
+           1            0            0            0            0            0
+
+AST                      /home/oradata/SMPROD/dat01ast.dbf
+           1            0            0            0            0            0
+
+SM_IDX                   /home/oradata/SMPROD/idx01sm.dbf
+         558            5            0            1            0            1
+
+FI                       /home/oradata/SMPROD/dat01fi.dbf
+     115,496           38           14           14            1            2
+
+FIBO                     /home/oradata/SMPROD/dat01fibo.dbf
+       2,735            0            0            0            0            0
+
+INVENTAIRE               /home/oradata/SMPROD/dat01inventaire.dbf
+           1            0            0            0            0            0
+
+OPBO                     /home/oradata/SMPROD/dat01opbo.dbf
+           1            0            0            0            0            0
+
+MAMP                     /home/oradata/SMPROD/dat01MAMP.dbf
+           1            0            0            0            0            0
+
+SYSTEM                   /home/oradata/SMPROD/system01.dbf
+       3,059            4            1            1            1            0
+
+SYSAUX                   /home/oradata/SMPROD/sysaux01.dbf
+      29,820           60           22           14            0            0
+
+SM                       /home/oradata/SMPROD/dat01sm.dbf
+       1,218            0            1            4            1            0
+
+OP                       /home/oradata/SMPROD/dat01op.dbf
+         257            2            0            0            0            0
+
+FI_IDX                   /home/oradata/SMPROD/idx01fi.dbf
+      38,737           58           33           20            6            7
+
+OP_IDX                   /home/oradata/SMPROD/idx01op.dbf
+         129            0            1            1            0            0
+
+OPBO_IDX                 /home/oradata/SMPROD/idx01opbo.dbf
+           1            0            0            0            0            0
+
+PERFTBS                  /home/oradata/SMPROD/perfstat.dbf
+           1            0            0            0            0            0
+
+File Read Histogram Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+KSLFI                    /home/oradata/SMPROD/dat01KSLFI.dbf
+         136            0            0            0            1            0
+
+UNDO                     /home/oradata/SMPROD/undo01.dbf
+          55            0            0            0            0            0
+
+XNETFI                   /home/oradata/SMPROD/dat01xnetfi.dbf
+           1            0            0            0            0            0
+
+TOOLS                    /home/oradata/SMPROD/tools01.dbf
+           1            0            0            0            0            0
+
+          -------------------------------------------------------------
+Instance Recovery Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> B: Begin snapshot,  E: End snapshot
+
+  Targt Estd                                  Log File  Log Ckpt    Log Ckpt
+  MTTR  MTTR   Recovery   Actual    Target      Size     Timeout    Interval
+   (s)   (s)   Estd IOs  Redo Blks Redo Blks Redo Blks  Redo Blks  Redo Blks
+- ----- ----- ---------- --------- --------- ---------- --------- ------------
+B     0     0       2913    118133    118165    1658880    118165
+E     0     0       1977     45507     43421    1658880     43421
+          -------------------------------------------------------------
+Memory Target Advice  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Advice Reset: if this is null, the data shown has been diffed between
+   the Begin and End snapshots.  If this is 'Y', the advisor has been
+   reset during this interval due to memory resize operations, and
+   the data shown is since the reset operation.
+
+                Memory Size     Est.     Advice
+Memory Size (M)      Factor DB time (s)  Reset
+--------------- ----------- ------------ ------
+          3,072          .3        1,202
+          6,144          .5        1,205
+          7,680          .6        1,205
+          9,216          .8        1,204
+         10,752          .9        1,204
+         12,288         1.0        1,204
+         13,824         1.1        1,204
+         15,360         1.3        1,204
+         16,896         1.4        1,204
+         18,432         1.5        1,204
+         19,968         1.6        1,204
+         21,504         1.8        1,204
+         23,040         1.9        1,204
+         24,576         2.0        1,204
+          -------------------------------------------------------------
+
+Memory Dynamic Components  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->  Op - memory resize Operation
+->  Cache:    D: Default,  K: Keep,  R:  Recycle
+->   Mode:  DEF: DEFerred mode,  IMM: IMMediate mode
+
+                       Begin Snap End Snap   Op    Last Op
+Cache                    Size (M) Size (M)  Count  Type/Mode   Last Op Time
+---------------------- ---------- -------- ------- ---------- ---------------
+D:buffer cache              2,784                0 INITIA/
+java pool                      32                0 STATIC
+large pool                     64                0 STATIC
+PGA Target                  4,288                0 STATIC
+SGA Target                  8,000                0 STATIC
+shared pool                 4,992                0 STATIC
+streams pool                   64                0 STATIC
+          -------------------------------------------------------------
+
+Buffer Pool Advisory  DB/Inst: SMPROD/SMPROD  End Snap: 887
+-> Only rows with estimated physical reads >0 are displayed
+-> ordered by Pool, Block Size, Buffers For Estimate
+
+                                   Est
+                                  Phys      Estimated                   Est
+    Size for  Size      Buffers   Read     Phys Reads     Est Phys % dbtime
+P    Est (M) Factr  (thousands)  Factr    (thousands)    Read Time  for Rds
+--- -------- ----- ------------ ------ -------------- ------------ --------
+D        256    .1           32    7.2         70,145        3,988     36.8
+D        512    .2           63    5.7         55,064        3,036     28.0
+D        768    .3           95    4.2         41,151        2,158     19.9
+D      1,024    .4          126    2.6         25,338        1,161     10.7
+D      1,280    .5          158    2.0         19,027          762      7.0
+D      1,536    .6          189    1.7         16,301          590      5.4
+D      1,792    .6          221    1.4         14,015          446      4.1
+D      2,048    .7          252    1.2         11,634          296      2.7
+D      2,304    .8          284    1.1         10,524          226      2.1
+D      2,560    .9          315    1.0         10,023          194      1.8
+D      2,784   1.0          343    1.0          9,700          174      1.6
+D      2,816   1.0          347    1.0          9,686          173      1.6
+D      3,072   1.1          378    1.0          9,552          164      1.5
+D      3,328   1.2          410    1.0          9,453          158      1.5
+D      3,584   1.3          441    1.0          9,382          154      1.4
+D      3,840   1.4          473    1.0          9,325          150      1.4
+D      4,096   1.5          504    1.0          9,271          147      1.4
+D      4,352   1.6          536    1.0          9,256          146      1.3
+D      4,608   1.7          567    1.0          9,219          143      1.3
+D      4,864   1.7          599    0.9          9,173          140      1.3
+D      5,120   1.8          630    0.9          8,784          116      1.1
+          -------------------------------------------------------------
+
+Buffer Pool Statistics  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Standard block size Pools  D: default,  K: keep,  R: recycle
+-> Default Pools for other block sizes: 2k, 4k, 8k, 16k, 32k
+-> Buffers: the number of buffers.  Units of K, M, G are divided by 1000
+
+                                                            Free Writ     Buffer
+            Pool         Buffer     Physical    Physical  Buffer Comp       Busy
+P   Buffers Hit%           Gets        Reads      Writes   Waits Wait      Waits
+--- ------- ---- -------------- ------------ ----------- ------- ---- ----------
+D      342K  100    149,954,636      307,773      15,400       0    0        157
+          -------------------------------------------------------------
+
+Buffer wait Statistics  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by wait time desc, waits desc
+
+Class                                                                    Waits
+------------------------------------------------------------------ -----------
+Total Wait Time (s) Avg Time (ms)
+------------------- -------------
+data block                                                                 157
+                  0             1
+undo header                                                                  1
+                  0             0
+          -------------------------------------------------------------
+PGA Aggr Target Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> B: Begin snap   E: End snap (rows identified with B or E contain data
+   which is absolute i.e. not diffed over the interval)
+-> PGA cache hit % - percentage of W/A (WorkArea) data processed only in-memory
+-> Auto PGA Target - actual workarea memory target
+-> W/A PGA Used    - amount of memory used for all WorkAreas (manual + auto)
+-> %PGA W/A Mem    - percentage of PGA memory allocated to WorkAreas
+-> %Auto W/A Mem   - percentage of WorkArea memory controlled by Auto Mem Mgmt
+-> %Man W/A Mem    - percentage of WorkArea memory under Manual control
+
+PGA Cache Hit % W/A MB Processed Extra W/A MB Read/Written
+--------------- ---------------- -------------------------
+          100.0           53,957                         0
+
+PGA Aggr Target Histogram  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Optimal Executions are purely in-memory operations
+
+    Low    High
+Optimal Optimal    Total Execs Optimal Execs 1-Pass Execs M-Pass Execs
+------- ------- -------------- ------------- ------------ ------------
+     2K      4K        126,174       126,174            0            0
+    64K    128K            691           691            0            0
+   128K    256K            544           544            0            0
+   256K    512K            366           366            0            0
+   512K   1024K         32,522        32,522            0            0
+     1M      2M         13,624        13,624            0            0
+     2M      4M            587           587            0            0
+     4M      8M            182           182            0            0
+     8M     16M            707           707            0            0
+    16M     32M             47            47            0            0
+    32M     64M             36            36            0            0
+   128M    256M              2             2            0            0
+          -------------------------------------------------------------
+
+PGA Memory Advisory  DB/Inst: SMPROD/SMPROD  End Snap: 887
+-> When using Auto Memory Mgmt, minimally choose a pga_aggregate_target value
+   where Estd PGA Overalloc Count is 0
+
+                                   Estd Extra                Estd
+  PGA Aggr                           W/A MB      Estd Time    PGA   Estd PGA
+    Target   Size         W/A MB  Read/Written  to Process  Cache  Overalloc
+  Est (MB)  Factr      Processed    to Disk      Bytes (s)  Hit %      Count
+---------- ------ -------------- -------------- ---------- ------ ----------
+       536    0.1        222,340          3,352        3.3   99.0          0
+     1,072    0.3        222,340          2,060        3.3   99.0          0
+     2,144    0.5        222,340          1,268        3.3   99.0          0
+     3,216    0.8        222,340          1,268        3.3   99.0          0
+     4,288    1.0        222,340              0        3.2  100.0          0
+     5,146    1.2        222,340              0        3.2  100.0          0
+     6,003    1.4        222,340              0        3.2  100.0          0
+     6,861    1.6        222,340              0        3.2  100.0          0
+     7,718    1.8        222,340              0        3.2  100.0          0
+     8,576    2.0        222,340              0        3.2  100.0          0
+    12,864    3.0        222,340              0        3.2  100.0          0
+    17,152    4.0        222,340              0        3.2  100.0          0
+    25,728    6.0        222,340              0        3.2  100.0          0
+    34,304    8.0        222,340              0        3.2  100.0          0
+          -------------------------------------------------------------
+Process Memory Summary Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> B: Begin snap   E: End snap
+-> All rows below contain absolute values (i.e. not diffed over the interval)
+-> Max Alloc is Maximum PGA Allocation size at snapshot time
+   Hist Max Alloc is the Historical Max Allocation for still-connected processes
+-> Num Procs or Allocs:  For Begin/End snapshot lines, it is the number of
+   processes. For Category lines, it is the number of allocations
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                                                                  Hist   Num
+                                          Avg    Std Dev   Max    Max   Procs
+             Alloc     Used    Freeabl   Alloc    Alloc   Alloc  Alloc    or
+  Category   (MB)      (MB)      (MB)     (MB)    (MB)    (MB)    (MB)  Allocs
+- -------- --------- --------- -------- -------- ------- ------- ------ ------
+B --------     452.3     282.8    118.1      3.4     4.6      28    212    134
+  Other        330.8                         2.5     4.3      27     64    134
+  Freeable     118.0        .0               1.1     1.1       7           108
+  PL/SQL         2.2       1.6                .0      .1       1      1    134
+  SQL            1.4        .4                .0      .0       0    201    101
+E --------     464.0     286.0    122.9      3.4     4.6      28    238    138
+  Other        337.4                         2.4     4.2      27     64    138
+  Freeable     122.9        .0               1.1     1.1       7           112
+  PL/SQL         2.2       1.6                .0      .1       1      1    138
+  SQL            1.5        .5                .0      .0       0    227    105
+          -------------------------------------------------------------
+
+Top Process Memory (by component)  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     21 ARC0 --------    28.3    25.8      1.1       28.3       28.3
+         Other            27.3                        27.3       27.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      24 ARC3 --------    28.3    25.8      1.1       28.3       28.3
+         Other            27.3                        27.3       27.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      22 ARC1 --------    28.3    25.8      1.1       28.3       28.3
+         Other            27.3                        27.3       27.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      23 ARC2 --------    18.0    16.9       .0       18.0       18.0
+         Other            18.0                        18.0       18.0
+         PL/SQL             .0      .0                  .0         .0
+      11 DBW1 --------    14.7     8.1      6.2       14.7       14.7
+         Other             8.5                         8.5        8.5
+         Freeable          6.2      .0                 6.2
+         PL/SQL             .0      .0                  .0         .0
+      10 DBW0 --------    14.5     7.2      6.9       14.5       14.5
+         Other             7.6                         7.6        7.6
+         Freeable          6.9      .0                 6.9
+         PL/SQL             .0      .0                  .0         .0
+      12 DBW2 --------    12.9     7.7      4.9       12.9       12.9
+         Other             7.9                         7.9        7.9
+         Freeable          4.9      .0                 4.9
+         PL/SQL             .0      .0                  .0         .0
+      13 DBW3 --------    12.4     7.0      5.1       12.4       12.4
+         Other             7.2                         7.2        7.2
+         Freeable          5.1      .0                 5.1
+         PL/SQL             .0      .0                  .0         .0
+      14 LGWR --------    11.6    10.9       .0       11.6       11.6
+         Other            11.6                        11.6       11.6
+         PL/SQL             .0      .0                  .0         .0
+     124 J000 --------     8.5     1.9      6.4        8.5        8.5
+         Freeable          6.3      .0                 6.3
+         Other             1.8                         1.8        1.8
+         PL/SQL             .2      .2                  .2         .8
+         SQL                .2      .1                  .2        6.3
+      29 Q000 --------     5.3     2.9       .3        5.3        5.3
+         Other             4.8                         4.8        4.8
+         Freeable           .3      .0                  .3
+         PL/SQL             .2      .2                  .2         .2
+         SQL                .0      .0                  .0         .5
+      28  ------------     5.2     3.7      1.0        5.2       20.8
+         Other             3.1                         3.1        6.7
+         PL/SQL            1.1      .8                 1.1        1.1
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1       12.0
+      38 CJQ0 --------     4.0     1.3      2.4        4.0        4.0
+         Freeable          2.4      .0                 2.4
+         Other             1.6                         1.6        1.6
+         PL/SQL             .0      .0                  .0         .0
+
+Top Process Memory (by component)  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     38 SQL                .0      .0                  .0         .9
+      16 SMON --------     4.0     1.2      2.8        4.0        4.0
+         Freeable          2.8      .0                 2.8
+         Other             1.3                         1.3        1.3
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        1.7
+      18 MMON --------     3.9     2.1      1.3        3.9        3.9
+         Other             2.5                         2.5        2.5
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        1.1
+      55  ------------     3.5     2.1      1.1        3.5      211.7
+         Other             2.5                         2.5       15.7
+         Freeable          1.1      .0                 1.1
+         SQL                .0      .0                  .0      194.9
+         PL/SQL             .0      .0                  .0         .0
+      42  ------------     3.4     2.0       .9        3.4       63.6
+         Other             2.5                         2.5       30.4
+         Freeable           .9      .0                  .9
+         SQL                .0      .0                  .0       32.4
+         PL/SQL             .0      .0                  .0         .0
+      87  ------------     3.4     2.1      1.0        3.4      210.4
+         Other             2.4                         2.4        8.3
+         Freeable          1.0      .0                 1.0
+         SQL                .0      .0                  .0      201.1
+         PL/SQL             .0      .0                  .0         .0
+      52  ------------     3.3     2.0      1.0        3.3      101.0
+         Other             2.3                         2.3        6.1
+         Freeable          1.0      .0                 1.0
+         SQL                .0      .0                  .0       93.8
+         PL/SQL             .0      .0                  .0         .0
+      94  ------------     3.3     1.9       .8        3.3      100.0
+         Other             2.5                         2.5        5.3
+         Freeable           .8      .0                  .8
+         SQL                .0      .0                  .0       93.8
+         PL/SQL             .0      .0                  .0         .0
+E     21 ARC0 --------    28.3    25.8      1.1       28.3       28.3
+         Other            27.3                        27.3       27.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      24 ARC3 --------    28.3    25.8      1.1       28.3       28.3
+         Other            27.3                        27.3       27.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      22 ARC1 --------    28.3    25.8      1.1       28.3       28.3
+         Other            27.3                        27.3       27.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      23 ARC2 --------    18.0    16.9       .0       18.0       18.0
+         Other            18.0                        18.0       18.0
+         PL/SQL             .0      .0                  .0         .0
+      11 DBW1 --------    14.7     8.1      6.2       14.7       14.7
+         Other             8.5                         8.5        8.5
+
+Top Process Memory (by component)  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E     11 Freeable          6.2      .0                 6.2
+         PL/SQL             .0      .0                  .0         .0
+      10 DBW0 --------    14.5     7.2      6.9       14.5       14.5
+         Other             7.6                         7.6        7.6
+         Freeable          6.9      .0                 6.9
+         PL/SQL             .0      .0                  .0         .0
+      12 DBW2 --------    12.9     7.7      4.9       12.9       12.9
+         Other             7.9                         7.9        7.9
+         Freeable          4.9      .0                 4.9
+         PL/SQL             .0      .0                  .0         .0
+      13 DBW3 --------    12.4     7.0      5.1       12.4       12.4
+         Other             7.2                         7.2        7.2
+         Freeable          5.1      .0                 5.1
+         PL/SQL             .0      .0                  .0         .0
+      14 LGWR --------    11.6    10.9       .0       11.6       11.6
+         Other            11.6                        11.6       11.6
+         PL/SQL             .0      .0                  .0         .0
+      82 J000 --------     8.6     1.8      6.5        8.6        8.6
+         Freeable          6.4      .0                 6.4
+         Other             1.8                         1.8        1.8
+         PL/SQL             .2      .2                  .2         .8
+         SQL                .2      .1                  .2        6.3
+      29 Q000 --------     5.3     2.9       .3        5.3        5.3
+         Other             4.8                         4.8        4.8
+         Freeable           .3      .0                  .3
+         PL/SQL             .2      .2                  .2         .2
+         SQL                .0      .0                  .0         .5
+      28  ------------     5.2     3.7      1.0        5.2       20.8
+         Other             3.1                         3.1        6.7
+         PL/SQL            1.1      .7                 1.1        1.1
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1       12.0
+      16 SMON --------     5.1     1.2      3.8        5.1        5.1
+         Freeable          3.8      .0                 3.8
+         Other             1.3                         1.3        1.3
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        2.0
+      38 CJQ0 --------     4.0     1.3      2.4        4.0        4.0
+         Freeable          2.4      .0                 2.4
+         Other             1.6                         1.6        1.6
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0         .9
+      18 MMON --------     3.9     2.1      1.3        3.9        3.9
+         Other             2.5                         2.5        2.5
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .1      .1                  .1         .1
+         SQL                .0      .0                  .0        1.1
+      53  ------------     3.5     2.0      1.2        3.5       92.3
+         Other             2.3                         2.3       58.7
+         Freeable          1.2      .0                 1.2
+         SQL                .0      .0                  .0       32.4
+         PL/SQL             .0      .0                  .0         .0
+      87  ------------     3.4     2.0      1.0        3.4      210.4
+
+Top Process Memory (by component)  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E     87 Other             2.3                         2.3        8.3
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .1                  .1      201.1
+         PL/SQL             .0      .0                  .0         .0
+      42  ------------     3.3     1.9       .9        3.3       63.6
+         Other             2.4                         2.4       30.3
+         Freeable           .9      .0                  .9
+         SQL                .0      .0                  .0       32.4
+         PL/SQL             .0      .0                  .0         .0
+      51  ------------     3.3     1.9      1.1        3.3       97.5
+         Other             2.2                         2.2       64.0
+         Freeable          1.1      .0                 1.1
+         SQL                .0      .0                  .0       32.4
+         PL/SQL             .0      .0                  .0         .0
+      94  ------------     3.3     2.0       .9        3.3      100.0
+         Other             2.5                         2.5        5.3
+         Freeable           .9      .0                  .9
+         SQL                .0      .0                  .0       93.8
+         PL/SQL             .0      .0                  .0         .0
+          -------------------------------------------------------------
+Enqueue activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> only enqueues with waits are shown
+-> Enqueue stats gathered prior to 10g should not be compared with 10g data
+-> ordered by Wait Time desc, Waits desc
+
+Enqueue Type (Request Reason)
+------------------------------------------------------------------------------
+    Requests    Succ Gets Failed Gets       Waits Wt Time (s)  Av Wt Time(ms)
+------------ ------------ ----------- ----------- ------------ --------------
+TX-Transaction (row lock contention)
+           1            1           0           1            2       1,510.00
+TM-DML
+      26,560       26,560           0           1            1         930.00
+KO-Multiple Object Checkpoint (fast object checkpoint)
+       1,590        1,588           0         159            0           2.77
+          -------------------------------------------------------------
+
+Undo Segment Summary  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Min/Max TR (mins) - Min and Max Tuned Retention (minutes)
+-> STO - Snapshot Too Old count,  OOS - Out Of Space count
+-> Undo segment block stats:
+   uS - unexpired Stolen,   uR - unexpired Released,   uU - unexpired reUsed
+   eS - expired   Stolen,   eR - expired   Released,   eU - expired   reUsed
+
+Undo   Num Undo       Number of  Max Qry     Max Tx Min/Max   STO/  uS/uR/uU/
+ TS# Blocks (K)    Transactions  Len (s)      Concy TR (mins) OOS   eS/eR/eU
+---- ---------- --------------- -------- ---------- --------- ----- -----------
+   2        3.5           9,624    2,398          4 30/55.1   0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+
+
+Undo Segment Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Most recent 35 Undostat rows, ordered by End Time desc
+
+                Num Undo    Number of Max Qry  Max Tx Tun Ret STO/  uS/uR/uU/
+End Time          Blocks Transactions Len (s)   Concy  (mins) OOS   eS/eR/eU
+------------ ----------- ------------ ------- ------- ------- ----- -----------
+05-Oct 12:01         759        1,066     770       4      30 0/0   0/0/0/0/0/0
+05-Oct 11:51         296          931   1,330       4      37 0/0   0/0/0/0/0/0
+05-Oct 11:41         369          818   2,398       4      55 0/0   0/0/0/0/0/0
+05-Oct 11:31         393        1,270   1,776       4      45 0/0   0/0/0/0/0/0
+05-Oct 11:21         323        1,007   1,467       3      36 0/0   0/0/0/0/0/0
+05-Oct 11:11         393        1,157     963       4      30 0/0   0/0/0/0/0/0
+05-Oct 11:01         948        3,375     991       3      30 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+Latch Activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+active checkpoint queue           9,581    1.4    0.0      0            0
+active service list              18,199    0.0             0       64,001    0.0
+alert log latch                       4    0.0             0            0
+AQ deq hash table latch               1    0.0             0            0
+archive control                     190    0.0             0            0
+archive process latch               446    0.0             0            0
+ASM db client latch               2,729    0.0             0            0
+ASM map operation hash t              1    0.0             0            0
+ASM network state latch              57    0.0             0            0
+AWR Alerted Metric Eleme         28,889    0.0             0            0
+begin backup scn array              682    0.0             0            0
+buffer pool                           1    0.0             0            0
+business card                         1    0.0             0            0
+cache buffer handles             44,870    0.0    0.0      0            0
+cache buffers chains        274,779,837    0.0    0.0      0      674,287    0.0
+cache buffers lru chain          24,359    0.0    0.0      0      906,512    0.0
+cache table scan latch                0                    0       25,696    0.0
+call allocation                   7,885    0.1    0.6      0            0
+cas latch                             1    0.0             0            0
+change notification clie              1    0.0             0            0
+Change Notification Hash          1,200    0.0             0            0
+channel handle pool latc          3,034    0.0             0            0
+channel operations paren         24,315    0.0    0.0      0            0
+checkpoint queue latch          119,320    0.0             0       14,054    0.0
+client/application info          10,559    0.0             0            0
+compile environment latc          1,556    0.0             0            0
+Consistent RBA                    4,515    0.0             0            0
+corrupted undo seg latch         20,230    0.0             0            0
+cp cmon/server latch                  1    0.0             0            0
+cp pool latch                         1    0.0             0            0
+cp server hash latch                  1    0.0             0            0
+cp sga latch                         57    0.0             0            0
+cvmap freelist lock                   1    0.0             0            0
+deferred cleanup latch               57    0.0             0            0
+DML lock allocation              52,758    0.0             0            0
+dml lock allocation                  57    0.0             0            0
+done queue latch                      1    0.0             0            0
+dummy allocation                  3,108    0.0             0            0
+eighth spare latch - X p              1    0.0             0            0
+eleventh spare latch - c              1    0.0             0            0
+enqueue freelist latch                1    0.0             0       83,373    0.0
+enqueue hash chains             152,029    0.0    0.0      0            1    0.0
+enqueues                             15    0.0             0            0
+Event Group Locks                 3,052    0.0             0            0
+FAL Queue                           148    0.0             0            0
+FIB s.o chain latch                  22    0.0             0            0
+fifteenth spare latch -               1    0.0             0            0
+file cache latch                  1,241    0.0             0            0
+File State Object Pool P              1    0.0             0            0
+first Audit Vault latch           1,354    0.0             0            0
+Latch Activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+flashback copy                        1    0.0             0            0
+FOB s.o list latch                2,613    0.0             0            0
+fourteenth spare latch -              1    0.0             0            0
+fourth Audit Vault latch              1    0.0             0            0
+gc element                            1    0.0             0            0
+gcs commit scn state                  1    0.0             0            0
+gcs partitioned table ha              1    0.0             0            0
+gcs pcm hashed value buc              1    0.0             0            0
+gcs resource freelist                 1    0.0             0            0
+gcs resource hash                     1    0.0             0            0
+gcs resource scan list                1    0.0             0            0
+gcs resource validate li              1    0.0             0            0
+gcs shadows freelist                  1    0.0             0            0
+ges domain table                      1    0.0             0            0
+ges enqueue table freeli              1    0.0             0            0
+ges group table                       1    0.0             0            0
+ges process hash list                 1    0.0             0            0
+ges process parent latch              1    0.0             0            0
+ges resource hash list                1    0.0             0            0
+ges resource scan list                1    0.0             0            0
+ges resource table freel              1    0.0             0            0
+ges value block free lis              1    0.0             0            0
+global KZLD latch for me          1,354    0.0             0            0
+global tx hash mapping                1    0.0             0            0
+granule operation                     1    0.0             0            0
+hash table column usage             747    0.0             0    2,530,059    0.0
+hash table modification              74    0.0             0            0
+heartbeat check                       1    0.0             0            0
+In memory undo latch             61,925    0.0    0.0      0        5,403    0.0
+internal temp table obje              5    0.0             0            0
+intra txn parallel recov              1    0.0             0            0
+io pool granule metadata              1    0.0             0            0
+I/O Staticstics latch                 1    0.0             0            0
+IPC stats buffer allocat              1    0.0             0            0
+job workq parent latch               62    0.0             0           61    0.0
+job_queue_processes free            122    0.0             0            0
+job_queue_processes para            845    0.0             0            0
+JS queue access latch                 1    0.0             0            0
+JS queue state obj latch         21,720    0.0             0            0
+JS Sh mem access                      9    0.0             0            0
+JS slv state obj latch              241    0.8    0.0      0            0
+kcbtsemkid latch                      2    0.0             0            0
+kdlx hb parent latch                  1    0.0             0            0
+KFC FX Hash Latch                     1    0.0             0            0
+KFC Hash Latch                        1    0.0             0            0
+KFCL LE Freelist                      1    0.0             0            0
+kgb parent                            1    0.0             0            0
+kgnfs mount latch                     1    0.0             0            0
+KGNFS-NFS:SHM structure               1    0.0             0            0
+KGNFS-NFS:SVR LIST                    1    0.0             0            0
+Latch Activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+KJC message pool free li              1    0.0             0            0
+KJCT flow control latch               1    0.0             0            0
+KMG MMAN ready and start          1,201    0.0             0            0
+ksfv messages                         1    0.0             0            0
+ksim group membership ca              1    0.0             0            0
+kss move lock                        39    0.0             0            0
+ksuosstats global area              283    0.0             0            0
+ksv allocation latch                133    0.0             0            0
+ksv class latch                      77    0.0             0            0
+ksv msg queue latch                   1    0.0             0            0
+ksz_so allocation latch           2,985    0.0             0            0
+KTF sga latch                        19    0.0             0          944    0.0
+ktm global data                      51    0.0             0            0
+kwqbsn:qsga                         138    0.0             0            0
+KWQP Prop Status                      1    0.0             0            0
+KWQS pqsubs latch                     8    0.0             0            0
+KWQS pqueue ctx latch                85    0.0             0            0
+k2q lock allocation                   1    0.0             0            0
+lgwr LWN SCN                      4,779    0.0             0            0
+list of block allocation          2,614    0.0             0            0
+loader state object free          9,982    0.0             0            0
+lob segment dispenser la              1    0.0             0            0
+lob segment hash table l             13    0.0             0            0
+lob segment query latch               1    0.0             0            0
+Locator state objects po              1    0.0             0            0
+lock DBA buffer during m              1    0.0             0            0
+logical standby cache                 1    0.0             0            0
+logminer context allocat              1    0.0             0            0
+logminer local                        1    0.0             0            0
+logminer work area                    1    0.0             0            0
+longop free list parent               1    0.0             0            0
+Lsod array latch                      1    0.0             0            0
+managed standby latch               146    0.0             0            0
+mapped buffers lru chain              1    0.0             0            0
+Memory Management Latch               1    0.0             0        1,201    0.0
+Memory Queue                          1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Subscriber               1    0.0             0            0
+message pool operations             520    0.2    0.0      0            0
+messages                         63,616    0.2    0.0      0            0
+MinActiveScn Latch                   40    0.0             0            0
+mostly latch-free SCN             4,798    0.2    0.0      0            0
+MQL Tracking Latch                    0                    0           71    0.0
+msg queue latch                       1    0.0             0            0
+multiblock read objects          96,728    0.0    0.0      0            0
+Mutex                                 1    0.0             0            0
+Mutex Stats                           1    0.0             0            0
+Latch Activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+name-service namespace b              1    0.0             0            0
+ncodef allocation latch              57    0.0             0            0
+nineth spare latch - X p              1    0.0             0            0
+object queue header heap         11,524    0.0             0        3,097    0.0
+object queue header oper        699,310    0.0    0.0      0            0
+object stats modificatio            963    0.0             0            0
+OS process                        6,661    0.0             0            0
+OS process allocation            10,715    0.0             0            0
+OS process: request allo          2,985    0.0             0            0
+parallel query alloc buf            453    0.0             0            0
+parallel query stats                  1    0.0             0            0
+parameter list                      124    0.0             0            0
+parameter table manageme         23,371    0.0             0            0
+peshm                                 1    0.0             0            0
+pesom_free_list                       1    0.0             0            0
+pesom_hash_node                       1    0.0             0            0
+PL/SQL warning settings          26,618    0.0             0            0
+post/wait queue                  11,037    0.0    0.0      0        8,875    0.0
+process allocation                3,124    0.0             0        1,495    0.0
+process group creation            2,985    0.0             0            0
+process queue                         1    0.0             0            0
+process queue reference               1    0.0             0            0
+PX hash array latch                   1    0.0             0            0
+qmn task queue latch                525    0.0             0            0
+QMT                                   1    0.0             0            0
+query server freelists                1    0.0             0            0
+queued dump request                  12    0.0             0            0
+queuing load statistics               1    0.0             0            0
+recovery domain hash lis              1    0.0             0            0
+redo allocation                 104,694    0.0    0.0      0            0
+redo copy                             1    0.0             0       76,594    0.1
+redo writing                     27,455    0.3    0.0      0            0
+reservation so alloc lat              4    0.0             0            0
+Reserved Space Latch                  8    0.0             0            0
+resmgr group change latc          1,479    0.0             0            0
+resmgr:active threads             3,108    0.0             0            0
+resmgr:actses change gro          1,437    0.0             0            0
+resmgr:actses change sta              1    0.0             0            0
+resmgr:free threads list          3,107    0.0             0            0
+resmgr:plan CPU method                1    0.0             0            0
+resmgr:resource group CP              1    0.0             0            0
+resmgr:schema config                  1    0.0             0            0
+resmgr:session queuing                1    0.0             0            0
+rm cas latch                          1    0.0             0            0
+row cache objects            14,657,188    0.0    0.0      0            0
+rules engine rule set st            100    0.0             0            0
+second Audit Vault latch              1    0.0             0            0
+sequence cache                   34,207    0.0             0            0
+session allocation               36,258    0.0    0.0      0       33,193    0.0
+session idle bit              3,885,719    0.0    0.0      0            0
+Latch Activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+session queue latch                   1    0.0             0            0
+session state list latch          1,396    0.0             0            0
+session switching                 1,548    0.0             0            0
+session timer                     1,199    0.0             0            0
+seventh spare latch - X               1    0.0             0            0
+SGA blob parent                       1    0.0             0            0
+SGA bucket locks                      1    0.0             0            0
+SGA heap locks                        1    0.0             0            0
+SGA IO buffer pool latch             44    0.0             0           49    0.0
+SGA pool locks                        1    0.0             0            0
+Shared B-Tree                       354    0.0             0            0
+shared pool                     753,986    0.0    0.0      0            0
+shared pool sim alloc               734    0.0             0            0
+shared pool simulator            16,186    0.0             0            0
+sim partition latch                   1    0.0             0            0
+simulator hash latch          9,664,719    0.0    0.0      0            0
+simulator lru latch                   1    0.0             0    9,623,458    0.1
+sixth spare latch - X pa              1    0.0             0            0
+sort extent pool                  1,126    0.0             0            0
+space background state o             12    0.0             0            0
+space background task la          3,858    0.4    0.0      0        2,399    0.0
+SQL memory manager latch            121    0.0             0        1,199    0.0
+SQL memory manager worka        476,969    0.0    0.0      0            0
+Streams Generic                       1    0.0             0            0
+tablespace key chain                  1    0.0             0            0
+temporary table state ob            341    0.0             0            0
+tenth spare latch - X pa              1    0.0             0            0
+test excl. parent l0                  1    0.0             0            0
+test excl. parent2 l0                 1    0.0             0            0
+Testing                               1    0.0             0            0
+thirteenth spare latch -              1    0.0             0            0
+threshold alerts latch              322    0.0             0            0
+Token Manager                         1    0.0             0            0
+trace latch                           8    0.0             0            0
+transaction allocation            4,988    0.0             0            0
+twelfth spare latch - ch              1    0.0             0            0
+twenty-fifth spare latch              1    0.0             0            0
+twenty-first spare latch              1    0.0             0            0
+twenty-fourth spare latc              1    0.0             0            0
+twenty-second spare latc              1    0.0             0            0
+twenty-third spare latch              1    0.0             0            0
+undo global data                 36,030    0.0             0            0
+virtual circuit buffers               1    0.0             0            0
+virtual circuit holder                1    0.0             0            0
+virtual circuit queues                1    0.0             0            0
+WCR: sync                             1    0.0             0            0
+write info latch                      0                    0        4,515    0.0
+Write State Object Pool               1    0.0             0            0
+XDB NFS Security Latch                1    0.0             0            0
+XDB unused session pool               1    0.0             0            0
+Latch Activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+XDB used session pool                 1    0.0             0            0
+          -------------------------------------------------------------
+Latch Sleep breakdown  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by misses desc
+
+                                       Get                                 Spin
+Latch Name                        Requests       Misses      Sleeps        Gets
+-------------------------- --------------- ------------ ----------- -----------
+cache buffers chains           274,779,837       10,137           8      10,130
+row cache objects               14,657,188          734           4         730
+shared pool                        753,986          167           1         166
+simulator hash latch             9,664,719           38           1          37
+call allocation                      7,885            5           3           2
+          -------------------------------------------------------------
+Latch Miss Sources  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> only latches with sleeps are shown
+-> ordered by name, sleeps desc
+
+                                                     NoWait              Waiter
+Latch Name               Where                       Misses     Sleeps   Sleeps
+------------------------ -------------------------- ------- ---------- --------
+cache buffers chains     kcbgtcr: fast path (cr pin       0          6        6
+cache buffers chains     kcbchg1: mod cr pin              0          3        1
+cache buffers chains     kcbgtcr: fast path               0          1        0
+call allocation          ksuxds                           0          3        0
+row cache objects        kqreqd: reget                    0          2        0
+row cache objects        kqrpre: find obj                 0          2        3
+shared pool              kghupr1                          0          1        1
+simulator hash latch     kcbsacc: lookup dba              0          1        1
+          -------------------------------------------------------------
+Mutex Sleep  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> ordered by Wait Time desc
+
+                                                                         Wait
+Mutex Type         Location                                 Sleeps     Time (s)
+------------------ -------------------------------- -------------- ------------
+Cursor Pin         kksLockDelete [KKSCHLPIN6]                    1          0.0
+Cursor Pin         kkslce [KKSCHLPIN2]                           1          0.0
+Library Cache      kgllkc1   57                                  1          0.0
+Cursor Pin         kksfbc [KKSCHLPIN1]                           1          0.0
+Library Cache      kgllkdl1  85                                  1          0.0
+          -------------------------------------------------------------
+Segments by Logical Reads  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Segment Logical Reads Threshold:     10000
+-> Pct Total shows % of logical reads for each top segment compared with total
+   logical reads for all segments captured by the Snapshot
+
+                                           Subobject    Obj.       Logical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+FI         FI         MVTLIGNE                          TABLE   20,349,200  12.3
+FI         FI         FACTURE                           TABLE   15,519,872   9.4
+FI         FI         PJ_PES                            TABLE   12,971,488   7.8
+FI         FI_IDX     MAR_VENTIL_SERVICE_U              INDEX   12,230,032   7.4
+SM         SM_IDX     I0_SMCO3C                         INDEX   11,497,760   6.9
+          -------------------------------------------------------------
+
+
+Segments by Physical Reads  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Segment Physical Reads Threshold:      1000
+
+                                           Subobject    Obj.      Physical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+FI         FI         FACTURE                           TABLE   15,141,919  91.6
+FI         FI         MOUVEMENT                         TABLE      860,584   5.2
+FI         FI         COMMANDE                          TABLE      256,119   1.6
+FI         FI         MANDTIERS                         TABLE       45,362    .3
+FI         FI         MVTLIGNE                          TABLE       36,027    .2
+          -------------------------------------------------------------
+Segments by Row Lock Waits  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Segment Row Lock Waits Threshold:       100
+
+                                                                       Row
+                                           Subobject    Obj.          Lock   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+FI         FI_IDX     I0_FIFA1C                         INDEX            8  16.7
+FI         FI_IDX     FIPES_OBJ_PJ_IX1                  INDEX            7  14.6
+FI         FI_IDX     I0_FIMV6J                         INDEX            6  12.5
+FI         FI_IDX     I_FIMV6J                          INDEX            6  12.5
+FI         FI_IDX     I3_FIFA1C                         INDEX            4   8.3
+          -------------------------------------------------------------
+
+
+Segments by Buffer Busy Waits  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> End Segment Buffer Busy Waits Threshold:       100
+
+                                                                    Buffer
+                                           Subobject    Obj.          Busy   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SM         SM         SMPROG                            TABLE            1  50.0
+FI         FI_IDX     FIPES_OBJ_PJ_IX2                  INDEX            1  50.0
+          -------------------------------------------------------------
+Dictionary Cache Stats  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Pct Misses"  should be very low (< 2% in most cases)
+->"Final Usage" is the number of cache entries being used in End Snapshot
+
+                                   Get    Pct    Scan   Pct      Mod      Final
+Cache                         Requests   Miss    Reqs  Miss     Reqs      Usage
+------------------------- ------------ ------ ------- ----- -------- ----------
+dc_awr_control                      63    0.0       0              2          1
+dc_files                            21    0.0       0              0         21
+dc_global_oids                  66,591    0.0       0              0         55
+dc_histogram_data              384,956    0.0       0              0     10,239
+dc_histogram_defs              240,701    0.1       0             11     21,096
+dc_object_grants                   795    0.0       0              0         84
+dc_objects                   3,134,007    0.0       0              3      8,451
+dc_profiles                      3,488    0.0       0              0          3
+dc_rollback_segments             2,308    0.0       0              0         52
+dc_segments                    189,354    0.0       0              0      4,679
+dc_sequences                       200    0.0       0            200         24
+dc_tablespaces                 526,811    0.0       0              0         23
+dc_users                       597,366    0.0       0              0        659
+global database name             3,830    0.0       0              0          1
+outstanding_alerts                 120    0.0       0              0         21
+          -------------------------------------------------------------
+
+
+Library Cache Activity  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+->"Pct Misses"  should be very low
+
+                                                       Get  Pct        Pin
+Namespace                                         Requests  Miss     Requests
+--------------------------------------------- ------------ ------ --------------
+ Pct               Invali-
+ Miss     Reloads  dations
+------ ---------- --------
+ACCOUNT_STATUS                                       4,059    0.0              0
+                0        0
+BODY                                                 3,333    0.0         27,383
+   0.0          0        0
+CLUSTER                                                  7    0.0              7
+   0.0          0        0
+DBLINK                                               4,065    0.0              0
+                0        0
+EDITION                                              1,429    0.0          2,843
+   0.0          0        0
+OBJECT ID                                                1  100.0              0
+                0        0
+QUEUE                                                   64    0.0            938
+   0.0          0        0
+SCHEMA                                               1,437    0.0              0
+                0        0
+SQL AREA                                           230,659    4.1        894,595
+   3.2        267      268
+SQL AREA BUILD                                       9,559   97.9              0
+                0        0
+SQL AREA STATS                                       9,737   97.3          9,737
+  97.3          0        0
+SUBSCRIPTION                                             7    0.0              7
+   0.0          0        0
+TABLE/PROCEDURE                                     49,217    0.0        144,343
+   0.0          8        0
+TRIGGER                                                541    0.0            595
+   0.0          0        0
+          -------------------------------------------------------------
+Rule Sets  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> * indicates Rule Set activity (re)started between Begin/End snaps
+-> Top 25 ordered by Evaluations desc
+
+                                                               No-SQL  SQL
+Rule                                *     Eval/sec Reloads/sec Eval % Eval %
+----------------------------------- - ------------ ----------- ------ ------
+SYS.ALERT_QUE_R                                  0           0      0      0
+          -------------------------------------------------------------
+Streams Pool Advisory  DB/Inst: SMPROD/SMPROD  End Snap: 887
+
+Streams Pool Streams Pool Est Spill Est Spill Est Unspill Est Unspill
+    Size (M)  Size Factor     Count  Time (s)       Count    Time (s)
+------------ ------------ --------- --------- ----------- -----------
+         0.0           .5         0         0           0           0
+         0.0          1.0         0         0           0           0
+         0.0          1.5         0         0           0           0
+         0.0          2.0         0         0           0           0
+         0.0          2.5         0         0           0           0
+         0.0          3.0         0         0           0           0
+         0.0          3.5         0         0           0           0
+         0.0          4.0         0         0           0           0
+         0.0          4.5         0         0           0           0
+         0.0          5.0         0         0           0           0
+         0.0          5.5         0         0           0           0
+         0.0          6.0         0         0           0           0
+         0.0          6.5         0         0           0           0
+         0.0          7.0         0         0           0           0
+         0.0          7.5         0         0           0           0
+         0.0          8.0         0         0           0           0
+         0.0          8.5         0         0           0           0
+         0.0          9.0         0         0           0           0
+         0.0          9.5         0         0           0           0
+         0.0         10.0         0         0           0           0
+          -------------------------------------------------------------
+Shared Pool Advisory  DB/Inst: SMPROD/SMPROD  End Snap: 887
+-> SP: Shared Pool     Est LC: Estimated Library Cache   Factr: Factor
+-> Note there is often a 1:Many correlation between a single logical object
+   in the Library Cache, and the physical number of memory objects associated
+   with it.  Therefore comparing the number of Lib Cache objects (e.g. in
+   v$librarycache), with the number of Lib Cache Memory Objects is invalid
+
+                                        Est LC Est LC  Est LC Est LC
+    Shared    SP   Est LC                 Time   Time    Load   Load      Est LC
+      Pool  Size     Size       Est LC   Saved  Saved    Time   Time         Mem
+  Size (M) Factr      (M)      Mem Obj     (s)  Factr     (s)  Factr    Obj Hits
+---------- ----- -------- ------------ ------- ------ ------- ------ -----------
+     1,408    .3      461       46,404 #######    1.0     954    1.5  51,761,000
+     1,920    .4      971       64,777 #######    1.0     925    1.5  51,771,904
+     2,432    .5    1,483       83,578 #######    1.0     917    1.5  51,773,031
+     2,944    .6    1,909      100,557 #######    1.0     917    1.5  51,773,209
+     3,456    .7    1,909      100,557 #######    1.0     912    1.5  51,773,334
+     3,968    .8    1,909      100,557 #######    1.0     849    1.4  51,774,264
+     4,480    .9    1,909      100,557 #######    1.0     749    1.2  51,775,374
+     4,672    .9    1,909      100,557 #######    1.0     706    1.1  51,775,846
+     4,704    .9    1,909      100,557 #######    1.0     700    1.1  51,775,932
+     4,736    .9    1,909      100,557 #######    1.0     694    1.1  51,776,018
+     4,768   1.0    1,909      100,557 #######    1.0     688    1.1  51,776,261
+     4,800   1.0    1,909      100,557 #######    1.0     680    1.1  51,776,599
+     4,832   1.0    1,909      100,557 #######    1.0     672    1.1  51,776,941
+     4,864   1.0    1,909      100,557 #######    1.0     662    1.1  51,777,290
+     4,896   1.0    1,909      100,557 #######    1.0     653    1.0  51,777,640
+     4,928   1.0    1,909      100,557 #######    1.0     643    1.0  51,777,990
+     4,960   1.0    1,909      100,557 #######    1.0     633    1.0  51,778,346
+     4,992   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,538
+     5,024   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,056   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,088   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,120   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,152   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,184   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,216   1.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,248   1.1    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,280   1.1    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     5,504   1.1    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     6,016   1.2    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     6,528   1.3    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     7,040   1.4    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     7,552   1.5    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     8,064   1.6    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     8,576   1.7    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     9,088   1.8    1,909      100,557 #######    1.0     622    1.0  51,780,551
+     9,600   1.9    1,909      100,557 #######    1.0     622    1.0  51,780,551
+    10,112   2.0    1,909      100,557 #######    1.0     622    1.0  51,780,551
+          -------------------------------------------------------------
+SGA Target Advisory  DB/Inst: SMPROD/SMPROD  End Snap: 887
+
+SGA Target SGA Size   Est DB      Est DB   Est Physical
+  Size (M)   Factor Time (s) Time Factor          Reads
+---------- -------- -------- ----------- --------------
+     2,000       .3   14,987         1.4     70,164,635
+     3,000       .4   11,751         1.1     19,039,523
+     4,000       .5   11,180         1.0     10,028,503
+     5,000       .6   11,121         1.0      9,556,585
+     6,000       .8   11,103         1.0      9,387,004
+     7,000       .9   10,981         1.0     11,640,971
+     8,000      1.0   10,828         1.0      9,690,311
+     9,000      1.1   10,805         1.0      9,332,739
+    10,000      1.3   10,771         1.0      8,792,019
+    11,000      1.4   10,771         1.0      8,792,019
+    12,000      1.5   10,771         1.0      8,792,019
+    13,000      1.6   10,771         1.0      8,792,019
+    14,000      1.8   10,771         1.0      8,792,019
+    15,000      1.9   10,771         1.0      8,792,019
+    16,000      2.0   10,771         1.0      8,792,019
+          -------------------------------------------------------------
+SGA Memory Summary  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+                                                        End Size (Bytes)
+SGA regions                      Begin Size (Bytes)       (if different)
+------------------------------ -------------------- --------------------
+Database Buffers                      2,919,235,584
+Fixed Size                                2,265,224
+Redo Buffers                              7,307,264
+Variable Size                         9,898,561,400
+                               -------------------- --------------------
+sum                                  12,827,369,472
+          -------------------------------------------------------------
+
+
+SGA breakdown difference  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+-> Top 35 rows by size, ordered by Pool, Name (note rows with null values for
+   Pool column, or Names showing free memory are always shown)
+-> Null value for Begin MB or End MB indicates the size of that Pool/Name was
+   insignificant, or zero in that snapshot
+
+Pool   Name                                 Begin MB         End MB  % Diff
+------ ------------------------------ -------------- -------------- --------
+java p free memory                              32.0           32.0     0.00
+large  free memory                              56.2           56.2     0.00
+large  PX msg pool                               7.8            7.8     0.00
+shared free memory                           2,518.3        2,140.7   -14.99
+shared KGLHD                                   120.2          141.5    17.76
+shared KGLH0                                   665.6          780.4    17.24
+shared SQLA                                  1,370.3        1,589.1    15.96
+stream free memory                              63.4           63.4     0.00
+       buffer_cache                          2,784.0        2,784.0     0.00
+       fixed_sga                                 2.2            2.2     0.00
+       log_buffer                                7.0            7.0     0.00
+          -------------------------------------------------------------
+SQL Memory Statistics  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+                                   Begin            End         % Diff
+                          -------------- -------------- --------------
+   Avg Cursor Size (KB):           30.97          30.71           -.84
+ Cursor to Parent ratio:            1.02           1.02           -.15
+          Total Cursors:          52,200         61,669          15.35
+          Total Parents:          51,088         60,447          15.48
+          -------------------------------------------------------------
+init.ora Parameters  DB/Inst: SMPROD/SMPROD  Snaps: 886-887
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+archive_lag_target            1800
+background_core_dump          partial
+compatible                    11.2.0.3.0
+control_files                 /oralink/SMPROD/control01.ctl, /o
+                              ralink/SMPROD/control02.ctl
+db_block_size                 8192
+db_file_multiblock_read_count 8
+db_files                      50
+db_name                       SMPROD
+db_recovery_file_dest         /home/oradata/SMPROD/archive/
+db_recovery_file_dest_size    75161927680
+db_writer_processes           4
+global_names                  TRUE
+job_queue_processes           10
+_kgl_large_heap_warning_thres 16777216
+local_listener                SMPROD
+max_dump_file_size            30M
+memory_max_target             12884901888
+memory_target                 12884901888
+nls_language                  FRENCH
+nls_territory                 FRANCE
+open_cursors                  10000
+os_authent_prefix
+processes                     300
+recyclebin                    off
+remote_login_passwordfile     EXCLUSIVE
+sec_case_sensitive_logon      FALSE
+session_cached_cursors        100
+undo_management               AUTO
+undo_retention                1800
+undo_tablespace               undo
+utl_file_dir                  /home/oracle/product/11.2.0/admin
+                              /SMPROD/udump
+workarea_size_policy          auto
+          -------------------------------------------------------------
+
+End of Report ( /zenity_client/reports/MPM_sp-SMPROD-886_887.txt )
+

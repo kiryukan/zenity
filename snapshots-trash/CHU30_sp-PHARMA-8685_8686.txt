@@ -1,0 +1,2778 @@
+
+STATSPACK report for
+
+Database    DB Id    Instance     Inst Num  Startup Time   Release     RAC
+~~~~~~~~ ----------- ------------ -------- --------------- ----------- ---
+          4177943570 PHARMA              1 13-Aug-18 10:21 12.1.0.2.0  NO
+
+Host         Name             Platform                CPUs Cores Sockets
+  Memory (G)
+~~~~ ---------------- ---------------------- ----- ----- ------- ------------
+     P4-086-PHAB      Linux x86 64-bit           8     8       1         15.4
+
+Snapshot       Snap Id     Snap Time      Sessions Curs/Sess Comment
+~~~~~~~~    ---------- ------------------ -------- --------- ------------------
+Begin Snap:       8685 05-Oct-18 13:00:18      271       2.8
+  End Snap:       8686 05-Oct-18 14:00:23      281       2.8
+   Elapsed:      60.08 (mins) Av Act Sess:       1.5
+   DB time:      87.47 (mins)      DB CPU:      69.85 (mins)
+
+Cache Sizes            Begin        End
+~~~~~~~~~~~       ---------- ----------
+    Buffer Cache:     1,808M              Std Block Size:         8K
+     Shared Pool:     3,168M                  Log Buffer:    12,256K
+
+Load Profile              Per Second    Per Transaction    Per Exec    Per Call
+~~~~~~~~~~~~      ------------------  ----------------- ----------- -----------
+      DB time(s):                1.5                0.1        0.00        0.00
+       DB CPU(s):                1.2                0.1        0.00        0.00
+       Redo size:           64,697.2            4,334.4
+   Logical reads:           32,982.0            2,209.6
+   Block changes:              354.3               23.7
+  Physical reads:            2,141.1              143.4
+ Physical writes:               19.2                1.3
+      User calls:              977.9               65.5
+          Parses:            1,110.6               74.4
+     Hard parses:               62.1                4.2
+W/A MB processed:                6.0                0.4
+          Logons:                1.0                0.1
+        Executes:            1,430.8               95.9
+       Rollbacks:                0.0                0.0
+    Transactions:               14.9
+
+Instance Efficiency Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Buffer Nowait %:  100.00       Redo NoWait %:  100.00
+            Buffer  Hit   %:   94.88  Optimal W/A Exec %:  100.00
+            Library Hit   %:   92.75        Soft Parse %:   94.41
+         Execute to Parse %:   22.38         Latch Hit %:   99.90
+Parse CPU to Parse Elapsd %:   96.27     % Non-Parse CPU:   29.45
+
+ Shared Pool Statistics        Begin   End
+                               ------  ------
+             Memory Usage %:   87.72   90.81
+    % SQL with executions>1:   80.38   79.20
+  % Memory for SQL w/exec>1:   63.18   63.51
+
+Top 5 Timed Events                                                    Avg %Total
+~~~~~~~~~~~~~~~~~~                                                   wait   Call
+Event                                            Waits    Time (s)   (ms)   Time
+----------------------------------------- ------------ ----------- ------ ------
+CPU time                                                     3,894          72.2
+db file sequential read                      5,773,617       1,130      0   21.0
+Backup: MML create a backup piece                    4          94  23482    1.7
+log file parallel write                         73,827          87      1    1.6
+log file sync                                   68,327          85      1    1.6
+          -------------------------------------------------------------
+Host CPU  (CPUs: 8  Cores: 8  Sockets: 1)
+~~~~~~~~              Load Average
+                      Begin     End      User  System    Idle     WIO     WCPU
+                    ------- -------   ------- ------- ------- ------- --------
+                       1.78    1.89     16.56    1.47   81.93    3.44
+
+Instance CPU
+~~~~~~~~~~~~                                       % Time (seconds)
+                                            -------- --------------
+                     Host: Total time (s):                 28,704.3
+                  Host: Busy CPU time (s):                  5,186.2
+                   % of time Host is Busy:      18.1
+             Instance: Total CPU time (s):                  4,221.1
+          % of Busy CPU used for Instance:      81.4
+        Instance: Total Database time (s):                  5,506.0
+  %DB time waiting for CPU (Resource Mgr):       0.0
+
+Memory Statistics                       Begin          End
+~~~~~~~~~~~~~~~~~                ------------ ------------
+                  Host Mem (MB):     15,772.7     15,772.7
+                   SGA use (MB):      6,048.0      6,048.0
+                   PGA use (MB):      1,139.4      1,182.9
+    % Host Mem used for SGA+PGA:         45.6         45.8
+          -------------------------------------------------------------
+
+Time Model System Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Ordered by % of DB time desc, Statistic name
+
+Statistic                                       Time (s) % DB time
+----------------------------------- -------------------- ---------
+DB CPU                                           4,190.8      79.9
+parse time elapsed                               2,850.3      54.3
+hard parse elapsed time                          2,803.8      53.4
+sql execute elapsed time                         2,189.7      41.7
+connection management call elapsed                  29.1        .6
+hard parse (sharing criteria) elaps                 11.4        .2
+PL/SQL execution elapsed time                        4.3        .1
+inbound PL/SQL rpc elapsed time                      2.1        .0
+sequence load elapsed time                           2.1        .0
+failed parse elapsed time                            0.9        .0
+PL/SQL compilation elapsed time                      0.5        .0
+RMAN cpu time (backup/restore)                       0.5        .0
+repeated bind elapsed time                           0.2        .0
+hard parse (bind mismatch) elapsed                   0.0        .0
+DB time                                          5,248.1
+background elapsed time                            257.9
+background cpu time                                 30.3
+          -------------------------------------------------------------
+Foreground Wait Events  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+db file sequential read         5,770,115    0      1,130      0    107.2   21.0
+log file sync                      68,322    0         85      1      1.3    1.6
+direct path read                    6,353    0         22      3      0.1     .4
+db file scattered read             15,793    0         12      1      0.3     .2
+Failed Logon Delay                     12  100         12   1000      0.0     .2
+control file sequential read       13,487    0          3      0      0.3     .0
+SQL*Net more data to client       191,583    0          2      0      3.6     .0
+db file parallel read               2,883    0          1      1      0.1     .0
+recovery area: computing obs            4    0          1    273      0.0     .0
+switch logfile command                  4    0          1    223      0.0     .0
+latch: shared pool                  4,501    0          1      0      0.1     .0
+Disk file operations I/O           14,158    0          1      0      0.3     .0
+control file single write             106    0          0      5      0.0     .0
+enq: WL - contention                    2    0          0    207      0.0     .0
+control file parallel write           154    0          0      1      0.0     .0
+SQL*Net break/reset to clien          810    0          0      0      0.0     .0
+resmgr:internal state change            1    0          0     99      0.0     .0
+recovery area: computing bac            4    0          0     24      0.0     .0
+enq: KO - fast object checkp           52    0          0      2      0.0     .0
+recovery area: computing dro            4    0          0     11      0.0     .0
+undo segment extension                  9   78          0      4      0.0     .0
+cursor: pin S                          26    0          0      1      0.0     .0
+oracle thread bootstrap                 2    0          0     11      0.0     .0
+enq: CF - contention                    5    0          0      4      0.0     .0
+library cache lock                     13    0          0      1      0.0     .0
+log file switch (checkpoint             1    0          0      9      0.0     .0
+CSS initialization                      2    0          0      4      0.0     .0
+latch: row cache objects              146    0          0      0      0.0     .0
+kfk: async disk IO                      6    0          0      1      0.0     .0
+log file sequential read               24    0          0      0      0.0     .0
+Parameter File I/O                      4    0          0      1      0.0     .0
+cursor: pin S wait on X                 1    0          0      4      0.0     .0
+reliable message                       52    0          0      0      0.0     .0
+Log archive I/O                         2    0          0      2      0.0     .0
+CSS operation: action                   4    0          0      1      0.0     .0
+CSS operation: query                   12    0          0      0      0.0     .0
+SQL*Net message from client     3,164,950    0  1,055,501    333     58.8
+jobq slave wait                     3,249  100      1,620    499      0.1
+SQL*Net message to client       3,164,958    0          4      0     58.8
+SQL*Net more data from clien       75,967    0          3      0      1.4
+KSV master wait                       145    0          0      1      0.0
+          -------------------------------------------------------------
+
+Background Wait Events  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+Backup: MML create a backup             4    0         94  23482      0.0    1.7
+log file parallel write            73,827    0         87      1      1.4    1.6
+target log write size              10,680    1         12      1      0.2     .2
+Backup: MML commit backup pi            4    0         11   2755      0.0     .2
+control file sequential read       13,258    0          5      0      0.2     .1
+Backup: MML write backup pie        1,253    0          3      2      0.0     .0
+Backup: MML query backup pie            4    0          2    587      0.0     .0
+db file parallel write              7,344    0          2      0      0.1     .0
+oracle thread bootstrap               207    0          2     10      0.0     .0
+Backup: MML shutdown                    4    0          2    446      0.0     .0
+control file parallel write         1,498    0          2      1      0.0     .0
+log file sequential read              196    0          1      4      0.0     .0
+db file sequential read             3,502    0          1      0      0.1     .0
+ASM file metadata operation         1,730    0          0      0      0.0     .0
+control file single write              54    0          0      5      0.0     .0
+latch free                            136    0          0      2      0.0     .0
+os thread creation                    209    0          0      1      0.0     .0
+LGWR all worker groups                 71    0          0      1      0.0     .0
+RMAN backup & recovery I/O             36    0          0      1      0.0     .0
+Disk file operations I/O              798    0          0      0      0.0     .0
+latch: shared pool                     79    0          0      1      0.0     .0
+enq: CF - contention                    4    0          0     10      0.0     .0
+db file scattered read                 44    0          0      1      0.0     .0
+Backup: MML initialization              4    0          0      7      0.0     .0
+enq: JS - queue lock                    2    0          0     10      0.0     .0
+log file single write                  20    0          0      1      0.0     .0
+SQL*Net more data to client         1,109    0          0      0      0.0     .0
+Log archive I/O                         3    0          0      3      0.0     .0
+ADR block file write                    9    0          0      1      0.0     .0
+LGWR any worker group                   1    0          0      8      0.0     .0
+direct path write                      10    0          0      1      0.0     .0
+log file sync                           5    0          0      1      0.0     .0
+kfk: async disk IO                      9    0          0      1      0.0     .0
+CSS initialization                      2    0          0      3      0.0     .0
+ADR block file read                    20    0          0      0      0.0     .0
+asynch descriptor resize            6,844  100          0      0      0.1     .0
+SQL*Net break/reset to clien           24    0          0      0      0.0     .0
+reliable message                       46    0          0      0      0.0     .0
+direct path read                        5    0          0      1      0.0     .0
+LGWR wait for redo copy                94    0          0      0      0.0     .0
+CSS operation: action                   4    0          0      1      0.0     .0
+CSS operation: query                   12    0          0      0      0.0     .0
+rdbms ipc message                 154,641   12     68,457    443      2.9
+Space Manager: slave idle wa        8,540    0     25,242   2956      0.2
+DIAG idle wait                      7,205    0      7,204   1000      0.1
+LGWR worker group idle             73,855    0      6,435     87      1.4
+class slave wait                      861    0      6,394   7426      0.0
+dispatcher timer                       61  100      3,661  60009      0.0
+shared server idle wait               121  100      3,631  30009      0.0
+pmon timer                          1,206  100      3,606   2990      0.0
+smon timer                          1,218    0      3,606   2960      0.0
+
+Background Wait Events  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+heartbeat redo informer             3,605    0      3,605   1000      0.1
+wait for unread message on b        1,201  100      3,605   3002      0.0
+lreg timer                          1,200  100      3,603   3002      0.0
+ASM background timer                  907    0      3,602   3971      0.0
+AQPC idle                             120  100      3,601  30010      0.0
+Streams AQ: qmn coordinator           256   50      3,585  14005      0.0
+Streams AQ: qmn slave idle w          128    0      3,585  28010      0.0
+SQL*Net message from client        12,959    0         51      4      0.2
+SQL*Net more data from clien        1,109    0          0      0      0.0
+KSV master wait                       249    0          0      0      0.0
+SQL*Net message to client           9,741    0          0      0      0.2
+          -------------------------------------------------------------
+
+Wait Events (fg and bg) DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+db file sequential read         5,773,617    0      1,130      0    107.3   21.0
+Backup: MML create a backup             4    0         94  23482      0.0    1.7
+log file parallel write            73,827    0         87      1      1.4    1.6
+log file sync                      68,327    0         85      1      1.3    1.6
+direct path read                    6,358    0         22      3      0.1     .4
+db file scattered read             15,837    0         12      1      0.3     .2
+target log write size              10,680    1         12      1      0.2     .2
+Failed Logon Delay                     12  100         12   1000      0.0     .2
+Backup: MML commit backup pi            4    0         11   2755      0.0     .2
+control file sequential read       26,745    0          8      0      0.5     .2
+Backup: MML write backup pie        1,253    0          3      2      0.0     .0
+Backup: MML query backup pie            4    0          2    587      0.0     .0
+db file parallel write              7,344    0          2      0      0.1     .0
+oracle thread bootstrap               209    0          2     10      0.0     .0
+SQL*Net more data to client       192,692    0          2      0      3.6     .0
+control file parallel write         1,652    0          2      1      0.0     .0
+Backup: MML shutdown                    4    0          2    446      0.0     .0
+db file parallel read               2,883    0          1      1      0.1     .0
+recovery area: computing obs            4    0          1    273      0.0     .0
+switch logfile command                  4    0          1    223      0.0     .0
+latch: shared pool                  4,580    0          1      0      0.1     .0
+log file sequential read              220    0          1      4      0.0     .0
+control file single write             160    0          1      5      0.0     .0
+Disk file operations I/O           14,956    0          1      0      0.3     .0
+enq: WL - contention                    2    0          0    207      0.0     .0
+ASM file metadata operation         1,748    0          0      0      0.0     .0
+latch free                            138    0          0      2      0.0     .0
+os thread creation                    209    0          0      1      0.0     .0
+SQL*Net break/reset to clien          834    0          0      0      0.0     .0
+resmgr:internal state change            1    0          0     99      0.0     .0
+recovery area: computing bac            4    0          0     24      0.0     .0
+LGWR all worker groups                 71    0          0      1      0.0     .0
+enq: KO - fast object checkp           52    0          0      2      0.0     .0
+enq: CF - contention                    9    0          0      6      0.0     .0
+RMAN backup & recovery I/O             36    0          0      1      0.0     .0
+recovery area: computing dro            4    0          0     11      0.0     .0
+undo segment extension                  9   78          0      4      0.0     .0
+cursor: pin S                          26    0          0      1      0.0     .0
+Backup: MML initialization              4    0          0      7      0.0     .0
+enq: JS - queue lock                    2    0          0     10      0.0     .0
+log file single write                  20    0          0      1      0.0     .0
+Log archive I/O                         5    0          0      3      0.0     .0
+CSS initialization                      4    0          0      3      0.0     .0
+kfk: async disk IO                     15    0          0      1      0.0     .0
+library cache lock                     13    0          0      1      0.0     .0
+log file switch (checkpoint             1    0          0      9      0.0     .0
+ADR block file write                    9    0          0      1      0.0     .0
+LGWR any worker group                   1    0          0      8      0.0     .0
+reliable message                       98    0          0      0      0.0     .0
+
+Wait Events (fg and bg) DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+direct path write                      10    0          0      1      0.0     .0
+latch: row cache objects              146    0          0      0      0.0     .0
+CSS operation: action                   8    0          0      1      0.0     .0
+Parameter File I/O                      4    0          0      1      0.0     .0
+ADR block file read                    20    0          0      0      0.0     .0
+cursor: pin S wait on X                 1    0          0      4      0.0     .0
+asynch descriptor resize            6,844  100          0      0      0.1     .0
+CSS operation: query                   24    0          0      0      0.0     .0
+LGWR wait for redo copy                94    0          0      0      0.0     .0
+SQL*Net message from client     3,177,909    0  1,055,552    332     59.1
+rdbms ipc message                 154,641   12     68,457    443      2.9
+Space Manager: slave idle wa        8,540    0     25,242   2956      0.2
+DIAG idle wait                      7,205    0      7,204   1000      0.1
+LGWR worker group idle             73,855    0      6,435     87      1.4
+class slave wait                      861    0      6,394   7426      0.0
+dispatcher timer                       61  100      3,661  60009      0.0
+shared server idle wait               121  100      3,631  30009      0.0
+pmon timer                          1,206  100      3,606   2990      0.0
+smon timer                          1,218    0      3,606   2960      0.0
+heartbeat redo informer             3,605    0      3,605   1000      0.1
+wait for unread message on b        1,201  100      3,605   3002      0.0
+lreg timer                          1,200  100      3,603   3002      0.0
+ASM background timer                  907    0      3,602   3971      0.0
+AQPC idle                             120  100      3,601  30010      0.0
+Streams AQ: qmn coordinator           256   50      3,585  14005      0.0
+Streams AQ: qmn slave idle w          128    0      3,585  28010      0.0
+jobq slave wait                     3,249  100      1,620    499      0.1
+SQL*Net message to client       3,174,699    0          4      0     59.0
+SQL*Net more data from clien       77,076    0          3      0      1.4
+KSV master wait                       394    0          0      0      0.0
+          -------------------------------------------------------------
+Wait Event Histogram  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ADR block file read          20  100.0
+ADR block file write          9   44.4  55.6
+ADR file lock                14  100.0
+ASM background starting       6  100.0
+ASM file metadata operatio 1748   98.1    .9    .3    .3    .3    .1
+asynch descriptor resize   6844  100.0
+Backup: MML command to cha    4  100.0
+Backup: MML commit backup     4                                            100.0
+Backup: MML create a backu    4                                            100.0
+Backup: MML extended initi    4  100.0
+Backup: MML initialization    4   50.0                    50.0
+Backup: MML query backup p    4                                      100.0
+Backup: MML shutdown          4   50.0                                50.0
+Backup: MML write backup p 1253     .8  47.0  52.1                      .1
+buffer busy waits            13  100.0
+control file parallel writ 1652   62.0  35.7   1.5    .2    .5
+control file sequential re   26K  96.4   3.0    .6    .0    .0    .0
+control file single write   160    7.5  24.4  11.9  53.1   3.1
+CSS initialization            4              100.0
+CSS operation: action         8  100.0
+CSS operation: query         24  100.0
+cursor: pin S                26        100.0
+cursor: pin S wait on X       1                    100.0
+db file async I/O submit   1001  100.0
+db file parallel read      2883   87.2   8.9   3.7    .2
+db file parallel write     7344   94.8   4.6    .3    .1    .1          .0
+db file scattered read       15K  85.3   8.1   6.2    .4    .0
+db file sequential read    5773K  99.1    .8    .1    .0    .0    .0    .0
+direct path read           6358    4.8   8.6  56.0  30.5    .0
+direct path write            10   90.0  10.0
+Disk file operations I/O     14K  99.9    .1    .0
+enq: CF - contention          9   22.2        22.2  22.2  33.3
+enq: JS - queue lock          2                          100.0
+enq: KO - fast object chec   52   19.2  63.5  11.5   5.8
+enq: TX - index contention    2  100.0
+enq: WL - contention          2         50.0                          50.0
+Failed Logon Delay           12                                      100.0
+get branch/thread/sequence   11  100.0
+kfk: async disk IO           15   73.3  26.7
+latch: cache buffers chain    8  100.0
+latch: cache buffers lru c    8  100.0
+latch: call allocation       10  100.0
+latch free                  138   82.6              15.9   1.4
+latch: row cache objects    147   99.3    .7
+latch: shared pool         4581   97.8   1.1    .7    .4
+LGWR all worker groups       71   28.2  66.2   4.2               1.4
+LGWR any worker group         1                    100.0
+LGWR wait for redo copy      94  100.0
+LGWR worker group ordering    3  100.0
+library cache load lock       7  100.0
+library cache lock           13   69.2  30.8
+Wait Event Histogram  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+library cache: mutex X      144  100.0
+Log archive I/O               5         40.0  60.0
+log file parallel write      73K  51.7  44.6   2.1   1.0    .5    .0    .0
+log file sequential read    220   36.8   2.7   4.5  48.6   7.3
+log file single write        20   85.0  15.0
+log file switch (checkpoin    1                          100.0
+log file sync                68K  43.8  51.6   3.0   1.1    .5    .1    .0
+oracle thread bootstrap     209                          100.0
+os thread creation          209   92.8   7.2
+Parameter File I/O            4   50.0  25.0  25.0
+read by other session         3  100.0
+recovery area: computing b    4                                 75.0  25.0
+recovery area: computing d    4                     50.0  25.0  25.0
+recovery area: computing o    4                                      100.0
+Redo Transport Open           5  100.0
+reliable message            100  100.0
+resmgr:internal state chan    1                                      100.0
+RMAN backup & recovery I/O   36   72.2   5.6  11.1  11.1
+row cache lock                6  100.0
+SQL*Net break/reset to cli  834   99.4    .4    .1                .1
+SQL*Net more data to clien  192K 100.0
+switch logfile command        4                           25.0  50.0  25.0
+target log write size        10K  60.5  35.0   2.0   1.2   1.2
+undo segment extension        9   66.7                    22.2  11.1
+AQPC idle                   120                                            100.0
+ASM background timer        907   16.1    .6    .6    .1   1.3    .6    .8  80.0
+class slave wait            860   56.7   7.3   5.2   9.1   3.5   2.0   8.4   7.8
+DIAG idle wait             7205                                      100.0
+dispatcher timer             61                                            100.0
+heartbeat redo informer    3604                                      100.0
+jobq slave wait            3249                                      100.0
+KSV master wait             394   92.9   3.8   1.3   1.3    .3    .5
+LGWR worker group idle       73K  10.9   8.0  18.5  27.0  14.0   8.7  11.8   1.0
+lreg timer                 1200                                            100.0
+pmon timer                 1206                                         .3  99.7
+rdbms ipc message           154K  23.1  25.0   9.8  13.2   7.0   4.2   8.7   9.0
+shared server idle wait     121                                            100.0
+smon timer                 1218           .1                            .7  99.3
+Space Manager: slave idle  8492     .8    .0    .0    .6                .0  98.5
+SQL*Net message from clien 3177K  77.5  10.1   5.8   3.6   1.2    .6    .9    .2
+SQL*Net message to client  3174K 100.0
+SQL*Net more data from cli   77K  99.7    .2    .1    .0    .0    .0    .0
+Streams AQ: qmn coordinato  256   50.0                                      50.0
+Streams AQ: qmn slave idle  128                                            100.0
+wait for unread message on 1202                                            100.0
+          -------------------------------------------------------------
+
+SQL ordered by Elapsed time for DB: PHARMA  Instance: PHARMA  Snaps: 8685 -8686
+-> Total DB Time (s):           5,248
+-> Captured SQL accounts for    5.9% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+     59.43            3      19.81    1.1       9.81         241,119  393125863
+Module: pharma.exe
+SELECT PRESADM.PRDISP, PRESADM.PRCONSO, PRESADM.QTECONSO, PRESAD
+M.QTEDISP, PRESADM.SERVDIS, PRESADM.ETATADM, SEJOUR.SERVICEHEB ,
+ TO_CHAR (SEJOUR.DATEOUT , 'yyyymmdd'), TO_CHAR (PRESADM.DATEDIS
+P , 'yyyymmdd'), PRESADM.HEUREADMPRES, SEJOUR.HEUREOUT, SEJOUR.P
+
+     55.40           80       0.69    1.1      22.44         236,470 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+          -------------------------------------------------------------
+SQL ordered by Gets  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:     118,899,919
+-> Captured SQL accounts for   19.0% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+      6,567,212    3,283,856            2.0    5.6    30.40     39.60 3360804353
+select default$ from col$ where rowid=:1
+
+      2,717,286           78       34,837.0    2.3     9.16      9.76  195790540
+Module: INTFOUI-PROD.exe
+SELECT  u.TABLE_NAME as "NOM_TABLE" , u.COLUMN_NAME as "NOM_COLO
+NNE" , u.data_type as "TYPE" , u.data_length as "LONGUEUR" , u.d
+ata_precision as "PRECISION" , u.data_scale as "SCALE" , t.last_
+analyzed as "LAST_ANALYZED" , t.monitoring as "MONITORING" , t.n
+
+      2,370,725           80       29,634.1    2.0    22.44     55.40 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+          -------------------------------------------------------------
+SQL ordered by Reads  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Disk Reads Threshold:      1000  Total Disk Reads:       7,718,592
+-> Captured SQL accounts for    9.8% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+        241,119            3       80,373.0    3.1     9.81     59.43  393125863
+Module: pharma.exe
+SELECT PRESADM.PRDISP, PRESADM.PRCONSO, PRESADM.QTECONSO, PRESAD
+M.QTEDISP, PRESADM.SERVDIS, PRESADM.ETATADM, SEJOUR.SERVICEHEB ,
+ TO_CHAR (SEJOUR.DATEOUT , 'yyyymmdd'), TO_CHAR (PRESADM.DATEDIS
+P , 'yyyymmdd'), PRESADM.HEUREADMPRES, SEJOUR.HEUREOUT, SEJOUR.P
+
+        236,470           80        2,955.9    3.1    22.44     55.40 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+         93,647            3       31,215.7    1.2     4.36     14.39 1946784214
+Module: pharma.exe
+SELECT PRESADM.PRDISP, PRESADM.QTEDISP, PRESADM.SERVDIS, SE.SERV
+ICEHEB , SE.PACLEUNIK, PRESADM.P5CLEUNIK, PRESADM.TYPEDIS FROM P
+RESADM, PRESCRIP, (SELECT SECLEUNIK,SERVICEHEB ,PACLEUNIK FROM S
+EJOUR WHERE SERVICEHEB ='4092') SE WHERE PRESCRIP.SECLEUNIK=SE.S
+
+          -------------------------------------------------------------
+SQL ordered by Executions  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Executions Threshold:       100  Total Executions:       5,158,168
+-> Captured SQL accounts for   93.3% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+   3,283,856       3,283,615              1.0       0.00        0.00  3360804353
+select default$ from col$ where rowid=:1
+
+     497,094         497,094              1.0       0.00        0.00  2607268604
+Module: INTFOUI-PROD.exe
+SELECT rowid,  ID_OUI_TABLE_DESCRIPTION,NOMTABLE,NOMCOLONNE,DESC
+RIPTION,TYPAGECOL,LONGEURCOL,VISUCOL,FILTRECOL,LIBFILTRE,ORDRECO
+L FROM OUI_TABLE_DESCRIPTION where OUI_TABLE_DESCRIPTION.ROWID=:
+V1 ORDER BY NOMTABLE,ORDRECOL,NOMCOLONNE
+
+     497,094         497,094              1.0       0.00        0.00  3065076209
+Module: INTFOUI-PROD.exe
+SELECT rowid, ID_OUI_TABLE_DESCRIPTION,NOMTABLE,NOMCOLONNE,TYPAG
+ECOL,LONGEURCOL,ORDRECOL  FROM OUI_TABLE_DESCRIPTION  where OUI_
+TABLE_DESCRIPTION.ROWID=:V1 ORDER BY NOMTABLE,NOMCOLONNE  desc
+
+     166,580         166,580              1.0       0.00        0.00  2926525797
+select type#,blocks,extents,minexts,maxexts,extsize,extpct,user#
+,iniexts,NVL(lists,65535),NVL(groups,65535),cachehint,hwmincr, N
+VL(spare1,0),NVL(scanhint,0),NVL(bitmapranges,0) from seg$ where
+ ts#=:1 and file#=:2 and block#=:3
+
+      65,036               0              0.0       0.00        0.00  1512023764
+select obj#, name, stab#, sobj#, sobjd#, ttab#, tobj#, tobjd#, m
+flags from rmtab$ where (stab# = :1 or ttab# = :1) order by obj#
+
+          -------------------------------------------------------------
+SQL ordered by Parse Calls  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Parse Calls Threshold:      1000 Total Parse Calls:       4,003,769
+-> Captured SQL accounts for   89.6% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+   3,283,907    3,283,856    82.02 3360804353
+select default$ from col$ where rowid=:1
+
+      65,036       65,036     1.62 1512023764
+select obj#, name, stab#, sobj#, sobjd#, ttab#, tobj#, tobjd#, m
+flags from rmtab$ where (stab# = :1 or ttab# = :1) order by obj#
+
+          -------------------------------------------------------------
+SQL ordered by Sharable Memory  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      3,292       3,292          337        1,489     0.1 2601358618
+select i.obj#,i.ts#,i.file#,i.block#,i.intcols,i.type#,i.flags,i
+.property,i.pctfree$,i.initrans,i.maxtrans,i.blevel,i.leafcnt,i.
+distkey,i.lblkkey,i.dblkkey,i.clufac,i.cols,i.analyzetime,i.samp
+lesize,i.dataobj#,nvl(i.degree,1),nvl(i.instances,1),i.rowcnt,mo
+
+      3,257           0            0            0     0.1 3415344012
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      3,257           0            0            0     0.1 2434785366
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      3,256           0            0            0     0.1  201597980
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      3,256           0            0            0     0.1 1035827797
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      3,256           0            0            0     0.1  756054012
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      3,256           0            0            0     0.1 3165307850
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      3,252       3,252            1            1     0.1 2109764661
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SQL ordered by Sharable Memory  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      2,645           0            0            0     0.1 1782323394
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      2,220       2,220           80           80     0.1 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+      1,907       1,883          151        2,119     0.1  656850954
+select obj#,type#,ctime,mtime,stime, status, dataobj#, flags, oi
+d$, spare1, spare2, spare3, signature, spare7, spare8, spare9 fr
+om obj$ where owner#=:1 and name=:2 and namespace=:3 and remoteo
+wner is null and linkname is null and subname is null
+
+      1,878           0            0            0     0.1 3667955864
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+      1,647       1,596          404          404     0.1 4118814203
+select decode(u.type#, 2, u.ext_username, u.name), o.name,
+  t.update$, t.insert$, t.delete$, t.enabled,        decode(bita
+nd(t.property, 8192),8192, 1, 0),        decode(bitand(t.propert
+y, 65536), 65536, 1, 0),       decode(bitand(t.property, 131072)
+
+      1,235       1,235            1            1     0.0  107273672
+Module: pharma.exe
+INSERT ALL INTO DISPTEMPORAIRE (DTCLEUNIK, CLEOUVERTURE, P5CLEUN
+IK, P0CLEUNIK, PRCLEUNIK, ADISPENSER, P5QTEAADM, P5QTEAADMINITIA
+LE, P5QTEDEJADISP, P5QTEDEJADISPINIT, P5QTEADISPENSER , P5QTEADI
+SPENSERINIT, LIBCALCPR, LIBCALCP0, SECLEUNIK, P5DATE, P5HEURE, I
+
+          -------------------------------------------------------------
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+active txn count during cleanout               1,867            0.5          0.0
+application wait time                             20            0.0          0.0
+background checkpoints completed                   7            0.0          0.0
+background checkpoints started                     5            0.0          0.0
+background timeouts                           18,019            5.0          0.3
+Batched IO block miss count                    3,868            1.1          0.1
+Batched IO (bound) vector count                   55            0.0          0.0
+Batched IO buffer defrag count                    30            0.0          0.0
+Batched IO double miss count                     507            0.1          0.0
+Batched IO (full) vector count                     0            0.0          0.0
+Batched IO same unit count                       337            0.1          0.0
+Batched IO single block count                     52            0.0          0.0
+Batched IO (space) vector count                    0            0.0          0.0
+Batched IO vector block count                  3,480            1.0          0.1
+Batched IO vector read count                     178            0.1          0.0
+Block Cleanout Optim referenced                  235            0.1          0.0
+branch node splits                                 3            0.0          0.0
+buffer is not pinned count               136,454,888       37,851.6      2,535.9
+buffer is pinned count                   173,959,071       48,254.9      3,232.8
+bytes received via SQL*Net from c        469,603,865      130,264.6      8,727.1
+bytes sent via SQL*Net to client       1,040,237,396      288,554.1     19,331.7
+Cached Commit SCN referenced               5,402,759        1,498.7        100.4
+calls to get snapshot scn: kcmgss          8,138,495        2,257.6        151.3
+calls to kcmgas                              363,116          100.7          6.8
+calls to kcmgcs                            1,003,129          278.3         18.6
+CCursor + sql area evicted                   214,272           59.4          4.0
+cell physical IO interconnect byt     66,861,304,832   18,546,825.2  1,242,544.2
+change write time                                484            0.1          0.0
+cleanout - number of ktugct calls              2,498            0.7          0.1
+cleanouts and rollbacks - consist                 31            0.0          0.0
+cleanouts only - consistent read                 184            0.1          0.0
+CLI BG attempt Flush                           1,202            0.3          0.0
+CLI BG ENQ                                     1,202            0.3          0.0
+CLI BG Fls done                                   12            0.0          0.0
+CLI bytes fls to table                         9,312            2.6          0.2
+CLI Flstask create                             1,202            0.3          0.0
+CLI Flush                                      1,202            0.3          0.0
+CLI SGA Alloc                                      0            0.0          0.0
+CLI Thru Wrt                                      12            0.0          0.0
+cluster key scan block gets                3,246,165          900.5         60.3
+cluster key scans                          2,328,755          646.0         43.3
+commit batch/immediate performed                   7            0.0          0.0
+commit batch/immediate requested                   7            0.0          0.0
+commit cleanout failures: block l                  5            0.0          0.0
+commit cleanout failures: buffer                   0            0.0          0.0
+commit cleanout failures: callbac                189            0.1          0.0
+commit cleanout failures: cannot                   0            0.0          0.0
+commit cleanouts                             267,966           74.3          5.0
+commit cleanouts successfully com            267,772           74.3          5.0
+commit immediate performed                         7            0.0          0.0
+commit immediate requested                         7            0.0          0.0
+Commit SCN cached                                207            0.1          0.0
+commit txn count during cleanout               1,267            0.4          0.0
+concurrency wait time                            102            0.0          0.0
+consistent changes                            25,036            6.9          0.5
+consistent gets                          117,224,769       32,517.3      2,178.5
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+consistent gets direct                     1,723,080          478.0         32.0
+consistent gets examination               57,141,966       15,850.8      1,061.9
+consistent gets examination (fast         56,343,285       15,629.2      1,047.1
+consistent gets from cache               115,501,691       32,039.3      2,146.5
+consistent gets pin                       58,359,725       16,188.6      1,084.6
+consistent gets pin (fastpath)            52,807,896       14,648.5        981.4
+CPU used by this session                     389,402          108.0          7.2
+CPU used when call started                   388,315          107.7          7.2
+CR blocks created                              1,372            0.4          0.0
+cursor authentications                        36,542           10.1          0.7
+cursor reload failures                             8            0.0          0.0
+data blocks consistent reads - un              4,259            1.2          0.1
+db block changes                           1,277,315          354.3         23.7
+db block gets                              1,675,121          464.7         31.1
+db block gets direct                               0            0.0          0.0
+db block gets from cache                   1,675,121          464.7         31.1
+db block gets from cache (fastpat            921,047          255.5         17.1
+DB time                                      676,226          187.6         12.6
+DBWR checkpoint buffers written                6,161            1.7          0.1
+DBWR checkpoints                                  57            0.0          0.0
+DBWR object drop buffers written                   0            0.0          0.0
+DBWR parallel query checkpoint bu                217            0.1          0.0
+DBWR revisited being-written buff                  0            0.0          0.0
+DBWR tablespace checkpoint buffer                  0            0.0          0.0
+DBWR thread checkpoint buffers wr              5,944            1.7          0.1
+DBWR transaction table writes                     36            0.0          0.0
+DBWR undo block writes                        11,672            3.2          0.2
+deferred (CURRENT) block cleanout            165,510           45.9          3.1
+dirty buffers inspected                       49,812           13.8          0.9
+Effective IO time                         21,748,372        6,032.8        404.2
+enqueue conversions                            3,058            0.9          0.1
+enqueue releases                             806,452          223.7         15.0
+enqueue requests                             806,466          223.7         15.0
+enqueue timeouts                                   6            0.0          0.0
+enqueue waits                                     67            0.0          0.0
+exchange deadlocks                                 0            0.0          0.0
+execute count                              5,158,168        1,430.8         95.9
+failed probes on index block recl                  5            0.0          0.0
+fastpath consistent get quota lim            600,679          166.6         11.2
+file io service time                          14,615            4.1          0.3
+file io wait time                      2,112,598,261      586,018.9     39,260.3
+frame signature mismatch                           0            0.0          0.0
+free buffer inspected                      6,628,138        1,838.6        123.2
+free buffer requested                      6,021,349        1,670.3        111.9
+heap block compress                            5,779            1.6          0.1
+Heap Segment Array Inserts                    20,116            5.6          0.4
+hot buffers moved to head of LRU           2,878,078          798.4         53.5
+HSC Heap Segment Block Changes               125,048           34.7          2.3
+immediate (CR) block cleanout app                215            0.1          0.0
+immediate (CURRENT) block cleanou             32,389            9.0          0.6
+in call idle wait time                    14,775,079        4,098.5        274.6
+index crx upgrade (positioned)                     0            0.0          0.0
+index crx upgrade (prefetch)                   1,271            0.4          0.0
+index fast full scans (full)                   1,390            0.4          0.0
+index fetch by key                        46,909,738       13,012.4        871.8
+index scans kdiixs1                       15,650,827        4,341.4        290.9
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+KTFB alloc req                                    48            0.0          0.0
+KTFB alloc space (block)                  49,348,608       13,688.9        917.1
+KTFB alloc time (ms)                           3,029            0.8          0.1
+KTFB apply req                                    92            0.0          0.0
+KTFB apply time (ms)                           1,697            0.5          0.0
+KTFB commit req                                    0            0.0          0.0
+KTFB commit time (ms)                              0            0.0          0.0
+KTFB free req                                     47            0.0          0.0
+KTFB free space (block)                        6,016            1.7          0.1
+KTFB free time (ms)                              867            0.2          0.0
+leaf node splits                                 956            0.3          0.0
+leaf node 90-10 splits                            89            0.0          0.0
+lob reads                                          0            0.0          0.0
+LOB table id lookup cache misses                   0            0.0          0.0
+lob writes                                         0            0.0          0.0
+lob writes unaligned                               0            0.0          0.0
+logical read bytes from cache        959,912,411,136  266,272,513.5 ############
+logons cumulative                              3,460            1.0          0.1
+max cf enq hold time                             100            0.0          0.0
+messages received                             88,207           24.5          1.6
+messages sent                                 88,207           24.5          1.6
+min active SCN optimization appli                235            0.1          0.0
+Misses for writing mapping                         0            0.0          0.0
+no buffer to keep pinned count                 6,548            1.8          0.1
+no work - consistent read gets            57,326,702       15,902.0      1,065.4
+non-idle wait count                        9,542,286        2,647.0        177.3
+non-idle wait time                           150,394           41.7          2.8
+Number of read IOs issued                     15,229            4.2          0.3
+opened cursors cumulative                  4,215,271        1,169.3         78.3
+parse count (describe)                             1            0.0          0.0
+parse count (failures)                         1,119            0.3          0.0
+parse count (hard)                           223,913           62.1          4.2
+parse count (total)                        4,003,769        1,110.6         74.4
+parse time cpu                               274,740           76.2          5.1
+parse time elapsed                           285,379           79.2          5.3
+physical read bytes                   63,230,697,472   17,539,721.9  1,175,073.4
+physical read IO requests                  5,827,848        1,616.6        108.3
+physical read total bytes             65,290,451,456   18,111,082.2  1,213,351.6
+physical read total IO requests            5,859,403        1,625.4        108.9
+physical read total multi block r             20,196            5.6          0.4
+physical reads                             7,718,592        2,141.1        143.4
+physical reads cache                       5,994,458        1,662.8        111.4
+physical reads cache prefetch                202,321           56.1          3.8
+physical reads direct                      1,724,134          478.3         32.0
+physical reads direct (lob)                        0            0.0          0.0
+physical reads direct temporary t                  0            0.0          0.0
+physical reads prefetch warmup                     0            0.0          0.0
+physical write bytes                     565,460,992      156,854.6     10,508.5
+physical write IO requests                    51,738           14.4          1.0
+physical write total bytes             1,570,853,376      435,743.0     29,192.6
+physical write total IO requests             339,840           94.3          6.3
+physical write total multi block               1,624            0.5          0.0
+physical writes                               69,026           19.2          1.3
+physical writes direct                            95            0.0          0.0
+physical writes direct (lob)                       0            0.0          0.0
+physical writes direct temporary                   0            0.0          0.0
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+physical writes from cache                    68,931           19.1          1.3
+physical writes non checkpoint                61,720           17.1          1.2
+pinned buffers inspected                         112            0.0          0.0
+pinned cursors current                             0            0.0          0.0
+prefetch clients - default                         0            0.0          0.0
+prefetch warmup blocks aged out b                  0            0.0          0.0
+prefetched blocks aged out before              1,363            0.4          0.0
+process last non-idle time                     3,604            1.0          0.1
+recovery blocks read                               0            0.0          0.0
+recursive aborts on index block r                  0            0.0          0.0
+recursive calls                           25,976,425        7,205.7        482.7
+recursive cpu usage                          274,729           76.2          5.1
+redo blocks checksummed by FG (ex             52,709           14.6          1.0
+redo blocks read for recovery                      0            0.0          0.0
+redo blocks written                          545,091          151.2         10.1
+redo blocks written (group 0)                544,729          151.1         10.1
+redo blocks written (group 1)                    352            0.1          0.0
+redo buffer allocation retries                     1            0.0          0.0
+redo entries                                 665,882          184.7         12.4
+redo KB read                                 288,642           80.1          5.4
+redo k-bytes read for recovery                     0            0.0          0.0
+redo log space requests                            1            0.0          0.0
+redo log space wait time                           1            0.0          0.0
+redo ordering marks                              990            0.3          0.0
+redo size                                233,233,320       64,697.2      4,334.4
+redo size for direct writes                        0            0.0          0.0
+redo subscn max counts                         1,082            0.3          0.0
+redo synch long waits                              4            0.0          0.0
+redo synch time                                8,270            2.3          0.2
+redo synch time overhead count (              68,425           19.0          1.3
+redo synch time overhead count (                  18            0.0          0.0
+redo synch time overhead count (                   1            0.0          0.0
+redo synch time overhead count (i                  1            0.0          0.0
+redo synch time overhead count (1                  0            0.0          0.0
+redo synch time overhead (usec)            9,096,742        2,523.4        169.1
+redo synch time (usec)                    85,526,686       23,724.5      1,589.4
+redo synch writes                             68,644           19.0          1.3
+redo wastage                              37,059,200       10,279.9        688.7
+redo write finish time                    89,530,773       24,835.2      1,663.8
+redo write gather time                     1,841,746          510.9         34.2
+redo write info find                          68,444           19.0          1.3
+redo write info find fail                          0            0.0          0.0
+redo write schedule time                   1,938,401          537.7         36.0
+redo write size count (   4KB)                63,573           17.6          1.2
+redo write size count (   8KB)                 8,512            2.4          0.2
+redo write size count (  16KB)                   768            0.2          0.0
+redo write size count (  32KB)                   547            0.2          0.0
+redo write size count ( 128KB)                   184            0.1          0.0
+redo write size count ( 256KB)                    51            0.0          0.0
+redo write size count ( 512KB)                   168            0.1          0.0
+redo write size count (inf)                        5            0.0          0.0
+redo write size count (1024KB)                    10            0.0          0.0
+redo write time                                8,957            2.5          0.2
+redo write time (usec)                    89,573,144       24,846.9      1,664.6
+redo write total time                     90,474,137       25,096.9      1,681.4
+redo write worker delay (usec)             1,546,836          429.1         28.8
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+redo writes                                   73,818           20.5          1.4
+redo writes adaptive all                      73,818           20.5          1.4
+redo writes adaptive worker                   73,816           20.5          1.4
+redo writes (group 0)                         73,794           20.5          1.4
+redo writes (group 1)                             22            0.0          0.0
+Requests to/from client                    3,164,840          877.9         58.8
+rollback changes - undo records a                 16            0.0          0.0
+rollbacks only - consistent read               1,351            0.4          0.0
+root node splits                                   0            0.0          0.0
+RowCR - row contention                             1            0.0          0.0
+RowCR attempts                                 2,108            0.6          0.0
+RowCR hits                                     1,766            0.5          0.0
+rows fetched via callback                 41,453,513       11,498.9        770.4
+scheduler wait time                                0            0.0          0.0
+securefile allocation bytes                        0            0.0          0.0
+securefile allocation chunks                       0            0.0          0.0
+securefile bytes non-transformed               9,362            2.6          0.2
+securefile direct read bytes                       0            0.0          0.0
+securefile direct read ops                         0            0.0          0.0
+securefile direct write bytes                      0            0.0          0.0
+securefile direct write ops                        0            0.0          0.0
+securefile number of non-transfor                 14            0.0          0.0
+segment chunks allocation from di                  0            0.0          0.0
+segment dispenser allocations                      0            0.0          0.0
+segment dispenser load tasks                       0            0.0          0.0
+segment prealloc ops                               0            0.0          0.0
+segment prealloc tasks                             0            0.0          0.0
+segment prealloc time (ms)                         0            0.0          0.0
+segment prealloc ufs2cfs bytes                     0            0.0          0.0
+session connect time                               0            0.0          0.0
+session cursor cache hits                    966,328          268.1         18.0
+session logical reads                    118,899,919       32,982.0      2,209.6
+session pga memory                        26,885,968        7,458.0        499.7
+session pga memory max                   269,634,000       74,794.5      5,010.9
+session uga memory                       333,426,368       92,490.0      6,196.4
+session uga memory max                 4,823,242,664    1,337,931.4     89,634.7
+shared hash latch upgrades - no w          1,335,586          370.5         24.8
+shared hash latch upgrades - wait                  2            0.0          0.0
+shared io pool buffer get success                  0            0.0          0.0
+SMON posted for dropping temp seg                  0            0.0          0.0
+SMON posted for undo segment shri                 14            0.0          0.0
+sorts (disk)                                       0            0.0          0.0
+sorts (memory)                               248,322           68.9          4.6
+sorts (rows)                               5,534,843        1,535.3        102.9
+sql area evicted                             218,131           60.5          4.1
+sql area purged                                  441            0.1          0.0
+SQL*Net roundtrips to/from client          3,165,124          878.0         58.8
+summed dirty queue length                    384,958          106.8          7.2
+switch current to new buffer                  13,230            3.7          0.3
+table fetch by rowid                     125,963,727       34,941.4      2,340.9
+table fetch continued row                  3,924,442        1,088.6         72.9
+table scan blocks gotten                   7,850,944        2,177.8        145.9
+table scan disk non-IMC rows gott        507,518,869      140,781.9      9,431.7
+table scan rows gotten                   507,518,869      140,781.9      9,431.7
+table scans (direct read)                        160            0.0          0.0
+table scans (long tables)                         39            0.0          0.0
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+table scans (rowid ranges)                         0            0.0          0.0
+table scans (short tables)                   118,898           33.0          2.2
+TBS Extension: bytes extended                      0            0.0          0.0
+TBS Extension: files extended                      0            0.0          0.0
+TBS Extension: tasks created                       1            0.0          0.0
+TBS Extension: tasks executed                      1            0.0          0.0
+total cf enq hold time                           730            0.2          0.0
+total number of cf enq holders                   214            0.1          0.0
+total number of times SMON posted              1,218            0.3          0.0
+transaction rollbacks                              7            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+undo change vector size                   80,213,324       22,250.6      1,490.7
+user calls                                 3,525,461          977.9         65.5
+user commits                                  53,671           14.9          1.0
+user I/O wait time                           116,666           32.4          2.2
+user logons cumulative                         3,218            0.9          0.1
+user logouts cumulative                        3,209            0.9          0.1
+user rollbacks                                   139            0.0          0.0
+workarea executions - onepass                      0            0.0          0.0
+workarea executions - optimal                147,155           40.8          2.7
+write clones created in backgroun                  0            0.0          0.0
+write clones created in foregroun                  7            0.0          0.0
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Statistics with absolute values (should not be diffed)
+
+Statistic                             Begin Value       End Value
+--------------------------------- --------------- ---------------
+logons current                                271             281
+opened cursors current                        765             788
+session cursor cache count             45,982,354      46,031,894
+workarea memory allocated                 311,736         311,736
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Statistics identified by '(derived)' come from sources other than SYSSTAT
+
+Statistic                                      Total  per Hour
+--------------------------------- ------------------ ---------
+log switches (derived)                             5      4.99
+          -------------------------------------------------------------
+
+OS Statistics  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by statistic type (CPU use, Virtual Memory, Hardware Config), Name
+
+Statistic                                  Total
+------------------------- ----------------------
+SWAP_FREE_BYTES                   20,389,294,080
+BUSY_TIME                                518,624
+IDLE_TIME                              2,351,808
+IOWAIT_TIME                               98,691
+NICE_TIME                                      0
+SYS_TIME                                  42,094
+USER_TIME                                475,407
+RSRC_MGR_CPU_WAIT_TIME                        16
+VM_OUT_BYTES                                   0
+PHYSICAL_MEMORY_BYTES             16,538,906,624
+NUM_CPU_CORES                                  8
+NUM_CPUS                                       8
+NUM_CPU_SOCKETS                                1
+GLOBAL_RECEIVE_SIZE_MAX                4,194,304
+GLOBAL_SEND_SIZE_MAX                   1,048,576
+TCP_RECEIVE_SIZE_DEFAULT                  87,380
+TCP_RECEIVE_SIZE_MAX                   6,291,456
+TCP_RECEIVE_SIZE_MIN                       4,096
+TCP_SEND_SIZE_DEFAULT                     16,384
+TCP_SEND_SIZE_MAX                      4,194,304
+TCP_SEND_SIZE_MIN                          4,096
+          -------------------------------------------------------------
+
+OS Statistics - detail  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+  Snap Snapshot
+    Id Day Time          Load  %Busy  %User %System   %WIO  %WCPU
+------ --------------- ------ ------ ------ ------- ------ ------
+  8685 Fri 05 13:00:18    1.8
+  8686 Fri 05 14:00:23    1.9   18.1   16.6     1.5    3.4
+          -------------------------------------------------------------
+IO Stat by Function - summary  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->Data Volume values suffixed with   M,G,T,P are in multiples of 1024,
+  other values suffixed with       K,M,G,T,P are in multiples of 1000
+->ordered by Data Volume (Read+Write) desc
+
+               ---------- Read --------- --------- Write -------- --- Wait ----
+                 Data  Requests    Data   Data  Requests    Data          Avg
+Function        Volume     /sec  Vol/sec Volume     /sec  Vol/sec  Count Tm(ms)
+--------------- ------ -------- -------- ------ -------- -------- ------ ------
+Buffer Cache Re    46G  1612.2     13.0M                           5791K    0.0
+Direct Reads       13G     4.3      3.7M             .0                     0.0
+Others           1099M     6.7       .3M   391M      .9       .1M    24K    0.0
+RMAN              783M     1.0       .2M    35M      .1       .0M  1514     0.0
+LGWR               59M     1.1       .0M   535M    78.9       .1M    78K    0.0
+Streams AQ                  .0                                       15     0.0
+Direct Writes               .0                       .0                     0.0
+          -------------------------------------------------------------
+
+IO Stat by Function - detail  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->ordered by Data Volume (Read+Write) desc
+
+                   ----------- Read ---------- ----------- Write ---------
+                    Small  Large  Small  Large  Small  Large  Small  Large
+                     Read   Read   Data   Data  Write  Write   Data   Data
+Function             Reqs   Reqs   Read   Read   Reqs   Reqs  Writn  Writn
+------------------ ------ ------ ------ ------ ------ ------ ------ ------
+Buffer Cache Reads  5810K  1862     45G  1094M
+Direct Reads        1249     14K   120M    13G     2
+Others                22K  2069    368M   731M  3040    348     48M   343M
+RMAN                1304   2158     58M   725M   214     32      4M    31M
+LGWR                3792            59M          284K   722    384M   151M
+Streams AQ            15
+Direct Writes          7                          93
+          -------------------------------------------------------------
+Tablespace IO Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->ordered by IOs (Reads + Writes) desc
+
+Tablespace
+------------------------------
+                 Av      Av     Av                    Av        Buffer Av Buf
+         Reads Reads/s Rd(ms) Blks/Rd       Writes Writes/s      Waits Wt(ms)
+-------------- ------- ------ ------- ------------ -------- ---------- ------
+PHARM
+     4,915,436   1,364    0.3     1.3       16,822        5          2    5.0
+PHARMIDX
+       468,307     130    0.2     1.1       26,221        7          2    0.0
+SYSAUX
+       188,776      52    0.2     1.0          279        0          0    0.0
+SYSTEM
+        93,780      26    0.2     1.3          203        0          1    0.0
+INDX
+        84,758      24    0.2     1.0        4,749        1          0    0.0
+USERS
+        65,132      18    0.3     3.9          504        0          0    0.0
+PERFSTAT
+        11,246       3    0.2     1.1        1,686        0          0    0.0
+UNDOTBS1
+           748       0    0.3     1.0        1,269        0         12    0.0
+GOLDENGATE
+           180       0    0.3     1.0            5        0          0    0.0
+TEMP
+            12       0    0.0     1.0            0        0          0    0.0
+          -------------------------------------------------------------
+File IO Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+GOLDENGATE               +DATA/PHARMA/DATAFILE/goldengate.279.949585137
+           180       0   0.3   1     1.0            5        0          0
+
+INDX                     +DATA/PHARMA/DATAFILE/indx.266.949584819
+        20,223       6   0.3   1     1.0        2,390        1          0
+                         +DATA/PHARMA/DATAFILE/indx.267.949584775
+        64,535      18   0.2   1     1.0        2,359        1          0
+
+PERFSTAT                 +DATA/PHARMA/DATAFILE/perfstat.280.957173219
+        11,246       3   0.2   1     1.1        1,686        0          0
+
+PHARM                    +DATA/PHARMA/DATAFILE/pharm.268.949584767
+       574,422     159   0.3   1     1.1        5,212        1          1    0.0
+                         +DATA/PHARMA/DATAFILE/pharm.269.949584731
+     1,070,112     297   0.3   1     1.4        4,219        1          1   10.0
+                         +DATA/PHARMA/DATAFILE/pharm.270.949584697
+     1,069,642     297   0.3   1     1.4        2,471        1          0
+                         +DATA/PHARMA/DATAFILE/pharm.271.949584663
+     1,076,733     299   0.3   1     1.3        2,869        1          0
+                         +DATA/PHARMA/DATAFILE/pharm.272.949584629
+     1,124,527     312   0.3   1     1.3        2,051        1          0
+
+PHARMIDX                 +DATA/PHARMA/DATAFILE/pharmidx.273.949584823
+       108,514      30   0.2   1     1.1        5,511        2          0
+                         +DATA/PHARMA/DATAFILE/pharmidx.274.949584851
+        80,873      22   0.2   1     1.1        5,271        1          0
+                         +DATA/PHARMA/DATAFILE/pharmidx.275.949584879
+        76,927      21   0.2   1     1.1        2,638        1          1    0.0
+                         +DATA/PHARMA/DATAFILE/pharmidx.276.949584909
+        67,956      19   0.2   1     1.1        4,125        1          0
+                         +DATA/PHARMA/DATAFILE/pharmidx.277.949584939
+        74,338      21   0.2   1     1.1        3,979        1          0
+                         +DATA/PHARMA/DATAFILE/pharmidx.278.949584967
+        59,699      17   0.2   1     1.1        4,697        1          1    0.0
+
+SYSAUX                   +DATA/PHARMA/DATAFILE/sysaux.256.949169997
+       188,776      52   0.2   1     1.0          279        0          0
+
+SYSTEM                   +DATA/PHARMA/DATAFILE/system.257.949170041
+        93,780      26   0.2   1     1.3          203        0          1    0.0
+
+TEMP                     +DATA/PHARMA/TEMPFILE/temp.264.949170137
+            12       0   0.0         1.0            0        0          0
+
+UNDOTBS1                 +DATA/PHARMA/DATAFILE/undotbs1.259.949170087
+           748       0   0.3   1     1.0        1,269        0         12    0.0
+
+USERS                    +DATA/PHARMA/DATAFILE/users.258.949170087
+        65,132      18   0.3   1     3.9          504        0          0
+
+File IO Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+          -------------------------------------------------------------
+File Read Histogram Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+USERS                    +DATA/PHARMA/DATAFILE/users.258.949170087
+      62,607            0            0            0            0            0
+
+PHARM                    +DATA/PHARMA/DATAFILE/pharm.270.949584697
+   1,054,260            0            0            0            0            0
+
+INDX                     +DATA/PHARMA/DATAFILE/indx.266.949584819
+      19,846            0            0            0            0            0
+
+PHARMIDX                 +DATA/PHARMA/DATAFILE/pharmidx.275.949584879
+      75,085            0            0            0            0            0
+
+PHARM                    +DATA/PHARMA/DATAFILE/pharm.269.949584731
+   1,055,268            0            0            0            0            0
+                         +DATA/PHARMA/DATAFILE/pharm.268.949584767
+     567,881            0            0            0            0            0
+                         +DATA/PHARMA/DATAFILE/pharm.271.949584663
+   1,060,695            0            0            0            0            0
+
+PHARMIDX                 +DATA/PHARMA/DATAFILE/pharmidx.276.949584909
+      66,615            0            0            0            0            0
+                         +DATA/PHARMA/DATAFILE/pharmidx.278.949584967
+      58,549            0            0            0            0            0
+                         +DATA/PHARMA/DATAFILE/pharmidx.274.949584851
+      79,273            0            0            0            0            0
+
+GOLDENGATE               +DATA/PHARMA/DATAFILE/goldengate.279.949585137
+         173            0            0            0            0            0
+
+SYSTEM                   +DATA/PHARMA/DATAFILE/system.257.949170041
+      89,681            0            0            0            0            0
+
+UNDOTBS1                 +DATA/PHARMA/DATAFILE/undotbs1.259.949170087
+         727            0            0            0            0            0
+
+SYSAUX                   +DATA/PHARMA/DATAFILE/sysaux.256.949169997
+     187,653            0            0            0            0            0
+
+PHARMIDX                 +DATA/PHARMA/DATAFILE/pharmidx.273.949584823
+     106,845            0            0            0            0            0
+                         +DATA/PHARMA/DATAFILE/pharmidx.277.949584939
+      72,921            0            0            0            0            0
+
+INDX                     +DATA/PHARMA/DATAFILE/indx.267.949584775
+      63,557            0            0            0            0            0
+
+PHARM                    +DATA/PHARMA/DATAFILE/pharm.272.949584629
+   1,110,793            0            0            0            0            0
+
+PERFSTAT                 +DATA/PHARMA/DATAFILE/perfstat.280.957173219
+      11,155            0            0            0            0            0
+File Read Histogram Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+
+          -------------------------------------------------------------
+Instance Recovery Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> B: Begin snapshot,  E: End snapshot
+
+  Targt Estd                                  Log File  Log Ckpt    Log Ckpt
+  MTTR  MTTR   Recovery   Actual    Target      Size     Timeout    Interval
+   (s)   (s)   Estd IOs  Redo Blks Redo Blks Redo Blks  Redo Blks  Redo Blks
+- ----- ----- ---------- --------- --------- ---------- --------- ------------
+B     0     0       3929    245609    243337     995328    243337
+E     0     0       3422    191958    201484     995328    201484
+          -------------------------------------------------------------
+Memory Target Advice  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Advice Reset: if this is null, the data shown has been diffed between
+   the Begin and End snapshots.  If this is 'Y', the advisor has been
+   reset during this interval due to memory resize operations, and
+   the data shown is since the reset operation.
+
+                Memory Size     Est.     Advice
+Memory Size (M)      Factor DB time (s)  Reset
+--------------- ----------- ------------ ------
+          1,024          .1        8,026
+          2,048          .3        5,239
+          4,096          .5        5,238
+          5,120          .6        5,238
+          6,144          .8        5,238
+          7,168          .9        5,238
+          8,192         1.0        5,250
+          9,216         1.1        5,238
+         10,240         1.3        5,238
+         11,264         1.4        5,249
+         12,288         1.5        5,238
+         13,312         1.6        5,238
+         14,336         1.8        5,248
+         15,360         1.9        5,248
+         16,384         2.0        5,248
+          -------------------------------------------------------------
+
+Memory Dynamic Components  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->  Op - memory resize Operation
+->  Cache:    D: Default,  K: Keep,  R:  Recycle
+->   Mode:  DEF: DEFerred mode,  IMM: IMMediate mode
+
+                       Begin Snap End Snap   Op    Last Op
+Cache                    Size (M) Size (M)  Count  Type/Mode   Last Op Time
+---------------------- ---------- -------- ------- ---------- ---------------
+D:buffer cache              1,808                0 SHRINK/DEF 04-Oct 04:25:51
+java pool                      16                0 SHRINK/DEF 13-Aug 10:31:18
+large pool                     48                0 SHRINK/DEF 13-Aug 10:22:15
+PGA Target                  2,864                0 STATIC
+SGA Target                  5,328                0 STATIC
+Shared IO Pool                240                0 STATIC
+shared pool                 3,168                0 GROW/DEF   04-Oct 04:25:51
+streams pool                   16                0 SHRINK/DEF 13-Aug 10:31:18
+          -------------------------------------------------------------
+
+Buffer Pool Advisory  DB/Inst: PHARMA/PHARMA  End Snap: 8686
+-> Only rows with estimated physical reads >0 are displayed
+-> ordered by Pool, Block Size, Buffers For Estimate
+
+                                   Est
+                                  Phys      Estimated                   Est
+    Size for  Size      Buffers   Read     Phys Reads     Est Phys % dbtime
+P    Est (M) Factr  (thousands)  Factr    (thousands)    Read Time  for Rds
+--- -------- ----- ------------ ------ -------------- ------------ --------
+D        176    .1           22    2.8     12,596,730    3,088,356     58.0
+D        352    .2           43    2.4     10,894,033    2,649,997     49.8
+D        528    .3           65    2.2      9,958,786    2,409,218     45.3
+D        704    .4           87    1.8      8,251,547    1,969,689     37.0
+D        880    .5          108    1.7      7,634,695    1,810,880     34.0
+D      1,056    .6          130    1.6      7,289,212    1,721,935     32.4
+D      1,232    .7          151    1.5      6,938,441    1,631,630     30.7
+D      1,408    .8          173    1.4      6,213,306    1,444,943     27.2
+D      1,584    .9          195    1.2      5,205,732    1,185,544     22.3
+D      1,760   1.0          216    1.0      4,597,958    1,029,072     19.3
+D      1,808   1.0          222    1.0      4,489,096    1,001,045     18.8
+D      1,936   1.1          238    0.9      4,199,288      926,434     17.4
+D      2,112   1.2          260    0.9      3,894,532      847,975     15.9
+D      2,288   1.3          281    0.8      3,624,557      778,470     14.6
+D      2,464   1.4          303    0.8      3,371,208      713,245     13.4
+D      2,640   1.5          325    0.7      3,151,116      656,583     12.3
+D      2,816   1.6          346    0.7      2,962,487      608,020     11.4
+D      2,992   1.7          368    0.6      2,798,223      565,730     10.6
+D      3,168   1.8          389    0.6      2,660,357      530,236     10.0
+D      3,344   1.8          411    0.6      2,541,385      499,607      9.4
+D      3,520   1.9          433    0.5      2,437,455      472,850      8.9
+          -------------------------------------------------------------
+
+Buffer Pool Statistics  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Standard block size Pools  D: default,  K: keep,  R: recycle
+-> Default Pools for other block sizes: 2k, 4k, 8k, 16k, 32k
+-> Buffers: the number of buffers.  Units of K, M, G are divided by 1000
+
+                                                            Free Writ     Buffer
+            Pool         Buffer     Physical    Physical  Buffer Comp       Busy
+P   Buffers Hit%           Gets        Reads      Writes   Waits Wait      Waits
+--- ------- ---- -------------- ------------ ----------- ------- ---- ----------
+D      221K   95    117,238,101    5,994,676      68,931       0    0         17
+          -------------------------------------------------------------
+
+Buffer wait Statistics  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by wait time desc, waits desc
+
+Class                                                                    Waits
+------------------------------------------------------------------ -----------
+Total Wait Time (s) Avg Time (ms)
+------------------- -------------
+data block                                                                   5
+                  0             2
+undo header                                                                  9
+                  0             0
+          -------------------------------------------------------------
+PGA Aggr Target Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> B: Begin snap   E: End snap (rows identified with B or E contain data
+   which is absolute i.e. not diffed over the interval)
+-> PGA cache hit % - percentage of W/A (WorkArea) data processed only in-memory
+-> Auto PGA Target - actual workarea memory target
+-> W/A PGA Used    - amount of memory used for all WorkAreas (manual + auto)
+-> %PGA W/A Mem    - percentage of PGA memory allocated to WorkAreas
+-> %Auto W/A Mem   - percentage of WorkArea memory controlled by Auto Mem Mgmt
+-> %Man W/A Mem    - percentage of WorkArea memory under Manual control
+
+PGA Cache Hit % W/A MB Processed Extra W/A MB Read/Written
+--------------- ---------------- -------------------------
+          100.0           21,573                         0
+
+PGA Aggr Target Histogram  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Optimal Executions are purely in-memory operations
+
+    Low    High
+Optimal Optimal    Total Execs Optimal Execs 1-Pass Execs M-Pass Execs
+------- ------- -------------- ------------- ------------ ------------
+     2K      4K        126,530       126,530            0            0
+    64K    128K            518           518            0            0
+   128K    256K            324           324            0            0
+   256K    512K            770           770            0            0
+   512K   1024K         13,150        13,150            0            0
+     1M      2M          4,892         4,892            0            0
+     2M      4M            922           922            0            0
+     4M      8M             32            32            0            0
+    16M     32M              2             2            0            0
+   128M    256M              9             9            0            0
+          -------------------------------------------------------------
+
+PGA Memory Advisory  DB/Inst: PHARMA/PHARMA  End Snap: 8686
+-> When using Auto Memory Mgmt, minimally choose a pga_aggregate_target value
+   where Estd PGA Overalloc Count is 0
+
+                                   Estd Extra                Estd
+  PGA Aggr                           W/A MB      Estd Time    PGA   Estd PGA
+    Target   Size         W/A MB  Read/Written  to Process  Cache  Overalloc
+  Est (MB)  Factr      Processed    to Disk      Bytes (s)  Hit %      Count
+---------- ------ -------------- -------------- ---------- ------ ----------
+       358    0.1     29,340,265     21,606,292    3,916.4   58.0    286,393
+       716    0.3     29,340,265      8,223,554    2,887.6   78.0     90,205
+     1,432    0.5     29,340,265         26,635    2,257.5  100.0          0
+     2,148    0.8     29,340,265         20,822    2,257.1  100.0          0
+     2,864    1.0     29,340,265         20,820    2,257.1  100.0          0
+     3,437    1.2     29,340,265         20,081    2,257.0  100.0          0
+     4,010    1.4     29,340,265         20,081    2,257.0  100.0          0
+     4,582    1.6     29,340,265         20,081    2,257.0  100.0          0
+     5,155    1.8     29,340,265         20,081    2,257.0  100.0          0
+     5,728    2.0     29,340,265         20,081    2,257.0  100.0          0
+     8,592    3.0     29,340,265         20,081    2,257.0  100.0          0
+    11,456    4.0     29,340,265         20,081    2,257.0  100.0          0
+    17,184    6.0     29,340,265         20,081    2,257.0  100.0          0
+    22,912    8.0     29,340,265         20,081    2,257.0  100.0          0
+          -------------------------------------------------------------
+Process Memory Summary Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> B: Begin snap   E: End snap
+-> All rows below contain absolute values (i.e. not diffed over the interval)
+-> Max Alloc is Maximum PGA Allocation size at snapshot time
+   Hist Max Alloc is the Historical Max Allocation for still-connected processes
+-> Num Procs or Allocs:  For Begin/End snapshot lines, it is the number of
+   processes. For Category lines, it is the number of allocations
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                                                                  Hist   Num
+                                          Avg    Std Dev   Max    Max   Procs
+             Alloc     Used    Freeabl   Alloc    Alloc   Alloc  Alloc    or
+  Category   (MB)      (MB)      (MB)     (MB)    (MB)    (MB)    (MB)  Allocs
+- -------- --------- --------- -------- -------- ------- ------- ------ ------
+B --------   1,143.4     750.6    229.4      4.2     6.2      60    296    273
+  Other        903.6                         3.3     5.7      60     60    273
+  Freeable     229.7        .0               1.0     2.0      28           221
+  SQL            7.9       2.8                .0      .2       2    285    239
+  PL/SQL         2.8       1.9                .0      .0       0      1    271
+E --------   1,189.1     781.6    242.6      4.2     6.1      60    296    283
+  Other        934.1                         3.3     5.6      60     60    283
+  Freeable     242.6        .0               1.0     1.9      28           237
+  SQL           10.8       6.2                .0      .3       3    284    248
+  PL/SQL         3.0       2.1                .0      .0       0      1    281
+          -------------------------------------------------------------
+
+Top Process Memory (by component)  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     27 MARK --------    59.5    59.3       .0       59.5       59.5
+         Other            59.5                        59.5       59.5
+         PL/SQL             .0      .0                  .0         .0
+      32 ARC0 --------    44.3    40.7      1.1       44.3       44.3
+         Other            43.3                        43.3       43.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      33 ARC1 --------    44.3    40.7      1.1       44.3       44.3
+         Other            43.3                        43.3       43.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      35 ARC3 --------    44.3    40.7      1.1       44.3       44.3
+         Other            43.3                        43.3       43.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      12 DBW0 --------    41.7    12.6     27.7       41.7       41.7
+         Freeable         27.7      .0                27.7
+         Other            14.0                        14.0       14.0
+         PL/SQL             .0      .0                  .0         .0
+      34 ARC2 --------    19.4    17.8       .0       19.4       19.4
+         Other            19.4                        19.4       19.4
+         PL/SQL             .0      .0                  .0         .0
+      23 MMON --------    13.9     3.8      1.8       13.9       13.9
+         Other            11.8                        11.8       11.8
+         Freeable          1.8      .0                 1.8
+         PL/SQL             .3      .0                  .3         .3
+         SQL                .1      .0                  .1        1.6
+      41 CJQ0 --------    12.5     3.4      8.2       12.5       12.5
+         Freeable          8.2      .0                 8.2
+         Other             3.8                         3.8        3.8
+         SQL                .5      .0                  .5        2.5
+         PL/SQL             .0      .0                  .0         .1
+      38 W000 --------     8.3     3.1      4.9        8.3        8.3
+         Freeable          4.9      .0                 4.9
+         Other             3.3                         3.3        3.3
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+      39 W001 --------     8.2     3.2      4.7        8.2        8.2
+         Freeable          4.7      .0                 4.7
+         Other             3.5                         3.5        3.5
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+     106  ------------     8.1     7.4       .0        8.1      288.0
+         Other             6.2                         6.2        6.2
+         SQL               2.5     2.2                 2.5      284.7
+         PL/SQL             .0      .0                  .0         .0
+     120 W005 --------     8.1     2.9      5.0        8.1        8.1
+         Freeable          5.0      .0                 5.0
+         Other             3.1                         3.1        3.1
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+     114 W002 --------     8.0     2.5      5.2        8.0        8.0
+         Freeable          5.2      .0                 5.2
+
+Top Process Memory (by component)  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B    114 Other             2.8                         2.8        2.8
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+     116 W004 --------     8.0     2.9      4.9        8.0        8.0
+         Freeable          4.9      .0                 4.9
+         Other             3.0                         3.0        3.0
+         SQL                .1      .0                  .1         .8
+         PL/SQL             .0      .0                  .0         .0
+      50 W003 --------     8.0     2.8      4.9        8.0        8.0
+         Freeable          4.9      .0                 4.9
+         Other             3.0                         3.0        3.0
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+      11 DIA0 --------     7.3     5.5      1.3        7.3        7.3
+         Other             6.0                         6.0        6.0
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .0      .0                  .0         .0
+     158 J000 --------     6.3     3.2      2.1        6.3        6.3
+         Other             3.8                         3.8        3.8
+         Freeable          2.1      .0                 2.1
+         SQL                .3      .1                  .3        2.8
+         PL/SQL             .2      .2                  .2         .7
+     149  ------------     5.3     3.7      1.0        5.3       48.8
+         Other             4.1                         4.1       25.3
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1       22.4
+         PL/SQL             .1      .0                  .1         .1
+     254  ------------     5.3     3.7       .2        5.3       49.1
+         Other             5.0                         5.0       26.4
+         Freeable           .2      .0                  .2
+         SQL                .1      .0                  .1       22.4
+         PL/SQL             .0      .0                  .0         .0
+      62  ------------     5.2     3.8       .6        5.2      294.9
+         Other             4.5                         4.5       10.8
+         Freeable           .6      .0                  .6
+         SQL                .1      .0                  .1      283.5
+         PL/SQL             .0      .0                  .0         .0
+E     27 MARK --------    59.5    59.3       .0       59.5       59.5
+         Other            59.5                        59.5       59.5
+         PL/SQL             .0      .0                  .0         .0
+      32 ARC0 --------    44.3    40.7      1.1       44.3       44.3
+         Other            43.3                        43.3       43.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      33 ARC1 --------    44.3    40.7      1.1       44.3       44.3
+         Other            43.3                        43.3       43.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      35 ARC3 --------    44.3    40.7      1.1       44.3       44.3
+         Other            43.3                        43.3       43.3
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      12 DBW0 --------    41.7    12.6     27.7       41.7       41.7
+
+Top Process Memory (by component)  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E     12 Freeable         27.7      .0                27.7
+         Other            14.0                        14.0       14.0
+         PL/SQL             .0      .0                  .0         .0
+      34 ARC2 --------    19.4    17.8       .0       19.4       19.4
+         Other            19.4                        19.4       19.4
+         PL/SQL             .0      .0                  .0         .0
+      23 MMON --------    13.9     3.8      1.8       13.9       13.9
+         Other            11.7                        11.7       11.7
+         Freeable          1.8      .0                 1.8
+         PL/SQL             .3      .0                  .3         .3
+         SQL                .1      .0                  .1        1.6
+      41 CJQ0 --------    12.5     3.4      8.2       12.5       12.5
+         Freeable          8.2      .0                 8.2
+         Other             3.9                         3.9        3.9
+         SQL                .4      .0                  .4        2.5
+         PL/SQL             .0      .0                  .0         .1
+      38 W000 --------     8.3     3.1      4.9        8.3        8.3
+         Freeable          4.9      .0                 4.9
+         Other             3.4                         3.4        3.4
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+      39 W001 --------     8.2     3.2      4.7        8.2        8.2
+         Freeable          4.7      .0                 4.7
+         Other             3.5                         3.5        3.5
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+     120 W005 --------     8.1     2.9      5.0        8.1        8.1
+         Freeable          5.0      .0                 5.0
+         Other             3.1                         3.1        3.1
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+     218  ------------     8.1     7.9       .0        8.1       12.8
+         Other             5.7                         5.7        7.1
+         SQL               3.0     2.9                 3.0        5.7
+         PL/SQL             .0      .0                  .0         .0
+     114 W002 --------     8.0     2.5      5.2        8.0        8.0
+         Freeable          5.2      .0                 5.2
+         Other             2.8                         2.8        2.8
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+     116 W004 --------     8.0     2.9      4.9        8.0        8.0
+         Freeable          4.9      .0                 4.9
+         Other             3.1                         3.1        3.1
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+      50 W003 --------     8.0     2.8      4.9        8.0        8.0
+         Freeable          4.9      .0                 4.9
+         Other             3.0                         3.0        3.0
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+     115  ------------     8.0     7.4       .0        8.0      287.6
+         Other             6.1                         6.1        6.1
+         SQL               2.6     2.6                 2.6      284.1
+
+Top Process Memory (by component)  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E    115 PL/SQL             .0      .0                  .0         .0
+      11 DIA0 --------     7.3     5.5      1.3        7.3        7.3
+         Other             6.0                         6.0        6.0
+         Freeable          1.3      .0                 1.3
+         PL/SQL             .0      .0                  .0         .0
+     191 J000 --------     6.4     3.1      2.3        6.4        6.4
+         Other             3.7                         3.7        3.7
+         Freeable          2.3      .0                 2.3
+         SQL                .3      .1                  .3        2.9
+         PL/SQL             .2      .2                  .2         .7
+      62  ------------     5.3     3.8      1.0        5.3      294.9
+         Other             4.2                         4.2       10.3
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1      283.5
+         PL/SQL             .1      .1                  .1         .1
+     149  ------------     5.3     3.7       .7        5.3       48.8
+         Other             4.4                         4.4       25.6
+         Freeable           .7      .0                  .7
+         SQL                .1      .0                  .1       22.4
+         PL/SQL             .1      .0                  .1         .1
+          -------------------------------------------------------------
+Enqueue activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> only enqueues with waits are shown
+-> Enqueue stats gathered prior to 10g should not be compared with 10g data
+-> ordered by Wait Time desc, Waits desc
+
+Enqueue Type (Request Reason)
+------------------------------------------------------------------------------
+    Requests    Succ Gets Failed Gets       Waits Wt Time (s)  Av Wt Time(ms)
+------------ ------------ ----------- ----------- ------------ --------------
+WL-Being Written Redo Log
+          13            7           6           2            0         210.00
+CF-Controlfile Transaction
+       4,841        4,841           0           9            0           4.44
+KO-Multiple Object Checkpoint (fast object checkpoint)
+         520          520           0          52            0            .38
+JS-Job Scheduler (queue lock)
+      20,878       20,878           0           2            0          10.00
+TX-Transaction (index contention)
+           2            2           0           2            0            .00
+          -------------------------------------------------------------
+
+Undo Segment Summary  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Min/Max TR (mins) - Min and Max Tuned Retention (minutes)
+-> STO - Snapshot Too Old count,  OOS - Out Of Space count
+-> Undo segment block stats:
+   uS - unexpired Stolen,   uR - unexpired Released,   uU - unexpired reUsed
+   eS - expired   Stolen,   eR - expired   Released,   eU - expired   reUsed
+
+Undo   Num Undo       Number of  Max Qry     Max Tx Min/Max   STO/  uS/uR/uU/
+ TS# Blocks (K)    Transactions  Len (s)      Concy TR (mins) OOS   eS/eR/eU
+---- ---------- --------------- -------- ---------- --------- ----- -----------
+   2       11.0          74,211    1,072          4 18.9/29.9 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+
+
+Undo Segment Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Most recent 35 Undostat rows, ordered by End Time desc
+
+                Num Undo    Number of Max Qry  Max Tx Tun Ret STO/  uS/uR/uU/
+End Time          Blocks Transactions Len (s)   Concy  (mins) OOS   eS/eR/eU
+------------ ----------- ------------ ------- ------- ------- ----- -----------
+05-Oct 13:51         934       10,482     473       3      19 0/0   0/0/0/0/0/0
+05-Oct 13:41       1,511       10,594   1,072       3      29 0/0   0/0/0/0/0/0
+05-Oct 13:31       1,561       10,202     472       3      19 0/0   0/0/0/0/0/0
+05-Oct 13:21       1,825       10,277   1,072       3      29 0/0   0/0/0/0/0/0
+05-Oct 13:11       3,230       17,478     466       3      20 0/0   0/0/0/0/0/0
+05-Oct 13:01       1,949       15,178   1,071       4      30 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+Latch Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+active checkpoint queue           9,247    0.0             0            0
+active service list              39,006    0.0    0.0      0       60,723    0.0
+alert log latch                      10    0.0             0            0
+AQ Background: interrupt              1    0.0             0          128    0.0
+AQ Coord jobx_kwsbgsgn l            120    0.0             0            0
+AQ deq hash table latch               1    0.0             0            0
+AQ Sharded master pool l            120    0.0             0            0
+archive destination                 538    0.0             0            0
+archive process latch               263    0.0             0            0
+ASM allocation                      291    0.0             0            0
+ASM db client latch               2,558    0.0             0            0
+ASM Keyed state latch             6,844    0.0             0            0
+ASM map headers                     276    0.0             0            0
+ASM map load waiting lis             56    0.0             0            0
+ASM map operation freeli         10,700    0.0             0            0
+ASM map operation hash t     12,480,964    0.0    0.0      0            0
+ASM network background l          2,042    0.0             0            0
+ASM network state latch             637    0.0             0            0
+ASM remote client latch              63    0.0             0            0
+AWR Alerted Metric Eleme         34,373    0.0             0            0
+buffer pool                           1    0.0             0            0
+business card                         1    0.0             0            0
+cache buffer handles            130,126    0.0             0            0
+cache buffers chains        186,114,063    0.0    0.0      0    9,363,112    0.0
+cache buffers lru chain         120,792    0.1    0.1      0    9,214,433    0.2
+cache table scan latch           15,837    0.0             0       15,837    0.0
+call allocation                  20,086    0.1    0.6      0            0
+cas latch                             1    0.0             0            0
+change notification clie              1    0.0             0            0
+Change Notification Hash          1,201    0.0             0            0
+channel handle pool latc          6,872    0.0             0            0
+channel operations paren         11,311    0.0             0            0
+checkpoint queue latch          274,305    0.0             0       68,357    0.0
+client/application info          42,916    0.0             0            0
+compile environment latc          3,460    0.0             0            0
+Consistent RBA                   73,816    0.0             0            0
+corrupted undo seg latch             55    0.0             0            0
+cp handoff latch                      1    0.0             0            0
+cp pool latch                         1    0.0             0            0
+cp server hash latch                  1    0.0             0            0
+cp sga latch                         63    0.0             0            0
+cp srv type state latch             190    0.0             0            0
+cp srv type wait latch                1    0.0             0            0
+cvmap freelist lock                   1    0.0             0            0
+deferred cleanup latch               63    0.0             0            0
+dispatcher info                     236    0.0             0            0
+DML lock allocation           1,265,002    0.0    0.0      0            0
+dml lock allocation                  63    0.0             0            0
+done queue latch                      1    0.0             0            0
+dtp latch                         3,417    0.0    0.0      0            0
+Latch Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+dummy allocation                  6,911    0.0             0            0
+eighth spare latch - X p              1    0.0             0            0
+eleventh spare latch - c              1    0.0             0            0
+enqueue freelist latch                1    0.0             0    1,250,741    0.0
+enqueue hash chains           1,616,079    0.0    0.0      0            0
+Event Group Locks                 6,888    0.0             0            0
+event stats latch                 3,450    0.0             0            0
+FAL Queue                           112    0.0             0            0
+FIB s.o chain latch                 164    0.0             0            0
+fifteenth spare latch -               1    0.0             0            0
+file cache latch                    272    0.0             0            0
+File State Object Pool P              1    0.0             0            0
+first Audit Vault latch           3,186    0.0             0            0
+flash file access latch               1    0.0             0            0
+flashback copy                        1    0.0             0            0
+FOB s.o list latch               26,373    0.0    0.0      0            0
+fourteenth spare latch -              1    0.0             0            0
+fourth Audit Vault latch              1    0.0             0            0
+gc element                            1    0.0             0            0
+gcs commit scn state                  1    0.0             0            0
+gcs opaque info freelist              1    0.0             0            0
+gcs partitioned table ha              1    0.0             0            0
+gcs pcm hashed value buc              1    0.0             0            0
+gcs resource freelist                 1    0.0             0            0
+gcs resource hash                     1    0.0             0            0
+gcs resource scan list                1    0.0             0            0
+gcs resource validate li              1    0.0             0            0
+gcs shadows freelist                  1    0.0             0            0
+ges cached resource list              1    0.0             0            0
+ges domain table                      1    0.0             0            0
+ges enqueue table freeli              1    0.0             0            0
+ges group table                       1    0.0             0            0
+ges process hash list                 1    0.0             0            0
+ges process parent latch              1    0.0             0            0
+ges resource hash list                1    0.0             0            0
+ges resource scan list                1    0.0             0            0
+ges resource table freel              1    0.0             0            0
+ges timeout list                      1    0.0             0            0
+ges value block free lis              1    0.0             0            0
+global KZLD latch for au          3,198    0.0             0            0
+global tx hash mapping                1    0.0             0            0
+granule from data transf              1    0.0             0            0
+granule operation                     1    0.0             0            0
+hash table column usage           2,293    0.0    0.0      0   75,946,337    0.0
+hash table modification             136    0.0             0            0
+heartbeat check                       1    0.0             0            0
+ILM access tracking exte              1    0.0             0            0
+ILM activity tracking la              1    0.0             0            0
+ILM Stats main anchor la          3,702    0.0             0            0
+ILM Stats Stripe Latch                1    0.0             0            0
+Latch Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+IM area sb latch                      1    0.0             0            0
+IM area scb latch                     1    0.0             0            0
+IM emb latch                          1    0.0             0            0
+IM seg hdr latch                      1    0.0             0            0
+imc buf hdl lat                       1    0.0             0            0
+imc hash lat                          1    0.0             0            0
+imc sj lat                            1    0.0             0            0
+imc srchsp lat                        1    0.0             0            0
+imc-txn-wrk-lat                       1    0.0             0            0
+In memory undo latch             26,881    0.0             0            0
+in-memory area latch                  1    0.0             0            0
+in-memory columnar segme              1    0.0             0            0
+in-memory columnar ts ex              1    0.0             0            0
+in-memory global pool la              1    0.0             0            0
+internal temp table obje              5    0.0             0            0
+intra txn parallel recov              1    0.0             0            0
+io pool granule metadata              1    0.0             0            0
+I/O Staticstics latch                 1    0.0             0            0
+IPC stats buffer allocat              1    0.0             0            0
+job workq parent latch               34    0.0             0           33    3.0
+job_queue_processes free            131    0.0             0            0
+job_queue_processes para             10    0.0             0            0
+JS mem alloc latch                   76    0.0             0            0
+JS queue access latch                77    0.0             0            0
+JS queue state obj latch         41,756    0.0             0            0
+JS Sh mem access                      5    0.0             0            0
+JS slv state obj latch               97    0.0             0            0
+kcb DW scan objtemp hash              1    0.0             0            0
+kcbtsemkid latch                      5    0.0             0            0
+kcn buffer chains                     1    0.0             0            0
+KCNIBR - invalid block r              1    0.0             0            0
+kdlx hb parent latch                  1    0.0             0            0
+KFC FX Hash Latch                     1    0.0             0            0
+KFC Hash Latch                        1    0.0             0            0
+KFCL LE Freelist                      1    0.0             0            0
+KFK SGA Libload latch             1,190    0.0             0            0
+KFMD SGA                              8    0.0             0            0
+kgb parent                            1    0.0             0            0
+kgnfs mount latch                     1    0.0             0            0
+KGNFS-NFS:SHM structure               1    0.0             0            0
+KGNFS-NFS:SVR LIST                    1    0.0             0            0
+KJC message pool free li              1    0.0             0            0
+KJC message pool pending              1    0.0             0            0
+kjci objects freelist la              1    0.0             0            0
+kjci process context lat              1    0.0             0       12,699    0.0
+KJCT flow control latch               1    0.0             0            0
+kjoedcso state object fr             63    0.0             0            0
+kjoeq omni enqueue hash               1    0.0             0            0
+kjoer owner hash bucket               1    0.0             0            0
+KMG MMAN ready and start          1,202    0.0             0            0
+Latch Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+krbmrosl                        140,984    0.0             0            0
+krso process latch                  120    0.0             0            0
+KSFS id table parent lat              1    0.0             0            0
+KSFS ksfs_node latch                  1    0.0             0            0
+KSFS OFS ctx level paren              1    0.0             0            0
+KSFS OFS req layer paren              1    0.0             0            0
+KSFS OFS sess layer pare              1    0.0             0            0
+KSFSD name cache parent               1    0.0             0            0
+ksfv messages                         1    0.0             0            0
+ksi resource reuse count              1    0.0             0            0
+ksim group membership ca              1    0.0             0            0
+kss move lock                       323    0.0             0            0
+ksuosstats global area            1,572    0.0             0            0
+ksv allocation latch                706    0.0             0            0
+ksv class latch                   3,226    0.1    0.5      0            0
+ksv instance latch                   88    0.0             0            0
+ksv msg queue latch                  89    0.0             0           88    0.0
+KSXR hang analysis phase              1    0.0             0            0
+KSXR hang analysis phase              1    0.0             0            0
+ksz_so allocation latch           6,844    0.4    0.0      0            0
+KTF sga latch                        24    0.0             0        1,144    0.0
+ktfbn latch                         769    0.0             0            0
+KTILM latch                           1    0.0             0            0
+ktm global data                   4,895    0.0             0            0
+ktm prv jrnls                         1    0.0             0            0
+ktmpj HT ls                           1    0.0             0            0
+kwqbsn:qsga                         130    0.0             0            0
+KWQP Prop Status                      2    0.0             0            0
+kwslbmdl: metadata latch            120    0.0             0            0
+kwslbql: queue latch                  1    0.0             0            0
+kwsptjobAdPtLt: AdPt lis            259    0.0             0            0
+kwsptQcachLt: queue cach              1    0.0             0            0
+kwsptTrncTsksLt: trunc t              1    0.0             0            0
+kxfxscanrate_latch                    1    0.0             0            0
+k2q lock allocation                   1    0.0             0            0
+lgwr LWN SCN                     80,269    0.0    0.0      0            0
+list of block allocation          8,570    0.0             0            0
+loader state object free            380    0.0             0            0
+lob segment dispenser la              1    0.0             0            0
+lob segment hash table l             37    0.0             0            0
+lob segment query latch               1    0.0             0            0
+Locator state objects po              1    0.0             0            0
+lock DBA buffer during m              1    0.0             0            0
+log write info                        0                    0       73,816    0.0
+log write slave phase                 7    0.0             0            0
+logical standby cache                 1    0.0             0            0
+logminer context allocat              1    0.0             0            0
+logminer local                        1    0.0             0            0
+logminer work area                    1    0.0             0            0
+longop free list parent              26    0.0             0           25    0.0
+Latch Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+Lsod array latch                  8,895    0.0             0            0
+managed standby latch               128    0.0             0            0
+mapped buffers lru chain              1    0.0             0            0
+Memory Management Latch               1    0.0             0        1,202    0.0
+Memory Queue                          1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Subscriber               1    0.0             0            0
+message bitmap latch                  1    0.0             0            0
+Message cache latch                   1    0.0             0            0
+message pool operations             298    0.0             0            0
+messages                        419,109    0.0    0.0      0            0
+MinActiveScn Latch                   40    0.0             0            0
+MQL Tracking Latch                    0                    0           72    0.0
+msg queue latch                       1    0.0             0            0
+multiblock read objects          83,378    0.0             0            0
+Mutex                                 1    0.0             0            0
+Mutex Stats                           1    0.0             0            0
+name-service namespace b              1    0.0             0            0
+ncodef allocation latch              63    0.0             0            0
+ninth spare latch - X pa              1    0.0             0            0
+object queue header free      1,078,095    0.0    0.0      0            0
+object queue header oper     12,241,392    0.0    0.0      0            0
+object queue memory                   1    0.0             0            0
+object stats modificatio        686,140    0.0    0.0      0            0
+OS process                       14,724    0.0             0            0
+OS process allocation            14,862    0.1    0.0      0            0
+OS process: request allo          6,844    0.0             0            0
+parallel query alloc buf              1    0.0             0          436    0.0
+parallel query stats                  1    0.0             0            0
+parameter table manageme         25,910    0.0             0            0
+Parent latch for depende              1    0.0             0            0
+peshm                                 1    0.0             0            0
+pesom_free_list                       1    0.0             0            0
+pesom_hash_node                       1    0.0             0            0
+pkey global statistics                1    0.0             0            0
+PL/SQL warning settings           4,840    0.0             0            0
+post/wait queue                 107,798    0.0    0.0      0       77,319    0.2
+process allocation                7,053    0.5    0.7      0        3,417    0.3
+process group creation            6,844    0.2    0.0      0            0
+process pkey statistics               1    0.0             0            0
+process queue                         1    0.0             0            0
+process queue reference               1    0.0             0            0
+PX hash array latch                   1    0.0             0            0
+qmn task queue latch                521    0.0             0            0
+QMT                                   1    0.0             0            0
+query server freelists                1    0.0             0            0
+query server process              2,403    0.0             0            0
+Latch Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+queued dump request                  12    0.0             0            0
+queuing load statistics               1    0.0             0            0
+recovery domain hash lis              1    0.0             0            0
+redo allocation                 971,986    0.0    0.0      0            0
+redo copy                             1    0.0             0      665,901    0.0
+redo transport task latc            104    0.0             0            0
+redo writing                    301,085    0.0             0            0
+Report Request stats lat            240    0.0             0            0
+Request holder compeltio            419    0.0             0            0
+reservation so alloc lat             10    0.0             0            0
+Reserved Space Latch                 20    0.0             0            0
+resmgr group change latc          3,885    0.0             0            0
+resmgr:active threads             7,821    0.0             0        1,249    0.0
+resmgr:actses change gro          3,898    0.0             0            0
+resmgr:actses change sta            231    0.0             0            0
+resmgr:free threads list          7,228    0.0    0.0      0            0
+resmgr:plan CPU method                1    0.0             0            0
+resmgr:resource group CP         65,425    0.0    0.0      0            0
+resmgr:schema config                381    0.0             0           47    0.0
+resmgr:session queuing                1    0.0             0            0
+Retry bkt latch                       1    0.0             0            0
+Retry Ht elm latch                    1    0.0             0            0
+rm cas latch                          1    0.0             0            0
+row cache objects           333,370,690    0.2    0.0      0        4,741    0.4
+RTT parent context                    5    0.0             0            0
+rules engine rule set st            100    0.0             0            0
+Sched IM Job latch                   64    0.0             0            0
+Sched InMem Job Cache               543    0.0             0            0
+second Audit Vault latch              1    0.0             0            0
+segmented array pool                 88    0.0             0            0
+sequence cache                   93,872    0.0    0.0      0            0
+session allocation            1,589,494    0.0    0.0      0    1,582,915    0.0
+session idle bit              8,630,266    0.0    0.0      0            0
+session queue latch                   1    0.0             0            0
+session state list latch          6,518    0.0    0.0      0            0
+session statistics                6,911    0.0    0.0      0            0
+session switching                 3,481    0.0    0.0      0            0
+session timer                     1,206    0.0             0            0
+seventh spare latch - X               1    0.0             0            0
+SGA blob parent                       1    0.0             0            0
+SGA bucket locks                      1    0.0             0            0
+sga hash table parent la              1    0.0             0            0
+SGA heap locks                        1    0.0             0            0
+SGA IO buffer pool latch            143    0.0             0          143    0.0
+SGA Logging Bkt Latch            15,795    0.0             0            0
+SGA Logging Log Latch            19,593    0.0             0        3,618    0.0
+SGA pool locks                        1    0.0             0            0
+shard latch                           1    0.0             0            0
+Shared B-Tree                       132    0.0             0            0
+shared pool                  15,955,392    0.2    0.2      1        2,864    0.1
+Latch Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+shared pool sim alloc                 1    0.0             0            0
+shared pool simulator           847,606    0.0    0.2      0            0
+sim partition latch                   1    0.0             0            0
+simulator hash latch          7,731,457    0.0             0            0
+simulator lru latch                   1    0.0             0    7,238,148    0.0
+sixth spare latch - X pa              1    0.0             0            0
+sort extent pool                  1,425    0.0             0            0
+space background task la          5,136    6.3    0.3      0        2,405    0.0
+SQL memory manager latch            122    0.0             0        1,201    0.0
+SQL memory manager worka        212,037    0.0             0            0
+SR Stats main anchor lat      5,424,438    0.0    0.0      0            0
+SR Stats Stripe Latch                 1    0.0             0            0
+Streams Generic                       1    0.0             0            0
+subscriber Ht bkt                     1    0.0             0            0
+Subscriber Ht elm latch               1    0.0             0            0
+tablespace key chain                 42    0.0             0            0
+temp lob duration state              34    0.0             0            0
+temporary table state ob              2    0.0             0            0
+tenth spare latch - X pa              1    0.0             0            0
+test excl. parent l0                  1    0.0             0            0
+test excl. parent2 lmid               1    0.0             0            0
+test excl. parent2 l0                 1    0.0             0            0
+test shared parent2 lmid              1    0.0             0            0
+Testing                               1    0.0             0            0
+thirteenth spare latch -              1    0.0             0            0
+threshold alerts latch              134    0.0             0            0
+Token Manager                         1    0.0             0            0
+transaction allocation          272,019    0.0             0            0
+twelfth spare latch - ch              1    0.0             0            0
+twenty-fifth spare latch              1    0.0             0            0
+twenty-first spare latch              1    0.0             0            0
+twenty-fourth spare latc              1    0.0             0            0
+twenty-second spare latc              1    0.0             0            0
+twenty-third spare latch              1    0.0             0            0
+Txn bkt latch                         1    0.0             0            0
+Txn Ht elm latch                      1    0.0             0            0
+undo global data                281,050    0.0             0            0
+virtual circuit buffers               1    0.0             0            0
+virtual circuit holder                1    0.0             0            0
+virtual circuit queues                1    0.0             0            0
+WCR: sync                             1    0.0             0            0
+Write State Object Pool               1    0.0             0            0
+XDB NFS Security Latch                1    0.0             0            0
+XDB unused session pool               1    0.0             0            0
+XDB used session pool                 1    0.0             0            0
+X$KSFQP                          74,963    0.0             0            0
+          -------------------------------------------------------------
+Latch Sleep breakdown  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by misses desc
+
+                                       Get                                 Spin
+Latch Name                        Requests       Misses      Sleeps        Gets
+-------------------------- --------------- ------------ ----------- -----------
+row cache objects              333,370,690      542,559         148     542,412
+shared pool                     15,955,392       27,876       4,701      23,336
+cache buffers chains           186,114,063          397           8         389
+space background task latc           5,136          325         110         215
+cache buffers lru chain            120,792           88           8          80
+process allocation                   7,053           37          26          13
+call allocation                     20,086           16          10           6
+shared pool simulator              847,606            9           2           7
+ksv class latch                      3,226            4           2           2
+          -------------------------------------------------------------
+Latch Miss Sources  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> only latches with sleeps are shown
+-> ordered by name, sleeps desc
+
+                                                     NoWait              Waiter
+Latch Name               Where                       Misses     Sleeps   Sleeps
+------------------------ -------------------------- ------- ---------- --------
+cache buffers chains     kcbgtcr: slow path excl          0          8        0
+cache buffers chains     kcbgtcr: fast path pin           0          4        3
+cache buffers chains     kcbgcur: fast path excl          0          3        0
+cache buffers chains     kcbzibmlt: multi-block rea       0          3        0
+cache buffers chains     kcbgcur: slow path               0          1        0
+cache buffers chains     kcbnew: new latch again          0          1        0
+cache buffers lru chain  kcbzgws                          0          8        0
+call allocation          ksuxds                           0         10        2
+ksv class latch          ksvclsl: create                  0          1        0
+ksv class latch          ksvclsl: run                     0          1        0
+process allocation       ksucrp:1                         0         24        0
+process allocation       ksuapc                           0          2       26
+row cache objects        kqrso                            0         48       72
+row cache objects        kqreqd: reget                    0         39        1
+row cache objects        kqrpre: find obj                 0         37       57
+row cache objects        kqreqd                           0          7       18
+shared pool              kghalo                           0      4,402    2,140
+shared pool              kghalp                           0        225    1,157
+shared pool              kghupr1                          0         43    1,192
+shared pool              kgh_heap_sizes                   0         24      175
+shared pool              kghfrunp: clatch: nowait         0         16        0
+shared pool              kghasp                           0          5       13
+shared pool              kghfrunp: clatch: wait           0          1        0
+shared pool              kghfre                           0          1       23
+shared pool simulator    kglsim_upd_newhp                 0          2        2
+space background task la ktsj_grab_task                   0         94      110
+space background task la ktsj_detach_task                 0         10        0
+space background task la ktsjCreateTask                   0          6        0
+          -------------------------------------------------------------
+Mutex Sleep  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> ordered by Wait Time desc
+
+                                                                         Wait
+Mutex Type         Location                                 Sleeps     Time (s)
+------------------ -------------------------------- -------------- ------------
+Cursor Pin         kksLockDelete [KKSCHLPIN6]                   10          0.0
+Cursor Pin         kksfbc [KKSCHLPIN1]                           8          0.0
+Cursor Pin         kksfbc [KKSCHLFSP2]                           8          0.0
+Cursor Pin         kkslce [KKSCHLPIN2]                           4          0.0
+Library Cache      kglget1   1                                  42          0.0
+Library Cache      kgllkdl1  85                                 40          0.0
+Library Cache      kglhdgn2 106                                 29          0.0
+Library Cache      kgldtin1  42                                  9          0.0
+Library Cache      kglpndl1  95                                  5          0.0
+Library Cache      kglobpn1  71                                  6          0.0
+Library Cache      kglhdgn1  62                                  5          0.0
+Library Cache      kglpin1   4                                   5          0.0
+Library Cache      kglrfcl1  79                                  2          0.0
+Library Cache      kglhdgh1  64                                  2          0.0
+Library Cache      kglget2   2                                   2          0.0
+Library Cache      kglml_kglic2 127                              1          0.0
+Library Cache      kglpnal1  90                                  1          0.0
+          -------------------------------------------------------------
+Segments by Logical Reads  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Segment Logical Reads Threshold:     10000
+-> Pct Total shows % of logical reads for each top segment compared with total
+   logical reads for all segments captured by the Snapshot
+
+                                           Subobject    Obj.       Logical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SYS        SYSTEM     CDEF$                             TABLE  112,490,752  49.6
+PHAR       PHARM      SEJOUR                            TABLE   43,252,880  19.1
+PHAR       PHARM      PRESADM                           TABLE   14,990,480   6.6
+PHAR       PHARMIDX   PK_SEJOUR                         INDEX   10,885,904   4.8
+SYS        SYSTEM     COL$                              TABLE   10,264,016   4.5
+          -------------------------------------------------------------
+
+
+Segments by Physical Reads  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Segment Physical Reads Threshold:      1000
+
+                                           Subobject    Obj.      Physical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+PHAR       PHARM      PRESADM                           TABLE    1,976,549  28.2
+PHAR       PHARM      PRESCRIP                          TABLE    1,629,200  23.3
+PHAR       PHARM      SEJOUR                            TABLE      822,706  11.7
+PHAR       PHARM      STKPDT                            TABLE      801,226  11.4
+PHAR       PHARM      SEJOUR_GROUPE                     TABLE      559,987   8.0
+          -------------------------------------------------------------
+Segments by Row Lock Waits  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Segment Row Lock Waits Threshold:       100
+
+                                                                       Row
+                                           Subobject    Obj.          Lock   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+PHAR       PHARM      RELIQPA                           TABLE            4  40.0
+PHAR       PHARM      PK_PRESADM                        INDEX            2  20.0
+PHAR       INDX       IDX_DISPTEMPORAIRE_C              INDEX            1  10.0
+PREP       PHARMIDX   IDX_ETAPE_L0CLEUNIK               INDEX            1  10.0
+PHAR       PHARMIDX   DISPTEMPORAIRE_SECLE              INDEX            1  10.0
+          -------------------------------------------------------------
+
+
+Segments by Buffer Busy Waits  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> End Segment Buffer Busy Waits Threshold:       100
+
+                                                                    Buffer
+                                           Subobject    Obj.          Busy   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+PHAR       PHARMIDX   IDX_DISPTEMPORAIRE_D              INDEX            8  27.6
+PHAR       INDX       IDX_DISPTEMPORAIRE_I              INDEX            5  17.2
+PHAR       PHARMIDX   DISPTEMPORAIRE_SECLE              INDEX            4  13.8
+PHAR       INDX       IDX_DISPTEMPORAIRE_C              INDEX            3  10.3
+PHAR       INDX       IDX_DISPTEMPORAIRE_A              INDEX            2   6.9
+          -------------------------------------------------------------
+Dictionary Cache Stats  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Pct Misses"  should be very low (< 2% in most cases)
+->"Final Usage" is the number of cache entries being used in End Snapshot
+
+                                   Get    Pct    Scan   Pct      Mod      Final
+Cache                         Requests   Miss    Reqs  Miss     Reqs      Usage
+------------------------- ------------ ------ ------- ----- -------- ----------
+dc_awr_control                      66    0.0       0              2          1
+dc_files                           228   33.3       0              0         19
+dc_global_oids                   1,789    0.2       0              0         18
+dc_histogram_data           69,128,219    0.0       0              0      7,853
+dc_histogram_defs           20,928,203    0.0       0             11      7,366
+dc_object_grants                   173    2.3       0              0          4
+dc_objects                  30,701,173    0.0       0             55      3,310
+dc_profiles                      6,390    0.0       0              0          1
+dc_props                        48,453    0.0       0              0         60
+dc_rollback_segments             1,318    0.0       0              0         25
+dc_segments                 15,598,512    0.0       0              2      3,049
+dc_sequences                    13,718    0.4       0         13,718         69
+dc_table_scns                        4  100.0       0              0          0
+dc_tablespaces               7,289,791    0.0       0              0         10
+dc_users                    13,557,789    0.0  12,852   0.0        0        145
+outstanding_alerts                   3  100.0       0              0          0
+sch_lj_oids                         70   17.1       0              0          4
+triton security name to i           12  100.0       0              0          0
+          -------------------------------------------------------------
+
+
+Library Cache Activity  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+->"Pct Misses"  should be very low
+
+                                                       Get  Pct        Pin
+Namespace                                         Requests  Miss     Requests
+--------------------------------------------- ------------ ------ --------------
+ Pct               Invali-
+ Miss     Reloads  dations
+------ ---------- --------
+ACCOUNT_STATUS                                      12,744    0.1              0
+                0        0
+AUDIT POLICY                                         6,438    0.0          6,438
+   0.0          0        0
+BODY                                                 1,349    6.2          3,471
+   2.9         18        0
+CLUSTER                                                915    0.4            961
+   0.4          0        0
+DBLINK                                              11,238    0.0              0
+                0        0
+EDITION                                              3,398    0.0          6,779
+   0.0          0        0
+INDEX                                                    4   75.0              4
+  75.0          0        0
+OBJECT ID                                                6  100.0              0
+                0        0
+SCHEMA                                               4,905    0.3              0
+                0        0
+SQL AREA                                           608,892   52.8      8,981,030
+   7.2     63,205      449
+SQL AREA BUILD                                     223,444   99.2              0
+                0        0
+SQL AREA STATS                                     219,609   93.2        219,608
+  93.2          0        0
+TABLE/PROCEDURE                                    847,037    0.1      2,564,450
+   0.3      4,050        0
+TRIGGER                                              1,805    3.0          9,550
+   1.3         73        0
+          -------------------------------------------------------------
+Rule Sets  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> * indicates Rule Set activity (re)started between Begin/End snaps
+-> Top 25 ordered by Evaluations desc
+
+                                                               No-SQL  SQL
+Rule                                *     Eval/sec Reloads/sec Eval % Eval %
+----------------------------------- - ------------ ----------- ------ ------
+SYS.ALERT_QUE_R                                  0           0      0      0
+          -------------------------------------------------------------
+Streams Pool Advisory  DB/Inst: PHARMA/PHARMA  End Snap: 8686
+
+Streams Pool Streams Pool Est Spill Est Spill Est Unspill Est Unspill
+    Size (M)  Size Factor     Count  Time (s)       Count    Time (s)
+------------ ------------ --------- --------- ----------- -----------
+         0.0          1.0         0         0           0           0
+         0.0          2.0         0         0           0           0
+         0.0          3.0         0         0           0           0
+         0.0          4.0         0         0           0           0
+         0.0          5.0         0         0           0           0
+         0.0          6.0         0         0           0           0
+         0.0          7.0         0         0           0           0
+         0.0          8.0         0         0           0           0
+         0.0          9.0         0         0           0           0
+         0.0         10.0         0         0           0           0
+         0.0         11.0         0         0           0           0
+         0.0         12.0         0         0           0           0
+         0.0         13.0         0         0           0           0
+         0.0         14.0         0         0           0           0
+         0.0         15.0         0         0           0           0
+         0.0         16.0         0         0           0           0
+         0.0         17.0         0         0           0           0
+         0.0         18.0         0         0           0           0
+         0.0         19.0         0         0           0           0
+         0.0         20.0         0         0           0           0
+          -------------------------------------------------------------
+Shared Pool Advisory  DB/Inst: PHARMA/PHARMA  End Snap: 8686
+-> SP: Shared Pool     Est LC: Estimated Library Cache   Factr: Factor
+-> Note there is often a 1:Many correlation between a single logical object
+   in the Library Cache, and the physical number of memory objects associated
+   with it.  Therefore comparing the number of Lib Cache objects (e.g. in
+   v$librarycache), with the number of Lib Cache Memory Objects is invalid
+
+                                        Est LC Est LC  Est LC Est LC
+    Shared    SP   Est LC                 Time   Time    Load   Load      Est LC
+      Pool  Size     Size       Est LC   Saved  Saved    Time   Time         Mem
+  Size (M) Factr      (M)      Mem Obj     (s)  Factr     (s)  Factr    Obj Hits
+---------- ----- -------- ------------ ------- ------ ------- ------ -----------
+     1,568    .5      267       27,027 #######     .0 #######   70.4 ###########
+     1,888    .6      587       36,323 #######     .2 #######   57.9 ###########
+     2,208    .7      906       44,398 #######     .4 #######   44.1 ###########
+     2,528    .8    1,226       53,124 #######     .6 #######   29.3 ###########
+     2,848    .9    1,545       65,030 #######     .8 #######   14.9 ###########
+     3,008    .9    1,705       70,911 #######     .9 #######    8.0 ###########
+     3,024   1.0    1,721       71,445 #######     .9 #######    7.3 ###########
+     3,040   1.0    1,737       72,008 #######     .9 #######    6.6 ###########
+     3,056   1.0    1,753       72,431 #######     .9 #######    5.9 ###########
+     3,072   1.0    1,769       73,024 #######     .9 #######    5.2 ###########
+     3,088   1.0    1,785       73,605 #######    1.0 #######    4.5 ###########
+     3,104   1.0    1,801       74,056 #######    1.0 #######    3.8 ###########
+     3,120   1.0    1,817       74,625 #######    1.0 #######    3.1 ###########
+     3,136   1.0    1,833       75,108 #######    1.0 #######    2.4  66,226,804
+     3,152   1.0    1,849       75,666 #######    1.0 #######    1.7 ###########
+     3,168   1.0    1,865       76,227 #######    1.0 #######    1.0 ###########
+     3,184   1.0    1,881       76,807 #######    1.0 #######     .8 ###########
+     3,200   1.0    1,897       77,429 #######    1.0 #######     .8 ###########
+     3,216   1.0    1,913       78,032 #######    1.0 #######     .8 ###########
+     3,232   1.0    1,929       78,696 #######    1.0 #######     .8 ###########
+     3,248   1.0    1,945       79,332 #######    1.0 #######     .8 ###########
+     3,264   1.0    1,961       79,904 #######    1.0 #######     .8 ###########
+     3,280   1.0    1,977       80,472 #######    1.0 #######     .8 ###########
+     3,296   1.0    1,993       81,069 #######    1.0 #######     .8 ###########
+     3,312   1.0    2,008       81,463 #######    1.0 #######     .8 ###########
+     3,488   1.1    2,184       86,635 #######    1.0 #######     .7 ###########
+     3,808   1.2    2,504       95,699 #######    1.0 #######     .7 ###########
+     4,128   1.3    2,823      103,720 #######    1.0 #######     .6 ###########
+     4,448   1.4    3,142      110,605 #######    1.0 #######     .6 ###########
+     4,768   1.5    3,462      117,479 #######    1.0 #######     .5 ###########
+     5,088   1.6    3,781      125,284 #######    1.0 #######     .5 ###########
+     5,408   1.7    4,101      135,364 #######    1.0 #######     .5 ###########
+     5,728   1.8    4,420      143,634 #######    1.0 #######     .5 ###########
+     6,048   1.9    4,739      151,775 #######    1.0 #######     .4 ###########
+     6,368   2.0    5,058      160,398 #######    1.0 #######     .4 ###########
+          -------------------------------------------------------------
+SGA Target Advisory  DB/Inst: PHARMA/PHARMA  End Snap: 8686
+
+SGA Target SGA Size   Est DB      Est DB   Est Physical
+  Size (M)   Factor Time (s) Time Factor          Reads
+---------- -------- -------- ----------- --------------
+       666       .1        0          .0  4,489,095,567
+     1,332       .3        0          .0  4,489,095,567
+     1,998       .4        0          .0  4,489,095,567
+     2,664       .5 ########        27.5 ##############
+     3,330       .6 ########        14.4 ##############
+     3,996       .8 ########         1.3 ##############
+     4,662       .9 ########         1.1  7,634,604,831
+     5,328      1.0 ########         1.0  4,489,095,567
+     5,994      1.1 ########          .9  4,199,099,993
+     6,660      1.3 ########          .9  3,624,495,761
+     7,326      1.4 ########          .8  3,150,896,178
+     7,992      1.5 ########          .8  2,798,053,267
+     8,658      1.6 ########          .8  2,798,053,267
+     9,324      1.8 ########          .8  2,541,277,000
+     9,990      1.9 ########          .7  2,541,277,000
+    10,656      2.0 ########          .7  2,437,578,893
+          -------------------------------------------------------------
+SGA Memory Summary  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+                                                        End Size (Bytes)
+SGA regions                      Begin Size (Bytes)       (if different)
+------------------------------ -------------------- --------------------
+Database Buffers                      2,147,483,648
+Fixed Size                                3,724,928
+Redo Buffers                             13,049,856
+Variable Size                         4,177,529,216
+                               -------------------- --------------------
+sum                                   6,341,787,648
+          -------------------------------------------------------------
+
+
+SGA breakdown difference  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+-> Top 35 rows by size, ordered by Pool, Name (note rows with null values for
+   Pool column, or Names showing free memory are always shown)
+-> Null value for Begin MB or End MB indicates the size of that Pool/Name was
+   insignificant, or zero in that snapshot
+
+Pool   Name                                 Begin MB         End MB  % Diff
+------ ------------------------------ -------------- -------------- --------
+java p free memory                              16.0           16.0     0.00
+large  free memory                              39.8           39.8     0.00
+large  PX msg pool                               7.8            7.8     0.00
+shared free memory                             389.1          291.3   -25.15
+shared KGLDA                                    32.6           36.4    11.53
+shared KGLHD                                   110.6          124.4    12.47
+shared KGLH0                                   633.3          706.6    11.57
+shared kglsim object batch                      36.7           36.7     0.00
+shared SQLA                                  1,545.0        1,543.2    -0.11
+stream free memory                              16.0           16.0     0.00
+       buffer_cache                          1,808.0        1,808.0     0.00
+       fixed_sga                                 3.6            3.6     0.00
+       log_buffer                               12.4           12.4     0.00
+       shared_io_pool                          240.0          240.0     0.00
+          -------------------------------------------------------------
+SQL Memory Statistics  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+                                   Begin            End         % Diff
+                          -------------- -------------- --------------
+   Avg Cursor Size (KB):           39.81          35.95         -10.75
+ Cursor to Parent ratio:            1.00           1.00           -.03
+          Total Cursors:          44,174         49,415          10.61
+          Total Parents:          43,964         49,196          10.64
+          -------------------------------------------------------------
+init.ora Parameters  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+_adaptive_window_consolidator FALSE
+_aggregation_optimization_set 32
+_always_anti_join             CHOOSE
+_always_semi_join             CHOOSE
+_and_pruning_enabled          FALSE
+archive_lag_target            1800
+audit_file_dest               /app/oracle/admin/PHARMA/adump
+audit_trail                   DB
+_bloom_filter_enabled         TRUE
+_bloom_folding_enabled        FALSE
+_bloom_pruning_enabled        FALSE
+_bloom_serial_filter          OFF
+_b_tree_bitmap_plans          TRUE
+compatible                    12.1.0.2.0
+_complex_view_merging         TRUE
+_compression_compatibility    12.1.0.2.0
+_connect_by_use_union_all     OLD_PLAN_MODE
+connection_brokers            ((TYPE=DEDICATED)(BROKERS=1)), ((
+                              TYPE=EMON)(BROKERS=1))
+control_files                 +DATA/PHARMA/CONTROLFILE/current.
+                              260.949170131, +FRA/PHARMA/CONTRO
+                              LFILE/current.256.949170131
+control_management_pack_acces NONE
+_convert_set_to_join          FALSE
+core_dump_dest                /logs/diag/rdbms/pharma/PHARMA/cd
+                              ump
+_cost_equality_semi_join      TRUE
+_cpu_to_io                    0
+db_block_size                 8192
+db_create_file_dest           +DATA
+db_domain
+db_name                       PHARMA
+db_recovery_file_dest         +FRA
+db_recovery_file_dest_size    32212254720
+_diag_adr_trace_dest          /logs/diag/rdbms/pharma/PHARMA/tr
+                              ace
+diagnostic_dest               /logs
+_dimension_skip_null          TRUE
+dispatchers                   (PROTOCOL=TCP) (SERVICE=PHARMAXDB
+                              )
+_distinct_agg_optimization_gs OFF
+_eliminate_common_subexpr     TRUE
+enable_goldengate_replication TRUE
+_enable_type_dep_selectivity  TRUE
+_fast_full_scan_enabled       TRUE
+_first_k_rows_dynamic_prorati FALSE
+_gby_hash_aggregation_enabled TRUE
+_gby_vector_aggregation_enabl FALSE
+_generalized_pruning_enabled  TRUE
+_globalindex_pnum_filter_enab TRUE
+_gs_anti_semi_join_allowed    TRUE
+_improved_outerjoin_card      TRUE
+_improved_row_length_enabled  TRUE
+_index_join_enabled           TRUE
+_ksb_restart_policy_times     0, 60, 120, 240
+init.ora Parameters  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+_left_nested_loops_random     TRUE
+_local_communication_costing_ TRUE
+local_listener                (ADDRESS=(PROTOCOL=TCP)(HOST=192.
+                              168.24.86)(PORT=1521))
+log_buffer                    12550144
+memory_max_target             8589934592
+memory_target                 8589934592
+_minimal_stats_aggregation    TRUE
+_mmv_query_rewrite_enabled    TRUE
+_new_initial_join_orders      TRUE
+_new_sort_cost_estimate       TRUE
+_nlj_batching_enabled         0
+nls_currency                  $
+nls_date_format               DD-MON-RR
+nls_date_language             FRENCH
+nls_dual_currency             $
+nls_iso_currency              AMERICA
+nls_language                  FRENCH
+nls_sort                      binary
+nls_territory                 AMERICA
+nls_time_format               HH.MI.SSXFF AM
+nls_timestamp_format          DD-MON-RR HH.MI.SSXFF AM
+nls_timestamp_tz_format       DD-MON-RR HH.MI.SSXFF AM TZR
+nls_time_tz_format            HH.MI.SSXFF AM TZR
+open_cursors                  1000
+_optim_adjust_for_part_skews  TRUE
+_optim_enhance_nnull_detectio TRUE
+_optimizer_adaptive_cursor_sh FALSE
+_optimizer_adaptive_plans     FALSE
+_optimizer_aggr_groupby_elim  FALSE
+_optimizer_ansi_join_lateral_ FALSE
+_optimizer_ansi_rearchitectur FALSE
+_optimizer_batch_table_access FALSE
+_optimizer_better_inlist_cost ALL
+_optimizer_cbqt_no_size_restr TRUE
+_optimizer_cluster_by_rowid   FALSE
+_optimizer_cluster_by_rowid_b FALSE
+_optimizer_cluster_by_rowid_c 3
+_optimizer_coalesce_subquerie FALSE
+_optimizer_complex_pred_selec TRUE
+_optimizer_compute_index_stat TRUE
+_optimizer_connect_by_combine FALSE
+_optimizer_connect_by_cost_ba TRUE
+_optimizer_connect_by_elim_du FALSE
+_optimizer_correct_sq_selecti TRUE
+_optimizer_cost_based_transfo LINEAR
+_optimizer_cost_hjsmj_multima TRUE
+_optimizer_cost_model         CHOOSE
+_optimizer_cube_join_enabled  FALSE
+_optimizer_dim_subq_join_sel  TRUE
+_optimizer_distinct_agg_trans FALSE
+_optimizer_distinct_eliminati FALSE
+_optimizer_distinct_placement FALSE
+_optimizer_dsdir_usage_contro 0
+optimizer_dynamic_sampling    2
+init.ora Parameters  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+_optimizer_eliminate_filterin FALSE
+_optimizer_enable_density_imp FALSE
+_optimizer_enable_extended_st FALSE
+_optimizer_enable_table_looku FALSE
+_optimizer_enhanced_filter_pu TRUE
+_optimizer_extended_cursor_sh UDO
+_optimizer_extended_cursor_sh NONE
+_optimizer_extended_stats_usa 255
+_optimizer_extend_jppd_view_t FALSE
+_optimizer_false_filter_pred_ FALSE
+_optimizer_fast_access_pred_a FALSE
+_optimizer_fast_pred_transiti FALSE
+_optimizer_filter_pred_pullup TRUE
+_optimizer_fkr_index_cost_bia 2
+_optimizer_full_outer_join_to FALSE
+_optimizer_gather_feedback    FALSE
+_optimizer_gather_stats_on_lo FALSE
+_optimizer_group_by_placement FALSE
+_optimizer_hybrid_fpwj_enable FALSE
+_optimizer_improve_selectivit FALSE
+_optimizer_inmemory_access_pa FALSE
+_optimizer_inmemory_autodop   FALSE
+_optimizer_inmemory_bloom_fil FALSE
+_optimizer_inmemory_cluster_a FALSE
+_optimizer_inmemory_gen_pusha FALSE
+_optimizer_inmemory_minmax_pr FALSE
+_optimizer_inmemory_table_exp FALSE
+_optimizer_interleave_jppd    FALSE
+_optimizer_join_elimination_e TRUE
+_optimizer_join_factorization FALSE
+_optimizer_join_order_control 3
+_optimizer_join_sel_sanity_ch TRUE
+_optimizer_max_permutations   2000
+optimizer_mode                ALL_ROWS
+_optimizer_mode_force         TRUE
+_optimizer_multi_level_push_p FALSE
+_optimizer_multi_table_outerj FALSE
+_optimizer_native_full_outer_ OFF
+_optimizer_new_join_card_comp TRUE
+_optimizer_nlj_hj_adaptive_jo FALSE
+_optimizer_null_accepting_sem FALSE
+_optimizer_null_aware_antijoi FALSE
+_optimizer_order_by_eliminati TRUE
+_optimizer_or_expansion       DEPTH
+_optimizer_outer_join_to_inne TRUE
+_optimizer_outer_to_anti_enab TRUE
+_optimizer_partial_join_eval  FALSE
+_optimizer_proc_rate_level    OFF
+_optimizer_push_down_distinct 0
+_optimizer_push_pred_cost_bas TRUE
+_optimizer_reduce_groupby_key FALSE
+_optimizer_rownum_bind_defaul 10
+_optimizer_rownum_pred_based_ TRUE
+_optimizer_skip_scan_enabled  TRUE
+_optimizer_sortmerge_join_ine TRUE
+init.ora Parameters  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+_optimizer_squ_bottomup       TRUE
+_optimizer_star_tran_in_with_ TRUE
+_optimizer_strans_adaptive_pr FALSE
+_optimizer_system_stats_usage TRUE
+_optimizer_table_expansion    FALSE
+_optimizer_transitivity_retai TRUE
+_optimizer_try_st_before_jppd FALSE
+_optimizer_undo_cost_change   10.2.0.3
+_optimizer_unnest_corr_set_su FALSE
+_optimizer_unnest_disjunctive FALSE
+_optimizer_unnest_scalar_sq   FALSE
+_optimizer_use_cbqt_star_tran FALSE
+_optimizer_use_feedback       FALSE
+_optimizer_use_gtt_session_st FALSE
+_optimizer_use_histograms     TRUE
+_optimizer_vector_transformat FALSE
+_optim_new_default_join_sel   TRUE
+_optim_peek_user_binds        TRUE
+_ordered_nested_loop          TRUE
+_or_expand_nvl_predicate      TRUE
+_parallel_broadcast_enabled   TRUE
+parallel_min_servers          0
+_partition_view_enabled       TRUE
+pga_aggregate_target          0
+_pga_max_size                 687861760
+_pivot_implementation_method  CHOOSE
+plsql_warnings                DISABLE:ALL
+_pred_move_around             TRUE
+_pre_rewrite_push_pred        TRUE
+processes                     1000
+_push_join_predicate          TRUE
+_push_join_union_view         TRUE
+_push_join_union_view2        TRUE
+_px_adaptive_dist_method      OFF
+_px_concurrent                FALSE
+_px_cpu_autodop_enabled       FALSE
+_px_external_table_default_st FALSE
+_px_filter_parallelized       FALSE
+_px_filter_skew_handling      FALSE
+_px_groupby_pushdown          CHOOSE
+_px_join_skew_handling        FALSE
+_px_minus_intersect           TRUE
+_px_object_sampling_enabled   FALSE
+_px_parallelize_expression    FALSE
+_px_partial_rollup_pushdown   OFF
+_px_partition_scan_enabled    FALSE
+_px_pwg_enabled               TRUE
+_px_replication_enabled       FALSE
+_px_scalable_invdist          FALSE
+_px_single_server_enabled     FALSE
+_px_ual_serial_input          TRUE
+_px_wif_dfo_declumping        OFF
+_px_wif_extend_distribution_k FALSE
+query_rewrite_enabled         TRUE
+_query_rewrite_setopgrw_enabl TRUE
+init.ora Parameters  DB/Inst: PHARMA/PHARMA  Snaps: 8685-8686
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+remote_login_passwordfile     EXCLUSIVE
+_remove_aggr_subquery         TRUE
+_replace_virtual_columns      FALSE
+result_cache_max_size         0
+_right_outer_hash_enable      TRUE
+_selfjoin_mv_duplicates       TRUE
+sessions                      1528
+sga_max_size                  6341787648
+sga_target                    0
+skip_unusable_indexes         TRUE
+_smm_max_size                 335870
+_smm_max_size_static          335870
+_smm_min_size                 1024
+_smm_px_max_size              1679360
+_smm_px_max_size_static       1679360
+_sql_model_unfold_forloops    RUN_TIME
+_sqltune_category_parsed      DEFAULT
+_subquery_pruning_enabled     TRUE
+_subquery_pruning_mv_enabled  FALSE
+_table_scan_cost_plus_one     TRUE
+undo_tablespace               UNDOTBS1
+_union_rewrite_for_gs         YES_GSET_MVS
+_unnest_subquery              TRUE
+_use_column_stats_for_functio TRUE
+          -------------------------------------------------------------
+
+End of Report ( /home/oracle/zenity_client/snaps/CHU30_sp-PHARMA-8685_8686.txt )
+

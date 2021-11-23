@@ -1,0 +1,124 @@
+{% extends 'gestion/homePage.html.twig' %}
+{% block body %}
+        <form name="form" class="navbar-form navbar-left" method="post" action="{{ path('resetSnapshot') }}">
+            <select name="clientId" id="clientList" onchange="loadBase()">
+                <option selected hidden>Client</option>
+            </select>
+            <select name = "baseId" id="baseList" onchange="loadInstances();loadVersion()">
+                <option selected hidden>Base</option>
+            </select>
+            <select name = "instanceId" id="instanceList" onchange="loadDates()">
+                <option selected hidden>Instances</option>
+            </select>
+            <select name = "dateFrom" id="dateFrom" onchange="refreshDateTo()">
+                <option selected hidden>From</option>
+            </select>
+            <select name = "dateTo" id="dateTo">
+                <option selected hidden>To</option>
+            </select>
+            <button type="submit" id="form_submit" name="select">Delete</button>
+        </form>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script>
+        loadClients();
+        function loadClients() {
+            $.ajax({
+                dataType: "json",
+                url: '/clientList',
+                success: function (result) {
+                    for (var index in result) {
+                        value = result[index];
+                        $('#clientList').append('<option value=' + value + '>' + index + '</option>');
+                    }
+                },
+                error: function () {
+
+                }
+            });
+        }
+        function loadBase(){
+            $.ajax({
+                dataType: "json",
+                url: `${config.serverPath}/baseList?clientId=${$("#clientList" ).val()}`,
+                success: function (result) {
+                    $('#baseList').empty();
+                    for (var index in result) {
+                        value = result[index];
+                        $('#baseList').append('<option value=' + value + '>' + index + '</option>');
+                    }
+                },
+                error: function () {
+                    $('#baseList').empty();
+                }
+            });
+        }
+        function loadVersion(){
+            $.ajax({
+                dataType: "json",
+                url: `${config.serverPath}/version?baseId=${$("#baseList" ).val()}`,
+                success: function (result) {
+                    version = result['version'];
+                    document.getElementById('version').value = version;
+                }
+            });
+        }
+        function loadInstances(){
+            $.ajax({
+                dataType: "json",
+                url: `${config.serverPath}/instanceList?baseId=${$("#baseList" ).val()}`,
+                success: function (result) {
+                    $('#instanceList').empty();
+                    $('#instanceList').append('<option selected hidden>Instances</option>');
+                    for (var index in result) {
+                        value = result[index];
+
+                        $('#instanceList').append('<option value=' + value + '>' + index + '</option>');
+                    }
+                },
+                error: function () {
+                    $('#instanceList').empty();
+
+                }
+            });
+        }
+        function loadDates(){
+            $.ajax({
+                dataType: "json",
+                url: `${config.serverPath}/dateList?instanceId='+$("#instanceList" ).val()`,
+                success: function (result) {
+                    $('#dateTo').empty();
+                    $('#dateFrom').empty();
+                    for (var index in result) {
+                        value = result[index];
+                        $('#dateFrom').append('<option value= ' + encodeURIComponent(value[0]) + '>' + value[0] + '</option>');
+                        $('#dateTo').append('<option value=' + encodeURIComponent(value[0]) + '>' + value[1] + '</option>');
+                    }
+                },
+                error: function () {
+                    $('#dateTo').empty();
+                    $('#dateFrom').empty();
+                }
+            });
+        }
+        function refreshDateTo(){
+            $.ajax({
+                dataType: "json",
+                url: `${config.serverPath}/dateList?instanceId=${$("#instanceList" ).val()}&from=${$("#dateFrom" ).val()}`,
+                success: function (result) {
+                    $('#dateTo').empty();
+                    for (var index in result) {
+                        value = result[index];
+                        $('#dateTo').append('<option value=' + encodeURIComponent(value[1]) + '>' + value[1] + '</option>');
+                    }
+                },
+                error: function () {
+                    $('#dateTo').empty();
+                }
+            });
+        }
+    </script>
+{% endblock %}

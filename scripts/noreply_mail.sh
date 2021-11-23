@@ -1,0 +1,1 @@
+echo $2 | mailx -v -r "noreply@nexttech.fr" -s "$1" -S smtp="smtp.office365.com:587" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="noreply@nexttech.fr" -S smtp-auth-password="Qualora2017" -S ssl-verify=ignore support@nexttech.fr

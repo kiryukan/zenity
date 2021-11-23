@@ -1,0 +1,462 @@
+{% extends 'gestion/cloud/mainCloud.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-treeview-master/dist/bootstrap-treeview.min.css') }}">
+<style>
+.currencyinput {
+    border: 1px solid #ccc;
+    padding-top: 5px;
+  padding-bottom: 5px;
+}
+.currencyinput input {
+    border: 0;
+}
+.btn.btn-light.delete-price:hover, .btn.btn-del-instance:hover, .del-instance-button:hover, #del-provider:hover, #delete-form:hover{
+  color: white;
+  background-color: red;
+  border-style: solid;
+  border-radius: 7px;
+}
+#add-provider:hover, .add-instance-button:hover, #btn-new-licence:hover, #save-form:hover{
+  color: white;
+  background-color: #3175b0;
+  border-style: solid;
+  border-radius: 7px;
+}
+#btn1{
+  background-color: green;
+}
+.panel-heading{
+  font-weight: bold;
+}
+</style>
+{% endblock %}
+{% block subMenu %}
+    <div id="#nested_menu">
+            <a class="button" id="btn1" href="{{ url('gestion_cloud_paas') }}" onclick="active(this)">PAAS</a>
+            <a class="button" id="btn2" href="{{ url('gestion_cloud_iaas') }}" onclick="active(this)">IAAS</a>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="cloud-content"></div>
+    <div class="row">
+    <!-- provider tree -->
+      <div  class="col-sm-4">
+        <div id="cloudInstanceTree" class="col-sm-12"></div>
+        <div id="btn_container" class="col-sm-12">
+          <button id="add-provider" onClick="addProvider()">Add provider</button>
+          <button id="del-provider" onClick="deleteProvider()">Delete provider</button>
+        </div>
+      </div>
+    <!-- instance spec -->
+      <div id="cloud-instance-container" class="col-sm-8" onload="setSelected()">
+        <form action="javascript: handleForm();" id="cloud-instance-form">
+          <input id="instance_id" hidden name="id"/>
+          <div class="form-group">
+            <label for="instance-name">Nom du cloud:</label><br />
+            <input id="instance-name" name="name" type="text" size="50" />
+          </div>
+          <div class="form-group">
+            <label for="spec-sheet" style="display:block">Fiche technique:</label>
+            <textarea id="spec-sheet" name="specSheet" cols="55" rows="7"></textarea>
+          </div>
+          <!-- licenses price -->
+          <div class="pricing panel panel-default">
+            <div class="panel-heading">Pricing</div>
+            <div class="panel-body">
+                  <div class="form-group" id="prices">
+                  </div>
+              </div>
+          </div>
+          <!-- benchmark infos -->
+          <div class="performance panel panel-default">
+            <div class="panel-heading">performance benchmark</div>
+            <div class="panel-body">
+              {% for indicatorName in performanceIndicators %}
+                <div class="form-group">
+                  <label class="col-sm-1" for="indicator-{{indicatorName}}">{{indicatorName}}</label>
+                  <input name="performanceBench[{{indicatorName}}]" id="indicator-{{indicatorName}}" type="number" value="0" step="0.01"/>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <!-- vCpu cost -->
+          <div class="cpu panel panel-default">
+            <div class="panel-heading">vCpu cost</div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label class="col-sm-2" for="costPerCpu">cost per vcpu</label>
+                <span class="currencyinput"><i>$</i> <input name="costPerCpu" id="costPerCpu" type="number" value="0" step="0.01"/></span>
+                <label for="costPerCpuPerHour"></label>
+                <span class="currencyinput"><i>$/h</i> <input name="costPerCpuPerHour" id="costPerCpuPerHour" type="number" value="0" default="0" step="0.01"/></span>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2" for="minCpu">vcpu count min</label>
+                <input name="minCpu" id="minCpu" type="number" value="0" />
+                <label for="maxCpu">max</label>
+                <input name="maxCpu" id="maxCpu" type="number" value="0"/>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2" for="cpuCountRule">cpu count rule</label>
+                <input name="cpuCountRule" id="cpuCountRule" type="text" value="$n" />
+              </div>
+            </div>
+          </div>
+          <!-- storage -->
+          <div class="storage panel panel-default">
+            <div class="panel-heading">Storage</div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label class="col-sm-3" for="baseStorage">Base storage</label>
+                <span class="currencyinput"><i>Go</i> <input id="baseStorage" name="baseStorage" type="number" value="0"/></span>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3" for="costPerGo">Additional cost per GO</label>
+                <span class="currencyinput"><i>$</i> <input id="costPerGo" name="costPerGo" type="number" value="0" step="0.00001"/></span>
+              </div>
+            </div>
+          </div>
+          <!--<button id="delete-form" type="button" onclick="deleteInstance()">Supprimer</button>-->
+          <input type="submit" id="save-form" value="Enregistrer">
+        </form>
+      </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('vendor/bootstrap-treeview-master/dist/bootstrap-treeview.min.js') }}"></script>
+    <script type="text/javascript">
+
+    $("#costPerCpuPerHour").change((eventData)=>{
+      let costPerMonth = $("#costPerCpuPerHour").val() * 24*30.5;
+      $("#costPerCpu").val(Math.round(costPerMonth * 10000) / 10000)
+    })
+    $("#costPerCpu").change((eventData)=>{
+      let costPerHour = $("#costPerCpu").val() / 24/30.5;
+      $("#costPerCpuPerHour").val(Math.round(costPerHour * 10000) / 10000)
+    })
+
+    let msg = "";
+    // PROVIDER TREE MANAGEMENT
+    //-------------------------
+
+    // ADD PROVIDER
+    function addProvider(){
+      let provider_name = prompt("Provider name");
+      if(provider_name != "" && provider_name !== null){
+        $.ajax({
+          url: `${config.serverPath}/gestion/cloudInstancesPaas/createProvider`,
+          data:{provider_name:provider_name},
+          success: function (result) {
+            location.reload();
+          }
+        });
+      }else{
+        //window.onload = displayMessage("Please enter a correct provider name");
+      }
+    }
+    // DELETE PROVIDER
+    function deleteProvider(){
+      let tag = $('li[class="list-group-item node-cloudInstanceTree node-selected"] > input').attr('id');
+      let providerId = tag.split("-")[1];
+      $.ajax({
+        url: `${config.serverPath}/gestion/cloudInstancesPaas/deleteProvider`,
+        data:{provider_id:providerId},
+        success: function (result) {
+          location.reload();
+        }
+      });
+    }
+
+    // ADD INSTANCE
+    function appendInstance(nodeId){
+      let cloudInstanceName = prompt("Enter a new cloud instance name:");
+      if(cloudInstanceName != "" && cloudInstanceName !== null){
+        console.log("ajout instance pour: "+cloudInstanceName);
+        $.post(`${config.serverPath}/gestion/cloudInstancesPaas/createNewCloudInstance`, {provider_id:nodeId, cloud_instance_name:cloudInstanceName},function(data){
+          console.log(data);
+          location.reload();
+        });
+      }else{
+        console.log("nothing to add");
+      }
+    }
+
+    // DELETE INSTANCE
+    function delInstance(provId){
+      try{
+        let cloudInstanceTag = $('li[class="list-group-item node-cloudInstanceTree node-selected"] > input').attr('id');
+        let cloudInstanceId = cloudInstanceTag.split('-')[2];
+          if(parseInt(provId) >= 0 && parseInt(cloudInstanceId)){
+            if(confirm("Confirm to delete")){
+              console.log("provider instance: "+provId);
+              console.log("cloud instance id: "+cloudInstanceId);
+              $.post(`${config.serverPath}/gestion/cloudInstancesPaas/deleteCloudInstance`, {cloud_instance_id:cloudInstanceId},function(data){
+                console.log(data);
+                location.reload();
+              });              
+            }
+          }else{
+            console.log("Select the cloud instance to delete");
+          }
+        }catch(e){
+          console.log("Select the cloud instance to delete");
+        }
+
+    }
+
+    // GET TREE TO DISPLAY
+    function getTree() {
+      let tree = []
+      $.ajax({
+            url: `${config.serverPath}/gestion/cloudInstancesPaas/getTree`, //get
+            success: function (result) {
+                tree=result
+            },
+            async: false
+        });
+        //console.log(tree)
+        return tree.map(node=>{ // DEFINE MAP TREE
+        //node.nodes.text = node.nodes.text+`<button class="add-instance-button" >+</button>`
+          return {
+            nodes:node.nodes,   // sub node cloud instance?
+            id:node.id,         // provider id
+            text:`${node.text}
+            <button class="add-instance-button" onClick="appendInstance('${node.id}')"" >+</button>
+            <button class="del-instance-button" onClick="delInstance('${node.id}')"" >-</button>
+            <input type="hidden" id="provider-${node.id}" />
+            ` // node value
+          }
+        });
+    }
+    /*function appendInstance(nodeText){
+      $.ajax({url: `${config.serverPath}/gestion/cloudInstances/createCloudInstance?provider_name=${nodeText}&instance_name=${prompt('instance name')}`}).then(result=>{})  
+      location.reload();
+    }*/
+
+    console.log( getTree());
+    // DISPLAY CLOUD INSTANCE TREE
+    /*let tree = $('#cloudInstanceTree').treeview({
+      data: getTree(),
+      onNodeSelected:(event,node)=>{
+        if(!node.isRoot){
+          $.ajax({
+                url: `${config.serverPath}/gestion/cloudInstances/getCloudInstance/${node.id}`,
+                success: function (result) {
+                  $('#instance_id').val(result.id);
+                  $('#instance-name').val(result.name);
+                  $('#spec-sheet').val(result.technicalInfos);
+                  $('#baseStorage').val(result.baseStorageCapacity);
+                  $('#costPerCpu').val(result.costPerCpu);
+                  $('#costPerGo').val(result.costPerGo);
+                  $('#minCpu').val(result.minCpuCount);
+                  $('#maxCpu').val(result.maxCpuCount);
+                  $('#cpuCountRule').val(result.cpuCountRule);
+                  for (let indicatorName in result.performanceBench){
+                    let value = result.performanceBench[indicatorName]
+                    $(`#indicator-${indicatorName}`).val(value)
+                  }
+                  $("#prices").empty("<input /><br />");
+                  
+                  // SORT LICENSES BY NAME
+                  licenseSorted = result.licencePrices;
+                  function compare(a,b) { // compare function to sort by licence name
+                    if (a.name < b.name)
+                      return -1;
+                    if (a.name > b.name)
+                      return 1;
+                    return 0;
+                  }
+                  licenseSorted.sort(compare);
+                  for (let price of licenseSorted){
+                    //$(`#price-${price.name}`).val(price.value);
+                    $("#prices").append("<label id='label-"+price.name+"' for='price-"+price.name+"' class='col-sm-1'>"+price.name+"</label>");
+                    $("#prices").append("<input id='price-"+price.name+"' name='prices["+price.name+"]' type='number' value='"+price.value+"'/><button type='button' class='btn btn-light' id='btn-"+price.name+"-"+price.id+"' onClick='deleteLicence(this)'>X</button><br />");
+                    //$('#prices').appendChild("<input id='price-".${price.name}."'/>").val(price.value);
+                  }
+                  $("#prices").append("<br /><button type='button' class='btn btn-light col-sm-1' id='btn-new-licence' onClick='addLicence(this)'>Ajouter</button></span><input type='text' placeholder='add a licence' id='newLicenceName' /><input type='text' placeholder='price' id='newLicencePrice' />");
+                }
+            });
+        }else{
+
+        }
+      }
+    });*/
+
+    // MODIF TREEVIEW
+    //---------------
+
+    function displayTreeView(){
+        let tree = $('#cloudInstanceTree').treeview({
+        data: getTree(),
+        onNodeSelected:(event,node)=>{
+          if(!node.isRoot){
+            $.ajax({
+                  url: `${config.serverPath}/gestion/cloudInstancesPaas/getCloudInstance/${node.id}`,
+                  success: function (result) {
+                    $('#instance_id').val(result.id);
+                    $('#instance-name').val(result.name);
+                    $('#spec-sheet').val(result.technicalInfos);
+                    $('#baseStorage').val(result.baseStorageCapacity);
+                    $('#costPerCpu').val(result.costPerCpu);
+                    $('#costPerGo').val(result.costPerGo);
+                    $('#minCpu').val(result.minCpuCount);
+                    $('#maxCpu').val(result.maxCpuCount);
+                    $('#cpuCountRule').val(result.cpuCountRule);
+                    for (let indicatorName in result.performanceBench){
+                      let value = result.performanceBench[indicatorName]
+                      $(`#indicator-${indicatorName}`).val(value)
+                    }
+                    $("#prices").empty("<input /><br />"); // reset prices list
+                    
+                    // SORT LICENSES BY NAME
+                    licenseSorted = result.licencePrices;
+                    function compare(a,b) { // compare function to sort by licence name
+                      if (a.name < b.name)
+                        return -1;
+                      if (a.name > b.name)
+                        return 1;
+                      return 0;
+                    }
+                    licenseSorted.sort(compare);
+                    for (let price of licenseSorted){
+                      //$(`#price-${price.name}`).val(price.value);
+                      $("#prices").append("<label id='label-"+price.name+"' for='price-"+price.name+"' class='col-sm-1'>"+price.name+"</label>");
+                      $("#prices").append("<input id='price-"+price.name+"' name='prices["+price.name+"]' type='number' value='"+price.value+"'/><button type='button' class='btn btn-light delete-price' id='btn-"+price.name+"-"+price.id+"' onClick='deleteLicence(this)'>X</button><br />");
+                      //$('#prices').appendChild("<input id='price-".${price.name}."'/>").val(price.value);
+                    }
+                    $("#prices").append("<br /><button type='button' class='btn btn-light col-sm-1' id='btn-new-licence' onClick='addLicence(this)'>Ajouter</button></span><input type='text' placeholder='add a licence' id='newLicenceName' /><input type='text' placeholder='price' id='newLicencePrice' />");
+                  }
+              });
+          }else{
+              
+          }
+        }
+      });
+    }
+
+    // END MODIF TREEVIEW
+    //-------------------
+
+    window.onload = function(){
+      displayTreeView();
+      setSelected();
+    }
+
+    function handleForm(){
+      console.log("enregistrer");
+      console.log($('#cloud-instance-form').serialize());
+      $.post(`${config.serverPath}/gestion/cloudInstancesPaas/updateCloudInstance`, $('#cloud-instance-form').serialize(), function(data){
+        reloadPage(); // reload page
+      });
+
+    }
+    function deleteInstance(){
+      let instance_id = $('#instance_id').val();
+      $.post(`${config.serverPath}/gestion/cloudInstancesPaas/deleteInstance`,{'instance_id':instance_id});
+      location.reload();
+    }
+    // delete selected licence
+    function deleteLicence(licenceBtn){
+      let licence = licenceBtn.getAttribute("id").split("-"); // split button id in - btn-licenseName-licenseId -
+      let licenceName = licence[1]; // get license name
+      let licenceId = licence[2];   // get license id
+
+      $.post(`${config.serverPath}/gestion/cloudInstancesPaas/prices/deletePrice`,{'licence_id':licenceId}, function(data){
+        // remove element from list in frontend
+        document.getElementById("label-"+licenceName).remove();
+        document.getElementById("price-"+licenceName).remove();
+        $('button#' + 'btn-' + licenceName + '-' + licenceId + ' + br').remove();
+        document.getElementById(licenceBtn.getAttribute("id")).remove();
+      });
+    }
+
+    // SAVE NEW PRICE INTO DB
+    //-----------------------
+    function addLicence(){
+      
+      // get params entered from price inputs;
+      let licenceName = document.getElementById("newLicenceName").value;
+      let licencePrice = document.getElementById("newLicencePrice").value;
+      let instanceId = document.getElementById("instance_id").value;
+      console.log(licenceName);console.log(licencePrice);
+
+      if(licenceName.length > 0){
+
+        if(!(parseInt(licencePrice) >= 0)){
+          licencePrice = 0;
+        }
+        // DEFINE RELOAD PAGE
+        //-------------------
+        // test if location has the node param in the URL, if yes reset it to default and add node id, else add node id only...
+        let node = $('li[class="list-group-item node-cloudInstanceTree node-selected"]').attr('data-nodeid'); // get node id
+        let location;
+        if(window.location.href.indexOf('?') < 0){
+          location = window.location.href+'?node='+node;
+        }else{
+          location = window.location.href;
+        }
+        // reload page - work only with a timeout
+        setTimeout(function(){
+          window.location.href = location;
+          console.log(location);
+        }, 1000);
+
+        // send data to controller to record them into DB
+        $.post(`${config.serverPath}/gestion/cloudInstancesPaas/prices/addPrice`,{instance_id:instanceId, newLicenceName:licenceName, newLicencePrice:licencePrice}, function(data){
+          console.log(window.location.href);
+        });
+
+      }else{
+        console.log("NO PRICE NAME DEFINED");
+      }
+    }
+
+    // GET NODE ID FROM REFRESHED URL LOCATION
+    //----------------------------------------
+    function getUrlVars() {
+      console.log("get url");
+      var vars = {};
+      var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+          vars[key] = value;
+      });
+      return vars;
+    }
+
+    // ------------------------
+    // REFRESH PAGE WITH PARAMS
+    // ------------------------
+
+    // SELECT THE NODE ID GOT FROM URL LOCATION
+    //-----------------------------------------
+    function setSelected(){ // if the page was redirected, select the cloud selected before redirecting...
+      let param;
+      if(param = getUrlVars()["node"]){
+        let data = $('li[data-nodeid="'+param+'"]');
+        $('li[data-nodeid="'+param+'"]').trigger("click"); // select the node that selected before refresh
+      }
+    }
+
+    // RELOAD PAGE AND REDIRECT TO SELECTED CLOUD INTANCE
+    //---------------------------------------------------
+    function reloadPage(){
+        let node = $('li[class="list-group-item node-cloudInstanceTree node-selected"]').attr('data-nodeid'); // get node id
+        let location;
+        if(window.location.href.indexOf('?') < 0){
+          location = window.location.href+'?node='+node;
+        }else{
+          location = window.location.href;
+        }
+        // reload page - work only with a timeout
+        setTimeout(function(){
+          window.location.href = location;
+          console.log(location);
+        }, 1000);
+    }
+
+    function displayMessage(msgParam){
+      let item = document.getElementById("msg");
+      item.innerHTML = msgParam;
+    }
+    </script>
+{% endblock %}

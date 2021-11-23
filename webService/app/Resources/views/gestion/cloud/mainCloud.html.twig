@@ -1,0 +1,79 @@
+{% extends 'gestion/homePage.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-treeview-master/dist/bootstrap-treeview.min.css') }}">
+<style>
+.title {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 26px;
+    background-color: black;
+    color: white;
+}
+.currencyinput {
+    border: 1px solid #ccc;
+    padding-top: 5px;
+  padding-bottom: 5px;
+}
+.currencyinput input {
+    border: 0;
+}
+
+.button{
+    font-size: 1em;
+    background-color: #3175b0;
+    border: none;
+    color: white;
+    padding: 10px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button:hover{
+    font-size: 1em;
+    background-color: #a2a3a2;
+    border: none;
+    color: white;
+    padding: 10px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.cloud-content{
+    margin-top: 20px;
+}
+</style>
+{% endblock %}
+{% block body %}
+    <div class="col-md-12">
+        {% block banner %}
+        {{ parent() }}
+            <div class="title"><h3>ZENITY CLOUD MANAGING</h3></div>
+        {% endblock %}
+        {% block subMenu %}
+        {{ parent() }}
+            <div id="#nested_menu">
+                    <a class="button" id="btn1" href="{{ url('gestion_cloud_paas') }}" onclick="setActive(this)">PAAS</a>
+                    <a class="button" id="btn2" href="{{ url('gestion_cloud_iaas') }}" onclick="setActive(this)">IAAS</a>
+            </div>
+        {% endblock %}
+        {% block content %}
+            <div class="cloud-content"><b>MANAGE CLOUD AND INFRASTRUCTURE SERVICES</b></div>
+        {% endblock %}
+    </div>
+    <script>
+        function setActive(elem){
+            if(window.location.href = `${config.serverPath}/gestion/cloud-test/paas`){
+                //document.getElementById(elem.id).style.backgroundColor = 'red';
+                elem.style.backgroundColor = 'red';
+            }
+            //document.getElementById(elem.id).style.backgroundColor = 'red';
+        }
+    </script>
+{% endblock %}

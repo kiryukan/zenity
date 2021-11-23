@@ -1,0 +1,159 @@
+{% extends '/reporting/reportBase.html.twig' %}
+{% block title %}Rapport{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block menu_side%}
+    {{ parent() }}
+    <nav class="navbar navbar-fixed-side report-navbar-side hidden-sm hidden-md">
+        <div class="nav-container">
+            <ul class="nav navbar-header">
+                <li>
+                    <a href="/">
+                        <img class="logo" width="120px"  src={{  asset("ressources/zenity_IA.png") }} >
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav ">
+                <li><span class="arrow active"></span><a href="#Note">Rate</a></li>
+                <li><span class="arrow"></span><a href="#SQL">Sql</a></li>
+                <li><span class="arrow"></span><a href="#IO">IO</a></li>
+                <li><span class="arrow"></span><a href="#OS">OS</a></li>
+                <li><span class="arrow"></span><a href="#Instance">Instance</a></li>
+                <li><span class="arrow"></span><a href="#Network">Network</a></li>
+                <li><div class="nav-divider"></div></li>
+                <li><span class="arrow"></span> <a href="#Event">Events</a> </li>
+                <li><span class="arrow"></span> <a href="#EfficiencyIndicator">Efficiency</a></li>
+                <li><span class="arrow"></span> <a href="#ComplementaryInfo">Infos comp</a></li>
+                <li><span class="arrow"></span> <a href="#Advisory">Advisory</a></li>
+                <li><div class="nav-divider"></div></li>
+                <li><span class="arrow"></span><a href="#Parameters">Parameters</a></li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+{% block report_content %}
+    {{ parent() }}
+    <div class="row">
+        <div class="col-md-12"><div id="information-bar"></div></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{% include 'reporting/parts/Cloud.html' %}</div>
+        <div class="col-md-6">{% include 'reporting/parts/Cloud-Iaas.html' %}</div>
+    </div>
+    <div class="row stripped-separator">
+        <button class="btn print-btn" onclick="printReport();">Genérer un rapport</button>
+    </div>
+    {% include 'reporting/parts/Note.html' %}
+ 
+    {% include 'reporting/parts/SQL.html' %}
+    {% include 'reporting/parts/IO.html' %}
+    {% include 'reporting/parts/OS.html' %}
+    {% include 'reporting/parts/Instance.html' %}
+    {% include 'reporting/parts/Network.html' %}
+    {% include 'reporting/parts/Events.html' %}
+    {% include 'reporting/parts/Efficiency.html' %}
+    {% include 'reporting/parts/ComplementaryFlow.html' %}
+    {% include 'reporting/parts/Advisory.html' %}
+    {% include 'reporting/parts/Parameters.html' %}
+
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+    
+    <script>
+        charty.setDate("{{ from }}", "{{ to }}");
+        charty.setInstanceId({{ instanceId }});
+        charty.renderInformationBar("information-bar");
+    </script>
+   
+     <script type="text/javascript">
+        charty.generateTemplate('notes','Note/Note');/**/
+    </script>
+    
+    <script>
+        generatePaas({{clientId}},{{baseId}},{{instanceId}})
+        generateIaas({{clientId}},{{baseId}},{{instanceId}})
+    </script>
+
+    <script>
+      //charty.generateTemplate('benchmark', 'Cloud/Benchmark');
+    </script>
+    <script>
+        charty.generateTemplate('requestMemory', 'SQL/RequestMemory');
+        // charty.generateTemplate('topRequestByReads', 'SQL/TopRequestByReads');
+        charty.generateTemplate('topRequestByCpu', 'SQL/TopRequestByCpu');
+        // charty.generateTemplate('topRequestByWaitTime', 'SQL/TopRequestByTotalWaitTime');
+        charty.generateTemplate('topRequestByGets', 'SQL/TopRequestByGets');
+        //charty.generateTemplate('topRequestByElapTime', 'SQL/TopRequestByElapTime');
+        charty.generateTemplate('topRequestByExec', 'SQL/TopRequestByExec');
+        charty.generateTemplate('sqlRequestExecutedOverOne','SQL/RequestExecutedOverOne');/**/
+    </script>
+    <script>
+        charty.generateTemplate('ioTableSpaceReadS', 'IO/TableSpaceReads');
+        charty.generateTemplate('ioTableSpaceWrites', 'IO/TableSpaceWrites');
+        charty.generateTemplate('ioLogSwitches', 'IO/LogSwitches');
+
+
+    </script>
+
+    <script>
+        charty.generateTemplate('osMemory', 'Os/Memory');
+        charty.generateTemplate('time', 'Os/Time');
+        charty.generateTemplate('load','Os/Load');
+
+        /*
+         charty.generateTemplate('osSysTime', 'Os/SysTime');
+         charty.generateTemplate('osUserTime', 'Os/UserTime');
+        /**/
+    </script>
+
+    <script>
+        charty.generateTemplate('nbSession', 'Instance/NbSession');
+        charty.generateTemplate('sqlAreaPurged', 'Instance/SqlAreaPurged');
+        //charty.generateTemplate('userCall', 'Instance/UserCall');
+        charty.generateTemplate('userIoWaitTime', 'Instance/UserIoWaitTime');
+    </script>
+    <script>
+        charty.generateTemplate('networkEvent', 'Network/Event');
+    </script>
+
+    <script>
+        charty.generateTemplate('topEvent', 'Event/TopEvent');
+        charty.generateTemplate('topEventByAvgWait', 'Event/TopEventByAvgWait');
+
+    </script>
+
+
+    <script>
+        charty.generateTemplate('bufferHit', 'EfficiencyIndicator/BufferHit');
+        charty.generateTemplate('cpuToParse', 'EfficiencyIndicator/CpuToParse');
+        charty.generateTemplate('execToParse', 'EfficiencyIndicator/ExecToParse');
+        charty.generateTemplate('latchHit', 'EfficiencyIndicator/LatchHit');
+        charty.generateTemplate('libraryHit', 'EfficiencyIndicator/LibraryHit');
+        charty.generateTemplate('nonParseCpu', 'EfficiencyIndicator/NonParseCpu');
+        charty.generateTemplate('optimalWa', 'EfficiencyIndicator/OptimalWa');
+        charty.generateTemplate('redoNoWait', 'EfficiencyIndicator/RedoNoWait');
+        charty.generateTemplate('softParse', 'EfficiencyIndicator/SoftParse');
+    /**/
+    </script>
+    <script>
+        charty.generateTemplate("advisory-buffer-pool","Advisory/BufferPool");
+        charty.generateTemplate("advisory-pga-memory","Advisory/PgaMemory");
+        charty.generateTemplate("advisory-sga-memory","Advisory/SgaMemory");
+        charty.generateTemplate("advisory-shared-pool","Advisory/SharedPool");
+    </script>
+    <script>
+        charty.generateTemplate('locks','ComplementaryFlow/Locks');/**/
+        charty.generateTemplate('long-session','ComplementaryFlow/LongSessions');/**/
+
+    </script>
+
+    <!-- génération du template parameters -->
+    <script >
+        charty.generateTemplate('parameters-table','Parameters/Parameters');/**/
+    </script>
+                        <!---->
+
+{% endblock %}

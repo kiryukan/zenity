@@ -1,0 +1,2599 @@
+
+STATSPACK report for
+
+Database    DB Id    Instance     Inst Num  Startup Time   Release     RAC
+~~~~~~~~ ----------- ------------ -------- --------------- ----------- ---
+          2899500886 SGEOBASE            1 13-Aug-18 10:20 12.1.0.2.0  NO
+
+Host         Name             Platform                CPUs Cores Sockets
+  Memory (G)
+~~~~ ---------------- ---------------------- ----- ----- ------- ------------
+     P4-094-SGEB      Linux x86 64-bit           2     2       1          2.7
+
+Snapshot       Snap Id     Snap Time      Sessions Curs/Sess Comment
+~~~~~~~~    ---------- ------------------ -------- --------- ------------------
+Begin Snap:       2494 01-Oct-18 22:00:29       58       2.2
+  End Snap:       2495 01-Oct-18 23:00:04       59       1.8
+   Elapsed:      59.58 (mins) Av Act Sess:       0.2
+   DB time:      11.48 (mins)      DB CPU:       3.82 (mins)
+
+Cache Sizes            Begin        End
+~~~~~~~~~~~       ---------- ----------
+    Buffer Cache:       224M              Std Block Size:         8K
+     Shared Pool:       384M                  Log Buffer:     5,064K
+
+Load Profile              Per Second    Per Transaction    Per Exec    Per Call
+~~~~~~~~~~~~      ------------------  ----------------- ----------- -----------
+      DB time(s):                0.2                0.4        0.01        0.02
+       DB CPU(s):                0.1                0.1        0.00        0.01
+       Redo size:           25,994.9           48,757.6
+   Logical reads:            2,678.1            5,023.2
+   Block changes:              129.7              243.3
+  Physical reads:              308.3              578.3
+ Physical writes:                4.7                8.9
+      User calls:               10.6               19.9
+          Parses:               14.8               27.8
+     Hard parses:                2.0                3.7
+W/A MB processed:                1.6                3.0
+          Logons:                0.1                0.2
+        Executes:               29.6               55.6
+       Rollbacks:                0.0                0.0
+    Transactions:                0.5
+
+Instance Efficiency Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Buffer Nowait %:  100.00       Redo NoWait %:   99.99
+            Buffer  Hit   %:   88.53  Optimal W/A Exec %:   99.98
+            Library Hit   %:   85.06        Soft Parse %:   86.67
+         Execute to Parse %:   49.90         Latch Hit %:  100.00
+Parse CPU to Parse Elapsd %:   61.01     % Non-Parse CPU:   81.66
+
+ Shared Pool Statistics        Begin   End
+                               ------  ------
+             Memory Usage %:   92.62   91.11
+    % SQL with executions>1:   83.06   76.51
+  % Memory for SQL w/exec>1:   77.23   81.05
+
+Top 5 Timed Events                                                    Avg %Total
+~~~~~~~~~~~~~~~~~~                                                   wait   Call
+Event                                            Waits    Time (s)   (ms)   Time
+----------------------------------------- ------------ ----------- ------ ------
+Backup: MML create a backup piece                   13       1,375 ######   61.3
+db file sequential read                        891,742         380      0   16.9
+CPU time                                                       227          10.1
+Backup: MML commit backup piece                     13          79   6084    3.5
+Backup: MML write backup piece                  16,083          60      4    2.7
+          -------------------------------------------------------------
+Host CPU  (CPUs: 2  Cores: 2  Sockets: 1)
+~~~~~~~~              Load Average
+                      Begin     End      User  System    Idle     WIO     WCPU
+                    ------- -------   ------- ------- ------- ------- --------
+                       1.64    0.54     21.93    1.47   76.50    5.17
+
+Instance CPU
+~~~~~~~~~~~~                                       % Time (seconds)
+                                            -------- --------------
+                     Host: Total time (s):                  7,013.2
+                  Host: Busy CPU time (s):                  1,648.0
+                   % of time Host is Busy:      23.5
+             Instance: Total CPU time (s):                    252.0
+          % of Busy CPU used for Instance:      15.3
+        Instance: Total Database time (s):                  2,289.1
+  %DB time waiting for CPU (Resource Mgr):       0.0
+
+Virtual Memory Paging
+~~~~~~~~~~~~~~~~~~~~~
+                     KB paged out per sec:             1.2
+                     KB paged  in per sec:              .7
+
+Memory Statistics                       Begin          End
+~~~~~~~~~~~~~~~~~                ------------ ------------
+                  Host Mem (MB):      2,733.3      2,733.3
+                   SGA use (MB):      1,000.0      1,000.0
+                   PGA use (MB):        530.3        363.2
+    % Host Mem used for SGA+PGA:         56.0         49.9
+          -------------------------------------------------------------
+
+Time Model System Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Ordered by % of DB time desc, Statistic name
+
+Statistic                                       Time (s) % DB time
+----------------------------------- -------------------- ---------
+sql execute elapsed time                           593.0      86.1
+DB CPU                                             229.3      33.3
+parse time elapsed                                  62.3       9.0
+hard parse elapsed time                             60.9       8.8
+connection management call elapsed                  13.9       2.0
+hard parse (sharing criteria) elaps                  6.7       1.0
+PL/SQL execution elapsed time                        6.2        .9
+RMAN cpu time (backup/restore)                       5.7        .8
+inbound PL/SQL rpc elapsed time                      3.2        .5
+PL/SQL compilation elapsed time                      0.8        .1
+failed parse elapsed time                            0.1        .0
+repeated bind elapsed time                           0.1        .0
+sequence load elapsed time                           0.0        .0
+DB time                                            688.8
+background elapsed time                          1,600.3
+background cpu time                                 22.7
+          -------------------------------------------------------------
+Foreground Wait Events  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+db file sequential read           890,289    0        376      0    467.1   16.8
+db file scattered read              9,952    0         32      3      5.2    1.4
+control file sequential read       10,421    0         16      2      5.5     .7
+Failed Logon Delay                     12  100         12   1000      0.0     .5
+db file parallel read                 317    0          2      7      0.2     .1
+log file sync                         810    0          2      2      0.4     .1
+recovery area: computing obs            5    0          2    342      0.0     .1
+log file switch (checkpoint             2    0          0    239      0.0     .0
+Disk file operations I/O            2,598    0          0      0      1.4     .0
+control file single write              74    0          0      6      0.0     .0
+direct path write temp                127    0          0      2      0.1     .0
+control file parallel write           119    0          0      1      0.1     .0
+recovery area: computing bac            3    0          0     41      0.0     .0
+direct path read temp                 142    0          0      1      0.1     .0
+recovery area: computing dro            3    0          0     26      0.0     .0
+switch logfile command                  2    0          0     25      0.0     .0
+latch free                              2    0          0     16      0.0     .0
+CSS initialization                      4    0          0      8      0.0     .0
+log file sequential read               24    0          0      1      0.0     .0
+SQL*Net more data to client         1,355    0          0      0      0.7     .0
+latch: shared pool                     26    0          0      1      0.0     .0
+log file switch (private str            1    0          0     22      0.0     .0
+undo segment extension                  4  100          0      3      0.0     .0
+enq: CF - contention                    2    0          0      5      0.0     .0
+CSS operation: action                   6    0          0      2      0.0     .0
+cursor: pin S wait on X                 1    0          0      9      0.0     .0
+CSS operation: query                   24    0          0      0      0.0     .0
+latch: row cache objects                8    0          0      1      0.0     .0
+Log archive I/O                         2    0          0      3      0.0     .0
+kfk: async disk IO                      6    0          0      1      0.0     .0
+direct path read                        5    0          0      1      0.0     .0
+Parameter File I/O                      2    0          0      2      0.0     .0
+library cache load lock                 2    0          0      1      0.0     .0
+enq: RO - fast object reuse             1    0          0      2      0.0     .0
+SQL*Net message from client        29,447    0     44,290   1504     15.4
+jobq slave wait                     3,168   99      1,580    499      1.7
+SQL*Net message to client          29,449    0          0      0     15.5
+KSV master wait                       107    0          0      1      0.1
+SQL*Net more data from clien          127    0          0      0      0.1
+          -------------------------------------------------------------
+
+Background Wait Events  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+Backup: MML create a backup            13    0      1,375 ######      0.0   61.3
+Backup: MML commit backup pi           13    0         79   6084      0.0    3.5
+Backup: MML write backup pie       16,083    0         60      4      8.4    2.7
+control file sequential read       10,119    0         25      2      5.3    1.1
+Backup: MML query backup pie           13    0          8    597      0.0     .3
+log file parallel write             2,473    0          6      2      1.3     .3
+oracle thread bootstrap               207    0          5     25      0.1     .2
+db file sequential read             1,453    0          3      2      0.8     .1
+Backup: MML shutdown                    5    0          3    531      0.0     .1
+control file parallel write         1,582    0          2      2      0.8     .1
+target log write size                 859    0          2      2      0.5     .1
+os thread creation                    207    0          1      5      0.1     .0
+RMAN backup & recovery I/O            265    0          1      4      0.1     .0
+ASM file metadata operation         1,699    0          1      0      0.9     .0
+log file sequential read              126    0          0      4      0.1     .0
+db file parallel write                731    0          0      1      0.4     .0
+control file single write              50    0          0      6      0.0     .0
+db file scattered read                 66    0          0      2      0.0     .0
+Disk file operations I/O              438    0          0      0      0.2     .0
+LGWR wait for redo copy               102    0          0      1      0.1     .0
+enq: CF - contention                    4    0          0     21      0.0     .0
+ADR block file read                    29    0          0      2      0.0     .0
+latch free                            162    0          0      0      0.1     .0
+enq: TC - contention                    8    0          0      6      0.0     .0
+Backup: MML initialization              5    0          0      8      0.0     .0
+log file single write                  20    0          0      1      0.0     .0
+ADR block file write                   18    0          0      1      0.0     .0
+latch: shared pool                      8    0          0      2      0.0     .0
+kfk: async disk IO                      9    0          0      2      0.0     .0
+Log archive I/O                         3    0          0      5      0.0     .0
+direct path write                       6    0          0      2      0.0     .0
+log file sync                           4    0          0      3      0.0     .0
+direct path read                        6    0          0      2      0.0     .0
+LGWR all worker groups                 14    0          0      1      0.0     .0
+reliable message                       31    0          0      0      0.0     .0
+db file single write                    8    0          0      1      0.0     .0
+rdbms ipc reply                        31    0          0      0      0.0     .0
+CSS initialization                      1    0          0      6      0.0     .0
+Parameter File I/O                      2    0          0      3      0.0     .0
+SQL*Net break/reset to clien           24    0          0      0      0.0     .0
+enq: JS - queue lock                    1    0          0      3      0.0     .0
+asynch descriptor resize              699  100          0      0      0.4     .0
+latch: redo allocation                  3    0          0      1      0.0     .0
+CSS operation: action                   2    0          0      1      0.0     .0
+ADR file lock                          32    0          0      0      0.0     .0
+CSS operation: query                    6    0          0      0      0.0     .0
+rdbms ipc message                  21,931   81     68,020   3102     11.5
+Space Manager: slave idle wa        6,031    0     17,880   2965      3.2
+DIAG idle wait                      7,147    0      7,146   1000      3.7
+LGWR worker group idle              2,491    0      7,107   2853      1.3
+class slave wait                    1,085    0      5,178   4772      0.6
+
+Background Wait Events  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+dispatcher timer                       60  100      3,601  60009      0.0
+Streams AQ: qmn coordinator           256   50      3,585  14004      0.1
+Streams AQ: qmn slave idle w          128    0      3,585  28008      0.1
+ASM background timer                  929    0      3,576   3849      0.5
+smon timer                          1,199    0      3,576   2982      0.6
+heartbeat redo informer             3,575    0      3,575   1000      1.9
+lreg timer                          1,191  100      3,575   3002      0.6
+wait for unread message on b        1,192  100      3,575   2999      0.6
+pmon timer                          1,196  100      3,574   2989      0.6
+shared server idle wait               119  100      3,571  30008      0.1
+AQPC idle                             119  100      3,571  30006      0.1
+SQL*Net message from client           990    0      1,745   1763      0.5
+KSV master wait                       395    0          0      1      0.2
+SQL*Net message to client             847    0          0      0      0.4
+          -------------------------------------------------------------
+
+Wait Events (fg and bg) DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+Backup: MML create a backup            13    0      1,375 ######      0.0   61.3
+db file sequential read           891,742    0        380      0    467.9   16.9
+Backup: MML commit backup pi           13    0         79   6084      0.0    3.5
+Backup: MML write backup pie       16,083    0         60      4      8.4    2.7
+control file sequential read       20,540    0         41      2     10.8    1.8
+db file scattered read             10,018    0         32      3      5.3    1.4
+Failed Logon Delay                     12  100         12   1000      0.0     .5
+Backup: MML query backup pie           13    0          8    597      0.0     .3
+log file parallel write             2,473    0          6      2      1.3     .3
+oracle thread bootstrap               207    0          5     25      0.1     .2
+Backup: MML shutdown                    5    0          3    531      0.0     .1
+control file parallel write         1,701    0          3      2      0.9     .1
+db file parallel read                 317    0          2      7      0.2     .1
+log file sync                         814    0          2      2      0.4     .1
+target log write size                 859    0          2      2      0.5     .1
+recovery area: computing obs            5    0          2    342      0.0     .1
+os thread creation                    207    0          1      5      0.1     .0
+RMAN backup & recovery I/O            265    0          1      4      0.1     .0
+control file single write             124    0          1      6      0.1     .0
+ASM file metadata operation         1,715    0          1      0      0.9     .0
+Disk file operations I/O            3,036    0          1      0      1.6     .0
+log file sequential read              150    0          1      3      0.1     .0
+log file switch (checkpoint             2    0          0    239      0.0     .0
+db file parallel write                731    0          0      1      0.4     .0
+direct path write temp                127    0          0      2      0.1     .0
+recovery area: computing bac            3    0          0     41      0.0     .0
+direct path read temp                 142    0          0      1      0.1     .0
+LGWR wait for redo copy               102    0          0      1      0.1     .0
+enq: CF - contention                    6    0          0     15      0.0     .0
+latch free                            164    0          0      1      0.1     .0
+recovery area: computing dro            3    0          0     26      0.0     .0
+ADR block file read                    29    0          0      2      0.0     .0
+switch logfile command                  2    0          0     25      0.0     .0
+enq: TC - contention                    8    0          0      6      0.0     .0
+Backup: MML initialization              5    0          0      8      0.0     .0
+latch: shared pool                     34    0          0      1      0.0     .0
+CSS initialization                      5    0          0      7      0.0     .0
+log file single write                  20    0          0      1      0.0     .0
+SQL*Net more data to client         1,355    0          0      0      0.7     .0
+ADR block file write                   18    0          0      1      0.0     .0
+log file switch (private str            1    0          0     22      0.0     .0
+kfk: async disk IO                     15    0          0      1      0.0     .0
+Log archive I/O                         5    0          0      4      0.0     .0
+direct path read                       11    0          0      1      0.0     .0
+direct path write                       6    0          0      2      0.0     .0
+CSS operation: action                   8    0          0      1      0.0     .0
+CSS operation: query                   30    0          0      0      0.0     .0
+undo segment extension                  4  100          0      3      0.0     .0
+Parameter File I/O                      4    0          0      2      0.0     .0
+
+Wait Events (fg and bg) DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> s - second, cs - centisecond,  ms - millisecond, us - microsecond
+-> %Timeouts:  value of 0 indicates value was < .5%.  Value of null is truly 0
+-> Only events with Total Wait Time (s) >= .001 are shown
+-> ordered by Total Wait Time desc, Waits desc (idle events last)
+
+                                                             Avg          %Total
+                                          %Tim Total Wait   wait    Waits   Call
+Event                               Waits  out   Time (s)   (ms)     /txn   Time
+---------------------------- ------------ ---- ---------- ------ -------- ------
+LGWR all worker groups                 14    0          0      1      0.0     .0
+cursor: pin S wait on X                 1    0          0      9      0.0     .0
+reliable message                       32    0          0      0      0.0     .0
+db file single write                    8    0          0      1      0.0     .0
+latch: row cache objects                8    0          0      1      0.0     .0
+rdbms ipc reply                        31    0          0      0      0.0     .0
+SQL*Net break/reset to clien           26    0          0      0      0.0     .0
+enq: JS - queue lock                    2    0          0      2      0.0     .0
+asynch descriptor resize              699  100          0      0      0.4     .0
+latch: redo allocation                  3    0          0      1      0.0     .0
+ADR file lock                          32    0          0      0      0.0     .0
+library cache load lock                 2    0          0      1      0.0     .0
+enq: RO - fast object reuse             1    0          0      2      0.0     .0
+rdbms ipc message                  21,931   81     68,020   3102     11.5
+SQL*Net message from client        30,437    0     46,035   1512     16.0
+Space Manager: slave idle wa        6,031    0     17,880   2965      3.2
+DIAG idle wait                      7,147    0      7,146   1000      3.7
+LGWR worker group idle              2,491    0      7,107   2853      1.3
+class slave wait                    1,085    0      5,178   4772      0.6
+dispatcher timer                       60  100      3,601  60009      0.0
+Streams AQ: qmn coordinator           256   50      3,585  14004      0.1
+Streams AQ: qmn slave idle w          128    0      3,585  28008      0.1
+ASM background timer                  929    0      3,576   3849      0.5
+smon timer                          1,199    0      3,576   2982      0.6
+heartbeat redo informer             3,575    0      3,575   1000      1.9
+lreg timer                          1,191  100      3,575   3002      0.6
+wait for unread message on b        1,192  100      3,575   2999      0.6
+pmon timer                          1,196  100      3,574   2989      0.6
+shared server idle wait               119  100      3,571  30008      0.1
+AQPC idle                             119  100      3,571  30006      0.1
+jobq slave wait                     3,168   99      1,580    499      1.7
+KSV master wait                       502    0          0      1      0.3
+SQL*Net message to client          30,296    0          0      0     15.9
+SQL*Net more data from clien          127    0          0      0      0.1
+          -------------------------------------------------------------
+Wait Event Histogram  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ADR block file read          29   72.4  17.2               3.4   6.9
+ADR block file write         18   22.2  66.7  11.1
+ADR file lock                32  100.0
+ASM background starting       6  100.0
+ASM file metadata operatio 1715   95.5   2.3   1.3    .3    .2    .1    .2
+asynch descriptor resize    699  100.0
+Backup: MML command to cha    5  100.0
+Backup: MML commit backup    13                                            100.0
+Backup: MML create a backu   13                                            100.0
+Backup: MML extended initi    5  100.0
+Backup: MML initialization    5   40.0  20.0              20.0  20.0
+Backup: MML query backup p   13                                      100.0
+Backup: MML shutdown          5   60.0                                      40.0
+Backup: MML write backup p   16K    .4  28.7  33.9  31.3   5.6    .0
+buffer busy waits             1  100.0
+control file parallel writ 1701   17.5  69.6  12.1    .8    .1
+control file sequential re   20K  74.0   8.9   6.3   4.1   3.8   2.4    .5
+control file single write   124    8.1   8.1  25.0  25.8  33.1
+CSS initialization            5                     80.0  20.0
+CSS operation: action         8         87.5  12.5
+CSS operation: query         30   83.3   6.7  10.0
+cursor: pin S wait on X       1                          100.0
+db file async I/O submit    159  100.0
+db file parallel read       317   30.0  19.2   5.0  11.4  20.8  12.0   1.6
+db file parallel write      731   78.7  15.6   5.3    .4
+db file scattered read       10K  20.3  40.6  21.9   8.3   6.3   2.3    .4
+db file sequential read     891K  94.7   2.9   1.1    .6    .4    .2    .0
+db file single write          8   62.5  37.5
+direct path read             11   36.4  45.5  18.2
+direct path read temp       142   69.0  21.8   9.2
+direct path write             6         50.0  50.0
+direct path write temp      127    4.7  54.3  35.4   5.5
+Disk file operations I/O   3036   98.0    .7    .3    .6    .3    .1    .1
+enq: CF - contention          6               16.7  33.3  16.7  16.7  16.7
+enq: JS - queue lock          2   50.0        50.0
+enq: RO - fast object reus    1        100.0
+enq: TC - contention          8   37.5  12.5  12.5        37.5
+Failed Logon Delay           12                                      100.0
+get branch/thread/sequence    9  100.0
+kfk: async disk IO           15   40.0  46.7  13.3
+latch: cache buffers lru c    1  100.0
+latch: enqueue hash chains    1  100.0
+latch free                  164   98.8                      .6    .6
+latch: In memory undo latc    1  100.0
+latch: redo allocation        3  100.0
+latch: row cache objects      8   50.0  50.0
+latch: shared pool           34   58.8  29.4   5.9   5.9
+LGWR all worker groups       14   78.6  14.3         7.1
+LGWR wait for redo copy     102   83.3  15.7   1.0
+library cache load lock       2   50.0  50.0
+library cache: mutex X        2  100.0
+Wait Event Histogram  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Total Waits - units: K is 1000, M is 1000000, G is 1000000000
+-> % of Waits - column heading: <=1s is truly <1024ms, >1s is truly >=1024ms
+-> % of Waits - value: .0 indicates value was <.05%, null is truly 0
+-> Ordered by Event (idle events last)
+
+                           Total ----------------- % of Waits ------------------
+Event                      Waits  <1ms  <2ms  <4ms  <8ms <16ms <32ms  <=1s   >1s
+-------------------------- ----- ----- ----- ----- ----- ----- ----- ----- -----
+Log archive I/O               5         20.0  20.0  60.0
+log file parallel write    2473    5.7  52.6  33.2   7.4    .8    .3
+log file sequential read    150   46.7   8.0   3.3  30.0  12.0
+log file single write        20   40.0  35.0  25.0
+log file switch (checkpoin    2                                 50.0  50.0
+log file switch (private s    1                                100.0
+log file sync               814    9.3  49.1  30.1  11.2    .1    .1
+oracle thread bootstrap     207                            7.2  75.4  17.4
+os thread creation          207         35.3  41.1   5.8  10.1   7.2    .5
+Parameter File I/O            4   25.0        75.0
+rdbms ipc reply              31   96.8         3.2
+recovery area: computing b    3                                 33.3  66.7
+recovery area: computing d    3                           66.7        33.3
+recovery area: computing o    5   20.0  20.0                          60.0
+Redo Transport Open           5  100.0
+reliable message             32   96.9   3.1
+RMAN backup & recovery I/O  265   18.9  28.3  31.7   9.1   7.2   4.5    .4
+SQL*Net break/reset to cli   26  100.0
+SQL*Net more data to clien 1355  100.0
+switch logfile command        2                                100.0
+target log write size       859   12.2  51.1  31.4   4.9    .3
+undo segment extension        4   75.0                    25.0
+AQPC idle                   119                                            100.0
+ASM background timer        929   14.4   1.2   1.2    .5    .3   1.0   2.9  78.5
+class slave wait           1085   44.7   9.8   4.4   6.8   7.2   4.2  11.4  11.4
+DIAG idle wait             7147                                      100.0
+dispatcher timer             60                                            100.0
+heartbeat redo informer    3575                                      100.0
+jobq slave wait            3169                                   .0 100.0
+KSV master wait             502   83.3  10.0   4.6   1.0   1.0    .2
+LGWR worker group idle     2491   29.2   2.6   3.5   6.7   6.9   5.5  25.4  20.1
+lreg timer                 1191                                            100.0
+pmon timer                 1196                 .1                      .3  99.7
+rdbms ipc message            21K   2.1   4.1   3.3   1.7   1.0   1.1  21.2  65.7
+shared server idle wait     119                                            100.0
+smon timer                 1199     .2                                  .3  99.5
+Space Manager: slave idle  6030     .3                            .3    .5  98.8
+SQL*Net message from clien   30K  75.4   5.2   5.0   3.9   5.3   2.1   1.0   2.1
+SQL*Net message to client    30K 100.0
+SQL*Net more data from cli  127  100.0
+Streams AQ: qmn coordinato  256   50.0                                      50.0
+Streams AQ: qmn slave idle  128                                            100.0
+wait for unread message on 1192                                            100.0
+          -------------------------------------------------------------
+
+SQL ordered by CPU  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Total DB CPU (s):             229
+-> Captured SQL accounts for   62.4% of Total DB CPU
+-> SQL reported below exceeded  1.0% of Total DB CPU
+
+    CPU                  CPU per             Elapsd                     Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)    Buffer Gets  Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+     82.43          113       0.73   36.0     345.62       4,391,763 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+     13.45          100       0.13    5.9      13.95         536,955 1356869332
+Module: SGPRO.exe
+select table_name from user_tables where lower(table_name)='prod
+uits' UNION select TABLE_NAME from all_synonyms where  lower(tab
+le_name)='produits' and owner='SG_O'
+
+      9.55           12       0.80    4.2      33.63         243,315 1681751539
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+            SELECT /*+ opt_param('optimizer_adaptive_features','
+false') */                 a.tablespace_name         "Tablespace
+",                 b.status                  "Status",
+       b.contents                "Type",                 b.exten
+
+      4.83           12       0.40    2.1       4.90          71,481  399284060
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT DO.owner,                  DO.object_name,
+              DO.object_type,                  SS.VALUE,
+          SS.statistic_name             FROM dba_objects DO,
+              (SELECT *                     FROM (SELECT S.OBJ#,
+
+      2.92          199       0.01    1.3       3.23         196,187 3832804566
+Module: GPL_Batch.exe
+update SG_O.LOGISTIQUE set ETAT_EDITION='O' where UNITE_FONCTION
+NELLE='()'
+
+      2.62            5       0.52    1.1       2.69         130,143 2461270038
+Module: SGPRO.exe
+select table_name from user_tables where lower(table_name)='cbar
+s' UNION select TABLE_NAME from all_synonyms where  lower(table_
+name)='cbars' and owner='SG_O'
+
+          -------------------------------------------------------------
+SQL ordered by Elapsed time for DB: SGEOBASE  Instance: SGEOBASE  Snaps: 2494 -2
+-> Total DB Time (s):             689
+-> Captured SQL accounts for   69.5% of Total DB Time
+-> SQL reported below exceeded  1.0% of Total DB Time
+
+  Elapsed                Elap per            CPU                        Old
+  Time (s)   Executions  Exec (s)  %Total   Time (s)  Physical Reads Hash Value
+---------- ------------ ---------- ------ ---------- --------------- ----------
+    345.62          113       3.06   50.2      82.43         763,394 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+     33.63           12       2.80    4.9       9.55          91,039 1681751539
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+            SELECT /*+ opt_param('optimizer_adaptive_features','
+false') */                 a.tablespace_name         "Tablespace
+",                 b.status                  "Status",
+       b.contents                "Type",                 b.exten
+
+     14.38            2       7.19    2.1       0.78          32,564 3478898425
+Module: SGPRO.exe
+select * from ( select dateste,numcycle from cbars where cster='
+013'  and dateste is not null and dateste>TO_DATE('03/07/2018 0:
+0:0','DD/MM/YYYY HH24:MI:SS') order by dateste DESC ,heureste DE
+SC ) where rownum=1
+
+     13.95          100       0.14    2.0      13.45             666 1356869332
+Module: SGPRO.exe
+select table_name from user_tables where lower(table_name)='prod
+uits' UNION select TABLE_NAME from all_synonyms where  lower(tab
+le_name)='produits' and owner='SG_O'
+
+      7.48          884       0.01    1.1       2.23               1 2285260318
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+select file#, block#, type#, nvl(spare1,0), hwmincr, cachehint,
+   nvl(scanhint,0) from seg$ where ts# = :1
+
+          -------------------------------------------------------------
+SQL ordered by Gets  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:       9,574,147
+-> Captured SQL accounts for   86.5% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+      4,391,763          113       38,865.2   45.9    82.43    345.62 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+        991,210          884        1,121.3   10.4     2.23      7.48 2285260318
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+select file#, block#, type#, nvl(spare1,0), hwmincr, cachehint,
+   nvl(scanhint,0) from seg$ where ts# = :1
+
+        536,955          100        5,369.6    5.6    13.45     13.95 1356869332
+Module: SGPRO.exe
+select table_name from user_tables where lower(table_name)='prod
+uits' UNION select TABLE_NAME from all_synonyms where  lower(tab
+le_name)='produits' and owner='SG_O'
+
+        255,918        1,158          221.0    2.7     1.07      1.21 1607235833
+select ts#, file#,  block# from seg$ where type# =11
+
+        243,315           12       20,276.3    2.5     9.55     33.63 1681751539
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+            SELECT /*+ opt_param('optimizer_adaptive_features','
+false') */                 a.tablespace_name         "Tablespace
+",                 b.status                  "Status",
+       b.contents                "Type",                 b.exten
+
+        236,670          294          805.0    2.5     1.92      1.94 3586548854
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monit
+oring optimizer_features_enable(default) no_parallel result_cach
+e(snapshot=3600) */ C1, C2, C3 FROM (SELECT /*+ qb_name("innerQu
+ery") NO_INDEX_FFS( "O2")  */ 4294967295 AS C1, COUNT(*) AS C2,
+
+        196,187          199          985.9    2.0     2.92      3.23 3832804566
+Module: GPL_Batch.exe
+update SG_O.LOGISTIQUE set ETAT_EDITION='O' where UNITE_FONCTION
+NELLE='()'
+
+        165,725            3       55,241.7    1.7     0.86      2.27 3848985953
+delete /*+ dynamic_sampling(4) */ from sys.wri$_optstat_histgrm_
+history      where savtime < :1 and savtime > timestamp '1900-01
+-01 00:00:00 -0:0' and
+  rownum <= NVL(:2, rownum)
+
+        130,143            5       26,028.6    1.4     2.62      2.69 2461270038
+Module: SGPRO.exe
+select table_name from user_tables where lower(table_name)='cbar
+s' UNION select TABLE_NAME from all_synonyms where  lower(table_
+name)='cbars' and owner='SG_O'
+
+        125,569          199          631.0    1.3     1.73      1.85 3692529048
+SQL ordered by Gets  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Buffer Gets Threshold:     10000 Total Buffer Gets:       9,574,147
+-> Captured SQL accounts for   86.5% of Total Buffer Gets
+-> SQL reported below exceeded  1.0% of Total Buffer Gets
+
+                                                     CPU      Elapsd     Old
+  Buffer Gets    Executions  Gets per Exec  %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+Module: GPL_Batch.exe
+select * from SG_O.LOGISTIQUE where ETAT_EDITION='N'
+
+          -------------------------------------------------------------
+SQL ordered by Reads  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Disk Reads Threshold:      1000  Total Disk Reads:       1,102,298
+-> Captured SQL accounts for   83.4% of Total Disk Reads
+-> SQL reported below exceeded  1.0% of Total Disk Reads
+
+                                                     CPU      Elapsd
+  Physical Rds   Executions  Rds per Exec   %Total Time (s)  Time (s) Hash Value
+--------------- ------------ -------------- ------ -------- --------- ----------
+        763,394          113        6,755.7   69.3    82.43    345.62 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+         91,039           12        7,586.6    8.3     9.55     33.63 1681751539
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+            SELECT /*+ opt_param('optimizer_adaptive_features','
+false') */                 a.tablespace_name         "Tablespace
+",                 b.status                  "Status",
+       b.contents                "Type",                 b.exten
+
+         32,564            2       16,282.0    3.0     0.78     14.38 3478898425
+Module: SGPRO.exe
+select * from ( select dateste,numcycle from cbars where cster='
+013'  and dateste is not null and dateste>TO_DATE('03/07/2018 0:
+0:0','DD/MM/YYYY HH24:MI:SS') order by dateste DESC ,heureste DE
+SC ) where rownum=1
+
+         16,483            1       16,483.0    1.5     0.32      1.77 3975724347
+Module: SGPRO.exe
+select * from ( select dateste,numcycle from cbars where cster='
+015'  and dateste is not null and dateste>TO_DATE('03/07/2018 0:
+0:0','DD/MM/YYYY HH24:MI:SS') order by dateste DESC ,heureste DE
+SC ) where rownum=1
+
+          -------------------------------------------------------------
+SQL ordered by Executions  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Executions Threshold:       100  Total Executions:         105,907
+-> Captured SQL accounts for   83.2% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+      12,747          12,747              1.0       0.00        0.00  3360804353
+select default$ from col$ where rowid=:1
+
+       9,758           9,757              1.0       0.00        0.00  2926525797
+select type#,blocks,extents,minexts,maxexts,extsize,extpct,user#
+,iniexts,NVL(lists,65535),NVL(groups,65535),cachehint,hwmincr, N
+VL(spare1,0),NVL(scanhint,0),NVL(bitmapranges,0) from seg$ where
+ ts#=:1 and file#=:2 and block#=:3
+
+       5,830           3,621              0.6       0.00        0.00  4274598960
+select /*+ rule */ bucket_cnt, row_cnt, cache_cnt, null_cnt, tim
+estamp#, sample_size, minimum, maximum, distcnt, lowval, hival,
+density, col#, spare1, spare2, avgcln from hist_head$ where obj#
+=:1 and intcol#=:2
+
+       3,200           3,200              1.0       0.00        0.00  2456046997
+Module: DBMS_SCHEDULER
+SELECT VALUE FROM V$SESSION_FIX_CONTROL WHERE BUGNO = :B1 AND SE
+SSION_ID = USERENV('SID')
+
+       3,130           3,130              1.0       0.00        0.00  1443852909
+Module: DBMS_SCHEDULER
+SELECT COUNT(UNQ) UNQ, COUNT(PFX) PFX FROM (SELECT /*+ first_row
+s(1) leading(cc) */ CD.TYPE# UNQ, NULL PFX FROM SYS.CCOL$ CC, SY
+S.CDEF$ CD WHERE CC.OBJ# = :B2 AND CC.INTCOL# = :B1 AND CD.CON#
+= CC.CON# AND CD.OBJ# = CC.OBJ# AND CD.ENABLED IS NOT NULL AND C
+
+       2,696           2,696              1.0       0.00        0.00  2627059792
+SELECT SPARE4 FROM SYS.OPTSTAT_HIST_CONTROL$ WHERE SNAME = :B1
+
+       2,337               0              0.0       0.00        0.00  2568960569
+Module: DBMS_SCHEDULER
+SELECT P.VALCHAR FROM SYS.OPTSTAT_USER_PREFS$ P, OBJ$ O, USER$ U
+ WHERE P.OBJ#=O.OBJ# AND U.USER#=O.OWNER# AND U.NAME=:B3 AND O.N
+AME=:B2 AND P.PNAME=:B1
+
+       1,866           1,866              1.0       0.00        0.00  3665763022
+update sys.col_usage$ set   equality_preds    = equality_preds
+  + decode(bitand(:flag,1),0,0,1),   equijoin_preds    = equijoi
+n_preds    + decode(bitand(:flag,2),0,0,1),   nonequijoin_preds
+= nonequijoin_preds + decode(bitand(:flag,4),0,0,1),   range_pre
+
+       1,822          29,946             16.4       0.00        0.00   343569411
+select /*+ rule */ bucket, endpoint, col#, epvalue, epvalue_raw,
+ ep_repeat_count from histgrm$ where obj#=:1 and intcol#=:2 and
+row#=:3 order by bucket
+
+       1,638           1,638              1.0       0.00        0.00  3937862827
+SELECT executions, end_of_fetch_count,              elapsed_time
+/px_servers elapsed_time,        cpu_time/px_servers     cpu_tim
+e,            buffer_gets/executions  buffer_gets   FROM (SELECT
+ sum(executions)   as executions,                            sum
+SQL ordered by Executions  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Executions Threshold:       100  Total Executions:         105,907
+-> Captured SQL accounts for   83.2% of Total Executions
+-> SQL reported below exceeded  1.0% of Total Executions
+
+                                                CPU per    Elap per     Old
+ Executions   Rows Processed   Rows per Exec    Exec (s)   Exec (s)  Hash Value
+------------ --------------- ---------------- ----------- ---------- ----------
+
+       1,588           1,588              1.0       0.00        0.00  3306873268
+Module: oraagent.bin@P4-094-SGEB (TNS V1-V3)
+SELECT executions, end_of_fetch_count,              elapsed_time
+/px_servers elapsed_time,        cpu_time/px_servers     cpu_tim
+e,            buffer_gets/executions  buffer_gets   FROM (SELECT
+ sum(executions_delta) as EXECUTIONS,
+
+       1,566               0              0.0       0.00        0.00  1085462914
+Module: DBMS_SCHEDULER
+SELECT SU.NAME, SO.NAME, A.STATSTYPE#, A.INTCOL# FROM ASSOCIATIO
+N$ A, OBJ$ O, USER$ U, COL$ C, OBJ$ SO, USER$ SU WHERE O.OWNER#=
+U.USER# AND A.OBJ#=O.OBJ# AND O.OBJ#=C.OBJ# AND C.INTCOL#=A.INTC
+OL# AND A.STATSTYPE#=SO.OBJ# AND SO.OWNER#=SU.USER# AND O.TYPE#=
+
+       1,566               0              0.0       0.00        0.00  2749947875
+Module: DBMS_SCHEDULER
+SELECT SU.NAME, SO.NAME, A.STATSTYPE#, C.INTCOL# FROM ASSOCIATIO
+N$ A, OBJ$ O, USER$ U, COL$ C, OBJ$ SO, USER$ SU, COLTYPE$ CT, O
+BJ$ TY WHERE O.OWNER#=U.USER# AND A.OBJ#=TY.OBJ# AND O.OBJ#=C.OB
+J# AND C.INTCOL#=CT.INTCOL# AND O.OBJ#=CT.OBJ# AND CT.TOID=TY.OI
+
+       1,509           1,482              1.0       0.00        0.00  3226531623
+SELECT :B1 TYPE_CON, :B68 KEY_CON, :B67 RECID_CON, :B66 STAMP_CO
+N, :B65 SETSTAMP_CON, :B64 SETCOUNT_CON, :B63 BSRECID_CON, :B62
+BSSTAMP_CON, :B61 BSKEY_CON, :B60 BSLEVEL_CON, :B59 BSTYPE_CON,
+:B58 ELAPSESECS_CON, :B57 PIECECOUNT_CON, :B56 FILENAME_CON, :B5
+
+       1,470           1,470              1.0       0.00        0.00  2171152161
+SELECT :B9 TYPE_CON, :B74 KEY_CON, :B73 RECID_CON, :B72 STAMP_CO
+N, :B71 SETSTAMP_CON, :B70 SETCOUNT_CON, :B69 BSRECID_CON, :B68
+BSSTAMP_CON, :B67 BSKEY_CON, :B66 BSLEVEL_CON, :B65 BSTYPE_CON,
+:B64 ELAPSESECS_CON, :B63 PIECECOUNT_CON, :B62 FILENAME_CON, :B6
+
+       1,316               0              0.0       0.00        0.00  3146063334
+select policy#, action# from aud_object_opt$ where object# = :1
+and type = 2
+
+       1,259           1,716              1.4       0.00        0.00  2482976222
+select intcol#,nvl(pos#,0),col#,nvl(spare1,0) from ccol$ where c
+on#=:1
+
+       1,158               0              0.0       0.00        0.00  1607235833
+select ts#, file#,  block# from seg$ where type# =11
+
+          -------------------------------------------------------------
+SQL ordered by Parse Calls  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Parse Calls Threshold:      1000 Total Parse Calls:          53,058
+-> Captured SQL accounts for   70.2% of Total Parse Calls
+-> SQL reported below exceeded  1.0% of Total Parse Calls
+
+                           % Total    Old
+ Parse Calls   Executions   Parses Hash Value
+------------ ------------ -------- ----------
+      12,747       12,747    24.02 3360804353
+select default$ from col$ where rowid=:1
+
+       1,638        1,638     3.09 3937862827
+SELECT executions, end_of_fetch_count,              elapsed_time
+/px_servers elapsed_time,        cpu_time/px_servers     cpu_tim
+e,            buffer_gets/executions  buffer_gets   FROM (SELECT
+ sum(executions)   as executions,                            sum
+
+       1,588        1,588     2.99 3306873268
+Module: oraagent.bin@P4-094-SGEB (TNS V1-V3)
+SELECT executions, end_of_fetch_count,              elapsed_time
+/px_servers elapsed_time,        cpu_time/px_servers     cpu_tim
+e,            buffer_gets/executions  buffer_gets   FROM (SELECT
+ sum(executions_delta) as EXECUTIONS,
+
+       1,316        1,316     2.48 3146063334
+select policy#, action# from aud_object_opt$ where object# = :1
+and type = 2
+
+       1,158        1,158     2.18 1607235833
+select ts#, file#,  block# from seg$ where type# =11
+
+         884          884     1.67 2285260318
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+select file#, block#, type#, nvl(spare1,0), hwmincr, cachehint,
+   nvl(scanhint,0) from seg$ where ts# = :1
+
+         619          619     1.17 1512023764
+select obj#, name, stab#, sobj#, sobjd#, ttab#, tobj#, tobjd#, m
+flags from rmtab$ where (stab# = :1 or ttab# = :1) order by obj#
+
+         597            0     1.13 2322535947
+insert into sys.col_usage$ (obj#, intcol#, equality_preds, equij
+oin_preds, nonequijoin_preds, range_preds, like_preds, null_pred
+s, timestamp) values (   :objn, :coln,   decode(bitand(:flag,1),
+0,0,1),   decode(bitand(:flag,2),0,0,1),   decode(bitand(:flag,4
+
+         597        1,866     1.13 3665763022
+update sys.col_usage$ set   equality_preds    = equality_preds
+  + decode(bitand(:flag,1),0,0,1),   equijoin_preds    = equijoi
+n_preds    + decode(bitand(:flag,2),0,0,1),   nonequijoin_preds
+= nonequijoin_preds + decode(bitand(:flag,4),0,0,1),   range_pre
+
+          -------------------------------------------------------------
+SQL ordered by Sharable Memory  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Sharable Memory Threshold(KB):      1024
+
+    Max         End
+ Sharable    Sharable                                        Old
+Memory (KB) Memory (KB)  Parse Calls  Executions  % Total Hash Value
+----------- ----------- ------------ ------------ ------- ----------
+      5,336       5,336          100          100     1.4 1356869332
+Module: SGPRO.exe
+select table_name from user_tables where lower(table_name)='prod
+uits' UNION select TABLE_NAME from all_synonyms where  lower(tab
+le_name)='produits' and owner='SG_O'
+
+      2,704           0            0            0     0.7 2197148361
+Module: DBMS_SCHEDULER
+MERGE /*+ dynamic_sampling(ST 4) dynamic_sampling_est_cdn(ST) */
+ INTO STATS_TARGET$ ST USING (SELECT STALENESS, OSIZE, OBJ#, TYP
+E#, AFLAGS, STATUS, SID, SERIAL#, PART#, BO# FROM ( SELECT /*+ n
+o_expand dynamic_sampling(4) dynamic_sampling_est_cdn */ DECODE(
+
+      2,414       2,414          113          113     0.6 2684558858
+Module: perl@p3-193-pomm.chu30.com (TNS V1-V3)
+           SELECT               -- tablespace, segment, extent
+             -- aber dadurch, dass nur das letzte extent selekti
+ert wird               -- werden praktisch nur tablespace und se
+gmente ausgegeben               b.tablespace_name "Tablespace",
+
+      1,806       1,806            5            5     0.5 2461270038
+Module: SGPRO.exe
+select table_name from user_tables where lower(table_name)='cbar
+s' UNION select TABLE_NAME from all_synonyms where  lower(table_
+name)='cbars' and owner='SG_O'
+
+      1,658       1,658            0            0     0.4 2413018192
+SELECT :B7 TYPE_CON, OFFR.RECID KEY_CON, OFFR.RECID RECID_CON, O
+FFR.STAMP STAMP_CON, TO_NUMBER(NULL) SETSTAMP_CON, TO_NUMBER(NUL
+L) SETCOUNT_CON, TO_NUMBER(NULL) BSRECID_CON, TO_NUMBER(NULL) BS
+STAMP_CON, TO_NUMBER(NULL) BSKEY_CON, TO_NUMBER(NULL) BSLEVEL_CO
+
+      1,311       1,311           62          751     0.3 2601358618
+select i.obj#,i.ts#,i.file#,i.block#,i.intcols,i.type#,i.flags,i
+.property,i.pctfree$,i.initrans,i.maxtrans,i.blevel,i.leafcnt,i.
+distkey,i.lblkkey,i.dblkkey,i.clufac,i.cols,i.analyzetime,i.samp
+lesize,i.dataobj#,nvl(i.degree,1),nvl(i.instances,1),i.rowcnt,mo
+
+      1,221       1,221           75          448     0.3  656850954
+select obj#,type#,ctime,mtime,stime, status, dataobj#, flags, oi
+d$, spare1, spare2, spare3, signature, spare7, spare8, spare9 fr
+om obj$ where owner#=:1 and name=:2 and namespace=:3 and remoteo
+wner is null and linkname is null and subname is null
+
+          -------------------------------------------------------------
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+active txn count during cleanout                 486            0.1          0.3
+application wait time                              0            0.0          0.0
+background checkpoints completed                   5            0.0          0.0
+background checkpoints started                     5            0.0          0.0
+background timeouts                           17,864            5.0          9.4
+Batched IO block miss count                    4,332            1.2          2.3
+Batched IO (bound) vector count                  953            0.3          0.5
+Batched IO buffer defrag count                     4            0.0          0.0
+Batched IO double miss count                      23            0.0          0.0
+Batched IO (full) vector count                   173            0.1          0.1
+Batched IO same unit count                     2,203            0.6          1.2
+Batched IO single block count                    782            0.2          0.4
+Batched IO slow jump count                         1            0.0          0.0
+Batched IO vector block count                  1,733            0.5          0.9
+Batched IO vector read count                     367            0.1          0.2
+Block Cleanout Optim referenced                   49            0.0          0.0
+branch node splits                                 0            0.0          0.0
+buffer is not pinned count                 2,422,455          677.6      1,271.0
+buffer is pinned count                     2,985,400          835.1      1,566.3
+bytes received via SQL*Net from c          3,832,122        1,071.9      2,010.6
+bytes sent via SQL*Net to client          12,869,972        3,600.0      6,752.4
+Cached Commit SCN referenced                   2,142            0.6          1.1
+calls to get snapshot scn: kcmgss            182,790           51.1         95.9
+calls to kcmgas                               84,653           23.7         44.4
+calls to kcmgcs                              184,413           51.6         96.8
+CCursor + sql area evicted                     6,331            1.8          3.3
+cell physical IO interconnect byt     16,565,228,544    4,633,630.4  8,691,095.8
+change write time                                370            0.1          0.2
+cleanout - number of ktugct calls              1,718            0.5          0.9
+cleanouts and rollbacks - consist                 34            0.0          0.0
+cleanouts only - consistent read               1,178            0.3          0.6
+CLI BG attempt Flush                           1,192            0.3          0.6
+CLI BG ENQ                                     1,192            0.3          0.6
+CLI BG Fls done                                   12            0.0          0.0
+CLI bytes fls to table                         9,312            2.6          4.9
+CLI Flstask create                             1,192            0.3          0.6
+CLI Flush                                      1,192            0.3          0.6
+CLI SGA Alloc                                      0            0.0          0.0
+CLI Thru Wrt                                      12            0.0          0.0
+cluster key scan block gets                1,273,264          356.2        668.0
+cluster key scans                          1,264,771          353.8        663.6
+commit batch/immediate performed                   3            0.0          0.0
+commit batch/immediate requested                   3            0.0          0.0
+commit cleanout failures: block l                 13            0.0          0.0
+commit cleanout failures: buffer                   0            0.0          0.0
+commit cleanout failures: callbac                 80            0.0          0.0
+commit cleanout failures: cannot                   0            0.0          0.0
+commit cleanouts                              63,291           17.7         33.2
+commit cleanouts successfully com             63,198           17.7         33.2
+commit immediate performed                         3            0.0          0.0
+commit immediate requested                         3            0.0          0.0
+Commit SCN cached                                259            0.1          0.1
+commit txn count during cleanout               1,514            0.4          0.8
+concurrency wait time                              6            0.0          0.0
+consistent changes                            73,230           20.5         38.4
+consistent gets                            9,070,306        2,537.2      4,758.8
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+consistent gets direct                            14            0.0          0.0
+consistent gets examination                  269,219           75.3        141.3
+consistent gets examination (fast            268,379           75.1        140.8
+consistent gets from cache                 9,070,292        2,537.1      4,758.8
+consistent gets pin                        8,801,073        2,461.8      4,617.6
+consistent gets pin (fastpath)             7,899,780        2,209.7      4,144.7
+CPU used by this session                      22,683            6.3         11.9
+CPU used when call started                    15,753            4.4          8.3
+CR blocks created                                 77            0.0          0.0
+cursor authentications                           726            0.2          0.4
+cursor reload failures                             4            0.0          0.0
+data blocks consistent reads - un                725            0.2          0.4
+db block changes                             463,655          129.7        243.3
+db block gets                                503,841          140.9        264.3
+db block gets direct                             416            0.1          0.2
+db block gets from cache                     503,425          140.8        264.1
+db block gets from cache (fastpat            179,231           50.1         94.0
+DB time                                      228,422           63.9        119.8
+DBWR checkpoint buffers written                1,017            0.3          0.5
+DBWR checkpoints                                  14            0.0          0.0
+DBWR object drop buffers written                   3            0.0          0.0
+DBWR parallel query checkpoint bu                  0            0.0          0.0
+DBWR revisited being-written buff                  0            0.0          0.0
+DBWR tablespace checkpoint buffer                527            0.2          0.3
+DBWR thread checkpoint buffers wr                490            0.1          0.3
+DBWR transaction table writes                     35            0.0          0.0
+DBWR undo block writes                         5,347            1.5          2.8
+deferred (CURRENT) block cleanout             56,923           15.9         29.9
+dirty buffers inspected                        8,599            2.4          4.5
+Effective IO time                              3,493            1.0          1.8
+enqueue conversions                            1,236            0.4          0.7
+enqueue releases                              96,142           26.9         50.4
+enqueue requests                              96,141           26.9         50.4
+enqueue timeouts                                   4            0.0          0.0
+enqueue waits                                     17            0.0          0.0
+exchange deadlocks                                 0            0.0          0.0
+execute count                                105,907           29.6         55.6
+failed probes on index block recl                  0            0.0          0.0
+fastpath consistent get quota lim              3,745            1.1          2.0
+file io service time                         350,069           97.9        183.7
+file io wait time                        946,949,281      264,880.9    496,825.4
+frame signature mismatch                           0            0.0          0.0
+free buffer inspected                      1,111,540          310.9        583.2
+free buffer requested                      1,156,621          323.5        606.8
+heap block compress                              391            0.1          0.2
+Heap Segment Array Inserts                       578            0.2          0.3
+Heap Segment Array Updates                    52,176           14.6         27.4
+hot buffers moved to head of LRU              70,672           19.8         37.1
+HSC Heap Segment Block Changes               121,488           34.0         63.7
+immediate (CR) block cleanout app              1,212            0.3          0.6
+immediate (CURRENT) block cleanou              4,676            1.3          2.5
+IMU commits                                    1,413            0.4          0.7
+IMU contention                                     1            0.0          0.0
+IMU CR rollbacks                                   0            0.0          0.0
+IMU- failed to get a private stra                  0            0.0          0.0
+IMU Flushes                                      280            0.1          0.2
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+IMU ktichg flush                                  10            0.0          0.0
+IMU pool not allocated                             0            0.0          0.0
+IMU recursive-transaction flush                    3            0.0          0.0
+IMU Redo allocation size                   6,294,108        1,760.6      3,302.3
+IMU undo allocation size                  15,084,752        4,219.5      7,914.4
+in call idle wait time                    13,910,287        3,891.0      7,298.2
+index crx upgrade (positioned)                     4            0.0          0.0
+index crx upgrade (prefetch)                      33            0.0          0.0
+index fast full scans (full)                     176            0.1          0.1
+index fetch by key                           280,287           78.4        147.1
+index scans kdiixs1                          144,460           40.4         75.8
+KTFB alloc req                                    37            0.0          0.0
+KTFB alloc space (block)                  29,949,952        8,377.6     15,713.5
+KTFB alloc time (ms)                           2,067            0.6          1.1
+KTFB apply req                                    58            0.0          0.0
+KTFB apply time (ms)                           1,171            0.3          0.6
+KTFB commit req                                    0            0.0          0.0
+KTFB commit time (ms)                              0            0.0          0.0
+KTFB free req                                     31            0.0          0.0
+KTFB free space (block)                        3,968            1.1          2.1
+KTFB free time (ms)                               37            0.0          0.0
+leaf node splits                                 257            0.1          0.1
+leaf node 90-10 splits                            52            0.0          0.0
+lob reads                                        875            0.2          0.5
+LOB table id lookup cache misses                   0            0.0          0.0
+lob writes                                     9,081            2.5          4.8
+lob writes unaligned                           9,081            2.5          4.8
+logical read bytes from cache         78,427,889,664   21,937,871.2 ############
+logons cumulative                                385            0.1          0.2
+max cf enq hold time                             230            0.1          0.1
+messages received                              3,617            1.0          1.9
+messages sent                                  3,617            1.0          1.9
+min active SCN optimization appli                 25            0.0          0.0
+Misses for writing mapping                         0            0.0          0.0
+no buffer to keep pinned count                    66            0.0          0.0
+no work - consistent read gets             7,647,788        2,139.2      4,012.5
+non-idle wait count                          989,140          276.7        519.0
+non-idle wait time                           201,759           56.4        105.9
+Number of read IOs issued                         14            0.0          0.0
+opened cursors cumulative                    104,665           29.3         54.9
+parse count (describe)                             0            0.0          0.0
+parse count (failures)                            39            0.0          0.0
+parse count (hard)                             7,073            2.0          3.7
+parse count (total)                           53,058           14.8         27.8
+parse time cpu                                 4,161            1.2          2.2
+parse time elapsed                             6,820            1.9          3.6
+physical read bytes                    9,030,025,216    2,525,881.2  4,737,683.7
+physical read IO requests                    903,606          252.8        474.1
+physical read total bytes             15,963,745,280    4,465,383.3  8,375,522.2
+physical read total IO requests              935,260          261.6        490.7
+physical read total multi block r             13,338            3.7          7.0
+physical reads                             1,102,298          308.3        578.3
+physical reads cache                       1,097,868          307.1        576.0
+physical reads cache prefetch                195,875           54.8        102.8
+physical reads direct                          4,430            1.2          2.3
+physical reads direct (lob)                       14            0.0          0.0
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+physical reads direct temporary t              4,392            1.2          2.3
+physical reads prefetch warmup                     0            0.0          0.0
+physical write bytes                     138,747,904       38,810.6     72,795.3
+physical write IO requests                     4,946            1.4          2.6
+physical write total bytes               601,483,264      168,247.1    315,573.6
+physical write total IO requests              17,352            4.9          9.1
+physical write total multi block                 767            0.2          0.4
+physical writes                               16,937            4.7          8.9
+physical writes direct                         4,818            1.4          2.5
+physical writes direct (lob)                       0            0.0          0.0
+physical writes direct temporary               4,794            1.3          2.5
+physical writes from cache                    12,119            3.4          6.4
+physical writes non checkpoint                16,065            4.5          8.4
+pinned buffers inspected                          47            0.0          0.0
+prefetch clients - default                         5            0.0          0.0
+prefetch warmup blocks aged out b                  0            0.0          0.0
+prefetched blocks aged out before             28,206            7.9         14.8
+process last non-idle time                     3,575            1.0          1.9
+recovery blocks read                               0            0.0          0.0
+recursive aborts on index block r                  0            0.0          0.0
+recursive calls                            1,312,372          367.1        688.6
+recursive cpu usage                           12,481            3.5          6.6
+redo blocks checksummed by FG (ex             46,900           13.1         24.6
+redo blocks read for recovery                      0            0.0          0.0
+redo blocks written                          189,884           53.1         99.6
+redo blocks written (group 0)                185,912           52.0         97.5
+redo blocks written (group 1)                    627            0.2          0.3
+redo buffer allocation retries                    10            0.0          0.0
+redo entries                                 220,788           61.8        115.8
+redo KB read                                 137,833           38.6         72.3
+redo k-bytes read for recovery                     0            0.0          0.0
+redo log space requests                           17            0.0          0.0
+redo log space wait time                          50            0.0          0.0
+redo ordering marks                              250            0.1          0.1
+redo size                                 92,931,900       25,994.9     48,757.6
+redo size for direct writes                        0            0.0          0.0
+redo subscn max counts                         3,753            1.1          2.0
+redo synch long waits                              4            0.0          0.0
+redo synch time                                  168            0.1          0.1
+redo synch time overhead count (                 814            0.2          0.4
+redo synch time overhead count (                   3            0.0          0.0
+redo synch time overhead count (                   0            0.0          0.0
+redo synch time overhead count (i                  1            0.0          0.0
+redo synch time overhead count (1                  0            0.0          0.0
+redo synch time overhead (usec)              886,533          248.0        465.1
+redo synch time (usec)                     1,895,280          530.2        994.4
+redo synch writes                                818            0.2          0.4
+redo wastage                               1,130,124          316.1        592.9
+redo write finish time                     6,367,844        1,781.2      3,341.0
+redo write gather time                       318,025           89.0        166.9
+redo write info find                             818            0.2          0.4
+redo write schedule time                     325,724           91.1        170.9
+redo write size count (   4KB)                 1,586            0.4          0.8
+redo write size count (   8KB)                   421            0.1          0.2
+redo write size count (  16KB)                   100            0.0          0.1
+redo write size count (  32KB)                    39            0.0          0.0
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+redo write size count ( 128KB)                    48            0.0          0.0
+redo write size count ( 256KB)                   238            0.1          0.1
+redo write size count ( 512KB)                    10            0.0          0.0
+redo write size count (inf)                       17            0.0          0.0
+redo write size count (1024KB)                    14            0.0          0.0
+redo write time                                  637            0.2          0.3
+redo write time (usec)                     6,370,828        1,782.1      3,342.5
+redo write total time                      6,404,319        1,791.4      3,360.1
+redo write worker delay (usec)               196,086           54.9        102.9
+redo writes                                    2,473            0.7          1.3
+redo writes adaptive all                       2,473            0.7          1.3
+redo writes adaptive worker                    2,471            0.7          1.3
+redo writes (group 0)                          2,468            0.7          1.3
+redo writes (group 1)                              3            0.0          0.0
+Requests to/from client                       29,364            8.2         15.4
+rollback changes - undo records a                516            0.1          0.3
+rollbacks only - consistent read                  45            0.0          0.0
+root node splits                                   0            0.0          0.0
+RowCR - row contention                             0            0.0          0.0
+RowCR attempts                                     1            0.0          0.0
+RowCR hits                                         1            0.0          0.0
+rows fetched via callback                     23,635            6.6         12.4
+scheduler wait time                                0            0.0          0.0
+securefile allocation bytes                        0            0.0          0.0
+securefile allocation chunks                       0            0.0          0.0
+securefile bytes non-transformed               9,312            2.6          4.9
+securefile direct read bytes                       0            0.0          0.0
+securefile direct read ops                         0            0.0          0.0
+securefile direct write bytes                      0            0.0          0.0
+securefile direct write ops                        0            0.0          0.0
+securefile number of non-transfor                 12            0.0          0.0
+segment chunks allocation from di                  0            0.0          0.0
+segment dispenser allocations                      0            0.0          0.0
+segment dispenser load tasks                       0            0.0          0.0
+segment prealloc ops                               0            0.0          0.0
+segment prealloc tasks                             0            0.0          0.0
+segment prealloc time (ms)                         0            0.0          0.0
+segment prealloc ufs2cfs bytes                     0            0.0          0.0
+session connect time                               0            0.0          0.0
+session cursor cache hits                    155,959           43.6         81.8
+session logical reads                      9,574,147        2,678.1      5,023.2
+session uga memory                        57,843,184       16,179.9     30,348.0
+session uga memory max                   716,509,968      200,422.4    375,923.4
+shared hash latch upgrades - no w            900,356          251.9        472.4
+shared hash latch upgrades - wait                  0            0.0          0.0
+shared io pool buffer get success                  0            0.0          0.0
+SMON posted for dropping temp seg                  0            0.0          0.0
+SMON posted for undo segment shri                  4            0.0          0.0
+sorts (disk)                                       1            0.0          0.0
+sorts (memory)                                15,618            4.4          8.2
+sorts (rows)                              10,325,399        2,888.2      5,417.3
+sql area evicted                               6,442            1.8          3.4
+sql area purged                                   82            0.0          0.0
+SQL*Net roundtrips to/from client             29,647            8.3         15.6
+summed dirty queue length                     58,264           16.3         30.6
+switch current to new buffer                  53,237           14.9         27.9
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+Statistic                                      Total     per Second    per Trans
+--------------------------------- ------------------ -------------- ------------
+table fetch by rowid                       1,418,528          396.8        744.2
+table fetch continued row                      1,374            0.4          0.7
+table scan blocks gotten                   5,575,215        1,559.5      2,925.1
+table scan disk non-IMC rows gott        175,568,496       49,110.1     92,113.6
+table scan rows gotten                   205,599,400       57,510.3    107,869.6
+table scans (direct read)                          0            0.0          0.0
+table scans (long tables)                         24            0.0          0.0
+table scans (short tables)                    33,140            9.3         17.4
+TBS Extension: bytes extended                      0            0.0          0.0
+TBS Extension: files extended                      0            0.0          0.0
+TBS Extension: tasks created                       0            0.0          0.0
+TBS Extension: tasks executed                      0            0.0          0.0
+total cf enq hold time                         2,440            0.7          1.3
+total number of cf enq holders                   279            0.1          0.2
+total number of times SMON posted              1,199            0.3          0.6
+transaction rollbacks                              3            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+transaction tables consistent rea                  0            0.0          0.0
+undo change vector size                   37,492,988       10,487.6     19,671.0
+user calls                                    37,848           10.6         19.9
+user commits                                   1,823            0.5          1.0
+user I/O wait time                            41,506           11.6         21.8
+user logons cumulative                           143            0.0          0.1
+user logouts cumulative                          141            0.0          0.1
+user rollbacks                                    83            0.0          0.0
+workarea executions - multipass                    0            0.0          0.0
+workarea executions - onepass                      4            0.0          0.0
+workarea executions - optimal                 16,386            4.6          8.6
+write clones created in backgroun                  0            0.0          0.0
+write clones created in foregroun                  0            0.0          0.0
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Statistics with absolute values (should not be diffed)
+
+Statistic                             Begin Value       End Value
+--------------------------------- --------------- ---------------
+logons current                                 58              59
+opened cursors current                        125             109
+session cursor cache count              4,933,495       4,937,929
+workarea memory allocated                   3,375           1,943
+          -------------------------------------------------------------
+
+Instance Activity Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Statistics identified by '(derived)' come from sources other than SYSSTAT
+
+Statistic                                      Total  per Hour
+--------------------------------- ------------------ ---------
+log switches (derived)                             4      4.03
+          -------------------------------------------------------------
+
+OS Statistics  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by statistic type (CPU use, Virtual Memory, Hardware Config), Name
+
+Statistic                                  Total
+------------------------- ----------------------
+FREE_MEMORY_BYTES                     94,662,656
+BUSY_TIME                                164,801
+IDLE_TIME                                536,523
+IOWAIT_TIME                               36,267
+NICE_TIME                                      0
+SYS_TIME                                  10,276
+USER_TIME                                153,805
+RSRC_MGR_CPU_WAIT_TIME                         0
+VM_IN_BYTES                            2,482,176
+VM_OUT_BYTES                           4,411,392
+PHYSICAL_MEMORY_BYTES              2,866,085,888
+NUM_CPU_CORES                                  2
+NUM_CPUS                                       2
+NUM_CPU_SOCKETS                                1
+GLOBAL_RECEIVE_SIZE_MAX                4,194,304
+GLOBAL_SEND_SIZE_MAX                   1,048,576
+TCP_RECEIVE_SIZE_DEFAULT                  87,380
+TCP_RECEIVE_SIZE_MAX                   6,291,456
+TCP_RECEIVE_SIZE_MIN                       4,096
+TCP_SEND_SIZE_DEFAULT                     16,384
+TCP_SEND_SIZE_MAX                      4,194,304
+TCP_SEND_SIZE_MIN                          4,096
+          -------------------------------------------------------------
+
+OS Statistics - detail  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+  Snap Snapshot
+    Id Day Time          Load  %Busy  %User %System   %WIO  %WCPU
+------ --------------- ------ ------ ------ ------- ------ ------
+  2494 Mon 01 22:00:29    1.6
+  2495 Mon 01 23:00:04     .5   23.5   21.9     1.5    5.2
+          -------------------------------------------------------------
+IO Stat by Function - summary  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->Data Volume values suffixed with   M,G,T,P are in multiples of 1024,
+  other values suffixed with       K,M,G,T,P are in multiples of 1000
+->ordered by Data Volume (Read+Write) desc
+
+               ---------- Read --------- --------- Write -------- --- Wait ----
+                 Data  Requests    Data   Data  Requests    Data          Avg
+Function        Volume     /sec  Vol/sec Volume     /sec  Vol/sec  Count Tm(ms)
+--------------- ------ -------- -------- ------ -------- -------- ------ ------
+Buffer Cache Re  8689M   252.9      2.4M                            902K    0.0
+RMAN             5665M     3.0      1.6M    34M      .1       .0M  3066     0.0
+Others            834M     5.7       .2M   221M      .9       .1M    20K    0.0
+LGWR                2M      .0       .0M   187M     2.5       .1M  2681     0.0
+Direct Reads       35M      .1       .0M             .0                     0.0
+Streams AQ                  .0                                       17     0.0
+          -------------------------------------------------------------
+
+IO Stat by Function - detail  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->ordered by Data Volume (Read+Write) desc
+
+                   ----------- Read ---------- ----------- Write ---------
+                    Small  Large  Small  Large  Small  Large  Small  Large
+                     Read   Read   Data   Data  Write  Write   Data   Data
+Function             Reqs   Reqs   Read   Read   Reqs   Reqs  Writn  Writn
+------------------ ------ ------ ------ ------ ------ ------ ------ ------
+Buffer Cache Reads   900K  3542   7345M  1344M
+RMAN                2754   7959     94M  5571M   450     28      7M    27M
+Others                19K  1717    314M   520M  2915    186     45M   176M
+LGWR                 133             2M         8668    176    113M    74M
+Direct Reads         160    120      7M    28M     5
+Streams AQ            17
+          -------------------------------------------------------------
+Tablespace IO Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->ordered by IOs (Reads + Writes) desc
+
+Tablespace
+------------------------------
+                 Av      Av     Av                    Av        Buffer Av Buf
+         Reads Reads/s Rd(ms) Blks/Rd       Writes Writes/s      Waits Wt(ms)
+-------------- ------- ------ ------- ------------ -------- ---------- ------
+SYSAUX
+       599,869     168    0.7     1.3        2,579        1          0    0.0
+SYSTEM
+       229,573      64    0.7     1.5          676        0          0    0.0
+STERIGEST_IND_G
+        31,571       9    3.4     7.2          217        0          0    0.0
+STERIGEST_DAT_G
+        26,704       7    5.2     8.3          174        0          0    0.0
+PERFSTAT
+        16,857       5    3.3     4.6          451        0          0    0.0
+STERIGEST_BLOB_G
+         2,154       1   26.8    30.5            3        0          0    0.0
+USERS
+         1,398       0    0.7     1.5            3        0          0    0.0
+UNDOTBS1
+           209       0   32.5    55.7          588        0          1    0.0
+TEMP
+           259       0    1.9    18.6          255        0          0    0.0
+          -------------------------------------------------------------
+File IO Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->Mx Rd Bkt: Max bucket time for single block read
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+                        Av   Mx                                             Av
+                 Av     Rd   Rd    Av                    Av        Buffer BufWt
+         Reads Reads/s (ms)  Bkt Blks/Rd       Writes Writes/s      Waits  (ms)
+-------------- ------- ----- --- ------- ------------ -------- ---------- ------
+PERFSTAT                 +DATA/SGEOBASE/DATAFILE/perfstat.269.979228963
+        16,857       5   3.3   1     4.6          451        0          0
+
+STERIGEST_BLOB_G         +DATA/SGEOBASE/DATAFILE/sterigest_blob_g.256.9534833
+         2,154       1  26.8   1    30.5            3        0          0
+
+STERIGEST_DAT_G          +DATA/SGEOBASE/DATAFILE/sterigest_dat_g.267.95348332
+        26,704       7   5.2   1     8.3          174        0          0
+
+STERIGEST_IND_G          +DATA/SGEOBASE/DATAFILE/sterigest_ind_g.257.95348333
+        31,571       9   3.4   1     7.2          217        0          0
+
+SYSAUX                   +DATA/SGEOBASE/DATAFILE/sysaux.265.953481605
+       599,869     168   0.7   1     1.3        2,579        1          0
+
+SYSTEM                   +DATA/SGEOBASE/DATAFILE/system.260.953481651
+       229,573      64   0.7   1     1.5          676        0          0
+
+TEMP                     +DATA/SGEOBASE/TEMPFILE/temp.266.953481757
+           259       0   1.9        18.6          255        0          0
+
+UNDOTBS1                 +DATA/SGEOBASE/DATAFILE/undotbs1.263.953481707
+           209       0  32.5   1    55.7          588        0          1    0.0
+
+USERS                    +DATA/SGEOBASE/DATAFILE/users.264.953481707
+         1,398       0   0.7   1     1.5            3        0          0
+
+          -------------------------------------------------------------
+File Read Histogram Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->Number of single block reads in each time range
+->Tempfiles are not included
+->ordered by Tablespace, File
+
+Tablespace               Filename
+------------------------ ----------------------------------------------------
+    0 - 2 ms     2 - 4 ms    4 - 8 ms     8 - 16 ms   16 - 32 ms       32+ ms
+------------ ------------ ------------ ------------ ------------ ------------
+SYSTEM                   +DATA/SGEOBASE/DATAFILE/system.260.953481651
+     216,714            0            0            0            0            0
+
+USERS                    +DATA/SGEOBASE/DATAFILE/users.264.953481707
+       1,284            0            0            0            0            0
+
+PERFSTAT                 +DATA/SGEOBASE/DATAFILE/perfstat.269.979228963
+      10,339            0            0            0            0            0
+
+UNDOTBS1                 +DATA/SGEOBASE/DATAFILE/undotbs1.263.953481707
+          50            0            0            0            0            0
+
+STERIGEST_IND_G          +DATA/SGEOBASE/DATAFILE/sterigest_ind_g.257.95348333
+      25,386            0            0            0            0            0
+
+STERIGEST_BLOB_G         +DATA/SGEOBASE/DATAFILE/sterigest_blob_g.256.9534833
+       1,522            0            0            0            0            0
+
+STERIGEST_DAT_G          +DATA/SGEOBASE/DATAFILE/sterigest_dat_g.267.95348332
+      16,987            0            0            0            0            0
+
+SYSAUX                   +DATA/SGEOBASE/DATAFILE/sysaux.265.953481605
+     572,938            0            0            0            0            0
+
+          -------------------------------------------------------------
+Instance Recovery Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> B: Begin snapshot,  E: End snapshot
+
+  Targt Estd                                  Log File  Log Ckpt    Log Ckpt
+  MTTR  MTTR   Recovery   Actual    Target      Size     Timeout    Interval
+   (s)   (s)   Estd IOs  Redo Blks Redo Blks Redo Blks  Redo Blks  Redo Blks
+- ----- ----- ---------- --------- --------- ---------- --------- ------------
+B     0     0        973    112238    112111     165888    112111
+E     0     0        682     74073     71556     165888     71556
+          -------------------------------------------------------------
+Memory Target Advice  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Advice Reset: if this is null, the data shown has been diffed between
+   the Begin and End snapshots.  If this is 'Y', the advisor has been
+   reset during this interval due to memory resize operations, and
+   the data shown is since the reset operation.
+
+                Memory Size     Est.     Advice
+Memory Size (M)      Factor DB time (s)  Reset
+--------------- ----------- ------------ ------
+            500          .5          686
+            750          .8          686
+          1,000         1.0          686
+          1,250         1.3          686
+          1,500         1.5          686
+          1,750         1.8          686
+          2,000         2.0          686
+          -------------------------------------------------------------
+
+Memory Dynamic Components  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->  Op - memory resize Operation
+->  Cache:    D: Default,  K: Keep,  R:  Recycle
+->   Mode:  DEF: DEFerred mode,  IMM: IMMediate mode
+
+                       Begin Snap End Snap   Op    Last Op
+Cache                    Size (M) Size (M)  Count  Type/Mode   Last Op Time
+---------------------- ---------- -------- ------- ---------- ---------------
+D:buffer cache                224                0 SHRINK/DEF 13-Aug 21:00:44
+java pool                       4                0 STATIC
+large pool                      8                0 SHRINK/DEF 13-Aug 10:22:22
+PGA Target                    348                0 STATIC
+SGA Target                    652                0 STATIC
+Shared IO Pool                 24                0 GROW/IMM   13-Aug 10:21:19
+shared pool                   384                0 GROW/DEF   13-Aug 21:00:44
+          -------------------------------------------------------------
+
+Buffer Pool Advisory  DB/Inst: SGEOBASE/SGEOBASE  End Snap: 2495
+-> Only rows with estimated physical reads >0 are displayed
+-> ordered by Pool, Block Size, Buffers For Estimate
+
+                                   Est
+                                  Phys      Estimated                   Est
+    Size for  Size      Buffers   Read     Phys Reads     Est Phys % dbtime
+P    Est (M) Factr  (thousands)  Factr    (thousands)    Read Time  for Rds
+--- -------- ----- ------------ ------ -------------- ------------ --------
+D         20    .1            2   25.5     26,335,060    5,076,833   ######
+D         40    .2            5   17.9     18,515,520    3,567,219   ######
+D         60    .3            7   17.2     17,809,002    3,430,821   ######
+D         80    .4           10   15.1     15,604,745    3,005,275    928.1
+D        100    .4           12    5.5      5,651,497    1,083,735    334.7
+D        120    .5           15    2.2      2,293,310      435,415    134.5
+D        140    .6           17    1.9      1,962,533      371,556    114.7
+D        160    .7           20    1.6      1,655,977      312,374     96.5
+D        180    .8           22    1.4      1,399,850      262,927     81.2
+D        200    .9           25    1.1      1,169,104      218,380     67.4
+D        220   1.0           27    1.0      1,052,371      195,844     60.5
+D        224   1.0           27    1.0      1,033,108      192,125     59.3
+D        240   1.1           29    0.9        963,263      178,641     55.2
+D        260   1.2           32    0.8        858,823      158,478     48.9
+D        280   1.3           34    0.7        754,111      138,263     42.7
+D        300   1.3           37    0.6        670,720      122,163     37.7
+D        320   1.4           39    0.6        605,674      109,606     33.8
+D        340   1.5           42    0.5        557,961      100,394     31.0
+D        360   1.6           44    0.5        513,933       91,895     28.4
+D        380   1.7           47    0.5        473,300       84,050     26.0
+D        400   1.8           49    0.4        436,215       76,891     23.7
+          -------------------------------------------------------------
+
+Buffer Pool Statistics  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Standard block size Pools  D: default,  K: keep,  R: recycle
+-> Default Pools for other block sizes: 2k, 4k, 8k, 16k, 32k
+-> Buffers: the number of buffers.  Units of K, M, G are divided by 1000
+
+                                                            Free Writ     Buffer
+            Pool         Buffer     Physical    Physical  Buffer Comp       Busy
+P   Buffers Hit%           Gets        Reads      Writes   Waits Wait      Waits
+--- ------- ---- -------------- ------------ ----------- ------- ---- ----------
+D       27K   89      9,573,004    1,097,964      12,119       0    0          1
+          -------------------------------------------------------------
+
+Buffer wait Statistics  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by wait time desc, waits desc
+
+Class                                                                    Waits
+------------------------------------------------------------------ -----------
+Total Wait Time (s) Avg Time (ms)
+------------------- -------------
+undo header                                                                  1
+                  0             0
+          -------------------------------------------------------------
+PGA Aggr Target Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> B: Begin snap   E: End snap (rows identified with B or E contain data
+   which is absolute i.e. not diffed over the interval)
+-> PGA cache hit % - percentage of W/A (WorkArea) data processed only in-memory
+-> Auto PGA Target - actual workarea memory target
+-> W/A PGA Used    - amount of memory used for all WorkAreas (manual + auto)
+-> %PGA W/A Mem    - percentage of PGA memory allocated to WorkAreas
+-> %Auto W/A Mem   - percentage of WorkArea memory controlled by Auto Mem Mgmt
+-> %Man W/A Mem    - percentage of WorkArea memory under Manual control
+
+PGA Cache Hit % W/A MB Processed Extra W/A MB Read/Written
+--------------- ---------------- -------------------------
+           99.3            5,624                        37
+
+Warning:  pga_aggregate_target was set too low for current workload, as this
+          value was exceeded during this interval.  Use the PGA Advisory view
+          to help identify a different value for pga_aggregate_target.
+
+PGA Aggr Target Histogram  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Optimal Executions are purely in-memory operations
+
+    Low    High
+Optimal Optimal    Total Execs Optimal Execs 1-Pass Execs M-Pass Execs
+------- ------- -------------- ------------- ------------ ------------
+     2K      4K         11,797        11,797            0            0
+    64K    128K            141           141            0            0
+   128K    256K             62            62            0            0
+   256K    512K             15            15            0            0
+   512K   1024K          1,773         1,773            0            0
+     1M      2M          2,530         2,530            0            0
+     2M      4M            116           114            2            0
+     4M      8M              2             2            0            0
+     8M     16M              8             6            2            0
+    16M     32M              2             2            0            0
+          -------------------------------------------------------------
+
+PGA Memory Advisory  DB/Inst: SGEOBASE/SGEOBASE  End Snap: 2495
+-> When using Auto Memory Mgmt, minimally choose a pga_aggregate_target value
+   where Estd PGA Overalloc Count is 0
+
+                                   Estd Extra                Estd
+  PGA Aggr                           W/A MB      Estd Time    PGA   Estd PGA
+    Target   Size         W/A MB  Read/Written  to Process  Cache  Overalloc
+  Est (MB)  Factr      Processed    to Disk      Bytes (s)  Hit %      Count
+---------- ------ -------------- -------------- ---------- ------ ----------
+        44    0.1      2,152,703        155,415      481.6   93.0     19,342
+        87    0.3      2,152,703        155,415      481.6   93.0     19,342
+       174    0.5      2,152,703        155,415      481.6   93.0     19,342
+       261    0.8      2,152,703        123,889      475.0   95.0     15,447
+       348    1.0      2,152,703            228      449.2  100.0         23
+       418    1.2      2,152,703              0      449.2  100.0          0
+       487    1.4      2,152,703              0      449.2  100.0          0
+       557    1.6      2,152,703              0      449.2  100.0          0
+       626    1.8      2,152,703              0      449.2  100.0          0
+       696    2.0      2,152,703              0      449.2  100.0          0
+     1,044    3.0      2,152,703              0      449.2  100.0          0
+     1,392    4.0      2,152,703              0      449.2  100.0          0
+     2,088    6.0      2,152,703              0      449.2  100.0          0
+     2,784    8.0      2,152,703              0      449.2  100.0          0
+          -------------------------------------------------------------
+Process Memory Summary Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> B: Begin snap   E: End snap
+-> All rows below contain absolute values (i.e. not diffed over the interval)
+-> Max Alloc is Maximum PGA Allocation size at snapshot time
+   Hist Max Alloc is the Historical Max Allocation for still-connected processes
+-> Num Procs or Allocs:  For Begin/End snapshot lines, it is the number of
+   processes. For Category lines, it is the number of allocations
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                                                                  Hist   Num
+                                          Avg    Std Dev   Max    Max   Procs
+             Alloc     Used    Freeabl   Alloc    Alloc   Alloc  Alloc    or
+  Category   (MB)      (MB)      (MB)     (MB)    (MB)    (MB)    (MB)  Allocs
+- -------- --------- --------- -------- -------- ------- ------- ------ ------
+B --------     531.6     367.6    110.8      8.9    18.6     103    103     60
+  Other        413.2                         6.9    13.8      77     77     60
+  Freeable     110.9        .0               3.7    16.4      90            30
+  SQL            4.5       2.5                .1      .3       2     29     27
+  PL/SQL         3.7       1.4                .1      .3       2      6     58
+E --------     363.3     287.8     24.6      5.9    10.2      60     60     62
+  Other        333.6                         5.4    10.2      60     60     62
+  Freeable      24.7        .0                .7      .6       3            33
+  SQL            3.3       1.7                .1      .2       1     29     27
+  PL/SQL         1.4        .9                .0      .1       0      1     60
+          -------------------------------------------------------------
+
+Top Process Memory (by component)  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     30 J000 --------   103.0     7.8     90.3      103.0      103.0
+         Freeable         90.3      .0                90.3
+         Other            10.5                        10.5       10.5
+         PL/SQL            2.0      .3                 2.0        5.7
+         SQL                .2      .1                  .2       17.6
+      58 J003 --------    77.2    76.5       .0       77.2       77.2
+         Other            76.9                        76.9       76.9
+         PL/SQL             .7      .5                  .7        1.0
+         SQL                .3      .1                  .3        6.8
+      26 MARK --------    59.5    59.3       .0       59.5       59.5
+         Other            59.5                        59.5       59.5
+         PL/SQL             .0      .0                  .0         .0
+      35 ARC3 --------    34.8    31.7      1.1       34.8       34.8
+         Other            33.7                        33.7       33.7
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      32 ARC0 --------    33.7    31.0       .0       33.7       33.7
+         Other            33.7                        33.7       33.7
+         PL/SQL             .0      .0                  .0         .0
+      33 ARC1 --------    33.7    30.7      1.1       33.7       33.7
+         Other            32.7                        32.7       32.7
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      12 DBW0 --------    19.7    11.1       .0       19.7       28.0
+         Other            19.7                        19.7       28.0
+         PL/SQL             .0      .0                  .0         .0
+      34 ARC2 --------    19.4    17.8       .0       19.4       19.4
+         Other            19.4                        19.4       19.4
+         PL/SQL             .0      .0                  .0         .0
+      23 MMON --------    12.7     3.6       .8       12.7       15.4
+         Other            11.6                        11.6       12.5
+         Freeable           .8      .0                  .8
+         PL/SQL             .3      .0                  .3         .3
+         SQL                .1      .0                  .1        1.8
+      53  ------------     6.8     4.6      1.4        6.8       27.9
+         Other             3.5                         3.5       17.0
+         SQL               1.9     1.7                 1.9        9.5
+         Freeable          1.4      .0                 1.4
+         PL/SQL             .0      .0                  .0         .0
+      46 J001 --------     6.2     3.1      2.3        6.2        6.2
+         Other             3.5                         3.5        3.5
+         Freeable          2.3      .0                 2.3
+         SQL                .2      .0                  .2        2.8
+         PL/SQL             .2      .2                  .2         .7
+      29  ------------     5.6     3.5       .9        5.6       29.0
+         Other             4.7                         4.7       19.6
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .8
+         SQL                .0      .0                  .0        7.7
+      45  ------------     5.4     3.3       .9        5.4       30.1
+         Other             4.4                         4.4       20.7
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .8
+
+Top Process Memory (by component)  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+B     45 SQL                .0      .0                  .0        7.7
+      60  ------------     5.3     3.5       .4        5.3       31.5
+         Other             4.5                         4.5       21.2
+         SQL                .4      .0                  .4        9.9
+         Freeable           .4      .0                  .4
+         PL/SQL             .0      .0                  .0         .0
+      44  ------------     5.2     3.8      1.0        5.2       30.0
+         Other             4.2                         4.2       19.3
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        9.6
+      54 J002 --------     4.7     1.6       .8        4.7        5.0
+         Other             3.9                         3.9        3.9
+         Freeable           .8      .0                  .8
+         PL/SQL             .0      .0                  .0        1.1
+         SQL                .0      .0                  .0        1.0
+      56  ------------     4.7     3.2       .6        4.7       29.7
+         Other             3.7                         3.7       19.9
+         Freeable           .6      .0                  .6
+         SQL                .5      .0                  .5        9.2
+         PL/SQL             .0      .0                  .0         .0
+       7  ------------     4.5     3.0      1.0        4.5       30.1
+         Other             3.4                         3.4       20.3
+         Freeable          1.0      .0                 1.0
+         SQL                .0      .0                  .0        8.8
+         PL/SQL             .0      .0                  .0         .0
+      42  ------------     4.4     2.9      1.0        4.4       30.0
+         Other             3.4                         3.4       20.2
+         Freeable          1.0      .0                 1.0
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        8.8
+      51  ------------     4.3     3.1       .9        4.3       29.5
+         Other             3.4                         3.4       19.0
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        9.6
+E     26 MARK --------    59.5    59.3       .0       59.5       59.5
+         Other            59.5                        59.5       59.5
+         PL/SQL             .0      .0                  .0         .0
+      35 ARC3 --------    34.8    31.7      1.1       34.8       34.8
+         Other            33.7                        33.7       33.7
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      32 ARC0 --------    33.7    30.7       .0       33.7       33.7
+         Other            33.7                        33.7       33.7
+         PL/SQL             .0      .0                  .0         .0
+      33 ARC1 --------    33.7    30.7      1.1       33.7       33.7
+         Other            32.7                        32.7       32.7
+         Freeable          1.1      .0                 1.1
+         PL/SQL             .0      .0                  .0         .0
+      12 DBW0 --------    19.7    11.1       .0       19.7       28.0
+         Other            19.7                        19.7       28.0
+         PL/SQL             .0      .0                  .0         .0
+
+Top Process Memory (by component)  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E     34 ARC2 --------    19.4    17.8       .0       19.4       19.4
+         Other            19.4                        19.4       19.4
+         PL/SQL             .0      .0                  .0         .0
+      23 MMON --------    12.4     3.6       .4       12.4       15.4
+         Other            11.6                        11.6       12.9
+         Freeable           .4      .0                  .4
+         PL/SQL             .3      .0                  .3         .3
+         SQL                .0      .0                  .0        1.8
+      41 CJQ0 --------     6.4     3.1      2.8        6.4       10.5
+         Other             3.3                         3.3        5.3
+         Freeable          2.8      .0                 2.8
+         SQL                .1      .0                  .1        2.3
+         PL/SQL             .0      .0                  .0         .1
+      58 J000 --------     6.3     2.9      2.3        6.3        6.3
+         Other             3.6                         3.6        3.6
+         Freeable          2.3      .0                 2.3
+         SQL                .2      .1                  .2        2.8
+         PL/SQL             .2      .2                  .2         .7
+      29  ------------     5.6     3.5       .9        5.6       29.0
+         Other             4.7                         4.7       19.6
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .8
+         SQL                .0      .0                  .0        7.7
+      45  ------------     5.4     3.3       .8        5.4       30.1
+         Other             4.5                         4.5       20.8
+         Freeable           .8      .0                  .8
+         SQL                .1      .0                  .1        7.7
+         PL/SQL             .0      .0                  .0         .8
+      44  ------------     5.3     3.8      1.0        5.3       30.0
+         Other             4.2                         4.2       19.3
+         Freeable          1.0      .0                 1.0
+         SQL                .0      .0                  .0        9.6
+         PL/SQL             .0      .0                  .0         .0
+      60  ------------     5.3     3.5       .4        5.3       31.5
+         Other             4.5                         4.5       21.2
+         SQL                .4      .0                  .4        9.9
+         Freeable           .4      .0                  .4
+         PL/SQL             .0      .0                  .0         .0
+      53  ------------     5.1     3.4      1.0        5.1       30.4
+         Other             3.6                         3.6       19.8
+         Freeable          1.0      .0                 1.0
+         SQL                .5      .4                  .5        9.6
+         PL/SQL             .0      .0                  .0         .0
+      43  ------------     5.0     3.4       .5        5.0       36.1
+         Other             4.1                         4.1        6.3
+         Freeable           .5      .0                  .5
+         SQL                .5      .3                  .5       29.3
+         PL/SQL             .0      .0                  .0         .0
+       7  ------------     4.8     3.2      1.0        4.8       30.3
+         Other             3.6                         3.6       19.7
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1        8.8
+         PL/SQL             .0      .0                  .0         .8
+
+Top Process Memory (by component)  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by Begin/End snapshot, Alloc (MB) desc
+
+                        Alloc   Used   Freeabl     Max      Hist Max
+     PId Category       (MB)    (MB)     (MB)   Alloc (MB) Alloc (MB)
+- ------ ------------- ------- ------- -------- ---------- ----------
+E     56  ------------     4.7     3.2       .3        4.7       29.7
+         Other             4.0                         4.0       20.2
+         SQL                .4      .3                  .4        9.2
+         Freeable           .3      .0                  .3
+         PL/SQL             .0      .0                  .0         .0
+      57 W002 --------     4.7     2.9      1.6        4.7        4.7
+         Other             3.1                         3.1        3.1
+         Freeable          1.6      .0                 1.6
+         SQL                .0      .0                  .0         .8
+         PL/SQL             .0      .0                  .0         .0
+      42  ------------     4.4     2.9      1.0        4.4       30.0
+         Other             3.3                         3.3       20.2
+         Freeable          1.0      .0                 1.0
+         SQL                .1      .0                  .1        8.8
+         PL/SQL             .0      .0                  .0         .0
+      51  ------------     4.3     3.1       .9        4.3       29.5
+         Other             3.4                         3.4       19.0
+         Freeable           .9      .0                  .9
+         PL/SQL             .0      .0                  .0         .0
+         SQL                .0      .0                  .0        9.6
+          -------------------------------------------------------------
+Enqueue activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> only enqueues with waits are shown
+-> Enqueue stats gathered prior to 10g should not be compared with 10g data
+-> ordered by Wait Time desc, Waits desc
+
+Enqueue Type (Request Reason)
+------------------------------------------------------------------------------
+    Requests    Succ Gets Failed Gets       Waits Wt Time (s)  Av Wt Time(ms)
+------------ ------------ ----------- ----------- ------------ --------------
+CF-Controlfile Transaction
+       3,760        3,760           0           6            0          16.67
+TC-Tablespace Checkpoint
+          24           24           0           8            0           5.00
+JS-Job Scheduler (queue lock)
+      20,731       20,731           0           2            0           5.00
+RO-Multiple Object Reuse (fast object reuse)
+          10           10           0           1            0            .00
+          -------------------------------------------------------------
+
+Undo Segment Summary  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Min/Max TR (mins) - Min and Max Tuned Retention (minutes)
+-> STO - Snapshot Too Old count,  OOS - Out Of Space count
+-> Undo segment block stats:
+   uS - unexpired Stolen,   uR - unexpired Released,   uU - unexpired reUsed
+   eS - expired   Stolen,   eR - expired   Released,   eU - expired   reUsed
+
+Undo   Num Undo       Number of  Max Qry     Max Tx Min/Max   STO/  uS/uR/uU/
+ TS# Blocks (K)    Transactions  Len (s)      Concy TR (mins) OOS   eS/eR/eU
+---- ---------- --------------- -------- ---------- --------- ----- -----------
+   2        6.1           5,150    1,893          4 22.9/44.6 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+
+
+Undo Segment Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Most recent 35 Undostat rows, ordered by End Time desc
+
+                Num Undo    Number of Max Qry  Max Tx Tun Ret STO/  uS/uR/uU/
+End Time          Blocks Transactions Len (s)   Concy  (mins) OOS   eS/eR/eU
+------------ ----------- ------------ ------- ------- ------- ----- -----------
+01-Oct 22:50         594          224   1,298       2      35 0/0   0/0/0/0/0/0
+01-Oct 22:40         613          288   1,026       2      30 0/0   0/0/0/0/0/0
+01-Oct 22:30         435          240     634       2      24 0/0   0/0/0/0/0/0
+01-Oct 22:20          20          272     588       2      23 0/0   0/0/0/0/0/0
+01-Oct 22:10       1,660        1,576   1,066       3      31 0/0   0/0/0/0/0/0
+01-Oct 22:00       2,768        2,550   1,893       4      45 0/0   0/0/0/0/0/0
+          -------------------------------------------------------------
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+active checkpoint queue           2,049    0.0             0            0
+active service list              18,987    0.0             0       13,740    0.0
+alert log latch                      10    0.0             0            0
+AQ Background: interrupt              1    0.0             0          128    0.0
+AQ Coord jobx_kwsbgsgn l            119    0.0             0            0
+AQ deq hash table latch               1    0.0             0            0
+AQ Sharded master pool l            119    0.0             0            0
+archive destination                 536    0.0             0            0
+archive process latch               257    0.0             0            0
+ASM allocation                      407    0.0             0            0
+ASM db client latch               2,453    0.0             0            0
+ASM Keyed state latch               700    0.0             0            0
+ASM map headers                     342    0.0             0            0
+ASM map load waiting lis             62    0.0             0            0
+ASM map operation freeli            867    0.0             0            0
+ASM map operation hash t      2,015,517    0.0    0.0      0            0
+ASM network background l          2,151    0.0             0            0
+ASM network state latch             787    0.0             0            0
+ASM remote client latch              62    0.0             0            0
+AWR Alerted Metric Eleme         23,947    0.0             0            0
+begin backup scn array                8    0.0             0            0
+buffer pool                           1    0.0             0            0
+business card                         1    0.0             0            0
+cache buffer handles              5,354    0.0             0            0
+cache buffers chains         20,979,406    0.0    0.0      0    2,159,578    0.0
+cache buffers lru chain         135,094    0.0    0.0      0    1,952,578    0.0
+cache table scan latch           10,018    0.0             0       10,018    0.0
+call allocation                   9,955    0.0    0.0      0            0
+cas latch                             1    0.0             0            0
+change notification clie              1    0.0             0            0
+Change Notification Hash          1,205    0.0             0            0
+channel handle pool latc            703    0.0             0            0
+channel operations paren          1,659    0.0             0            0
+checkpoint queue latch           82,048    0.0             0       11,627    0.0
+client/application info          21,690    0.0             0            0
+compile environment latc            386    0.0             0            0
+Consistent RBA                    2,479    0.0             0            0
+corrupted undo seg latch          1,558    0.0             0            0
+cp handoff latch                      1    0.0             0            0
+cp pool latch                         1    0.0             0            0
+cp server hash latch                  1    0.0             0            0
+cp sga latch                         62    0.0             0            0
+cp srv type state latch             187    0.0             0            0
+cp srv type wait latch                1    0.0             0            0
+cvmap freelist lock                   1    0.0             0            0
+deferred cleanup latch               62    0.0             0            0
+device information                   16    0.0             0            0
+dispatcher info                     142    0.0             0            0
+DML lock allocation             316,238    0.0             0            0
+dml lock allocation                  64    0.0             0            0
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+done queue latch                      1    0.0             0            0
+dtp latch                           349    0.0             0            0
+dummy allocation                    771    0.0             0            0
+eighth spare latch - X p              1    0.0             0            0
+eleventh spare latch - c              1    0.0             0            0
+enqueue freelist latch                2   50.0    0.0      0      171,632    0.0
+enqueue hash chains             193,610    0.0    0.0      0            0
+Event Group Locks                   738    0.0             0            0
+event stats latch                   384    0.0             0            0
+FAL Queue                           110    0.0             0            0
+FIB s.o chain latch                 178    0.0             0            0
+fifteenth spare latch -               1    0.0             0            0
+file cache latch                    163    0.0             0            0
+File State Object Pool P              1    0.0             0            0
+first Audit Vault latch             111    0.0             0            0
+flash file access latch               1    0.0             0            0
+flashback copy                        1    0.0             0            0
+FOB s.o list latch                2,462    0.1    0.0      0            0
+fourteenth spare latch -              1    0.0             0            0
+fourth Audit Vault latch              1    0.0             0            0
+gc element                            1    0.0             0            0
+gcs commit scn state                  1    0.0             0            0
+gcs opaque info freelist              1    0.0             0            0
+gcs partitioned table ha              1    0.0             0            0
+gcs pcm hashed value buc              1    0.0             0            0
+gcs resource freelist                 1    0.0             0            0
+gcs resource hash                     1    0.0             0            0
+gcs resource scan list                1    0.0             0            0
+gcs resource validate li              1    0.0             0            0
+gcs shadows freelist                  1    0.0             0            0
+ges cached resource list              1    0.0             0            0
+ges domain table                      1    0.0             0            0
+ges enqueue table freeli              1    0.0             0            0
+ges group table                       1    0.0             0            0
+ges process hash list                 1    0.0             0            0
+ges process parent latch              1    0.0             0            0
+ges resource hash list                1    0.0             0            0
+ges resource scan list                1    0.0             0            0
+ges resource table freel              1    0.0             0            0
+ges timeout list                      1    0.0             0            0
+ges value block free lis              1    0.0             0            0
+global KZLD latch for au            123    0.0             0            0
+global tx hash mapping                1    0.0             0            0
+granule from data transf              1    0.0             0            0
+granule operation                     1    0.0             0            0
+hash table column usage           1,063    0.0             0      755,461    0.0
+hash table modification              82    0.0             0            0
+hash table Sql Plan Find            197    0.0             0        3,519    0.0
+heartbeat check                       1    0.0             0            0
+ILM access tracking exte              1    0.0             0            0
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+ILM activity tracking la              1    0.0             0            0
+ILM Stats main anchor la          2,963    0.0             0            0
+ILM Stats Stripe Latch                1    0.0             0            0
+IM area sb latch                      1    0.0             0            0
+IM area scb latch                     1    0.0             0            0
+IM emb latch                          1    0.0             0            0
+IM seg hdr latch                      1    0.0             0            0
+imc buf hdl lat                       1    0.0             0            0
+imc hash lat                          1    0.0             0            0
+imc sj lat                            1    0.0             0            0
+imc srchsp lat                        1    0.0             0            0
+imc-txn-wrk-lat                       1    0.0             0            0
+In memory undo latch             16,889    0.0    1.0      0        3,235    0.0
+in-memory area latch                  1    0.0             0            0
+in-memory columnar segme              1    0.0             0            0
+in-memory columnar ts ex              1    0.0             0            0
+in-memory global pool la              1    0.0             0            0
+internal temp table obje              5    0.0             0            0
+interrupt manipulation               26    0.0             0            0
+intra txn parallel recov              1    0.0             0            0
+io pool granule metadata              1    0.0             0            0
+I/O Staticstics latch                 1    0.0             0            0
+IPC stats buffer allocat              1    0.0             0            0
+job workq parent latch               34    0.0             0           33    0.0
+job_queue_processes free            133    0.0             0            0
+job_queue_processes para             10    0.0             0            0
+JS mem alloc latch                  101    0.0             0            0
+JS queue access latch               102    0.0             0            0
+JS queue state obj latch         41,462    0.0    0.0      0            0
+JS Sh mem access                      5    0.0             0            0
+JS slv state obj latch               74    0.0             0            0
+kcb DW scan objtemp hash              1    0.0             0            0
+kcbtsemkid latch                      5    0.0             0            0
+kcn buffer chains                     1    0.0             0            0
+KCNIBR - invalid block r              1    0.0             0            0
+kdlx hb parent latch                  1    0.0             0            0
+KFC FX Hash Latch                     1    0.0             0            0
+KFC Hash Latch                        1    0.0             0            0
+KFCL LE Freelist                      1    0.0             0            0
+KFK SGA Libload latch               690    0.0             0            0
+KFMD SGA                              8    0.0             0            0
+kgb parent                            1    0.0             0            0
+kgnfs mount latch                     1    0.0             0            0
+KGNFS-NFS:SHM structure               1    0.0             0            0
+KGNFS-NFS:SVR LIST                    1    0.0             0            0
+KJC message pool free li              1    0.0             0            0
+KJC message pool pending              1    0.0             0            0
+kjci objects freelist la              1    0.0             0            0
+kjci process context lat              1    0.0             0        5,632    0.0
+KJCT flow control latch               1    0.0             0            0
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+kjoedcso state object fr             62    0.0             0            0
+kjoeq omni enqueue hash               1    0.0             0            0
+kjoer owner hash bucket               1    0.0             0            0
+KMG MMAN ready and start          1,192    0.0             0            0
+kokc descriptor allocati              2    0.0             0            0
+KQF runtime table column          8,671    0.0             0            0
+krbmrosl                         94,196    0.0             0            0
+krso process latch                  120    0.0             0            0
+KSFS id table parent lat              1    0.0             0            0
+KSFS ksfs_node latch                  1    0.0             0            0
+KSFS OFS ctx level paren              1    0.0             0            0
+KSFS OFS req layer paren              1    0.0             0            0
+KSFS OFS sess layer pare              1    0.0             0            0
+KSFSD name cache parent               1    0.0             0            0
+ksfv messages                         1    0.0             0            0
+ksi resource reuse count              1    0.0             0            0
+ksim group membership ca              1    0.0             0            0
+kss move lock                       321    0.0             0            0
+ksuosstats global area            1,568    0.0             0            0
+ksv allocation latch                702    0.0             0            0
+ksv class latch                   4,045    0.0    0.0      0            0
+ksv instance latch                   78    0.0             0            0
+ksv msg queue latch                 127    0.0             0          126    0.0
+KSXR hang analysis phase              1    0.0             0            0
+KSXR hang analysis phase              1    0.0             0            0
+ksz_so allocation latch             700    0.0             0            0
+KTF sga latch                        23    0.0             0          967    0.0
+ktfbn latch                         641    0.0             0            0
+KTILM latch                           1    0.0             0            0
+ktm global data                   4,815    0.0             0            0
+ktm prv jrnls                         1    0.0             0            0
+ktmpj HT ls                           1    0.0             0            0
+kwqbsn:qsga                         130    0.0             0            0
+KWQP Prop Status                      2    0.0             0            0
+kwslbmdl: metadata latch            119    0.0             0            0
+kwslbql: queue latch                  1    0.0             0            0
+kwsptjobAdPtLt: AdPt lis            259    0.0             0            0
+kwsptQcachLt: queue cach              1    0.0             0            0
+kwsptTrncTsksLt: trunc t              1    0.0             0            0
+kxfxscanrate_latch                    1    0.0             0            0
+k2q lock allocation                   1    0.0             0            0
+lgwr LWN SCN                      3,343    0.0             0            0
+list of block allocation          4,990    0.0             0            0
+loader state object free             72    0.0             0            0
+lob segment dispenser la              1    0.0             0            0
+lob segment hash table l             37    0.0             0            0
+lob segment query latch               1    0.0             0            0
+Locator state objects po              1    0.0             0            0
+lock DBA buffer during m              1    0.0             0            0
+log write info                        0                    0        2,479    0.0
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+log write slave phase                 1    0.0             0            0
+logical standby cache                 1    0.0             0            0
+logminer context allocat              1    0.0             0            0
+logminer local                        1    0.0             0            0
+logminer work area                    1    0.0             0            0
+longop free list parent             636    0.0             0          177    0.0
+Lsod array latch                    810    0.0             0            0
+managed standby latch               124    0.0             0            0
+mapped buffers lru chain              1    0.0             0            0
+Memory Management Latch               1    0.0             0        1,192    0.0
+Memory Queue                          1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Message Sub              1    0.0             0            0
+Memory Queue Subscriber               1    0.0             0            0
+message bitmap latch                  1    0.0             0            0
+Message cache latch                   1    0.0             0            0
+message pool operations              97    0.0             0            0
+messages                         49,504    0.0    0.0      0            0
+MinActiveScn Latch                   40    0.0             0            0
+MQL Tracking Latch                    0                    0           71    0.0
+msg queue latch                       1    0.0             0            0
+multiblock read objects          25,878    0.0             0            0
+Mutex                                 1    0.0             0            0
+Mutex Stats                           1    0.0             0            0
+name-service namespace b              1    0.0             0            0
+ncodef allocation latch              62    0.0             0            0
+ninth spare latch - X pa              1    0.0             0            0
+object queue header free      1,683,791    0.0             0            0
+object queue header oper      2,292,053    0.0    0.0      0            0
+object queue memory                   1    0.0             0            0
+object stats modificatio      1,046,706    0.0    1.0      0            0
+OS process                        2,433    0.0             0            0
+OS process allocation             8,649    0.0             0            0
+OS process: request allo            699    0.0             0            0
+parallel query alloc buf              1    0.0             0          436    0.0
+parallel query stats                  1    0.0             0            0
+parameter table manageme         12,290    0.0             0            0
+Parent latch for depende              1    0.0             0            0
+peshm                                 1    0.0             0            0
+pesom_free_list                       1    0.0             0            0
+pesom_hash_node                       1    0.0             0            0
+pkey global statistics                1    0.0             0            0
+PL/SQL warning settings           1,649    0.0             0            0
+post/wait queue                   4,262    0.0             0        7,374    0.0
+process allocation                  906    0.0             0          350    0.0
+process group creation              699    0.0             0            0
+process pkey statistics               1    0.0             0            0
+process queue                         1    0.0             0            0
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+process queue reference               1    0.0             0            0
+PX hash array latch                   1    0.0             0            0
+qmn task queue latch                521    0.0             0            0
+QMT                                   1    0.0             0            0
+query server freelists                1    0.0             0            0
+query server process              2,381    0.0             0            0
+queued dump request                  12    0.0             0            0
+queuing load statistics               1    0.0             0            0
+recovery domain hash lis              1    0.0             0            0
+redo allocation                 239,155    0.0    0.2      0            0
+redo copy                             1    0.0             0      220,838    0.0
+redo transport task latc            101    0.0             0            0
+redo writing                     13,674    0.0             0            0
+Report Request stats lat            240    0.0             0            0
+Request holder compeltio            415    0.0             0            0
+reservation so alloc lat             10    0.0             0            0
+Reserved Space Latch                 20    0.0             0            0
+resmgr group change latc            823    0.0             0            0
+resmgr:active threads             1,711    0.0             0        1,242    0.0
+resmgr:actses change gro            853    0.0             0            0
+resmgr:actses change sta            198    0.0             0            0
+resmgr:free threads list          1,085    0.0             0            0
+resmgr:plan CPU method                1    0.0             0            0
+resmgr:resource group CP          2,832    0.0             0            0
+resmgr:schema config                397    0.0             0           50    0.0
+resmgr:session queuing                1    0.0             0            0
+Retry bkt latch                       1    0.0             0            0
+Retry Ht elm latch                    1    0.0             0            0
+rm cas latch                          1    0.0             0            0
+row cache objects             2,108,436    0.0    0.0      0        2,323    0.0
+RTT parent context                    5    0.0             0            0
+rules engine rule set st            100    0.0             0            0
+Sched IM Job latch                   63    0.0             0            0
+Sched InMem Job Cache                 3    0.0             0            0
+second Audit Vault latch              1    0.0             0            0
+segmented array pool                112    0.0             0            0
+sequence cache                      616    0.0             0            0
+session allocation                8,667    0.0             0        8,216    0.0
+session idle bit                 83,213    0.0             0            0
+session queue latch                   1    0.0             0            0
+session state list latch          1,016    0.0             0            0
+session statistics                  770    0.0             0            0
+session switching                   412    0.0             0            0
+session timer                     1,196    0.0             0            0
+seventh spare latch - X               1    0.0             0            0
+SGA blob parent                       1    0.0             0            0
+SGA bucket locks                      1    0.0             0            0
+sga hash table parent la              1    0.0             0            0
+SGA heap locks                        1    0.0             0            0
+SGA IO buffer pool latch            112    0.0             0          112    0.0
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+SGA Logging Bkt Latch             3,625    0.0             0            0
+SGA Logging Log Latch             7,269    0.0             0        3,588    0.0
+SGA pool locks                        1    0.0             0            0
+shard latch                           1    0.0             0            0
+Shared B-Tree                       132    0.0             0            0
+shared pool                     560,593    0.0    0.3      0            0
+shared pool sim alloc                 1    0.0             0            0
+shared pool simulator            29,780    0.0             0            0
+sim partition latch                   1    0.0             0            0
+simulator hash latch            678,802    0.0             0            0
+simulator lru latch                   1    0.0             0      660,957    0.0
+sixth spare latch - X pa              1    0.0             0            0
+sort extent pool                  1,630    0.0             0            0
+space background task la          4,921    3.4    1.0      0        2,385    0.0
+SQL memory manager latch            120    0.0             0        1,186    0.0
+SQL memory manager worka        104,813    0.0             0            0
+SR Stats main anchor lat        236,211    0.0             0            0
+SR Stats Stripe Latch                 1    0.0             0            0
+Streams Generic                       1    0.0             0            0
+subscriber Ht bkt                     1    0.0             0            0
+Subscriber Ht elm latch               1    0.0             0            0
+tablespace key chain                  1    0.0             0            0
+temp lob duration state              34    0.0             0            0
+temporary table state ob              4    0.0             0            0
+tenth spare latch - X pa              1    0.0             0            0
+test excl. parent l0                  1    0.0             0            0
+test excl. parent2 lmid               1    0.0             0            0
+test excl. parent2 l0                 1    0.0             0            0
+test shared parent2 lmid              1    0.0             0            0
+Testing                               1    0.0             0            0
+thirteenth spare latch -              1    0.0             0            0
+threshold alerts latch              117    0.0             0            0
+Token Manager                         1    0.0             0            0
+transaction allocation           77,314    0.0             0            0
+twelfth spare latch - ch              1    0.0             0            0
+twenty-fifth spare latch              1    0.0             0            0
+twenty-first spare latch              1    0.0             0            0
+twenty-fourth spare latc              1    0.0             0            0
+twenty-second spare latc              1    0.0             0            0
+twenty-third spare latch              1    0.0             0            0
+Txn bkt latch                         1    0.0             0            0
+Txn Ht elm latch                      1    0.0             0            0
+undo global data                146,991    0.0             0            0
+virtual circuit buffers               1    0.0             0            0
+virtual circuit holder                1    0.0             0            0
+virtual circuit queues                1    0.0             0            0
+WCR: sync                             1    0.0             0            0
+Write State Object Pool               1    0.0             0            0
+XDB NFS Security Latch                1    0.0             0            0
+XDB unused session pool               1    0.0             0            0
+Latch Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Get Requests", "Pct Get Miss" and "Avg Slps/Miss" are statistics for
+  willing-to-wait latch get requests
+->"NoWait Requests", "Pct NoWait Miss" are for no-wait latch get requests
+->"Pct Misses" for both should be very close to 0.0
+
+                                           Pct    Avg   Wait                 Pct
+                              Get          Get   Slps   Time       NoWait NoWait
+Latch                       Requests      Miss  /Miss    (s)     Requests   Miss
+------------------------ -------------- ------ ------ ------ ------------ ------
+XDB used session pool                 1    0.0             0            0
+X$KSFQP                          61,026    0.0             0            0
+          -------------------------------------------------------------
+Latch Sleep breakdown  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by misses desc
+
+                                       Get                                 Spin
+Latch Name                        Requests       Misses      Sleeps        Gets
+-------------------------- --------------- ------------ ----------- -----------
+row cache objects                2,108,436          194           8         186
+space background task latc           4,921          167         163           5
+shared pool                        560,593          131          38          98
+cache buffers lru chain            135,094           45           1          44
+enqueue hash chains                193,610           24           1          23
+redo allocation                    239,155           15           3          12
+object stats modification        1,046,706            2           2           0
+In memory undo latch                16,889            1           1           0
+          -------------------------------------------------------------
+Latch Miss Sources  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> only latches with sleeps are shown
+-> ordered by name, sleeps desc
+
+                                                     NoWait              Waiter
+Latch Name               Where                       Misses     Sleeps   Sleeps
+------------------------ -------------------------- ------- ---------- --------
+cache buffers chains     kcbget: new pin                  0          1        0
+cache buffers lru chain  kcbzgws                          0          1        0
+enqueue hash chains      ksqrcl                           0          1        0
+In memory undo latch     ktiFlush: child                  0          1        0
+object stats modificatio ksols_rank                       0          1        0
+object stats modificatio ksolsgetchk                      0          1        1
+PC and Classifier lists  No latch                         0          1        0
+redo allocation          kcrfw_redo_gen: redo alloc       0          3        0
+row cache objects        kqreqd: reget                    0          8        0
+shared pool              kghalo                           0         28       14
+shared pool              kghalp                           0          4        5
+shared pool              kghupr1                          0          4       15
+shared pool              kghfre                           0          2        2
+space background task la ktsj_grab_task                   0        106      163
+space background task la ktsjCreateTask                   0         28        0
+space background task la ktsj_detach_task                 0         28        0
+          -------------------------------------------------------------
+Mutex Sleep  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> ordered by Wait Time desc
+
+                                                                         Wait
+Mutex Type         Location                                 Sleeps     Time (s)
+------------------ -------------------------------- -------------- ------------
+Cursor Pin         kkslce [KKSCHLPIN2]                           6          0.0
+Library Cache      kglget2   2                                   2          0.0
+Library Cache      kglhdgn2 106                                  1          0.0
+          -------------------------------------------------------------
+Segments by Logical Reads  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Segment Logical Reads Threshold:     10000
+-> Pct Total shows % of logical reads for each top segment compared with total
+   logical reads for all segments captured by the Snapshot
+
+                                           Subobject    Obj.       Logical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SYS        SYSTEM     COLTYPE$                          TABLE ############  99.4
+SYS        SYSTEM     SEG$                              TABLE    2,709,536    .3
+SYS        SYSTEM     OBJ$                              TABLE    1,178,496    .1
+SG_O       STERIGEST_ LOGISTIQUE                        TABLE      329,968    .0
+SG_O       STERIGEST_ CBARS                             TABLE      200,960    .0
+          -------------------------------------------------------------
+
+
+Segments by Physical Reads  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Segment Physical Reads Threshold:      1000
+
+                                           Subobject    Obj.      Physical   Pct
+Owner      Tablespace Object Name          Name         Type         Reads Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SG_O       STERIGEST_ CBARS                             TABLE      114,693  50.9
+SG_O       STERIGEST_ IXSDTCON                          INDEX       20,944   9.3
+SYS        SYSAUX     I_WRI$_OPTSTAT_H_OBJ              INDEX       11,987   5.3
+SG_O       STERIGEST_ IXSDTSTE                          INDEX       11,595   5.1
+SYS        SYSAUX     I_WRI$_OPTSTAT_H_ST               INDEX        9,805   4.4
+          -------------------------------------------------------------
+
+
+Segments by Buffer Busy Waits  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> End Segment Buffer Busy Waits Threshold:       100
+
+                                                                    Buffer
+                                           Subobject    Obj.          Busy   Pct
+Owner      Tablespace Object Name          Name         Type         Waits Total
+---------- ---------- -------------------- ------------ ----- ------------ -----
+SYS        SYSTEM     COLTYPE$                          TABLE            4 100.0
+          -------------------------------------------------------------
+Dictionary Cache Stats  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Pct Misses"  should be very low (< 2% in most cases)
+->"Final Usage" is the number of cache entries being used in End Snapshot
+
+                                   Get    Pct    Scan   Pct      Mod      Final
+Cache                         Requests   Miss    Reqs  Miss     Reqs      Usage
+------------------------- ------------ ------ ------- ----- -------- ----------
+dc_awr_control                      66    0.0       0              2          1
+dc_constraints                      16   56.3       0             16          1
+dc_files                            96    8.3       0              0          8
+dc_global_oids                   1,546    0.3       0              0         36
+dc_histogram_data              140,577    1.0       0          1,450      1,763
+dc_histogram_defs              210,735    2.5       0          1,575      2,626
+dc_object_grants                   139    2.2       0              0          3
+dc_objects                     116,254    0.9       0            106      1,601
+dc_profiles                        239    0.0       0              0          1
+dc_props                         3,157    0.0       0              0          3
+dc_rollback_segments             1,080    0.0       0              0         22
+dc_segments                     56,829    1.4       0              7      1,408
+dc_sequences                         2   50.0       0              2          2
+dc_table_scns                        8  100.0       0              0          0
+dc_tablespaces                 117,022    0.0       0              0         10
+dc_users                       173,176    0.0     548   0.0        0        195
+outstanding_alerts                   2  100.0       0              0          0
+sch_lj_objs                          4    0.0       0              0          3
+sch_lj_oids                         77    6.5       0              0         10
+triton security name to i           12  100.0       0              0          3
+          -------------------------------------------------------------
+
+
+Library Cache Activity  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+->"Pct Misses"  should be very low
+
+                                                       Get  Pct        Pin
+Namespace                                         Requests  Miss     Requests
+--------------------------------------------- ------------ ------ --------------
+ Pct               Invali-
+ Miss     Reloads  dations
+------ ---------- --------
+ACCOUNT_STATUS                                         444    0.5              0
+                0        0
+AUDIT POLICY                                           286    0.7            286
+   0.7          0        0
+BODY                                                   670    4.3          2,414
+   1.2          0        0
+CLUSTER                                                222    0.9            226
+   0.9          0        0
+DBLINK                                                 542    0.2              0
+                0        0
+EDITION                                                322    0.0            628
+   0.0          0        0
+INDEX                                                  813    9.7            710
+  30.6         36        0
+OBJECT ID                                               10  100.0              0
+                0        0
+SCHEMA                                                 769    0.0              0
+                0        0
+SQL AREA                                            24,375   49.6        145,131
+  13.7        843      139
+SQL AREA BUILD                                       6,788   99.2              0
+                0        0
+SQL AREA STATS                                       6,761   93.9          6,761
+  93.9          0        0
+TABLE/PROCEDURE                                     11,489    4.1         40,274
+   6.6      1,189        0
+TEMPORARY INDEX                                         87   67.8             87
+ 100.0         28        0
+TEMPORARY TABLE                                        241   19.9            241
+ 100.0        193        0
+TRIGGER                                                421    0.0            421
+   0.0          0        0
+          -------------------------------------------------------------
+Rule Sets  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> * indicates Rule Set activity (re)started between Begin/End snaps
+-> Top 25 ordered by Evaluations desc
+
+                                                               No-SQL  SQL
+Rule                                *     Eval/sec Reloads/sec Eval % Eval %
+----------------------------------- - ------------ ----------- ------ ------
+SYS.ALERT_QUE_R                                  0           0      0      0
+          -------------------------------------------------------------
+Shared Pool Advisory  DB/Inst: SGEOBASE/SGEOBASE  End Snap: 2495
+-> SP: Shared Pool     Est LC: Estimated Library Cache   Factr: Factor
+-> Note there is often a 1:Many correlation between a single logical object
+   in the Library Cache, and the physical number of memory objects associated
+   with it.  Therefore comparing the number of Lib Cache objects (e.g. in
+   v$librarycache), with the number of Lib Cache Memory Objects is invalid
+
+                                        Est LC Est LC  Est LC Est LC
+    Shared    SP   Est LC                 Time   Time    Load   Load      Est LC
+      Pool  Size     Size       Est LC   Saved  Saved    Time   Time         Mem
+  Size (M) Factr      (M)      Mem Obj     (s)  Factr     (s)  Factr    Obj Hits
+---------- ----- -------- ------------ ------- ------ ------- ------ -----------
+       264    .7        8        2,116 #######     .1 #######  #####  53,693,555
+       304    .8       50        3,747 #######     .3 #######  ##### ###########
+       344    .9       89        6,108 #######     .7 #######   90.7 ###########
+       348    .9       93        6,351 #######     .7 #######   81.6 ###########
+       352    .9       97        6,548 #######     .7 #######   72.7 ###########
+       356    .9      100        6,737 #######     .8 #######   63.7 ###########
+       360    .9      104        6,966 #######     .8 #######   54.8 ###########
+       364    .9      107        7,229 #######     .8 #######   45.8 ###########
+       368   1.0      110        7,436 #######     .9 #######   36.9 ###########
+       372   1.0      113        7,572 #######     .9 #######   27.9 ###########
+       376   1.0      116        7,806 #######     .9 #######   19.0 ###########
+       380   1.0      120        8,073 #######    1.0 #######   10.0 ###########
+       384   1.0      124        8,321 #######    1.0  30,284    1.0 ###########
+       388   1.0      127        8,534 #######    1.0  29,134    1.0 ###########
+       392   1.0      130        8,701 #######    1.0  29,066    1.0 ###########
+       396   1.0      133        8,959 #######    1.0  28,990    1.0 ###########
+       400   1.0      136        9,204 #######    1.0  28,921    1.0 ###########
+       404   1.1      140        9,327 #######    1.0  28,851    1.0 ###########
+       408   1.1      143        9,538 #######    1.0  28,796    1.0 ###########
+       412   1.1      147        9,749 #######    1.0  28,740     .9 ###########
+       416   1.1      151        9,962 #######    1.0  28,679     .9 ###########
+       420   1.1      155       10,178 #######    1.0  28,618     .9 ###########
+       424   1.1      159       10,424 #######    1.0  28,553     .9 ###########
+       464   1.2      198       12,140 #######    1.0  27,974     .9 ###########
+       504   1.3      237       13,844 #######    1.0  27,458     .9 ###########
+       544   1.4      274       15,809 #######    1.0  26,993     .9 ###########
+       584   1.5      313       17,637 #######    1.0  26,589     .9 ###########
+       624   1.6      352       19,795 #######    1.0  26,184     .9 ###########
+       664   1.7      391       22,242 #######    1.0  25,807     .9 ###########
+       704   1.8      430       24,306 #######    1.0  25,444     .8 ###########
+       744   1.9      469       26,340 #######    1.0  25,092     .8 ###########
+       784   2.0      508       28,675 #######    1.0  24,781     .8 ###########
+          -------------------------------------------------------------
+SGA Target Advisory  DB/Inst: SGEOBASE/SGEOBASE  End Snap: 2495
+
+SGA Target SGA Size   Est DB      Est DB   Est Physical
+  Size (M)   Factor Time (s) Time Factor          Reads
+---------- -------- -------- ----------- --------------
+       163       .3   71,400          .2  1,033,106,614
+       326       .5   71,400          .2  1,033,106,614
+       489       .8 ########        11.0 ##############
+       652      1.0  323,810         1.0  1,033,106,614
+       815      1.3  208,177          .6    436,177,612
+       978      1.5  206,105          .6    436,177,612
+     1,141      1.8  204,551          .6    436,177,612
+     1,304      2.0  203,903          .6    436,177,612
+          -------------------------------------------------------------
+SGA Memory Summary  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+                                                        End Size (Bytes)
+SGA regions                      Begin Size (Bytes)       (if different)
+------------------------------ -------------------- --------------------
+Database Buffers                        260,046,848
+Fixed Size                                2,932,336
+Redo Buffers                              5,455,872
+Variable Size                           780,140,944
+                               -------------------- --------------------
+sum                                   1,048,576,000
+          -------------------------------------------------------------
+
+
+SGA breakdown difference  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+-> Top 35 rows by size, ordered by Pool, Name (note rows with null values for
+   Pool column, or Names showing free memory are always shown)
+-> Null value for Begin MB or End MB indicates the size of that Pool/Name was
+   insignificant, or zero in that snapshot
+
+Pool   Name                                 Begin MB         End MB  % Diff
+------ ------------------------------ -------------- -------------- --------
+java p free memory                               4.0            4.0     0.00
+large  ASM map operations hashta                  .4             .4     0.00
+large  free memory                               7.2            7.2     0.00
+large  PX msg pool                                .5             .5     0.00
+shared ASH buffers                               4.0            4.0     0.00
+shared dbktb: trace buffer                       4.7            4.7     0.00
+shared event statistics per sess                 6.7            6.7     0.00
+shared free memory                              28.4           34.2    20.46
+shared KGLHD                                    12.1           12.1     0.05
+shared KGLH0                                    69.6           73.5     5.60
+shared KGLS                                     10.4            6.6   -36.51
+shared KGLSG                                     5.0            5.0     0.00
+shared kglsim hash table bkts                    4.0            4.0     0.00
+shared kglsim object batch                       4.8            4.8     0.00
+shared KQR L PO                                  5.5            4.3   -23.02
+shared KQR X SO                                  4.7                 -100.00
+shared krbmror                                   4.4            4.4     0.00
+shared ktli log buf s                            6.0            6.0     0.00
+shared object queue hash buckets                 4.0            4.0     0.00
+shared PLMCD                                     6.4            4.4   -30.98
+shared private strands                           6.6            6.6     0.00
+shared row cache                                 8.2            8.2     0.00
+shared SQLA                                     81.2           82.2     1.29
+       buffer_cache                            224.0          224.0     0.00
+       fixed_sga                                 2.8            2.8     0.00
+       log_buffer                                5.2            5.2     0.00
+       shared_io_pool                           24.0           24.0     0.00
+          -------------------------------------------------------------
+SQL Memory Statistics  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+                                   Begin            End         % Diff
+                          -------------- -------------- --------------
+   Avg Cursor Size (KB):           28.11          27.37          -2.68
+ Cursor to Parent ratio:            1.03           1.04           1.11
+          Total Cursors:           3,590          3,960           9.34
+          Total Parents:           3,489          3,806           8.33
+          -------------------------------------------------------------
+init.ora Parameters  DB/Inst: SGEOBASE/SGEOBASE  Snaps: 2494-2495
+
+                                                                  End value
+Parameter Name                Begin value                       (if different)
+----------------------------- --------------------------------- --------------
+audit_file_dest               /app/oracle/admin/SGEOBASE/adump
+audit_trail                   DB
+compatible                    12.1.0.2.0
+control_files                 +DATA/SGEOBASE/CONTROLFILE/curren
+                              t.262.953481751, +FRA/SGEOBASE/CO
+                              NTROLFILE/current.256.953481751
+db_block_size                 8192
+db_create_file_dest           +DATA
+db_domain
+db_name                       SGEOBASE
+db_recovery_file_dest         +FRA
+db_recovery_file_dest_size    4781506560
+diagnostic_dest               /logs
+dispatchers                   (PROTOCOL=TCP) (SERVICE=SGEOBASEX
+                              DB)
+local_listener                 (ADDRESS=(PROTOCOL=TCP)(HOST=192
+                              .168.24.94)(PORT=1521))
+memory_target                 1048576000
+open_cursors                  300
+pga_aggregate_limit           1894776832
+processes                     300
+remote_login_passwordfile     EXCLUSIVE
+undo_tablespace               UNDOTBS1
+          -------------------------------------------------------------
+
+End of Report ( /home/oracle/zenity_client/snaps/CHU30_sp-SGEOBASE-2494_2495.txt )
+
